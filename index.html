@@ -230,7 +230,9 @@ function remove(id){
 
 function updateCart(){
   document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);
-  const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
+const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
+const total = productsTotal + deliveryFee;
   document.getElementById('cartTotal').textContent=money(total);
 
   document.getElementById('orderSummary').innerHTML=cart.length
