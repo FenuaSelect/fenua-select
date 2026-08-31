@@ -85,9 +85,13 @@
       <input required id="name" placeholder="Nom / Prénom">
       <input required id="phone" placeholder="Téléphone">
       <input type="email" id="email" placeholder="E-mail">
-      <select id="delivery">
-  <option value="Livraison">Livraison</option>
-</select>
+      <div class="delivery-info">
+  <strong>🚚 Livraison</strong>
+  <div>🎁 Livraison gratuite de Papara à Taravao</div>
+  <div>➡️ Autres destinations sur Tahiti : <strong>+ 1 500 Frs</strong> 💰</div>
+</div>
+
+<input type="hidden" id="delivery" value="Livraison">
       <textarea id="address" placeholder="Adresse / précision (facultatif)"></textarea>
       <button class="cta" type="submit">Envoyer ma demande de commande</button>
       <p class="small">Produits sur commande : délai indicatif 3 à 5 semaines.</p>
