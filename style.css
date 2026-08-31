@@ -399,43 +399,30 @@ footer img{
   cursor:pointer
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+/* ===== NAVIGATION MOBILE ===== */
 
-@media(max-width:800px){
+@media (max-width: 768px) {
 
-  .header nav{
-    display:none
+  nav {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 5px;
   }
 
-  .grid{
-    grid-template-columns:1fr
+  nav a {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 8px 12px;
+    font-size: 14px;
+    white-space: nowrap;
   }
 
-  .order-layout{
-    grid-template-columns:1fr
-  }
-
-  .section-head,
-  .promo{
-    align-items:flex-start;
-    flex-direction:column
-  }
-
-  .hero{
-    min-height:500px
-  }
-
-  .header{
-    padding:8px 4%
-  }
-
-  .product-img{
-    height:250px
-  }
 }
-
 
 .photo-notice strong{
   color:#12c8e8;
