@@ -834,3 +834,21 @@ footer img{
   }
 
 }
+/* =========================================================
+   LOUPE PHOTO - PC UNIQUEMENT
+   ========================================================= */
+
+@media screen and (min-width: 769px) {
+
+  .product-img {
+    overflow: hidden !important;
+    position: relative;
+  }
+
+  .product-img img {
+    transition: transform 0.15s ease-out !important;
+    cursor: crosshair !important;
+    transform-origin: center center;
+  }
+
+}
