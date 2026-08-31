@@ -260,7 +260,13 @@ function sendOrder(e){
   if(!cart.length){alert("Ajoute au moins un produit au panier.");return;}
 
   const lines=cart.map(x=>`${x.name} x${x.qty} = ${money(x.price*x.qty)}`).join("\n");
-  const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
+const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
+const deliveryText = deliveryFee === 0
+  ? "Papara à Taravao • Livraison gratuite"
+  : "Autres destinations sur Tahiti • + 1 500 Frs";
+
+const total = productsTotal + deliveryFee;
 
   const body=`Bonjour Fenua Select,
 
