@@ -435,17 +435,7 @@ footer img{
     height:250px
   }
 }
-.photo-notice{
-  margin-top:25px;
-  padding:14px 18px;
-  border:1px solid #243241;
-  border-radius:12px;
-  background:#101722;
-  color:#9eacb9;
-  font-size:13px;
-  line-height:1.6;
-  text-align:center;
-}
+
 
 .photo-notice strong{
   color:#12c8e8;
