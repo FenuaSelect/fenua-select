@@ -85,10 +85,13 @@
       <input required id="name" placeholder="Nom / Prénom">
       <input required id="phone" placeholder="Téléphone">
       <input type="email" id="email" placeholder="E-mail">
-      <div class="delivery-info">
-  <strong>🚚 Livraison</strong>
-  <div>🎁 Livraison gratuite de Papara à Taravao</div>
-  <div>➡️ Autres destinations sur Tahiti : <strong>+ 1 500 Frs</strong> 💰</div>
+     <div class="delivery-info">
+  <label for="deliveryZone"><strong>🚚 Zone de livraison</strong></label>
+
+  <select id="deliveryZone" onchange="updateCart()">
+    <option value="0">🎁 Papara à Taravao • Livraison gratuite</option>
+    <option value="1500">➡️ Autres destinations sur Tahiti • + 1 500 Frs</option>
+  </select>
 </div>
 
 <input type="hidden" id="delivery" value="Livraison">
