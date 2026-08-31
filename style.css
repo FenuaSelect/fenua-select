@@ -457,3 +457,18 @@ footer img{
 .delivery-info div{
   margin-top:3px;
 }
+/* BANNIERE FENUA SELECT */
+.banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
