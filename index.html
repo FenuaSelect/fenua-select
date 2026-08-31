@@ -102,12 +102,143 @@
 
 <script>
 const products = [
-  {id:1,name:"Montre connectée",price:7900,cat:"High-Tech",emoji:"⌚",desc:"Modèle tendance, selon disponibilité."},
-  {id:2,name:"Lunettes de sport",price:6900,cat:"Accessoires",emoji:"🕶️",desc:"Style sportif et moderne."},
-  {id:3,name:"Veste de sport",price:12900,cat:"Mode",emoji:"🧥",desc:"Tailles selon disponibilité."},
-  {id:4,name:"T-shirt fun",price:5900,cat:"Mode",emoji:"👕",desc:"Plusieurs modèles selon arrivages."},
-  {id:5,name:"Bijoux",price:4900,cat:"Bijoux",emoji:"💎",desc:"Sélection de bijoux tendance."},
-  {id:6,name:"Accessoires USB",price:3500,cat:"High-Tech",emoji:"🔌",desc:"Accessoires pratiques du quotidien."}
+  {
+    id: 1,
+    name: "Disque dur externe 2TB",
+    price: 5000,
+    cat: "High-Tech",
+    emoji: "💾",
+    image: "images/disque-2tb.png",
+    desc: "Disque dur externe portable 2TB."
+  },
+  {
+    id: 2,
+    name: "Disque dur externe 4TB",
+    price: 10000,
+    cat: "High-Tech",
+    emoji: "💾",
+    desc: "Disque dur externe portable 4TB."
+  },
+  {
+    id: 3,
+    name: "Disque dur externe 8TB",
+    price: 15000,
+    cat: "High-Tech",
+    emoji: "💾",
+    desc: "Disque dur externe portable 8TB."
+  },
+  {
+    id: 4,
+    name: "Disque dur externe 16TB",
+    price: 20000,
+    cat: "High-Tech",
+    emoji: "💾",
+    desc: "Disque dur externe portable 16TB."
+  },
+  {
+    id: 5,
+    name: "Hub USB 7-en-2 USB + Type-C",
+    price: 2500,
+    cat: "High-Tech",
+    emoji: "🔌",
+    desc: "Hub 7-en-2 avec ports USB et Type-C."
+  },
+  {
+    id: 6,
+    name: "Hub USB 5-en-2 USB + Type-C",
+    price: 2000,
+    cat: "High-Tech",
+    emoji: "🔌",
+    desc: "Hub 5-en-2 avec USB, Type-C, SD et TF."
+  },
+  {
+    id: 7,
+    name: "Câble USB vers Micro-USB",
+    price: 850,
+    cat: "High-Tech",
+    emoji: "🔌",
+    desc: "Câble USB pratique pour recharge et transfert."
+  },
+  {
+    id: 8,
+    name: "Lunettes sport orange",
+    price: 1250,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec verre coloré."
+  },
+  {
+    id: 9,
+    name: "Lunettes sport bleu",
+    price: 1250,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec verre bleu."
+  },
+  {
+    id: 10,
+    name: "Lunettes sport rose",
+    price: 1250,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec finition rose."
+  },
+  {
+    id: 11,
+    name: "Lunettes sport rose/vert",
+    price: 1250,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec finition colorée."
+  },
+  {
+    id: 12,
+    name: "Lunettes sport noir/orange",
+    price: 1250,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes sport noire avec verre orange."
+  },
+  {
+    id: 13,
+    name: "Lunettes polarisées noire",
+    price: 900,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées sport."
+  },
+  {
+    id: 14,
+    name: "Lunettes polarisées bleue",
+    price: 900,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre bleu."
+  },
+  {
+    id: 15,
+    name: "Lunettes polarisées verte",
+    price: 900,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre vert."
+  },
+  {
+    id: 16,
+    name: "Lunettes polarisées jaune",
+    price: 900,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre jaune."
+  },
+  {
+    id: 17,
+    name: "Lunettes polarisées rouge",
+    price: 900,
+    cat: "Accessoires",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre rouge."
+  }
 ];
 let category="Tous", cart=[];
 
