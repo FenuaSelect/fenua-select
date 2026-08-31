@@ -699,63 +699,134 @@ header .brand img {
 }
 
 
-/* ===== MENU MOBILE FENUA SELECT ===== */
+/* =========================================================
+   MOBILE - PRODUITS FENUA SELECT
+   ========================================================= */
 
 @media screen and (max-width: 768px) {
 
-  .header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    min-height: 60px;
-    height: auto;
-    padding: 8px 6px;
-    display: block !important;
-  }
-
-  /* Petit logo supprimé */
-  .header .brand {
-    display: none !important;
-  }
-
-  /* Menu sur toute la largeur */
-  .header nav {
-    display: flex !important;
+  /* Grille : 2 produits par ligne */
+  #products {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    padding: 12px !important;
     width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    gap: 0 !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
   }
 
-  /* Les 3 boutons ont exactement la même largeur */
-  .header nav a {
-    display: flex !important;
-    flex: 1 1 33.333% !important;
-    width: 33.333% !important;
+  /* Carte produit */
+  .product {
+    width: 100% !important;
     min-width: 0 !important;
-    height: 42px;
-    padding: 0 2px !important;
-    margin: 0 !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
 
+  /* Zone photo */
+  .product-img {
+    width: 100% !important;
+    height: 170px !important;
+    display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+  }
 
-    text-align: center !important;
+  /* Photo */
+  .product-img img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 145px !important;
+    max-height: 145px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: auto !important;
+  }
+
+  /* Contenu */
+  .product-body {
+    padding: 12px !important;
+  }
+
+  /* Catégorie */
+  .product-body .pill {
+    font-size: 11px !important;
+    padding: 5px 8px !important;
+  }
+
+  /* Nom */
+  .product-body h3 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 8px 0 !important;
+  }
+
+  /* Description */
+  .product-body p {
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    margin: 8px 0 !important;
+  }
+
+  /* Prix + bouton */
+  .product-bottom {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+  }
+
+  .product-bottom strong {
+    font-size: 17px !important;
     white-space: nowrap !important;
+  }
 
+  .product-bottom button {
     font-size: 12px !important;
-    line-height: 1 !important;
+    padding: 8px 10px !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* =========================================================
+   PETITS TELEPHONES
+   ========================================================= */
+
+@media screen and (max-width: 400px) {
+
+  #products {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    padding: 10px !important;
   }
 
-  /* Panier retiré de la ligne pour ne pas décaler le menu */
-  .header .cart-btn {
-    position: absolute !important;
-    right: 8px !important;
-    top: 66px !important;
-    z-index: 20;
+  .product-img {
+    height: 150px !important;
   }
+
+  .product-img img {
+    max-width: 125px !important;
+    max-height: 125px !important;
+  }
+
+  .product-body {
+    padding: 10px !important;
+  }
+
+  .product-body h3 {
+    font-size: 16px !important;
+  }
+
+  .product-body p {
+    font-size: 13px !important;
+  }
+
+  .product-bottom strong {
+    font-size: 15px !important;
+  }
+
 }
