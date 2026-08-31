@@ -480,11 +480,9 @@ footer img{
     border-radius: 8px;
   }
 }
-/* ===== MASQUER LE PETIT LOGO ===== */
+/* ===== SUPPRIMER LE PETIT LOGO DU SITE ===== */
 
-header img,
-.logo,
-.site-logo,
-.logo img {
+header .brand,
+header .brand img {
   display: none !important;
 }
