@@ -486,23 +486,7 @@ header .brand,
 header .brand img {
   display: none !important;
 }
-/* ===== MENU BOUTIQUE / PROMOTIONS / COMMANDER ===== */
 
-header nav {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  flex: 1;
-}
-
-header nav a {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  text-align: center;
-}
 
 /* ===== MENU MOBILE PARFAITEMENT ALIGNE ===== */
 
