@@ -504,22 +504,36 @@ header nav a {
   text-align: center;
 }
 
-/* ===== MOBILE ===== */
+/* ===== MENU MOBILE PARFAITEMENT ALIGNE ===== */
 
 @media (max-width: 768px) {
-  header {
-    justify-content: center;
+
+  .header {
+    height: auto;
+    min-height: 76px;
+    padding: 10px 8px;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
   }
 
-  header nav {
+  .header nav {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: nowrap;
+    max-width: 430px;
+    gap: 4px;
+    margin: 0 auto;
+    padding: 0;
   }
 
-  header nav a {
-    padding: 8px 10px;
+  .header nav a {
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    padding: 9px 4px;
     font-size: 13px;
   }
-}
