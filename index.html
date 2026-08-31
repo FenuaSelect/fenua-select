@@ -241,7 +241,9 @@ const total = productsTotal + deliveryFee;
 }
 
 function openCart(){
-  const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
+const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
+const total = productsTotal + deliveryFee;
   document.getElementById('modalItems').innerHTML=cart.length
     ? cart.map(x=>`<div class="order-line"><span>${x.name} × ${x.qty}</span><button class="remove" onclick="remove(${x.id})">Supprimer</button></div>`).join('')
     : "Votre panier est vide.";
