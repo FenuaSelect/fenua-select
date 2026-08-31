@@ -401,25 +401,236 @@ footer img{
 
 /* ===== NAVIGATION MOBILE ===== */
 
-@media (max-width: 768px) {
+/* =========================================================
+   VERSION MOBILE - FENUA SELECT
+   ========================================================= */
 
-  nav {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    width: 100%;
-    padding: 10px 5px;
+@media screen and (max-width: 768px) {
+
+  /* ===== ESPACE GENERAL ===== */
+
+  body {
+    overflow-x: hidden;
   }
 
-  nav a {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    padding: 8px 12px;
-    font-size: 14px;
-    white-space: nowrap;
+  /* ===== MENU PRINCIPAL ===== */
+
+  .header {
+    width: 100%;
+    min-height: 64px;
+    padding: 8px 6px;
+    box-sizing: border-box;
+  }
+
+  .header nav {
+    display: flex !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .header nav a {
+    flex: 1 1 33.333% !important;
+    width: 33.333% !important;
+    min-width: 0 !important;
+    padding: 8px 2px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+  }
+
+  /* Petit logo supprimé */
+  .header .brand {
+    display: none !important;
+  }
+
+  /* Panier */
+  .cart-btn {
+    position: static !important;
+    margin-left: 5px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+
+
+  /* =======================================================
+     CATEGORIES
+     ======================================================= */
+
+  .categories {
+    display: flex !important;
+    width: 100%;
+    padding: 8px 10px !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box;
+  }
+
+  .categories button {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+
+  /* =======================================================
+     GRILLE PRODUITS
+     ======================================================= */
+
+  .products,
+  .product-grid,
+  #products {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    padding: 12px 12px !important;
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     CARTE PRODUIT
+     ======================================================= */
+
+  .product-card,
+  .product {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 12px !important;
+    border-radius: 20px !important;
+  }
+
+
+  /* =======================================================
+     IMAGE PRODUIT
+     ======================================================= */
+
+  .product-card img,
+  .product img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 150px !important;
+    height: 150px !important;
+    object-fit: contain !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+
+  /* =======================================================
+     NOM DU PRODUIT
+     ======================================================= */
+
+  .product-card h3,
+  .product h3 {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    margin: 8px 0 !important;
+    text-align: left !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+
+  /* =======================================================
+     DESCRIPTION
+     ======================================================= */
+
+  .product-card p,
+  .product p {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+
+  /* =======================================================
+     PRIX
+     ======================================================= */
+
+  .product-card .price,
+  .product .price {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+  }
+
+
+  /* =======================================================
+     BOUTON AJOUTER
+     ======================================================= */
+
+  .product-card button,
+  .product button {
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+    white-space: nowrap !important;
+  }
+
+
+  /* =======================================================
+     BANNIERE
+     ======================================================= */
+
+  .banner {
+    width: 100% !important;
+    margin: 10px auto !important;
+    padding: 0 10px !important;
+    box-sizing: border-box;
+  }
+
+  .banner img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+  }
+
+}
+
+
+/* =========================================================
+   PETITS TELEPHONES
+   ========================================================= */
+
+@media screen and (max-width: 400px) {
+
+  .header nav a {
+    font-size: 12px !important;
+  }
+
+  .cart-btn {
+    font-size: 11px !important;
+    padding: 7px 9px !important;
+  }
+
+  .products,
+  .product-grid,
+  #products {
+    gap: 10px !important;
+    padding: 10px 8px !important;
+  }
+
+  .product-card,
+  .product {
+    padding: 10px !important;
+  }
+
+  .product-card img,
+  .product img {
+    height: 125px !important;
+  }
+
+  .product-card h3,
+  .product h3 {
+    font-size: 16px !important;
   }
 
 }
