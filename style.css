@@ -679,98 +679,87 @@ footer img{
 }
 
 /* =========================================================
-   FENUA SELECT - PRESENTATION MOBILE IDENTIQUE AU PC
+   MOBILE - 1 PRODUIT PAR LIGNE
    ========================================================= */
 
 @media screen and (max-width: 768px) {
 
-  /* ===== GRILLE PRODUITS ===== */
+  /* ===== GRILLE ===== */
 
   #products {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: 1fr !important;
     gap: 14px !important;
     width: 100% !important;
-    padding: 12px !important;
+    padding: 10px !important;
     box-sizing: border-box !important;
   }
 
-
-  /* ===== CARTE PRODUIT ===== */
+  /* ===== CARTE ===== */
 
   #products .product {
     width: 100% !important;
     min-width: 0 !important;
-    box-sizing: border-box !important;
+    border-radius: 20px !important;
     overflow: hidden !important;
-    border-radius: 22px !important;
+    box-sizing: border-box !important;
   }
 
-
-  /* ===== ZONE PHOTO ===== */
+  /* ===== PHOTO ===== */
 
   #products .product-img {
     width: 100% !important;
-    height: 175px !important;
+    height: 210px !important;
+    padding: 10px !important;
+
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 12px !important;
+
     box-sizing: border-box !important;
   }
-
-
-  /* ===== PHOTO ===== */
 
   #products .product-img img {
     display: block !important;
     width: auto !important;
     height: auto !important;
-    max-width: 145px !important;
-    max-height: 145px !important;
+    max-width: 190px !important;
+    max-height: 190px !important;
     object-fit: contain !important;
     margin: auto !important;
   }
 
-
   /* ===== CONTENU ===== */
 
   #products .product-body {
-    padding: 12px !important;
+    padding: 14px !important;
     box-sizing: border-box !important;
   }
-
 
   /* ===== CATEGORIE ===== */
 
   #products .product-body .pill {
-    display: inline-block !important;
-    font-size: 11px !important;
-    padding: 5px 8px !important;
+    font-size: 12px !important;
+    padding: 5px 9px !important;
     margin-bottom: 6px !important;
   }
-
 
   /* ===== TITRE ===== */
 
   #products .product-body h3 {
-    font-size: 18px !important;
-    line-height: 1.25 !important;
-    margin: 8px 0 12px 0 !important;
+    font-size: 21px !important;
+    line-height: 1.2 !important;
+    margin: 7px 0 10px !important;
     text-align: left !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
   }
-
 
   /* ===== DESCRIPTION ===== */
 
   #products .product-body p {
-    font-size: 14px !important;
-    line-height: 1.4 !important;
-    margin: 0 0 18px 0 !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    margin: 0 0 14px !important;
   }
-
 
   /* ===== PRIX + AJOUTER ===== */
 
@@ -778,67 +767,18 @@ footer img{
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 6px !important;
-    margin-top: auto !important;
-  }
-
-
-  #products .product-bottom strong {
-    font-size: 17px !important;
-    white-space: nowrap !important;
-  }
-
-
-  #products .product-bottom button {
-    font-size: 12px !important;
-    padding: 8px 10px !important;
-    border-radius: 20px !important;
-    white-space: nowrap !important;
-  }
-
-}
-
-
-/* =========================================================
-   PETIT TELEPHONE
-   ========================================================= */
-
-@media screen and (max-width: 400px) {
-
-  #products {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 10px !important;
-    padding: 10px !important;
-  }
-
-  #products .product-img {
-    height: 155px !important;
-  }
-
-  #products .product-img img {
-    max-width: 125px !important;
-    max-height: 125px !important;
-  }
-
-  #products .product-body {
-    padding: 10px !important;
-  }
-
-  #products .product-body h3 {
-    font-size: 16px !important;
-  }
-
-  #products .product-body p {
-    font-size: 13px !important;
   }
 
   #products .product-bottom strong {
-    font-size: 15px !important;
+    font-size: 20px !important;
+    white-space: nowrap !important;
   }
 
   #products .product-bottom button {
-    font-size: 11px !important;
-    padding: 7px 9px !important;
+    font-size: 14px !important;
+    padding: 9px 16px !important;
+    border-radius: 22px !important;
+    white-space: nowrap !important;
   }
-
 }
