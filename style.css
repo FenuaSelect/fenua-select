@@ -440,3 +440,20 @@ footer img{
 .photo-notice strong{
   color:#12c8e8;
 }
+.delivery-info{
+  padding:15px 18px;
+  border:1px solid #243241;
+  border-radius:12px;
+  background:#101722;
+  color:#dbe8f0;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.delivery-info strong{
+  color:#12c8e8;
+}
+
+.delivery-info div{
+  margin-top:3px;
+}
