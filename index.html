@@ -12,6 +12,44 @@
 .product-body .pill{display:inline-block}
 </style>
 </head>
+  <!-- ===== AGRANDISSEMENT DES PHOTOS PRODUITS ===== -->
+
+<div id="imageModal" class="image-modal">
+  <button class="image-modal-close" onclick="closeImageModal()">×</button>
+  <img id="imageModalImg" src="" alt="Photo du produit">
+</div>
+
+<script>
+function openImageModal(src, alt) {
+  const modal = document.getElementById("imageModal");
+  const img = document.getElementById("imageModalImg");
+
+  img.src = src;
+  img.alt = alt || "Photo du produit";
+  modal.classList.add("show");
+}
+
+function closeImageModal() {
+  document.getElementById("imageModal").classList.remove("show");
+}
+
+document.addEventListener("click", function(e) {
+
+  const productImage = e.target.closest(".product-img img");
+
+  if (productImage) {
+    openImageModal(productImage.src, productImage.alt);
+  }
+
+  if (
+    e.target.id === "imageModal" ||
+    e.target.classList.contains("image-modal-close")
+  ) {
+    closeImageModal();
+  }
+
+});
+</script>
 <body>
   <section class="banner">
   <img src="images/banniere.png" alt="Fenua Select">
