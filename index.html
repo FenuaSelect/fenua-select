@@ -756,6 +756,28 @@ function renderProducts(){
 
   `).join('') : '<p>Aucun produit trouvé.</p>';
 }
+  function changeProductQty(id, amount){
+
+  const qtyElement =
+    document.getElementById(`qty-${id}`);
+
+  if(!qtyElement) return;
+
+  let qty =
+    Number(qtyElement.textContent) || 1;
+
+  qty += amount;
+
+  if(qty < 1){
+    qty = 1;
+  }
+
+  if(qty > 99){
+    qty = 99;
+  }
+
+  qtyElement.textContent = qty;
+}
 function add(id){
 
   const p = products.find(x => x.id === id);
