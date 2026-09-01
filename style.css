@@ -907,159 +907,182 @@ footer img{
     padding: 9px 10px;
     font-size: 13px;
   }
-  /* =========================================
-   QUANTITÉ - DESIGN FENUA SELECT
-   ========================================= */
+
+
+/* =====================================================
+   QUANTITÉ PRODUIT - FENUA SELECT
+   ===================================================== */
 
 .quantity-control {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  flex-wrap: wrap;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-top: 14px !important;
+  flex-wrap: wrap !important;
 }
 
 .quantity-label {
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 3px !important;
+
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
 }
 
 /* Bloc - 1 + */
 
 .quantity-buttons {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex !important;
+  align-items: center !important;
+
+  height: 42px !important;
+
+  border-radius: 12px !important;
+  overflow: hidden !important;
+
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
 }
 
 /* Boutons + et - */
 
 .quantity-btn {
-  width: 40px;
-  height: 40px;
-  border: 0;
-  padding: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 42px !important;
+  height: 42px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
 
   background: linear-gradient(
     135deg,
     #24c6dc,
     #5146e5
-  );
+  ) !important;
 
-  color: #ffffff;
+  color: #ffffff !important;
 
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 21px !important;
+  font-weight: 800 !important;
 
-  cursor: pointer;
+  cursor: pointer !important;
 
-  transition:
-    transform 0.15s ease,
-    filter 0.15s ease;
+  transition: all .18s ease !important;
 }
 
 .quantity-btn:hover {
-  filter: brightness(1.12);
+  filter: brightness(1.15) !important;
 }
 
 .quantity-btn:active {
-  transform: scale(0.92);
+  transform: scale(.92) !important;
 }
 
 /* Chiffre */
 
 .quantity-value {
-  width: 38px;
-  text-align: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  color: #ffffff;
+  width: 38px !important;
+  min-width: 38px !important;
 
-  font-size: 16px;
-  font-weight: 800;
+  height: 42px !important;
 
-  user-select: none;
+  background: rgba(255,255,255,.03) !important;
+
+  color: #ffffff !important;
+
+  font-size: 16px !important;
+  font-weight: 800 !important;
+
+  user-select: none !important;
 }
 
-/* Bouton Ajouter */
+/* =====================================================
+   BOUTON AJOUTER
+   ===================================================== */
 
 .add-btn {
-  min-height: 40px;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  padding: 0 18px;
+  min-height: 42px !important;
 
-  border: 0;
-  border-radius: 12px;
+  padding: 0 18px !important;
+
+  border: 0 !important;
+  border-radius: 12px !important;
 
   background: linear-gradient(
     135deg,
     #24c6dc,
     #5146e5
-  );
+  ) !important;
 
-  color: #ffffff;
+  color: #ffffff !important;
 
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 14px !important;
+  font-weight: 800 !important;
 
-  cursor: pointer;
+  cursor: pointer !important;
 
-  transition:
-    transform 0.15s ease,
-    filter 0.15s ease;
+  transition: all .18s ease !important;
 }
 
 .add-btn:hover {
-  filter: brightness(1.12);
-  transform: translateY(-1px);
+  filter: brightness(1.15) !important;
+  transform: translateY(-1px) !important;
 }
 
 .add-btn:active {
-  transform: scale(0.97);
+  transform: scale(.97) !important;
 }
 
-/* =========================================
+/* =====================================================
    MOBILE
-   ========================================= */
+   ===================================================== */
 
 @media (max-width: 768px) {
 
   .quantity-control {
-    width: 100%;
-    margin-top: 12px;
-    gap: 8px;
+    width: 100% !important;
+    gap: 8px !important;
   }
 
   .quantity-label {
-    width: 100%;
-    font-size: 14px;
+    width: 100% !important;
   }
 
   .quantity-buttons {
-    height: 44px;
+    height: 44px !important;
   }
 
   .quantity-btn {
-    width: 44px;
-    height: 44px;
+    width: 44px !important;
+    height: 44px !important;
   }
 
   .quantity-value {
-    width: 42px;
-    font-size: 16px;
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 44px !important;
   }
 
   .add-btn {
-    flex: 1;
-    min-height: 44px;
+    flex: 1 !important;
+    min-height: 44px !important;
   }
 
-}
-
-}
 
 
