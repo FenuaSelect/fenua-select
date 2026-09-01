@@ -757,25 +757,29 @@ function renderProducts(){
 }
   function changeProductQty(id, amount){
 
-  const qtyElement =
-    document.getElementById(`qty-${id}`);
+const qtyElement =
+  document.getElementById(`qty-${id}`);
 
-  if(!qtyElement) return;
+const selectedQty =
+  Number(qtyElement?.textContent || 1);
 
-  let qty =
-    Number(qtyElement.textContent) || 1;
+const found = cart.find(x => x.cartId === cartId);
 
-  qty += amount;
+if(found){
 
-  if(qty < 1){
-    qty = 1;
-  }
+  found.qty += selectedQty;
 
-  if(qty > 99){
-    qty = 99;
-  }
+}else{
 
-  qtyElement.textContent = qty;
+  cart.push({
+    ...p,
+    qty: selectedQty,
+    cartId: cartId,
+    flavor: flavor,
+    finish: finish,
+    color: color,
+    size: size
+  });
 
 }
 function add(id){
