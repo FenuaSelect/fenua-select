@@ -53,7 +53,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-<body>
+<!-- ===== SUPPRIMER LE PETIT LOGO DU SITE ===== -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll('img').forEach(function (img) {
+
+    const src = img.getAttribute('src') || '';
+
+    if (
+      src === 'logo.png' ||
+      src === './logo.png' ||
+      src.endsWith('/logo.png')
+    ) {
+      img.remove();
+    }
+
+  });
+
+});
+</script>
+  <body>
   <section class="banner">
   <img src="images/banniere.png" alt="Fenua Select">
 </section>
