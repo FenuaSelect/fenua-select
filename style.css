@@ -103,28 +103,6 @@ footer p{margin:8px 0}
 }
 
 
-/* =========================================================
-   BANNIÈRE FENUA SELECT
-   Affichage naturel PC + MOBILE
-   ========================================================= */
-
-.banner {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: #05070c;
-  text-align: center;
-  line-height: 0;
-}
-
-.banner img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-}
 
 /* =========================================================
    PC
