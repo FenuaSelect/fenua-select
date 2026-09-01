@@ -395,31 +395,75 @@ function setCategory(c,btn){
 }
 
 function renderProducts(){
-  const q=document.getElementById('search').value.toLowerCase().trim();
-  const list=products.filter(p=>
-    (category==="Tous" || p.cat===category) &&
-    (p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))
+
+  const q = document.getElementById('search').value.toLowerCase().trim();
+
+  const list = products.filter(p =>
+    (category === "Tous" || p.cat === category) &&
+    (
+      p.name.toLowerCase().includes(q) ||
+      p.desc.toLowerCase().includes(q)
+    )
   );
 
-  document.getElementById('products').innerHTML=list.length ? list.map(p=>`
+  document.getElementById('products').innerHTML = list.length ? list.map(p => `
+
     <article class="product">
+
       <div class="product-img">
-        <img src="${p.image}" alt="${p.name}" loading="lazy"
-             onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'">
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
+        >
       </div>
+
       <div class="product-body">
+
         <span class="pill">${p.cat}</span>
+
         <h3>${p.name}</h3>
+
         <p>${p.desc}</p>
+
+        ${
+          p.flavors
+          ? `
+            <label for="flavor-${p.id}">
+              Choisir le parfum :
+            </label>
+
+            <select
+              id="flavor-${p.id}"
+              class="flavor-select"
+            >
+              ${p.flavors.map(flavor => `
+                <option value="${flavor}">
+                  ${flavor}
+                </option>
+              `).join('')}
+            </select>
+          `
+          : ''
+        }
+
         <div class="product-bottom">
+
           <strong>${money(p.price)}</strong>
-          <button onclick="add(${p.id})">Ajouter</button>
+
+          <button onclick="add(${p.id})">
+            Ajouter
+          </button>
+
         </div>
+
       </div>
+
     </article>
+
   `).join('') : '<p>Aucun produit trouvé.</p>';
 }
-
 function add(id){
 
   const p = products.find(x => x.id === id);
