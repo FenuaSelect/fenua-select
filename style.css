@@ -102,21 +102,28 @@ footer p{margin:8px 0}
 .order-card,.order-form{padding:20px}.product-bottom{align-items:flex-start;flex-direction:column}.product-bottom button{width:100%}.quantity-control{width:100%!important}
 }
 /* =========================================================
-   BANNIÈRE PC UNIQUEMENT
+   BANNIÈRE PC - CENTRAGE
    ========================================================= */
 
 @media (min-width: 769px) {
 
   .banner {
-    max-height: 220px;
+    width: 100%;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    background: #05070c;
   }
 
   .banner img {
+    display: block;
     width: 100%;
-    height: 220px;
+    height: 230px;
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
+    margin: 0 auto;
   }
 
 }
