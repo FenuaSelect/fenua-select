@@ -1432,36 +1432,62 @@ function sendOrder(e){
 
   const form = e.target;
 
-  const name =
-    form.querySelector('[name="name"]').value.trim();
+  /* =========================
+     INFORMATIONS CLIENT
+  ========================= */
 
-  const phone =
-    form.querySelector('[name="phone"]').value.trim();
+  const nameField = form.querySelector('[name="name"]');
+  const phoneField = form.querySelector('[name="phone"]');
+  const emailField = form.querySelector('[name="email"]');
+  const addressField = form.querySelector('[name="address"]');
 
-  const email =
-    form.querySelector('[name="email"]').value.trim();
+  const name = nameField ? nameField.value.trim() : "";
+  const phone = phoneField ? phoneField.value.trim() : "";
+  const email = emailField ? emailField.value.trim() : "";
+  const address = addressField ? addressField.value.trim() : "";
 
-  const address =
-    form.querySelector('[name="address"]').value.trim();
+
+  /* =========================
+     VÉRIFICATION
+  ========================= */
+
+  if(!name || !phone || !email){
+
+    alert(
+      "Merci de renseigner votre nom, votre téléphone et votre e-mail."
+    );
+
+    return;
+  }
+
+
+  /* =========================
+     DÉTAILS DE LA COMMANDE
+  ========================= */
 
   const lines = cart.map((x, i) => {
 
     let details = "";
 
-    if(x.size)
+    if(x.size){
       details += `\nTaille : ${x.size}`;
+    }
 
-    if(x.storage)
-      details += `\nStockage : ${x.storage}`;
-
-    if(x.flavor)
+    if(x.flavor){
       details += `\nParfum : ${x.flavor}`;
+    }
 
-    if(x.finish)
+    if(x.finish){
       details += `\nFinition : ${x.finish}`;
+    }
 
-    if(x.color)
+    if(x.color){
       details += `\nCouleur : ${x.color}`;
+    }
+
+    if(x.storage){
+      details += `\nStockage : ${x.storage}`;
+    }
 
     return `${i + 1}. ${x.name}
 Quantité : ${x.qty}${details}
@@ -1469,44 +1495,74 @@ Prix : ${money(x.price * x.qty)}`;
 
   }).join("\n\n--------------------\n\n");
 
+
+  /* =========================
+     TOTAL PRODUITS
+  ========================= */
+
   const productsTotal = cart.reduce(
-    (s, x) => s + x.price * x.qty,
+    (s, x) => s + (x.price * x.qty),
     0
   );
+
+
+  /* =========================
+     LIVRAISON
+  ========================= */
 
   const deliverySelect =
     document.getElementById("deliveryZone");
 
   const deliveryFee =
-    Number(deliverySelect?.value || 0);
+    Number(deliverySelect ? deliverySelect.value : 0);
 
-  const delivery =
+  const deliveryText =
     deliveryFee === 0
       ? "Papara à Taravao • Livraison gratuite"
       : "Autres destinations sur Tahiti • + 1 500 Frs";
 
+
+  /* =========================
+     TOTAL FINAL
+  ========================= */
+
   const total =
     productsTotal + deliveryFee;
 
- const templateParams = {
 
-  customer_name: document.getElementById("name").value.trim(),
+  /* =========================
+     DONNÉES ENVOYÉES À EMAILJS
+  ========================= */
 
-  customer_phone: document.getElementById("phone").value.trim(),
+  const templateParams = {
 
-  customer_email: document.getElementById("email").value.trim(),
+    name: name,
+    phone: phone,
+    email: email,
+    address: address,
 
-  customer_address: document.getElementById("address").value.trim(),
+    order: lines,
 
-  order: lines,
+    products_total: money(productsTotal),
 
-  products_total: money(productsTotal),
+    delivery: deliveryText,
 
-  delivery: deliveryText,
+    delivery_fee: money(deliveryFee),
 
-  total: money(total)
+    total: money(total)
 
-};
+  };
+
+
+  console.log(
+    "Données envoyées à EmailJS :",
+    templateParams
+  );
+
+
+  /* =========================
+     ENVOI EMAILJS
+  ========================= */
 
   emailjs.send(
     "service_yozt0ns",
@@ -1517,13 +1573,14 @@ Prix : ${money(x.price * x.qty)}`;
   .then(function(response){
 
     console.log(
-      "Commande envoyée :",
+      "EmailJS OK :",
       response.status,
       response.text
     );
 
     alert(
-      "✅ Votre commande a bien été envoyée !"
+      "✅ Votre commande a bien été envoyée !\n\n" +
+      "Merci pour votre commande chez Fenua Select."
     );
 
     cart.length = 0;
@@ -1537,15 +1594,22 @@ Prix : ${money(x.price * x.qty)}`;
   .catch(function(error){
 
     console.error(
-      "Erreur EmailJS :",
+      "ERREUR EMAILJS :",
       error
     );
 
     alert(
-      "❌ Une erreur est survenue lors de l'envoi de la commande."
+      "❌ Impossible d'envoyer la commande.\n\n" +
+      "Erreur : " +
+      (
+        error.text ||
+        error.message ||
+        "Erreur inconnue"
+      )
     );
 
   });
+
 
 }
 renderProducts();
