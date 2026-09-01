@@ -710,17 +710,44 @@ function renderProducts(){
           : ''
         }
 
-        <!-- ===== PRIX + AJOUTER ===== -->
+       <!-- ===== PRIX + QUANTITÉ + AJOUTER ===== -->
 
-        <div class="product-bottom">
+<div class="product-bottom">
 
-          <strong>${money(p.price)}</strong>
+  <strong>${money(p.price)}</strong>
 
-          <button onclick="add(${p.id})">
-            Ajouter
-          </button>
+  <div class="quantity-control">
 
-        </div>
+    <button
+      type="button"
+      class="quantity-btn"
+      onclick="changeProductQty(${p.id}, -1)"
+    >
+      −
+    </button>
+
+    <span
+      id="qty-${p.id}"
+      class="quantity-value"
+    >
+      1
+    </span>
+
+    <button
+      type="button"
+      class="quantity-btn"
+      onclick="changeProductQty(${p.id}, 1)"
+    >
+      +
+    </button>
+
+  </div>
+
+  <button onclick="add(${p.id})">
+    Ajouter
+  </button>
+
+</div>
 
       </div>
 
