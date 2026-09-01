@@ -712,16 +712,12 @@ function renderProducts(){
 
         <!-- ===== QUANTITÉ + PRIX + AJOUTER ===== -->
 
-        <div class="product-bottom">
+      <div class="quantity-control">
 
-          <strong>${money(p.price)}</strong>
-
-          <div class="qty-add">
-            <label for="qty-${p.id}">Quantité :</label>
-           <div class="quantity-control">
   <span class="quantity-label">Quantité</span>
 
   <div class="quantity-buttons">
+
     <button
       type="button"
       class="quantity-btn"
@@ -740,6 +736,7 @@ function renderProducts(){
       onclick="changeProductQty(${p.id}, 1)"
       aria-label="Augmenter la quantité"
     >+</button>
+
   </div>
 
   <button
@@ -749,8 +746,9 @@ function renderProducts(){
   >
     Ajouter
   </button>
+
 </div>
-      </div>
+      
 
     </article>
 
