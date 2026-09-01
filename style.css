@@ -130,7 +130,7 @@ footer p{margin:8px 0}
    PC
    ========================================================= */
 
-@media (min-width: 769px) {
+{
   .banner img {
     width: 100%;
     height: auto;
