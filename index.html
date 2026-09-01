@@ -377,14 +377,21 @@ const products = [
   {id:43,name:"Pompe à Air Électrique Portable",price:3000,cat:"High-Tech",image:"images/pompe-a-air.png",emoji:"💨",desc:"Pompe à air électrique portable rechargeable USB-C, batterie 1500mAh, pression jusqu'à 4000 Pa et 3 embouts."
   },
 
-   id: 44,
+ {
+  id: 44,
   name: "Mini boîte de brillant à lèvres",
   price: 1990,
   cat: "Beauté",
   image: "images/mini-boite-brillant-levres.png",
   emoji: "💄",
-  desc: "Mat velours, waterproof, 4 parfums."
-  
+  desc: "Mat velours, waterproof, 4 parfums.",
+  flavors: [
+    "🍊 Orange",
+    "🍑 Honey Peach",
+    "🍒 Cherry",
+    "🍓 Strawberry"
+  ]
+},
 ];
 
 
@@ -429,10 +436,44 @@ function renderProducts(){
 }
 
 function add(id){
-  const p=products.find(x=>x.id===id);
-  const found=cart.find(x=>x.id===id);
-  if(found) found.qty++;
-  else cart.push({...p,qty:1});
+
+  const p = products.find(x => x.id === id);
+
+  if(!p) return;
+
+  let flavor = "";
+
+  if(p.flavors){
+
+    const select = document.getElementById(`flavor-${id}`);
+
+    if(!select) return;
+
+    flavor = select.value;
+  }
+
+  const cartId = flavor ? `${id}-${flavor}` : `${id}`;
+
+  const found = cart.find(x => x.cartId === cartId);
+
+  if(found){
+
+    found.qty++;
+
+  }else{
+
+    cart.push({
+      ...p,
+      qty: 1,
+      flavor: flavor,
+      cartId: cartId,
+      displayName: flavor
+        ? `${p.name} - ${flavor}`
+        : p.name
+    });
+
+  }
+
   updateCart();
 }
 
