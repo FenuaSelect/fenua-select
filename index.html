@@ -721,17 +721,67 @@ function add(id){
   if(!p) return;
 
   let flavor = "";
+  let finish = "";
+  let color = "";
+  let size = "";
+
+  /* ===== PARFUM ===== */
 
   if(p.flavors){
 
     const select = document.getElementById(`flavor-${id}`);
 
-    if(!select) return;
+    if(select){
+      flavor = select.value;
+    }
 
-    flavor = select.value;
   }
 
-  const cartId = flavor ? `${id}-${flavor}` : `${id}`;
+  /* ===== FINITION ===== */
+
+  if(p.finishes){
+
+    const select = document.getElementById(`finish-${id}`);
+
+    if(select){
+      finish = select.value;
+    }
+
+  }
+
+  /* ===== COULEUR ===== */
+
+  if(p.colors){
+
+    const select = document.getElementById(`color-${id}`);
+
+    if(select){
+      color = select.value;
+    }
+
+  }
+
+  /* ===== TAILLE ===== */
+
+  if(p.sizes){
+
+    const select = document.getElementById(`size-${id}`);
+
+    if(select){
+      size = select.value;
+    }
+
+  }
+
+  /* ===== IDENTIFIANT UNIQUE DU PANIER ===== */
+
+  const cartId = [
+    id,
+    flavor,
+    finish,
+    color,
+    size
+  ].filter(Boolean).join("-");
 
   const found = cart.find(x => x.cartId === cartId);
 
@@ -744,11 +794,11 @@ function add(id){
     cart.push({
       ...p,
       qty: 1,
-      flavor: flavor,
       cartId: cartId,
-      displayName: flavor
-        ? `${p.name} - ${flavor}`
-        : p.name
+      flavor: flavor,
+      finish: finish,
+      color: color,
+      size: size
     });
 
   }
