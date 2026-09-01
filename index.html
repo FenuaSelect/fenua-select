@@ -877,9 +877,51 @@ function openCart(){
   const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
 const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
 const total = productsTotal + deliveryFee;
-  document.getElementById('modalItems').innerHTML=cart.length
-    ? cart.map(x=>`<div class="order-line"><span>${x.name} × ${x.qty}</span><button class="remove" onclick="remove(${x.id})">Supprimer</button></div>`).join('')
-    : "Votre panier est vide.";
+ document.getElementById('modalItems').innerHTML = cart.length
+  ? cart.map(x => `
+
+      <div class="cart-item">
+
+        <div class="cart-item-info">
+
+          <strong>${x.name}</strong>
+
+          <span>Quantité : ${x.qty}</span>
+
+          ${
+            x.size
+            ? `<small>👕 Taille : ${x.size}</small>`
+            : ''
+          }
+
+          ${
+            x.flavor
+            ? `<small>🍊 Parfum : ${x.flavor}</small>`
+            : ''
+          }
+
+          ${
+            x.finish
+            ? `<small>✨ Finition : ${x.finish}</small>`
+            : ''
+          }
+
+          ${
+            x.color
+            ? `<small>🎨 Couleur : ${x.color}</small>`
+            : ''
+          }
+
+        </div>
+
+        <strong>
+          ${money(x.price * x.qty)}
+        </strong>
+
+      </div>
+
+    `).join('')
+  : '<p>Votre panier est vide.</p>';
   document.getElementById('modalTotal').textContent=money(total);
   document.getElementById('cartModal').classList.add('show');
 }
