@@ -1421,69 +1421,47 @@ function closeCart(){
 }
 
 
-function sendOrder(e){
+unction sendOrder(e){
 
   e.preventDefault();
 
-
   if(!cart.length){
-
-    alert(
-      "Ajoute au moins un produit au panier."
-    );
-
+    alert("Ajoute au moins un produit au panier.");
     return;
   }
 
-
   const form = e.target;
 
-
   const name =
-    form.querySelector('[name="name"]')?.value.trim() || "";
-
+    form.querySelector('[name="name"]').value.trim();
 
   const phone =
-    form.querySelector('[name="phone"]')?.value.trim() || "";
-
+    form.querySelector('[name="phone"]').value.trim();
 
   const email =
-    form.querySelector('[name="email"]')?.value.trim() || "";
-
+    form.querySelector('[name="email"]').value.trim();
 
   const address =
-    form.querySelector('[name="address"]')?.value.trim() || "";
+    form.querySelector('[name="address"]').value.trim();
 
-
-  const lines = cart.map((x,i) => {
+  const lines = cart.map((x, i) => {
 
     let details = "";
 
-
-    if(x.size){
+    if(x.size)
       details += `\nTaille : ${x.size}`;
-    }
 
-
-    if(x.flavor){
-      details += `\nParfum : ${x.flavor}`;
-    }
-
-
-    if(x.finish){
-      details += `\nFinition : ${x.finish}`;
-    }
-
-
-    if(x.color){
-      details += `\nCouleur : ${x.color}`;
-    }
-
-
-    if(x.storage){
+    if(x.storage)
       details += `\nStockage : ${x.storage}`;
-    }
 
+    if(x.flavor)
+      details += `\nParfum : ${x.flavor}`;
+
+    if(x.finish)
+      details += `\nFinition : ${x.finish}`;
+
+    if(x.color)
+      details += `\nCouleur : ${x.color}`;
 
     return `${i + 1}. ${x.name}
 Quantité : ${x.qty}${details}
@@ -1491,33 +1469,24 @@ Prix : ${money(x.price * x.qty)}`;
 
   }).join("\n\n--------------------\n\n");
 
-
-  const productsTotal =
-    cart.reduce(
-      (s,x) => s + x.price * x.qty,
-      0
-    );
-
+  const productsTotal = cart.reduce(
+    (s, x) => s + x.price * x.qty,
+    0
+  );
 
   const deliverySelect =
     document.getElementById("deliveryZone");
 
-
   const deliveryFee =
-    Number(
-      deliverySelect?.value || 0
-    );
+    Number(deliverySelect?.value || 0);
 
-
-  const deliveryText =
+  const delivery =
     deliveryFee === 0
       ? "Papara à Taravao • Livraison gratuite"
       : "Autres destinations sur Tahiti • + 1 500 Frs";
 
-
   const total =
     productsTotal + deliveryFee;
-
 
   const templateParams = {
 
@@ -1531,14 +1500,12 @@ Prix : ${money(x.price * x.qty)}`;
     products_total:
       money(productsTotal),
 
-    delivery:
-      deliveryText,
+    delivery: delivery,
 
     total:
       money(total)
 
   };
-
 
   emailjs.send(
     "service_yozt0ns",
@@ -1554,11 +1521,9 @@ Prix : ${money(x.price * x.qty)}`;
       response.text
     );
 
-
     alert(
-      "✅ Votre commande a bien été envoyée !\n\nMerci pour votre commande chez Fenua Select."
+      "✅ Votre commande a bien été envoyée !"
     );
-
 
     cart.length = 0;
 
@@ -1571,24 +1536,17 @@ Prix : ${money(x.price * x.qty)}`;
   .catch(function(error){
 
     console.error(
-      "ERREUR EMAILJS :",
+      "Erreur EmailJS :",
       error
     );
 
-
     alert(
-      "❌ Erreur EmailJS :\n\n" +
-      (
-        error?.text ||
-        error?.message ||
-        JSON.stringify(error)
-      )
+      "❌ Une erreur est survenue lors de l'envoi de la commande."
     );
 
   });
 
 }
-
 renderProducts();
 updateCart();
 </script>
