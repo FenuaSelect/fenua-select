@@ -938,108 +938,167 @@ function add(id){
 
   if(!p) return;
 
+
   let flavor = "";
   let finish = "";
   let color = "";
   let size = "";
-<!-- ===== STOCKAGE ===== -->
+  let storage = "";
+  let price = p.price;
+  let qty = 1;
 
-          ${
-            p.storages
-            ? `
-              <div class="beauty-options">
-
-                <div class="beauty-option">
-
-                  <label for="storage-${p.id}">
-                    💾 Stockage :
-                  </label>
-
-                  <select
-                    id="storage-${p.id}"
-                    class="storage-select"
-                    onchange="updateStoragePrice(${p.id})"
-                  >
-                    ${p.storages.map(storage => `
-                      <option value="${storage.name}" data-price="${storage.price}">
-                        ${storage.name} - ${money(storage.price)}
-                      </option>
-                    `).join('')}
-                  </select>
-
-                </div>
-
-              </div>
-            `
-            : ''
-          }
-
-
-          <!-- ===== PRIX ===== -->
-
-          <div class="product-bottom">
-
-            <strong id="price-${p.id}">
-              ${
-                p.storages
-                ? money(p.storages[0].price)
-                : money(p.price)
-              }
-  /* ===== QUANTITÉ ===== */
-  const qtySelect = document.getElementById(`qty-${id}`);
-  const qty = Math.max(1, Number(qtySelect?.value || 1));
 
   /* ===== PARFUM ===== */
+
   if(p.flavors){
-    const select = document.getElementById(`flavor-${id}`);
-    if(select) flavor = select.value;
+
+    const select =
+      document.getElementById(`flavor-${id}`);
+
+    if(select){
+      flavor = select.value;
+    }
+
   }
+
 
   /* ===== FINITION ===== */
+
   if(p.finishes){
-    const select = document.getElementById(`finish-${id}`);
-    if(select) finish = select.value;
+
+    const select =
+      document.getElementById(`finish-${id}`);
+
+    if(select){
+      finish = select.value;
+    }
+
   }
+
 
   /* ===== COULEUR ===== */
+
   if(p.colors){
-    const select = document.getElementById(`color-${id}`);
-    if(select) color = select.value;
+
+    const select =
+      document.getElementById(`color-${id}`);
+
+    if(select){
+      color = select.value;
+    }
+
   }
+
 
   /* ===== TAILLE ===== */
+
   if(p.sizes){
-    const select = document.getElementById(`size-${id}`);
-    if(select) size = select.value;
+
+    const select =
+      document.getElementById(`size-${id}`);
+
+    if(select){
+      size = select.value;
+    }
+
   }
 
-  /* ===== IDENTIFIANT UNIQUE DU PANIER ===== */
+
+  /* ===== STOCKAGE ===== */
+
+  if(p.storages){
+
+    const select =
+      document.getElementById(`storage-${id}`);
+
+    if(select){
+
+      storage = select.value;
+
+      const selected =
+        p.storages.find(
+          x => x.name === storage
+        );
+
+      if(selected){
+        price = selected.price;
+      }
+
+    }
+
+  }
+
+
+  /* ===== QUANTITÉ ===== */
+
+  const qtyElement =
+    document.getElementById(`qty-${id}`);
+
+  if(qtyElement){
+
+    qty =
+      Math.max(
+        1,
+        parseInt(qtyElement.textContent) || 1
+      );
+
+  }
+
+
+  /* ===== IDENTIFIANT UNIQUE ===== */
+
   const cartId = [
+
     id,
     flavor,
     finish,
     color,
-    size
+    size,
+    storage
+
   ].filter(Boolean).join("-");
 
-  const found = cart.find(x => x.cartId === cartId);
+
+  /* ===== PRODUIT DÉJÀ DANS LE PANIER ===== */
+
+  const found =
+    cart.find(x => x.cartId === cartId);
+
 
   if(found){
+
     found.qty += qty;
+
   }else{
+
     cart.push({
+
       ...p,
+
+      price: price,
+
       qty: qty,
+
       cartId: cartId,
+
       flavor: flavor,
+
       finish: finish,
+
       color: color,
-      size: size
+
+      size: size,
+
+      storage: storage
+
     });
+
   }
+
 
   updateCart();
 
+}
   /* Remet le sélecteur à 1 après ajout */
   if(qtySelect) qtySelect.value = "1";
 }
