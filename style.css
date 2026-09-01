@@ -101,3 +101,22 @@ footer p{margin:8px 0}
 .grid{grid-template-columns:1fr}.product-img{height:280px}.promo{width:92%;padding:30px;flex-direction:column;align-items:flex-start}
 .order-card,.order-form{padding:20px}.product-bottom{align-items:flex-start;flex-direction:column}.product-bottom button{width:100%}.quantity-control{width:100%!important}
 }
+/* =========================================================
+   BANNIÈRE PC UNIQUEMENT
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+  .banner {
+    max-height: 250px;
+    overflow: hidden;
+  }
+
+  .banner img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+}
