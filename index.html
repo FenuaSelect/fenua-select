@@ -718,17 +718,38 @@ function renderProducts(){
 
           <div class="qty-add">
             <label for="qty-${p.id}">Quantité :</label>
-            <select id="qty-${p.id}" class="qty-select" aria-label="Quantité de ${p.name}">
-              ${Array.from({length: 20}, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}
-            </select>
+           <div class="quantity-control">
+  <span class="quantity-label">Quantité</span>
 
-            <button type="button" onclick="add(${p.id})">
-              Ajouter
-            </button>
-          </div>
+  <div class="quantity-buttons">
+    <button
+      type="button"
+      class="quantity-btn"
+      onclick="changeProductQty(${p.id}, -1)"
+      aria-label="Diminuer la quantité"
+    >−</button>
 
-        </div>
+    <span
+      id="qty-${p.id}"
+      class="quantity-value"
+    >1</span>
 
+    <button
+      type="button"
+      class="quantity-btn"
+      onclick="changeProductQty(${p.id}, 1)"
+      aria-label="Augmenter la quantité"
+    >+</button>
+  </div>
+
+  <button
+    type="button"
+    class="add-btn"
+    onclick="add(${p.id})"
+  >
+    Ajouter
+  </button>
+</div>
       </div>
 
     </article>
