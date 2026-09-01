@@ -103,24 +103,47 @@ footer p{margin:8px 0}
 }
 
 
-/* ===== BANNIERE FENUA SELECT ===== */
+/* =========================================================
+   BANNIÈRE FENUA SELECT
+   Affichage naturel PC + MOBILE
+   ========================================================= */
 
 .banner {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
+  margin: 0;
   padding: 0;
-  background: transparent;
   overflow: hidden;
+  background: #05070c;
+  text-align: center;
+  line-height: 0;
 }
 
 .banner img {
   display: block;
-  width: 85%;
-  max-width: 1200px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
-  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* =========================================================
+   PC
+   ========================================================= */
+
+@media (min-width: 769px) {
+  .banner img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .banner img {
+    width: 100%;
+    height: auto;
+  }
 }
