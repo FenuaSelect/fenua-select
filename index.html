@@ -812,17 +812,67 @@ function remove(id){
 }
 
 function updateCart(){
-  document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);
-  const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
-const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
-const total = productsTotal + deliveryFee;
-  document.getElementById('cartTotal').textContent=money(total);
 
-  document.getElementById('orderSummary').innerHTML=cart.length
-    ? cart.map(x=>`<div class="order-line"><span>${x.name} × ${x.qty}</span><strong>${money(x.price*x.qty)}</strong></div>`).join('')
+  document.getElementById('cartCount').textContent =
+    cart.reduce((s,x) => s + x.qty, 0);
+
+  const productsTotal =
+    cart.reduce((s,x) => s + x.price * x.qty, 0);
+
+  const deliveryFee =
+    Number(document.getElementById('deliveryZone')?.value || 0);
+
+  const total = productsTotal + deliveryFee;
+
+  document.getElementById('cartTotal').textContent = money(total);
+
+  document.getElementById('orderSummary').innerHTML = cart.length
+
+    ? cart.map(x => `
+
+        <div class="order-line">
+
+          <span>
+            <strong>${x.name}</strong>
+            × ${x.qty}
+
+            ${
+              x.size
+              ? `<br><small>👕 Taille : ${x.size}</small>`
+              : ''
+            }
+
+            ${
+              x.flavor
+              ? `<br><small>🍊 Parfum : ${x.flavor}</small>`
+              : ''
+            }
+
+            ${
+              x.finish
+              ? `<br><small>✨ Finition : ${x.finish}</small>`
+              : ''
+            }
+
+            ${
+              x.color
+              ? `<br><small>🎨 Couleur : ${x.color}</small>`
+              : ''
+            }
+
+          </span>
+
+          <strong>
+            ${money(x.price * x.qty)}
+          </strong>
+
+        </div>
+
+      `).join('')
+
     : "Votre panier est vide.";
-}
 
+}
 function openCart(){
   const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
 const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
