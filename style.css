@@ -852,3 +852,44 @@ footer img{
   }
 
 }
+/* ===== CHOIX DU PARFUM ===== */
+
+.flavor-label {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.flavor-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #26384a;
+  background: #111b27;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flavor-select:focus {
+  border-color: #12c8e8;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media screen and (max-width: 768px) {
+
+  .flavor-label {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .flavor-select {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+}
