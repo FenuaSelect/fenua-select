@@ -719,17 +719,27 @@ function renderProducts(){
 }
   function changeProductQty(id, amount){
 
-const qtyElement =
-  document.getElementById(`qty-${id}`);
+  const qtyElement =
+    document.getElementById(`qty-${id}`);
 
-const selectedQty =
-  Number(qtyElement?.textContent || 1);
+  if(!qtyElement) return;
 
-const found = cart.find(x => x.cartId === cartId);
+  let qty =
+    Number(qtyElement.textContent) || 1;
 
-if(found){
+  qty += amount;
 
-  found.qty += selectedQty;
+  if(qty < 1){
+    qty = 1;
+  }
+
+  if(qty > 99){
+    qty = 99;
+  }
+
+  qtyElement.textContent = qty;
+
+}
 
 }else{
 
