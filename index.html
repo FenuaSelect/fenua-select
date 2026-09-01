@@ -495,20 +495,80 @@ function renderProducts(){
         ${
           p.flavors
           ? `
-            <label for="flavor-${p.id}">
-              Choisir le parfum :
-            </label>
+            <div class="beauty-options">
 
-            <select
-              id="flavor-${p.id}"
-              class="flavor-select"
-            >
-              ${p.flavors.map(flavor => `
-                <option value="${flavor}">
-                  ${flavor}
-                </option>
-              `).join('')}
-            </select>
+              <div class="beauty-option">
+                <label for="flavor-${p.id}">
+                  Parfum :
+                </label>
+
+                <select
+                  id="flavor-${p.id}"
+                  class="flavor-select"
+                >
+                  ${p.flavors.map(flavor => `
+                    <option value="${flavor}">
+                      ${flavor}
+                    </option>
+                  `).join('')}
+                </select>
+              </div>
+
+            </div>
+          `
+          : ''
+        }
+
+        ${
+          p.finishes
+          ? `
+            <div class="beauty-options">
+
+              <div class="beauty-option">
+                <label for="finish-${p.id}">
+                  Finition :
+                </label>
+
+                <select
+                  id="finish-${p.id}"
+                  class="finish-select"
+                >
+                  ${p.finishes.map(finish => `
+                    <option value="${finish}">
+                      ${finish}
+                    </option>
+                  `).join('')}
+                </select>
+              </div>
+
+            </div>
+          `
+          : ''
+        }
+
+        ${
+          p.colors
+          ? `
+            <div class="beauty-options">
+
+              <div class="beauty-option">
+                <label for="color-${p.id}">
+                  Couleur :
+                </label>
+
+                <select
+                  id="color-${p.id}"
+                  class="color-select"
+                >
+                  ${p.colors.map(color => `
+                    <option value="${color}">
+                      ${color}
+                    </option>
+                  `).join('')}
+                </select>
+              </div>
+
+            </div>
           `
           : ''
         }
