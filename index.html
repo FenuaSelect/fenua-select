@@ -162,9 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
     <form class="order-form" onsubmit="sendOrder(event)">
-      <input required id="name" placeholder="Nom / Prénom">
-      <input required id="phone" placeholder="Téléphone">
-      <input type="email" id="email" placeholder="E-mail">
+      <input required id="name" name="name" autocomplete="name" placeholder="Nom / Prénom">
+      <input required id="phone" name="phone" autocomplete="tel" placeholder="Téléphone">
+      <input type="email" id="email" name="email" autocomplete="email" placeholder="E-mail">
      <div class="delivery-info">
   <label for="deliveryZone"><strong>🚚 Zone de livraison</strong></label>
 
@@ -174,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
   </select>
 </div>
 
-<input type="hidden" id="delivery" value="Livraison">
-      <textarea id="address" placeholder="Adresse / précision (facultatif)"></textarea>
+<input type="hidden" id="delivery" name="delivery" value="Livraison">
+      <textarea id="address" name="address" autocomplete="street-address" placeholder="Adresse / précision (facultatif)"></textarea>
       <button class="cta" type="submit">Envoyer ma demande de commande</button>
       <p class="small">Produits sur commande : délai indicatif 3 à 5 semaines.</p>
     </form>
@@ -710,48 +710,30 @@ function renderProducts(){
           : ''
         }
 
+        <!-- ===== QUANTITÉ + PRIX + AJOUTER ===== -->
+
+        <div class="product-bottom">
+
+          <strong>${money(p.price)}</strong>
+
+          <div class="qty-add">
+            <label for="qty-${p.id}">Quantité :</label>
+            <select id="qty-${p.id}" class="qty-select" aria-label="Quantité de ${p.name}">
+              ${Array.from({length: 20}, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}
+            </select>
+
+            <button type="button" onclick="add(${p.id})">
+              Ajouter
+            </button>
+          </div>
+
+        </div>
 
       </div>
 
     </article>
 
   `).join('') : '<p>Aucun produit trouvé.</p>';
-}
-  function changeProductQty(id, amount){
-
-  const qtyElement =
-    document.getElementById(`qty-${id}`);
-
-  if(!qtyElement) return;
-
-  let qty =
-    Number(qtyElement.textContent) || 1;
-
-  qty += amount;
-
-  if(qty < 1){
-    qty = 1;
-  }
-
-  if(qty > 99){
-    qty = 99;
-  }
-
-  qtyElement.textContent = qty;
-
-}
-
-}else{
-
-  cart.push({
-    ...p,
-    qty: selectedQty,
-    cartId: cartId,
-    flavor: flavor,
-    finish: finish,
-    color: color,
-    size: size
-  });
 }
 function add(id){
 
@@ -764,56 +746,35 @@ function add(id){
   let color = "";
   let size = "";
 
+  /* ===== QUANTITÉ ===== */
+  const qtySelect = document.getElementById(`qty-${id}`);
+  const qty = Math.max(1, Number(qtySelect?.value || 1));
+
   /* ===== PARFUM ===== */
-
   if(p.flavors){
-
     const select = document.getElementById(`flavor-${id}`);
-
-    if(select){
-      flavor = select.value;
-    }
-
+    if(select) flavor = select.value;
   }
 
   /* ===== FINITION ===== */
-
   if(p.finishes){
-
     const select = document.getElementById(`finish-${id}`);
-
-    if(select){
-      finish = select.value;
-    }
-
+    if(select) finish = select.value;
   }
 
   /* ===== COULEUR ===== */
-
   if(p.colors){
-
     const select = document.getElementById(`color-${id}`);
-
-    if(select){
-      color = select.value;
-    }
-
+    if(select) color = select.value;
   }
 
   /* ===== TAILLE ===== */
-
   if(p.sizes){
-
     const select = document.getElementById(`size-${id}`);
-
-    if(select){
-      size = select.value;
-    }
-
+    if(select) size = select.value;
   }
 
   /* ===== IDENTIFIANT UNIQUE DU PANIER ===== */
-
   const cartId = [
     id,
     flavor,
@@ -825,27 +786,27 @@ function add(id){
   const found = cart.find(x => x.cartId === cartId);
 
   if(found){
-
-    found.qty++;
-
+    found.qty += qty;
   }else{
-
     cart.push({
       ...p,
-      qty: 1,
+      qty: qty,
       cartId: cartId,
       flavor: flavor,
       finish: finish,
       color: color,
       size: size
     });
-
   }
 
   updateCart();
+
+  /* Remet le sélecteur à 1 après ajout */
+  if(qtySelect) qtySelect.value = "1";
 }
-function remove(id){
-  cart=cart.filter(x=>x.id!==id);
+
+function remove(cartId){
+  cart = cart.filter(x => x.cartId !== cartId);
   updateCart();
   openCart();
 }
@@ -912,6 +873,20 @@ function updateCart(){
     : "Votre panier est vide.";
 
 }
+function changeCartQty(cartId, delta){
+  const item = cart.find(x => x.cartId === cartId);
+  if(!item) return;
+
+  item.qty += delta;
+
+  if(item.qty <= 0){
+    cart = cart.filter(x => x.cartId !== cartId);
+  }
+
+  updateCart();
+  openCart();
+}
+
 function openCart(){
   const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
 const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
@@ -953,6 +928,13 @@ const total = productsTotal + deliveryFee;
 
         </div>
 
+        <div class="cart-item-actions">
+          <button type="button" onclick="changeCartQty('${x.cartId}', -1)" aria-label="Diminuer la quantité">−</button>
+          <span>${x.qty}</span>
+          <button type="button" onclick="changeCartQty('${x.cartId}', 1)" aria-label="Augmenter la quantité">+</button>
+          <button type="button" onclick="remove('${x.cartId}')" aria-label="Supprimer">🗑️</button>
+        </div>
+
         <strong>
           ${money(x.price * x.qty)}
         </strong>
@@ -978,19 +960,12 @@ function sendOrder(e){
     return;
   }
 
-  const form = e.target;
+  const form = e.currentTarget;
 
-const name =
-  document.getElementById("name")?.value.trim() || "";
-
-const phone =
-  document.getElementById("phone")?.value.trim() || "";
-
-const email =
-  document.getElementById("email")?.value.trim() || "";
-
-const address =
-  document.getElementById("address")?.value.trim() || "";
+  const name = form.elements["name"]?.value.trim() || "";
+  const phone = form.elements["phone"]?.value.trim() || "";
+  const email = form.elements["email"]?.value.trim() || "";
+  const address = form.elements["address"]?.value.trim() || "";
 
   const lines = cart.map((x, i) => {
 
@@ -1014,7 +989,8 @@ const address =
 
     return `${i + 1}. ${x.name}
 Quantité : ${x.qty}${details}
-Prix : ${money(x.price * x.qty)}`;
+Prix unitaire : ${money(x.price)}
+Total ligne : ${money(x.price * x.qty)}`;
 
   }).join("\n\n--------------------\n\n");
 
@@ -1035,32 +1011,29 @@ Prix : ${money(x.price * x.qty)}`;
   const total =
     productsTotal + deliveryFee;
 
-const templateParams = {
+  /* ===== PARAMÈTRES EXACTS DU TEMPLATE EMAILJS ===== */
+  const templateParams = {
+    name: name,
+    phone: phone,
+    email: email,
+    address: address,
+    order: lines,
+    products_total: money(productsTotal),
+    delivery: deliveryText,
+    total: money(total)
+  };
 
-  customer_name: document.getElementById("name").value.trim(),
-
-  customer_phone: document.getElementById("phone").value.trim(),
-
-  customer_email: document.getElementById("email").value.trim(),
-
-  customer_address: document.getElementById("address").value.trim(),
-
-  order: lines,
-
-  products_total: money(productsTotal),
-
-  delivery: deliveryText,
-
-  total: money(total)
-
-};
+  const submitButton = form.querySelector('button[type="submit"]');
+  if(submitButton){
+    submitButton.disabled = true;
+    submitButton.textContent = "Envoi en cours…";
+  }
 
   emailjs.send(
-   "service_yozt0ns",
+    "service_yozt0ns",
     "template_7seldam",
     templateParams
   )
-
   .then(function(response){
 
     console.log(
@@ -1074,23 +1047,26 @@ const templateParams = {
     );
 
     cart.length = 0;
-
     updateCart();
-
     form.reset();
 
   })
+  .catch(function(error){
 
- .catch(function(error){
+    console.error("ERREUR EMAILJS :", error);
 
-  console.error("ERREUR EMAILJS :", error);
+    alert(
+      "❌ Erreur lors de l'envoi de la commande.\n\n" +
+      (error?.text || error?.message || JSON.stringify(error))
+    );
 
-  alert(
-    "❌ Erreur EmailJS :\n\n" +
-    (error?.text || error?.message || JSON.stringify(error))
-  );
-
-});
+  })
+  .finally(function(){
+    if(submitButton){
+      submitButton.disabled = false;
+      submitButton.textContent = "Envoyer ma demande de commande";
+    }
+  });
 
 }
 
