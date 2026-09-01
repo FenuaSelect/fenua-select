@@ -883,6 +883,7 @@ function renderProducts(){
 
   qtyElement.textContent = qty;
 }
+  
 function add(id){
 
   const p = products.find(x => x.id === id);
@@ -893,7 +894,49 @@ function add(id){
   let finish = "";
   let color = "";
   let size = "";
+<!-- ===== STOCKAGE ===== -->
 
+          ${
+            p.storages
+            ? `
+              <div class="beauty-options">
+
+                <div class="beauty-option">
+
+                  <label for="storage-${p.id}">
+                    💾 Stockage :
+                  </label>
+
+                  <select
+                    id="storage-${p.id}"
+                    class="storage-select"
+                    onchange="updateStoragePrice(${p.id})"
+                  >
+                    ${p.storages.map(storage => `
+                      <option value="${storage.name}" data-price="${storage.price}">
+                        ${storage.name} - ${money(storage.price)}
+                      </option>
+                    `).join('')}
+                  </select>
+
+                </div>
+
+              </div>
+            `
+            : ''
+          }
+
+
+          <!-- ===== PRIX ===== -->
+
+          <div class="product-bottom">
+
+            <strong id="price-${p.id}">
+              ${
+                p.storages
+                ? money(p.storages[0].price)
+                : money(p.price)
+              }
   /* ===== QUANTITÉ ===== */
   const qtySelect = document.getElementById(`qty-${id}`);
   const qty = Math.max(1, Number(qtySelect?.value || 1));
