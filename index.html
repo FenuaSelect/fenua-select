@@ -1049,18 +1049,16 @@ Prix : ${money(x.price * x.qty)}`;
 
   })
 
-  .catch(function(error){
+ .catch(function(error){
 
-    console.error(
-      "Erreur EmailJS :",
-      error
-    );
+  console.error("ERREUR EMAILJS :", error);
 
-    alert(
-      "❌ Une erreur est survenue lors de l'envoi de la commande.\n\nVeuillez réessayer."
-    );
+  alert(
+    "❌ Erreur EmailJS :\n\n" +
+    (error?.text || error?.message || JSON.stringify(error))
+  );
 
-  });
+});
 
 }
 
