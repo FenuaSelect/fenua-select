@@ -25,6 +25,57 @@
 </script>
 
 <!-- ===== FIN EMAILJS ===== -->
+
+<style>
+/* ===== QUANTITÉS PRODUITS ===== */
+.quantity-control{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+  margin-top:10px;
+}
+.quantity-label{
+  font-weight:700;
+}
+.quantity-buttons{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.qty-btn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#43d5e8,#5865f2);
+  color:#fff;
+  font-size:24px;
+  font-weight:800;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(67,213,232,.20);
+}
+.qty-btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+}
+.qty-value{
+  min-width:24px;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+}
+.storage-select{
+  width:100%;
+}
+.product-price{
+  display:block;
+  font-size:20px;
+  font-weight:800;
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -162,9 +213,9 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
     <form class="order-form" onsubmit="sendOrder(event)">
-      <input required id="name" name="name" autocomplete="name" placeholder="Nom / Prénom">
-      <input required id="phone" name="phone" autocomplete="tel" placeholder="Téléphone">
-      <input type="email" id="email" name="email" autocomplete="email" placeholder="E-mail">
+      <input required id="name" name="name" placeholder="Nom / Prénom">
+      <input required id="phone" name="phone" placeholder="Téléphone">
+      <input type="email" id="email" name="email" placeholder="E-mail">
      <div class="delivery-info">
   <label for="deliveryZone"><strong>🚚 Zone de livraison</strong></label>
 
@@ -174,8 +225,8 @@ document.addEventListener("DOMContentLoaded", function () {
   </select>
 </div>
 
-<input type="hidden" id="delivery" name="delivery" value="Livraison">
-      <textarea id="address" name="address" autocomplete="street-address" placeholder="Adresse / précision (facultatif)"></textarea>
+<input type="hidden" id="delivery" value="Livraison">
+      <textarea id="address" name="address" placeholder="Adresse / précision (facultatif)"></textarea>
       <button class="cta" type="submit">Envoyer ma demande de commande</button>
       <p class="small">Produits sur commande : délai indicatif 3 à 5 semaines.</p>
     </form>
@@ -203,438 +254,501 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const products = [
   {
-  id: 1,
-  name: "Disque dur externe 2TB",
-  price: 5000,
-  cat: "High-Tech",
-  image: "images/disque-2tb.png",
-  emoji: "💾",
-  desc: "Auto alimenté / USB 3.0."
-},
-
-{
-  id: 2,
-  name: "Disque dur externe 4TB",
-  price: 10000,
-  cat: "High-Tech",
-  image: "images/disque-4tb.png",
-  emoji: "💾",
-  desc: "Auto alimenté / USB 3.0."
-},
-
-{
-  id: 3,
-  name: "Disque dur externe 8TB",
-  price: 15000,
-  cat: "High-Tech",
-  image: "images/disque-8tb.png",
-  emoji: "💾",
-  desc: "Auto alimenté / USB 3.0."
-},
-
-{
-  id: 4,
-  name: "Disque dur externe 16TB",
-  price: 20000,
-  cat: "High-Tech",
-  image: "images/disque-16tb.png",
-  emoji: "💾",
-  desc: "Auto alimenté / USB 3.0."
-},
-  {id:5,name:"Hub USB 7-en-2 USB + Type-C",price:2500,cat:"High-Tech",image:"images/hub-7-en-2.png",emoji:"🔌",desc:"Hub 7-en-2 avec ports USB et Type-C."},
-  {id:6,name:"Hub USB 5-en-2 USB + Type-C",price:2000,cat:"High-Tech",image:"images/hub-5-en-2.png",emoji:"🔌",desc:"Hub 5-en-2 avec USB, Type-C, SD et TF."},
-  {id:7,name:"Câble USB vers Micro-USB",price:850,cat:"High-Tech",image:"images/cable-micro-usb.png",emoji:"🔌",desc:"Câble USB pratique pour recharge et transfert."},
-
-  {id:8,name:"Lunettes sport SCVCN orange / blanc",price:1250,cat:"Accessoires",image:"images/lunettes-sport-orange-blanc.png",emoji:"🕶️",desc:"Lunettes sport orange avec monture blanche, protection UV400."},
-  {id:9,name:"Lunettes sport SCVCN bleu / blanc",price:1250,cat:"Accessoires",image:"images/lunettes-sport-bleu-blanc.png",emoji:"🕶️",desc:"Lunettes sport bleu avec monture blanche, protection UV400."},
-  {id:10,name:"Lunettes sport SCVCN jaune / noir",price:1250,cat:"Accessoires",image:"images/lunettes-sport-jaune-noir.png",emoji:"🕶️",desc:"Lunettes sport jaune avec monture noire, protection UV400."},
-  {id:11,name:"Lunettes sport SCVCN orange",price:1250,cat:"Accessoires",image:"images/lunettes-sport-orange.png",emoji:"🕶️",desc:"Lunettes sport avec verre coloré, protection UV400."},
-  {id:12,name:"Lunettes sportSCVCN bleu",price:1250,cat:"Accessoires",image:"images/lunettes-sport-bleu.png",emoji:"🕶️",desc:"Lunettes sport avec verre bleu, protection UV400."},
-  {id:13,name:"Lunettes sport SCVCN rose",price:1250,cat:"Accessoires",image:"images/lunettes-sport-rose.png",emoji:"🕶️",desc:"Lunettes sport avec finition rose, protection UV 400."},
-  {id:14,name:"Lunettes sport SCVCN rose/vert",price:1250,cat:"Accessoires",image:"images/lunettes-sport-rose-vert.png",emoji:"🕶️",desc:"Lunettes sport avec finition colorée, protection UV400."},
-  {id:15,name:"Lunettes sport SCVCN noir/orange",price:1250,cat:"Accessoires",image:"images/lunettes-sport-noir-orange.png",emoji:"🕶️",desc:"Lunettes sport noire avec verre orange, protection UV400."},
-  {id:16,name:"Lunettes polarisées noire",price:900,cat:"Accessoires",image:"images/lunettes-polarisees-noire.png",emoji:"🕶️",desc:"Lunettes polarisées sport, protection UV400."},
-  {id:17,name:"Lunettes polarisées bleue",price:900,cat:"Accessoires",image:"images/lunettes-polarisees-bleue.png",emoji:"🕶️",desc:"Lunettes polarisées avec verre bleu, protection UV400."},
-  {id:18,name:"Lunettes polarisées verte",price:900,cat:"Accessoires",image:"images/lunettes-polarisees-verte.png",emoji:"🕶️",desc:"Lunettes polarisées avec verre vert, protection UV400."},
-  {id:19,name:"Lunettes polarisées jaune",price:900,cat:"Accessoires",image:"images/lunettes-polarisees-jaune.png",emoji:"🕶️",desc:"Lunettes polarisées avec verre jaune, protection UV400."},
-  {id:20,name:"Lunettes polarisées rouge",price:900,cat:"Accessoires",image:"images/lunettes-polarisees-rouge.png",emoji:"🕶️",desc:"Lunettes polarisées avec verre rouge, protection UV400."},
-
-  {id:21,name:"Montre connectée Sport noire",price:9500,cat:"Montres connectées",image:"images/montre-sport-noire.png",emoji:"⌚",desc:"Montre connectée sport avec bracelet noir."},
-  {id:22,name:"Montre connectée Sport verte",price:9500,cat:"Montres connectées",image:"images/montre-sport-verte.png",emoji:"⌚",desc:"Montre connectée sport avec bracelet vert."},
-  {id:23,name:"Montre connectée Sport marron",price:9500,cat:"Montres connectées",image:"images/montre-sport-marron.png",emoji:"⌚",desc:"Montre connectée sport avec bracelet marron."},
-  {id:24,name:"Montre connectée noire",price:5500,cat:"Montres connectées",image:"images/montre-connectee-noire.png",emoji:"⌚",desc:"Montre connectée élégante avec bracelet noir."},
-  {id:25,name:"Montre connectée argentée",price:5500,cat:"Montres connectées",image:"images/montre-connectee-argentee.png",emoji:"⌚",desc:"Montre connectée élégante avec bracelet argenté."},
-  {id:26,name:"Montre connectée rose",price:5500,cat:"Montres connectées",image:"images/montre-connectee-rose.png",emoji:"⌚",desc:"Montre connectée élégante avec bracelet rose."},
-
-  {id:27,name:"Support téléphone pliable noir",price:400,cat:"Accessoires",image:"images/support-telephone-noir.png",emoji:"📱",desc:"Support téléphone pliable et compact de couleur noire."},
-  {id:28,name:"Support téléphone pliable argenté",price:400,cat:"Accessoires",image:"images/support-telephone-argente.png",emoji:"📱",desc:"Support téléphone pliable et compact de couleur argentée, style sportif et moderne."},
-
-  {
-  id: 29,
-  name: "Veste coupe-vent imperméable mixte noire à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-noire.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, style sportif et moderne.",
-sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 30,
-  name: "Veste coupe-vent imperméable mixte bleu marine à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-bleu-marine.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, coloris bleu marine.",
- sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 31,
-  name: "Veste coupe-vent imperméable mixte rouge à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-rouge.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, coloris rouge.",
- sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 32,
-  name: "Veste coupe-vent imperméable mixte grise à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-gris.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, coloris gris.",
- sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 33,
-  name: "Veste coupe-vent imperméable mixte rose à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-rose.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, coloris rose.",
- sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 34,
-  name: "Veste coupe-vent imperméable mixte kaki à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-kaki.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, coloris kaki.",
- sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 35,
-  name: "Veste coupe-vent imperméable mixte ivoire à capuche",
-  price: 12500,
-  cat: "Vêtements",
-  image: "images/veste-reebok-ivoire.png",
-  emoji: "🧥",
-  desc: "Veste coupe-vent imperméable mixte à capuche, coloris ivoire.",
- sizes: [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 36,
-  name: "T-Shirt Lapin DAB Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-lapin.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif lapin DAB, style fun et original.",
- sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 37,
-  name: "T-Shirt Chien DAB Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-chien.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif chien DAB, style streetwear et décontracté.",
- sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 38,
-  name: "T-Shirt Chat Street Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-chat-street.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif chat noir style streetwear et lunettes.",
-  sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 39,
-  name: "T-Shirt Chat DAB Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-chat.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif chat gris DAB, style fun et tendance.",
-  sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 40,
-  name: "T-Shirt Panda DAB Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-panda.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif panda DAB et lunettes violettes.",
-  sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 41,
-  name: "T-Shirt Licorne DAB Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-licorne.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif licorne colorée DAB, style original.",
-  sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-{
-  id: 42,
-  name: "T-Shirt Zèbre DAB Unisex",
-  price: 5500,
-  cat: "Vêtements",
-  image: "images/t-shirt-blanc-zebre.png",
-  emoji: "👕",
-  desc: "T-shirt blanc unisex avec motif zèbre DAB et lunettes violettes.",
-  sizes: [
-     "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL"
-  ]
-},
-
-  {id:43,name:"Pompe à Air Électrique Portable",price:3000,cat:"High-Tech",image:"images/pompe-a-air.png",emoji:"💨",desc:"Pompe à air électrique portable rechargeable USB-C, batterie 1500mAh, pression jusqu'à 4000 Pa et 3 embouts."
+    id: 1,
+    name: "Disque dur externe 2TB",
+    price: 5000,
+    cat: "High-Tech",
+    image: "images/disque-2tb.png",
+    emoji: "💾",
+    desc: "Auto alimenté / USB 3.0."
   },
-{
-  id: 44,
-  name: "Mini boîte de brillant à lèvres",
-  price: 1990,
-  cat: "Beauté",
-  image: "images/mini-boite-brillant-levres.png",
-  emoji: "💄",
-  desc: "Mat velours, waterproof, 4 parfums.",
-  flavors: [
-    "🍊 Orange",
-    "🍑 Honey Peach",
-    "🍒 Cherry",
-    "🍓 Strawberry"
-  ]
-},
-{
-  id: 45,
-  name: "Ensemble de 3 brillants à lèvres",
-  price: 590,
-  cat: "Beauté",
-  image: "images/ensemble-3-brillants-levres.png",
-  emoji: "💄",
-  desc: "Ensemble de 3 brillants à lèvres, waterproof, tenue 24H.",
-
-  finishes: [
-    "💄 Mat",
-    "✨ Velours",
-    "💎 Brillant"
-  ],
-
-  colors: [
-    "Couleur 01",
-    "Couleur 02",
-    "Couleur 03",
-    "Couleur 04",
-    "Couleur 05",
-    "Couleur 06",
-    "Couleur 07",
-    "Couleur 08",
-    "Couleur 09",
-    "Couleur 10",
-    "Couleur 11",
-    "Couleur 12"
-  ]
-},
   {
-  id: 46,
-  name: "Eye-liner liquide noir",
-  price: 390,
-  cat: "Beauté",
-  image: "images/eye-liner-liquide-noir.png",
-  emoji: "🖊️",
-  desc: "Longue durée, waterproof, 1 ml. 1 pièce."
-},
+    id: 2,
+    name: "Disque dur externe 4TB",
+    price: 10000,
+    cat: "High-Tech",
+    image: "images/disque-4tb.png",
+    emoji: "💾",
+    desc: "Auto alimenté / USB 3.0."
+  },
   {
-  id: 47,
-  name: "Câble de chargeur USB 3 en 1",
-  price: 950,
-  cat: "High-Tech",
-  image: "images/cable-3-en-1.png",
-  emoji: "🔌",
-  desc: "Câble de charge 3 en 1 Type-C, Micro USB et iPhone, longueur 1,20 m.",
-  colors: [
-    "🔴 Rouge",
-    "🔵 Bleu",
-    "⚪ Argent",
-    "⚫ Noir"
-  ]
-},
+    id: 3,
+    name: "Disque dur externe 8TB",
+    price: 15000,
+    cat: "High-Tech",
+    image: "images/disque-8tb.png",
+    emoji: "💾",
+    desc: "Auto alimenté / USB 3.0."
+  },
   {
-  id: 48,
-  name: "Clé USB 2.0",
-  cat: "High-Tech",
-  image: "images/cle-usb-2.0.png",
-  emoji: "💾",
-  desc: "Clé USB 2.0 haute vitesse, compacte et pratique pour stocker, transférer et emporter vos fichiers.",
+    id: 4,
+    name: "Disque dur externe 16TB",
+    price: 20000,
+    cat: "High-Tech",
+    image: "images/disque-16tb.png",
+    emoji: "💾",
+    desc: "Auto alimenté / USB 3.0."
+  },
+  {
+    id: 5,
+    name: "Hub USB 7-en-2 USB + Type-C",
+    price: 2500,
+    cat: "High-Tech",
+    image: "images/hub-7-en-2.png",
+    emoji: "🔌",
+    desc: "Hub 7-en-2 avec ports USB et Type-C."
+  },
+  {
+    id: 6,
+    name: "Hub USB 5-en-2 USB + Type-C",
+    price: 2000,
+    cat: "High-Tech",
+    image: "images/hub-5-en-2.png",
+    emoji: "🔌",
+    desc: "Hub 5-en-2 avec USB, Type-C, SD et TF."
+  },
+  {
+    id: 7,
+    name: "Câble USB vers Micro-USB",
+    price: 850,
+    cat: "High-Tech",
+    image: "images/cable-micro-usb.png",
+    emoji: "🔌",
+    desc: "Câble USB pratique pour recharge et transfert."
+  },
 
-  colors: [
-    "🔵 Bleu",
-    "🩵 Bleu clair",
-    "🟢 Vert",
-    "🟣 Violet",
-    "🔴 Rouge",
-    "🟡 Jaune",
-    "🩷 Rose",
-    "🟠 Orange",
-    "⚪ Blanc",
-    "⚫ Noir"
-  ],
+  /* ===== NOUVEAU : CÂBLE 3-EN-1 ===== */
+  {
+    id: 47,
+    name: "Câble de chargeur USB 3 en 1",
+    price: 950,
+    cat: "High-Tech",
+    image: "images/cable-3-en-1.png",
+    emoji: "🔌",
+    desc: "Câble de chargeur 3 en 1 Type-C, Micro-USB et iPhone, longueur 1,20 m.",
+    colors: [
+      "🔴 Rouge",
+      "🔵 Bleu",
+      "⚪ Argent",
+      "⚫ Noir"
+    ]
+  },
 
-  storages: [
-    {
-      name: "32 Go",
-      price: 1000
-    },
-    {
-      name: "64 Go",
-      price: 1500
-    },
-    {
-      name: "128 Go",
-      price: 2500
-    }
-  ]
-},
+  /* ===== NOUVEAU : CLÉ USB 2.0 ===== */
+  {
+    id: 48,
+    name: "Clé USB 2.0",
+    cat: "High-Tech",
+    image: "images/cle-usb-2.0.png",
+    emoji: "💾",
+    desc: "Clé USB 2.0 pratique pour stocker, transférer et emporter vos fichiers.",
+    colors: [
+      "🔵 Bleu",
+      "🩵 Bleu clair",
+      "🟢 Vert",
+      "🟣 Violet",
+      "🔴 Rouge",
+      "🟡 Jaune",
+      "🩷 Rose",
+      "🟠 Orange",
+      "⚪ Blanc",
+      "⚫ Noir"
+    ],
+    storages: [
+      { name: "32 Go", price: 1000 },
+      { name: "64 Go", price: 1500 },
+      { name: "128 Go", price: 2500 }
+    ]
+  },
+
+  {
+    id: 8,
+    name: "Lunettes sport SCVCN orange / blanc",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-orange-blanc.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport orange avec monture blanche, protection UV400."
+  },
+  {
+    id: 9,
+    name: "Lunettes sport SCVCN bleu / blanc",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-bleu-blanc.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport bleu avec monture blanche, protection UV400."
+  },
+  {
+    id: 10,
+    name: "Lunettes sport SCVCN jaune / noir",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-jaune-noir.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport jaune avec monture noire, protection UV400."
+  },
+  {
+    id: 11,
+    name: "Lunettes sport SCVCN orange",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-orange.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec verre coloré, protection UV400."
+  },
+  {
+    id: 12,
+    name: "Lunettes sportSCVCN bleu",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-bleu.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec verre bleu, protection UV400."
+  },
+  {
+    id: 13,
+    name: "Lunettes sport SCVCN rose",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-rose.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec finition rose, protection UV 400."
+  },
+  {
+    id: 14,
+    name: "Lunettes sport SCVCN rose/vert",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-rose-vert.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec finition colorée, protection UV400."
+  },
+  {
+    id: 15,
+    name: "Lunettes sport SCVCN noir/orange",
+    price: 1250,
+    cat: "Accessoires",
+    image: "images/lunettes-sport-noir-orange.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport noire avec verre orange, protection UV400."
+  },
+  {
+    id: 16,
+    name: "Lunettes polarisées noire",
+    price: 900,
+    cat: "Accessoires",
+    image: "images/lunettes-polarisees-noire.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées sport, protection UV400."
+  },
+  {
+    id: 17,
+    name: "Lunettes polarisées bleue",
+    price: 900,
+    cat: "Accessoires",
+    image: "images/lunettes-polarisees-bleue.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre bleu, protection UV400."
+  },
+  {
+    id: 18,
+    name: "Lunettes polarisées verte",
+    price: 900,
+    cat: "Accessoires",
+    image: "images/lunettes-polarisees-verte.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre vert, protection UV400."
+  },
+  {
+    id: 19,
+    name: "Lunettes polarisées jaune",
+    price: 900,
+    cat: "Accessoires",
+    image: "images/lunettes-polarisees-jaune.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre jaune, protection UV400."
+  },
+  {
+    id: 20,
+    name: "Lunettes polarisées rouge",
+    price: 900,
+    cat: "Accessoires",
+    image: "images/lunettes-polarisees-rouge.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre rouge, protection UV400."
+  },
+
+  {
+    id: 21,
+    name: "Montre connectée Sport noire",
+    price: 9500,
+    cat: "Montres connectées",
+    image: "images/montre-sport-noire.png",
+    emoji: "⌚",
+    desc: "Montre connectée sport avec bracelet noir."
+  },
+  {
+    id: 22,
+    name: "Montre connectée Sport verte",
+    price: 9500,
+    cat: "Montres connectées",
+    image: "images/montre-sport-verte.png",
+    emoji: "⌚",
+    desc: "Montre connectée sport avec bracelet vert."
+  },
+  {
+    id: 23,
+    name: "Montre connectée Sport marron",
+    price: 9500,
+    cat: "Montres connectées",
+    image: "images/montre-sport-marron.png",
+    emoji: "⌚",
+    desc: "Montre connectée sport avec bracelet marron."
+  },
+  {
+    id: 24,
+    name: "Montre connectée noire",
+    price: 5500,
+    cat: "Montres connectées",
+    image: "images/montre-connectee-noire.png",
+    emoji: "⌚",
+    desc: "Montre connectée élégante avec bracelet noir."
+  },
+  {
+    id: 25,
+    name: "Montre connectée argentée",
+    price: 5500,
+    cat: "Montres connectées",
+    image: "images/montre-connectee-argentee.png",
+    emoji: "⌚",
+    desc: "Montre connectée élégante avec bracelet argenté."
+  },
+  {
+    id: 26,
+    name: "Montre connectée rose",
+    price: 5500,
+    cat: "Montres connectées",
+    image: "images/montre-connectee-rose.png",
+    emoji: "⌚",
+    desc: "Montre connectée élégante avec bracelet rose."
+  },
+
+  {
+    id: 27,
+    name: "Support téléphone pliable noir",
+    price: 400,
+    cat: "Accessoires",
+    image: "images/support-telephone-noir.png",
+    emoji: "📱",
+    desc: "Support téléphone pliable et compact de couleur noire."
+  },
+  {
+    id: 28,
+    name: "Support téléphone pliable argenté",
+    price: 400,
+    cat: "Accessoires",
+    image: "images/support-telephone-argente.png",
+    emoji: "📱",
+    desc: "Support téléphone pliable et compact de couleur argentée, style sportif et moderne."
+  },
+
+  {
+    id: 29,
+    name: "Veste coupe-vent imperméable mixte noire à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-noire.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, style sportif et moderne.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 30,
+    name: "Veste coupe-vent imperméable mixte bleu marine à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-bleu-marine.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris bleu marine.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 31,
+    name: "Veste coupe-vent imperméable mixte rouge à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-rouge.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris rouge.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 32,
+    name: "Veste coupe-vent imperméable mixte grise à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-gris.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris gris.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 33,
+    name: "Veste coupe-vent imperméable mixte rose à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-rose.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris rose.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 34,
+    name: "Veste coupe-vent imperméable mixte kaki à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-kaki.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris kaki.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 35,
+    name: "Veste coupe-vent imperméable mixte ivoire à capuche",
+    price: 12500,
+    cat: "Vêtements",
+    image: "images/veste-reebok-ivoire.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris ivoire.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+
+  {
+    id: 36,
+    name: "T-Shirt Lapin DAB Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-lapin.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif lapin DAB, style fun et original."
+  },
+  {
+    id: 37,
+    name: "T-Shirt Chien DAB Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-chien.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif chien DAB, style streetwear et décontracté."
+  },
+  {
+    id: 38,
+    name: "T-Shirt Chat Street Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-chat-street.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif chat noir style streetwear et lunettes."
+  },
+  {
+    id: 39,
+    name: "T-Shirt Chat DAB Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-chat.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif chat gris DAB, style fun et tendance."
+  },
+  {
+    id: 40,
+    name: "T-Shirt Panda DAB Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-panda.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif panda DAB et lunettes violettes."
+  },
+  {
+    id: 41,
+    name: "T-Shirt Licorne DAB Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-licorne.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif licorne colorée DAB, style original."
+  },
+  {
+    id: 42,
+    name: "T-Shirt Zèbre DAB Unisex",
+    price: 5500,
+    cat: "Vêtements",
+    image: "images/t-shirt-blanc-zebre.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif zèbre DAB et lunettes violettes."
+  },
+
+  {
+    id: 43,
+    name: "Pompe à Air Électrique Portable",
+    price: 3000,
+    cat: "High-Tech",
+    image: "images/pompe-a-air.png",
+    emoji: "💨",
+    desc: "Pompe à air électrique portable rechargeable USB-C, batterie 1500mAh, pression jusqu'à 4000 Pa et 3 embouts."
+  },
+  {
+    id: 44,
+    name: "Mini boîte de brillant à lèvres",
+    price: 1990,
+    cat: "Beauté",
+    image: "images/mini-boite-brillant-levres.png",
+    emoji: "💄",
+    desc: "Mat velours, waterproof, 4 parfums.",
+    flavors: [
+      "🍊 Orange",
+      "🍑 Honey Peach",
+      "🍒 Cherry",
+      "🍓 Strawberry"
+    ]
+  },
+  {
+    id: 45,
+    name: "Ensemble de 3 brillants à lèvres",
+    price: 590,
+    cat: "Beauté",
+    image: "images/ensemble-3-brillants-levres.png",
+    emoji: "💄",
+    desc: "Ensemble de 3 brillants à lèvres, waterproof, tenue 24H.",
+    finishes: [
+      "💄 Mat",
+      "✨ Velours",
+      "💎 Brillant"
+    ],
+    colors: [
+      "Couleur 01",
+      "Couleur 02",
+      "Couleur 03",
+      "Couleur 04",
+      "Couleur 05",
+      "Couleur 06",
+      "Couleur 07",
+      "Couleur 08",
+      "Couleur 09",
+      "Couleur 10",
+      "Couleur 11",
+      "Couleur 12"
+    ]
+  },
+  {
+    id: 46,
+    name: "Eye-liner liquide noir",
+    price: 390,
+    cat: "Beauté",
+    image: "images/eye-liner-liquide-noir.png",
+    emoji: "🖊️",
+    desc: "Longue durée, waterproof, 1 ml. 1 pièce."
+  }
 ];
 
 
@@ -665,259 +779,268 @@ function renderProducts(){
   );
 
   document.getElementById('products').innerHTML = list.length
-    ? list.map(p => `
+    ? list.map(p => {
 
-      <article class="product">
+        const firstPrice =
+          p.storages && p.storages.length
+            ? p.storages[0].price
+            : p.price;
 
-        <div class="product-img">
-          <img
-            src="${p.image}"
-            alt="${p.name}"
-            loading="lazy"
-            onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
+        return `
+
+    <article class="product">
+
+      <div class="product-img">
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
+        >
+      </div>
+
+      <div class="product-body">
+
+        <span class="pill">${p.cat}</span>
+
+        <h3>${p.name}</h3>
+
+        <p>${p.desc}</p>
+
+
+        <!-- ===== PARFUM ===== -->
+
+        ${
+          p.flavors
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="flavor-${p.id}">
+                  Parfum :
+                </label>
+
+                <select
+                  id="flavor-${p.id}"
+                  class="flavor-select"
+                >
+                  ${p.flavors.map(flavor => `
+                    <option value="${flavor}">
+                      ${flavor}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== FINITION ===== -->
+
+        ${
+          p.finishes
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="finish-${p.id}">
+                  Finition :
+                </label>
+
+                <select
+                  id="finish-${p.id}"
+                  class="finish-select"
+                >
+                  ${p.finishes.map(finish => `
+                    <option value="${finish}">
+                      ${finish}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== COULEUR ===== -->
+
+        ${
+          p.colors
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="color-${p.id}">
+                  Couleur :
+                </label>
+
+                <select
+                  id="color-${p.id}"
+                  class="color-select"
+                >
+                  ${p.colors.map(color => `
+                    <option value="${color}">
+                      ${color}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== TAILLE ===== -->
+
+        ${
+          p.sizes
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="size-${p.id}">
+                  Taille :
+                </label>
+
+                <select
+                  id="size-${p.id}"
+                  class="size-select"
+                >
+                  ${p.sizes.map(size => `
+                    <option value="${size}">
+                      ${size}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== STOCKAGE ===== -->
+
+        ${
+          p.storages
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="storage-${p.id}">
+                  💾 Stockage :
+                </label>
+
+                <select
+                  id="storage-${p.id}"
+                  class="storage-select"
+                  onchange="updateStoragePrice(${p.id})"
+                >
+                  ${p.storages.map(storage => `
+                    <option
+                      value="${storage.name}"
+                      data-price="${storage.price}"
+                    >
+                      ${storage.name} - ${money(storage.price)}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== PRIX / QUANTITÉ / AJOUTER ===== -->
+
+        <div class="product-bottom">
+
+          <strong
+            id="price-${p.id}"
+            class="product-price"
           >
-        </div>
-
-        <div class="product-body">
-
-          <span class="pill">${p.cat}</span>
-
-          <h3>${p.name}</h3>
-
-          <p>${p.desc}</p>
+            ${money(firstPrice)}
+          </strong>
 
 
-          <!-- ===== PARFUM ===== -->
+          <div class="quantity-control">
 
-          ${
-            p.flavors
-            ? `
-              <div class="beauty-options">
-                <div class="beauty-option">
-                  <label for="flavor-${p.id}">
-                    Parfum :
-                  </label>
+            <span class="quantity-label">
+              Quantité :
+            </span>
 
-                  <select
-                    id="flavor-${p.id}"
-                    class="flavor-select"
-                  >
-                    ${p.flavors.map(flavor => `
-                      <option value="${flavor}">
-                        ${flavor}
-                      </option>
-                    `).join('')}
-                  </select>
+            <div class="quantity-buttons">
 
-                </div>
-              </div>
-            `
-            : ''
-          }
+              <button
+                type="button"
+                class="qty-btn"
+                onclick="changeQty(${p.id},-1)"
+                aria-label="Diminuer la quantité"
+              >
+                −
+              </button>
 
-
-          <!-- ===== FINITION ===== -->
-
-          ${
-            p.finishes
-            ? `
-              <div class="beauty-options">
-                <div class="beauty-option">
-
-                  <label for="finish-${p.id}">
-                    Finition :
-                  </label>
-
-                  <select
-                    id="finish-${p.id}"
-                    class="finish-select"
-                  >
-                    ${p.finishes.map(finish => `
-                      <option value="${finish}">
-                        ${finish}
-                      </option>
-                    `).join('')}
-                  </select>
-
-                </div>
-              </div>
-            `
-            : ''
-          }
-
-
-          <!-- ===== COULEUR ===== -->
-
-          ${
-            p.colors
-            ? `
-              <div class="beauty-options">
-                <div class="beauty-option">
-
-                  <label for="color-${p.id}">
-                    Couleur :
-                  </label>
-
-                  <select
-                    id="color-${p.id}"
-                    class="color-select"
-                  >
-                    ${p.colors.map(color => `
-                      <option value="${color}">
-                        ${color}
-                      </option>
-                    `).join('')}
-                  </select>
-
-                </div>
-              </div>
-            `
-            : ''
-          }
-
-
-          <!-- ===== TAILLE ===== -->
-
-          ${
-            p.sizes
-            ? `
-              <div class="beauty-options">
-                <div class="beauty-option">
-
-                  <label for="size-${p.id}">
-                    Taille :
-                  </label>
-
-                  <select
-                    id="size-${p.id}"
-                    class="size-select"
-                  >
-                    ${p.sizes.map(size => `
-                      <option value="${size}">
-                        ${size}
-                      </option>
-                    `).join('')}
-                  </select>
-
-                </div>
-              </div>
-            `
-            : ''
-          }
-
-
-          <!-- ===== STOCKAGE ===== -->
-
-          ${
-            p.storages
-            ? `
-              <div class="beauty-options">
-
-                <div class="beauty-option">
-
-                  <label for="storage-${p.id}">
-                    💾 Stockage :
-                  </label>
-
-                  <select
-                    id="storage-${p.id}"
-                    class="storage-select"
-                    onchange="updateStoragePrice(${p.id})"
-                  >
-                    ${p.storages.map(storage => `
-                      <option value="${storage.name}" data-price="${storage.price}">
-                        ${storage.name} - ${money(storage.price)}
-                      </option>
-                    `).join('')}
-                  </select>
-
-                </div>
-
-              </div>
-            `
-            : ''
-          }
-
-
-          <!-- ===== PRIX ===== -->
-
-          <div class="product-bottom">
-
-            <strong id="price-${p.id}">
-              ${
-                p.storages
-                ? money(p.storages[0].price)
-                : money(p.price)
-              }
-            </strong>
-
-
-            <!-- ===== QUANTITÉ ===== -->
-
-            <div class="quantity-control">
-
-              <span class="quantity-label">
-                Quantité :
+              <span
+                id="qty-${p.id}"
+                class="qty-value"
+              >
+                1
               </span>
 
-              <div class="quantity-buttons">
-
-                <button
-                  type="button"
-                  class="qty-btn"
-                  onclick="changeQty(${p.id}, -1)"
-                >
-                  −
-                </button>
-
-                <span
-                  id="qty-${p.id}"
-                  class="qty-value"
-                >
-                  1
-                </span>
-
-                <button
-                  type="button"
-                  class="qty-btn"
-                  onclick="changeQty(${p.id}, 1)"
-                >
-                  +
-                </button>
-
-              </div>
+              <button
+                type="button"
+                class="qty-btn"
+                onclick="changeQty(${p.id},1)"
+                aria-label="Augmenter la quantité"
+              >
+                +
+              </button>
 
             </div>
 
-
-            <!-- ===== AJOUTER ===== -->
-
-            <button
-              type="button"
-              onclick="add(${p.id})"
-            >
-              Ajouter
-            </button>
-
           </div>
+
+
+          <button
+            type="button"
+            onclick="add(${p.id})"
+          >
+            Ajouter
+          </button>
 
         </div>
 
-      </article>
+      </div>
 
-    `).join('')
+    </article>
 
+  `;
+
+      }).join('')
     : '<p>Aucun produit trouvé.</p>';
 }
-  function changeProductQty(id, amount){
 
-  const qtyElement =
+
+function changeQty(id, amount){
+
+  const element =
     document.getElementById(`qty-${id}`);
 
-  if(!qtyElement) return;
+  if(!element) return;
 
   let qty =
-    Number(qtyElement.textContent) || 1;
+    parseInt(element.textContent,10) || 1;
 
   qty += amount;
 
@@ -925,19 +1048,40 @@ function renderProducts(){
     qty = 1;
   }
 
-  if(qty > 99){
-    qty = 99;
-  }
-
-  qtyElement.textContent = qty;
+  element.textContent = qty;
 }
-  
+
+
+function updateStoragePrice(id){
+
+  const p =
+    products.find(x => x.id === id);
+
+  if(!p || !p.storages) return;
+
+  const select =
+    document.getElementById(`storage-${id}`);
+
+  const priceElement =
+    document.getElementById(`price-${id}`);
+
+  if(!select || !priceElement) return;
+
+  const selected =
+    p.storages.find(x => x.name === select.value);
+
+  if(selected){
+    priceElement.textContent =
+      money(selected.price);
+  }
+}
+
+
 function add(id){
 
   const p = products.find(x => x.id === id);
 
   if(!p) return;
-
 
   let flavor = "";
   let finish = "";
@@ -948,63 +1092,45 @@ function add(id){
   let qty = 1;
 
 
-  /* ===== PARFUM ===== */
-
   if(p.flavors){
-
     const select =
       document.getElementById(`flavor-${id}`);
 
     if(select){
       flavor = select.value;
     }
-
   }
 
 
-  /* ===== FINITION ===== */
-
   if(p.finishes){
-
     const select =
       document.getElementById(`finish-${id}`);
 
     if(select){
       finish = select.value;
     }
-
   }
 
 
-  /* ===== COULEUR ===== */
-
   if(p.colors){
-
     const select =
       document.getElementById(`color-${id}`);
 
     if(select){
       color = select.value;
     }
-
   }
 
 
-  /* ===== TAILLE ===== */
-
   if(p.sizes){
-
     const select =
       document.getElementById(`size-${id}`);
 
     if(select){
       size = select.value;
     }
-
   }
 
-
-  /* ===== STOCKAGE ===== */
 
   if(p.storages){
 
@@ -1023,43 +1149,31 @@ function add(id){
       if(selected){
         price = selected.price;
       }
-
     }
-
   }
 
-
-  /* ===== QUANTITÉ ===== */
 
   const qtyElement =
     document.getElementById(`qty-${id}`);
 
   if(qtyElement){
-
     qty =
       Math.max(
         1,
-        parseInt(qtyElement.textContent) || 1
+        parseInt(qtyElement.textContent,10) || 1
       );
-
   }
 
 
-  /* ===== IDENTIFIANT UNIQUE ===== */
-
   const cartId = [
-
     id,
     flavor,
     finish,
     color,
     size,
     storage
-
   ].filter(Boolean).join("-");
 
-
-  /* ===== PRODUIT DÉJÀ DANS LE PANIER ===== */
 
   const found =
     cart.find(x => x.cartId === cartId);
@@ -1072,65 +1186,70 @@ function add(id){
   }else{
 
     cart.push({
-
       ...p,
-
       price: price,
-
       qty: qty,
-
       cartId: cartId,
-
       flavor: flavor,
-
       finish: finish,
-
       color: color,
-
       size: size,
-
       storage: storage
-
     });
 
   }
 
 
   updateCart();
-
-}
-  /* Remet le sélecteur à 1 après ajout */
-  if(qtySelect) qtySelect.value = "1";
 }
 
-function remove(cartId){
-  cart = cart.filter(x => x.cartId !== cartId);
+
+function remove(id){
+
+  cart =
+    cart.filter(x => x.id !== id);
+
   updateCart();
   openCart();
 }
+
 
 function updateCart(){
 
   document.getElementById('cartCount').textContent =
     cart.reduce((s,x) => s + x.qty, 0);
 
+
   const productsTotal =
-    cart.reduce((s,x) => s + x.price * x.qty, 0);
+    cart.reduce(
+      (s,x) => s + x.price * x.qty,
+      0
+    );
+
 
   const deliveryFee =
-    Number(document.getElementById('deliveryZone')?.value || 0);
+    Number(
+      document.getElementById('deliveryZone')?.value || 0
+    );
 
-  const total = productsTotal + deliveryFee;
 
-  document.getElementById('cartTotal').textContent = money(total);
+  const total =
+    productsTotal + deliveryFee;
 
-  document.getElementById('orderSummary').innerHTML = cart.length
+
+  document.getElementById('cartTotal').textContent =
+    money(total);
+
+
+  document.getElementById('orderSummary').innerHTML =
+    cart.length
 
     ? cart.map(x => `
 
         <div class="order-line">
 
           <span>
+
             <strong>${x.name}</strong>
             × ${x.qty}
 
@@ -1158,6 +1277,12 @@ function updateCart(){
               : ''
             }
 
+            ${
+              x.storage
+              ? `<br><small>💾 Stockage : ${x.storage}</small>`
+              : ''
+            }
+
           </span>
 
           <strong>
@@ -1169,28 +1294,31 @@ function updateCart(){
       `).join('')
 
     : "Votre panier est vide.";
-
 }
-function changeCartQty(cartId, delta){
-  const item = cart.find(x => x.cartId === cartId);
-  if(!item) return;
 
-  item.qty += delta;
-
-  if(item.qty <= 0){
-    cart = cart.filter(x => x.cartId !== cartId);
-  }
-
-  updateCart();
-  openCart();
-}
 
 function openCart(){
-  const productsTotal = cart.reduce((s,x)=>s+x.price*x.qty,0);
-const deliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
-const total = productsTotal + deliveryFee;
- document.getElementById('modalItems').innerHTML = cart.length
-  ? cart.map(x => `
+
+  const productsTotal =
+    cart.reduce(
+      (s,x) => s + x.price * x.qty,
+      0
+    );
+
+  const deliveryFee =
+    Number(
+      document.getElementById('deliveryZone')?.value || 0
+    );
+
+  const total =
+    productsTotal + deliveryFee;
+
+
+  document.getElementById('modalItems').innerHTML =
+
+    cart.length
+
+    ? cart.map(x => `
 
       <div class="cart-item">
 
@@ -1198,7 +1326,9 @@ const total = productsTotal + deliveryFee;
 
           <strong>${x.name}</strong>
 
-          <span>Quantité : ${x.qty}</span>
+          <span>
+            Quantité : ${x.qty}
+          </span>
 
           ${
             x.size
@@ -1224,13 +1354,12 @@ const total = productsTotal + deliveryFee;
             : ''
           }
 
-        </div>
+          ${
+            x.storage
+            ? `<small>💾 Stockage : ${x.storage}</small>`
+            : ''
+          }
 
-        <div class="cart-item-actions">
-          <button type="button" onclick="changeCartQty('${x.cartId}', -1)" aria-label="Diminuer la quantité">−</button>
-          <span>${x.qty}</span>
-          <button type="button" onclick="changeCartQty('${x.cartId}', 1)" aria-label="Augmenter la quantité">+</button>
-          <button type="button" onclick="remove('${x.cartId}')" aria-label="Supprimer">🗑️</button>
         </div>
 
         <strong>
@@ -1240,98 +1369,151 @@ const total = productsTotal + deliveryFee;
       </div>
 
     `).join('')
-  : '<p>Votre panier est vide.</p>';
-  document.getElementById('modalTotal').textContent=money(total);
+
+    : '<p>Votre panier est vide.</p>';
+
+
+  document.getElementById('modalTotal').textContent =
+    money(total);
+
   document.getElementById('cartModal').classList.add('show');
 }
 
+
 function closeCart(){
-  document.getElementById('cartModal').classList.remove('show');
+
+  document
+    .getElementById('cartModal')
+    .classList.remove('show');
+
 }
+
 
 function sendOrder(e){
 
   e.preventDefault();
 
+
   if(!cart.length){
-    alert("Ajoute au moins un produit au panier.");
+
+    alert(
+      "Ajoute au moins un produit au panier."
+    );
+
     return;
   }
 
-  const form = e.currentTarget;
 
-  const name = form.elements["name"]?.value.trim() || "";
-  const phone = form.elements["phone"]?.value.trim() || "";
-  const email = form.elements["email"]?.value.trim() || "";
-  const address = form.elements["address"]?.value.trim() || "";
+  const form = e.target;
 
-  const lines = cart.map((x, i) => {
+
+  const name =
+    form.querySelector('[name="name"]')?.value.trim() || "";
+
+
+  const phone =
+    form.querySelector('[name="phone"]')?.value.trim() || "";
+
+
+  const email =
+    form.querySelector('[name="email"]')?.value.trim() || "";
+
+
+  const address =
+    form.querySelector('[name="address"]')?.value.trim() || "";
+
+
+  const lines = cart.map((x,i) => {
 
     let details = "";
+
 
     if(x.size){
       details += `\nTaille : ${x.size}`;
     }
 
+
     if(x.flavor){
       details += `\nParfum : ${x.flavor}`;
     }
+
 
     if(x.finish){
       details += `\nFinition : ${x.finish}`;
     }
 
+
     if(x.color){
       details += `\nCouleur : ${x.color}`;
     }
 
+
+    if(x.storage){
+      details += `\nStockage : ${x.storage}`;
+    }
+
+
     return `${i + 1}. ${x.name}
 Quantité : ${x.qty}${details}
-Prix unitaire : ${money(x.price)}
-Total ligne : ${money(x.price * x.qty)}`;
+Prix : ${money(x.price * x.qty)}`;
 
   }).join("\n\n--------------------\n\n");
 
+
   const productsTotal =
-    cart.reduce((s,x) => s + x.price * x.qty, 0);
+    cart.reduce(
+      (s,x) => s + x.price * x.qty,
+      0
+    );
+
 
   const deliverySelect =
     document.getElementById("deliveryZone");
 
+
   const deliveryFee =
-    Number(deliverySelect?.value || 0);
+    Number(
+      deliverySelect?.value || 0
+    );
+
 
   const deliveryText =
     deliveryFee === 0
       ? "Papara à Taravao • Livraison gratuite"
       : "Autres destinations sur Tahiti • + 1 500 Frs";
 
+
   const total =
     productsTotal + deliveryFee;
 
-  /* ===== PARAMÈTRES EXACTS DU TEMPLATE EMAILJS ===== */
+
   const templateParams = {
+
     name: name,
     phone: phone,
     email: email,
     address: address,
+
     order: lines,
-    products_total: money(productsTotal),
-    delivery: deliveryText,
-    total: money(total)
+
+    products_total:
+      money(productsTotal),
+
+    delivery:
+      deliveryText,
+
+    total:
+      money(total)
+
   };
 
-  const submitButton = form.querySelector('button[type="submit"]');
-  if(submitButton){
-    submitButton.disabled = true;
-    submitButton.textContent = "Envoi en cours…";
-  }
 
   emailjs.send(
     "service_yozt0ns",
     "template_7seldam",
     templateParams
   )
+
   .then(function(response){
 
     console.log(
@@ -1340,30 +1522,37 @@ Total ligne : ${money(x.price * x.qty)}`;
       response.text
     );
 
+
     alert(
       "✅ Votre commande a bien été envoyée !\n\nMerci pour votre commande chez Fenua Select."
     );
 
+
     cart.length = 0;
+
     updateCart();
+
     form.reset();
 
   })
+
   .catch(function(error){
 
-    console.error("ERREUR EMAILJS :", error);
-
-    alert(
-      "❌ Erreur lors de l'envoi de la commande.\n\n" +
-      (error?.text || error?.message || JSON.stringify(error))
+    console.error(
+      "ERREUR EMAILJS :",
+      error
     );
 
-  })
-  .finally(function(){
-    if(submitButton){
-      submitButton.disabled = false;
-      submitButton.textContent = "Envoyer ma demande de commande";
-    }
+
+    alert(
+      "❌ Erreur EmailJS :\n\n" +
+      (
+        error?.text ||
+        error?.message ||
+        JSON.stringify(error)
+      )
+    );
+
   });
 
 }
