@@ -664,202 +664,250 @@ function renderProducts(){
     )
   );
 
-  document.getElementById('products').innerHTML = list.length ? list.map(p => `
+  document.getElementById('products').innerHTML = list.length
+    ? list.map(p => `
 
-    <article class="product">
+      <article class="product">
 
-      <div class="product-img">
-        <img
-          src="${p.image}"
-          alt="${p.name}"
-          loading="lazy"
-          onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
-        >
-      </div>
+        <div class="product-img">
+          <img
+            src="${p.image}"
+            alt="${p.name}"
+            loading="lazy"
+            onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
+          >
+        </div>
 
-      <div class="product-body">
+        <div class="product-body">
 
-        <span class="pill">${p.cat}</span>
+          <span class="pill">${p.cat}</span>
 
-        <h3>${p.name}</h3>
+          <h3>${p.name}</h3>
 
-        <p>${p.desc}</p>
+          <p>${p.desc}</p>
 
-        <!-- ===== PARFUM ===== -->
 
-        ${
-          p.flavors
-          ? `
-            <div class="beauty-options">
+          <!-- ===== PARFUM ===== -->
 
-              <div class="beauty-option">
+          ${
+            p.flavors
+            ? `
+              <div class="beauty-options">
+                <div class="beauty-option">
+                  <label for="flavor-${p.id}">
+                    Parfum :
+                  </label>
 
-                <label for="flavor-${p.id}">
-                  Parfum :
-                </label>
+                  <select
+                    id="flavor-${p.id}"
+                    class="flavor-select"
+                  >
+                    ${p.flavors.map(flavor => `
+                      <option value="${flavor}">
+                        ${flavor}
+                      </option>
+                    `).join('')}
+                  </select>
 
-                <select
-                  id="flavor-${p.id}"
-                  class="flavor-select"
+                </div>
+              </div>
+            `
+            : ''
+          }
+
+
+          <!-- ===== FINITION ===== -->
+
+          ${
+            p.finishes
+            ? `
+              <div class="beauty-options">
+                <div class="beauty-option">
+
+                  <label for="finish-${p.id}">
+                    Finition :
+                  </label>
+
+                  <select
+                    id="finish-${p.id}"
+                    class="finish-select"
+                  >
+                    ${p.finishes.map(finish => `
+                      <option value="${finish}">
+                        ${finish}
+                      </option>
+                    `).join('')}
+                  </select>
+
+                </div>
+              </div>
+            `
+            : ''
+          }
+
+
+          <!-- ===== COULEUR ===== -->
+
+          ${
+            p.colors
+            ? `
+              <div class="beauty-options">
+                <div class="beauty-option">
+
+                  <label for="color-${p.id}">
+                    Couleur :
+                  </label>
+
+                  <select
+                    id="color-${p.id}"
+                    class="color-select"
+                  >
+                    ${p.colors.map(color => `
+                      <option value="${color}">
+                        ${color}
+                      </option>
+                    `).join('')}
+                  </select>
+
+                </div>
+              </div>
+            `
+            : ''
+          }
+
+
+          <!-- ===== TAILLE ===== -->
+
+          ${
+            p.sizes
+            ? `
+              <div class="beauty-options">
+                <div class="beauty-option">
+
+                  <label for="size-${p.id}">
+                    Taille :
+                  </label>
+
+                  <select
+                    id="size-${p.id}"
+                    class="size-select"
+                  >
+                    ${p.sizes.map(size => `
+                      <option value="${size}">
+                        ${size}
+                      </option>
+                    `).join('')}
+                  </select>
+
+                </div>
+              </div>
+            `
+            : ''
+          }
+
+
+          <!-- ===== STOCKAGE ===== -->
+
+          ${
+            p.storages
+            ? `
+              <div class="beauty-options">
+
+                <div class="beauty-option">
+
+                  <label for="storage-${p.id}">
+                    💾 Stockage :
+                  </label>
+
+                  <select
+                    id="storage-${p.id}"
+                    class="storage-select"
+                    onchange="updateStoragePrice(${p.id})"
+                  >
+                    ${p.storages.map(storage => `
+                      <option value="${storage.name}" data-price="${storage.price}">
+                        ${storage.name} - ${money(storage.price)}
+                      </option>
+                    `).join('')}
+                  </select>
+
+                </div>
+
+              </div>
+            `
+            : ''
+          }
+
+
+          <!-- ===== PRIX ===== -->
+
+          <div class="product-bottom">
+
+            <strong id="price-${p.id}">
+              ${
+                p.storages
+                ? money(p.storages[0].price)
+                : money(p.price)
+              }
+            </strong>
+
+
+            <!-- ===== QUANTITÉ ===== -->
+
+            <div class="quantity-control">
+
+              <span class="quantity-label">
+                Quantité :
+              </span>
+
+              <div class="quantity-buttons">
+
+                <button
+                  type="button"
+                  class="qty-btn"
+                  onclick="changeQty(${p.id}, -1)"
                 >
+                  −
+                </button>
 
-                  ${p.flavors.map(flavor => `
-                    <option value="${flavor}">
-                      ${flavor}
-                    </option>
-                  `).join('')}
+                <span
+                  id="qty-${p.id}"
+                  class="qty-value"
+                >
+                  1
+                </span>
 
-                </select>
+                <button
+                  type="button"
+                  class="qty-btn"
+                  onclick="changeQty(${p.id}, 1)"
+                >
+                  +
+                </button>
 
               </div>
 
             </div>
-          `
-          : ''
-        }
 
-        <!-- ===== FINITION ===== -->
 
-        ${
-          p.finishes
-          ? `
-            <div class="beauty-options">
+            <!-- ===== AJOUTER ===== -->
 
-              <div class="beauty-option">
+            <button
+              type="button"
+              onclick="add(${p.id})"
+            >
+              Ajouter
+            </button>
 
-                <label for="finish-${p.id}">
-                  Finition :
-                </label>
+          </div>
 
-                <select
-                  id="finish-${p.id}"
-                  class="finish-select"
-                >
+        </div>
 
-                  ${p.finishes.map(finish => `
-                    <option value="${finish}">
-                      ${finish}
-                    </option>
-                  `).join('')}
+      </article>
 
-                </select>
+    `).join('')
 
-              </div>
-
-            </div>
-          `
-          : ''
-        }
-
-        <!-- ===== COULEUR ===== -->
-
-        ${
-          p.colors
-          ? `
-            <div class="beauty-options">
-
-              <div class="beauty-option">
-
-                <label for="color-${p.id}">
-                  Couleur :
-                </label>
-
-                <select
-                  id="color-${p.id}"
-                  class="color-select"
-                >
-
-                  ${p.colors.map(color => `
-                    <option value="${color}">
-                      ${color}
-                    </option>
-                  `).join('')}
-
-                </select>
-
-              </div>
-
-            </div>
-          `
-          : ''
-        }
-
-        <!-- ===== TAILLE ===== -->
-
-        ${
-          p.sizes
-          ? `
-            <div class="beauty-options">
-
-              <div class="beauty-option">
-
-                <label for="size-${p.id}">
-                  Taille :
-                </label>
-
-                <select
-                  id="size-${p.id}"
-                  class="size-select"
-                >
-
-                  ${p.sizes.map(size => `
-                    <option value="${size}">
-                      ${size}
-                    </option>
-                  `).join('')}
-
-                </select>
-
-              </div>
-
-            </div>
-          `
-          : ''
-        }
-
-        <!-- ===== QUANTITÉ + PRIX + AJOUTER ===== -->
-
-      <div class="quantity-control">
-
-  <span class="quantity-label">Quantité</span>
-
-  <div class="quantity-buttons">
-
-    <button
-      type="button"
-      class="quantity-btn"
-      onclick="changeProductQty(${p.id}, -1)"
-      aria-label="Diminuer la quantité"
-    >−</button>
-
-    <span
-      id="qty-${p.id}"
-      class="quantity-value"
-    >1</span>
-
-    <button
-      type="button"
-      class="quantity-btn"
-      onclick="changeProductQty(${p.id}, 1)"
-      aria-label="Augmenter la quantité"
-    >+</button>
-
-  </div>
-
-  <button
-    type="button"
-    class="add-btn"
-    onclick="add(${p.id})"
-  >
-    Ajouter
-  </button>
-
-</div>
-      
-
-    </article>
-
-  `).join('') : '<p>Aucun produit trouvé.</p>';
+    : '<p>Aucun produit trouvé.</p>';
 }
   function changeProductQty(id, amount){
 
