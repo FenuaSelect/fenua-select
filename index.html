@@ -22,6 +22,9 @@
   emailjs.init({
     publicKey: "LoKilFOBxDhU2M-r7"
   });
+
+  // ===== GOOGLE SHEETS INTERNE =====
+  const FENUA_GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyCPeJnvn9-q0n4a0qSvGU1ETWE_zidP1qXR67hInX11mbJ9JNlU8YMiFSgZUa1D-PK/exec";
 </script>
 
 <!-- ===== FIN EMAILJS ===== -->
@@ -1529,6 +1532,22 @@ function closeCart(){
 }
 
 
+async function sendOrderToGoogleSheets(payload){
+  try {
+    await fetch(FENUA_GOOGLE_SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
+    });
+    console.log("Commande enregistrée dans Google Sheets.");
+  } catch(error) {
+    console.error("Google Sheets :", error);
+  }
+}
+
 function sendOrder(e){
 
   e.preventDefault();
@@ -1669,6 +1688,44 @@ Prix : ${money(x.price * x.qty)}`;
 
 
   /* =========================
+     ENREGISTREMENT INTERNE GOOGLE SHEETS
+     Cette copie est destinée uniquement au tableau privé.
+  ========================= */
+
+  const orderNumber = "FS-" + Date.now();
+  const internalOrder = {
+    order_number: orderNumber,
+    date: new Date().toLocaleString("fr-FR"),
+    name: name,
+    phone: phone,
+    email: email,
+    address: address,
+    city: deliveryText,
+    delivery: deliveryText,
+    delivery_fee: deliveryFee,
+    total: total,
+    payment: "",
+    payment_received: "",
+    status: "Nouveau",
+    notes: "",
+    order: cart.map(function(x){
+      return {
+        product: x.name || "",
+        color: x.color || "",
+        variant: x.finish || "",
+        flavor: x.flavor || "",
+        size: x.size || "",
+        storage: x.storage || "",
+        quantity: x.qty || 0,
+        price: x.price || 0,
+        total: (x.price || 0) * (x.qty || 0)
+      };
+    })
+  };
+
+  sendOrderToGoogleSheets(internalOrder);
+
+  /* =========================
      ENVOI EMAILJS
   ========================= */
 
@@ -1725,4 +1782,5 @@ updateCart();
 </script>
 </body>
 </html>
+
 
