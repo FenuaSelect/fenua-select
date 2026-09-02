@@ -242,6 +242,10 @@ document.addEventListener("DOMContentLoaded", function () {
   <img src="logo.png" alt="Fenua Select">
   <p>LA QUALITÉ • LE CHOIX • LE PRIX</p>
   <p>📧 fenuaselect@gmail.com • Facebook : Fenua Select</p>
+
+  <p class="delivery-note">
+    <strong>* Délai indicatif :</strong> 3 à 5 semaines, voire plus, selon la disponibilité du produit et les délais du fournisseur.
+  </p>
 </footer>
 
 <div id="cartModal" class="modal" onclick="closeCart()">
@@ -1097,14 +1101,13 @@ function renderProducts(){
 
         <!-- ===== PRIX / QUANTITÉ / AJOUTER ===== -->
 
-        <div class="product-bottom">
+       <div class="product-bottom">
+  <strong>${money(p.price)}*</strong>
 
-          <strong
-            id="price-${p.id}"
-            class="product-price"
-          >
-            ${money(firstPrice)}
-          </strong>
+  <button onclick="add(${p.id})">
+    Ajouter
+  </button>
+</div>
 
 
           <div class="quantity-control">
