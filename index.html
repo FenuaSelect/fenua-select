@@ -1136,11 +1136,13 @@ function renderProducts(){
 
         <!-- ===== PRIX / QUANTITÉ / AJOUTER ===== -->
 
-     <div class="product-bottom">
+   <div class="product-bottom">
 
   <strong>${money(p.price)}</strong>
 
-  <button onclick="add(${p.id})">
+  <button
+    class="${p.preorder ? 'preorder-btn' : ''}"
+    onclick="add(${p.id})">
     ${p.preorder ? "🎄 PRÉCOMMANDER NOËL" : "Ajouter"}
   </button>
 
