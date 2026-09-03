@@ -1453,25 +1453,32 @@ function updateCart(){
   document.getElementById('cartCount').textContent =
     cart.reduce((s,x) => s + x.qty, 0);
 
+  const productsTotal =
+    cart.reduce((s, x) => s + x.price * x.qty, 0);
 
-const productsTotal =
-  cart.reduce((s, x) => s + x.price * x.qty, 0);
+  const hasPreorder =
+    cart.some(x => x.preorder === true);
 
-const hasPreorder =
-  cart.some(x => x.preorder === true);
+  const deliveryFee =
+    hasPreorder
+      ? 0
+      : Number(document.getElementById('deliveryZone')?.value || 0);
 
-const deliveryFee =
-  hasPreorder
-    ? 0
-    : Number(document.getElementById('deliveryZone')?.value || 0);
+  const total =
+    productsTotal + deliveryFee;
 
-const total =
-  productsTotal + deliveryFee;
+  const acompte =
+    hasPreorder
+      ? Math.round(total * 0.50)
+      : 0;
 
+  const solde =
+    hasPreorder
+      ? total - acompte
+      : 0;
 
   document.getElementById('cartTotal').textContent =
     money(total);
-
 
   document.getElementById('orderSummary').innerHTML =
     cart.length
@@ -1526,7 +1533,43 @@ const total =
       `).join('')
 
     : "Votre panier est vide.";
+
+  if(hasPreorder){
+
+    document.getElementById('orderSummary').innerHTML += `
+
+      <div class="preorder-info">
+
+        <div class="preorder-title">
+          🎄 PRÉCOMMANDE
+        </div>
+
+        <div class="preorder-line">
+          💰 <strong>Acompte de 50 % à la commande :
+          ${money(acompte)}</strong>
+        </div>
+
+        <div class="preorder-line">
+          📦 <strong>Solde de 50 % à la livraison :
+          ${money(solde)}</strong>
+        </div>
+
+        <div class="preorder-line">
+          🚚 <strong>Livraison offerte</strong>
+        </div>
+
+        <div class="preorder-warning">
+          ⚠️ L'acompte de 50 % constitue un engagement ferme
+          et n'est pas remboursable en cas d'annulation par le client,
+          sous réserve des exceptions légales applicables.
+        </div>
+
+      </div>
+
+    `;
+  }
 }
+
 
 
 function openCart(){
@@ -1537,14 +1580,28 @@ function openCart(){
       0
     );
 
+  const hasPreorder =
+    cart.some(x => x.preorder === true);
+
   const deliveryFee =
-    Number(
-      document.getElementById('deliveryZone')?.value || 0
-    );
+    hasPreorder
+      ? 0
+      : Number(
+          document.getElementById('deliveryZone')?.value || 0
+        );
 
   const total =
     productsTotal + deliveryFee;
 
+  const acompte =
+    hasPreorder
+      ? Math.round(total * 0.50)
+      : 0;
+
+  const solde =
+    hasPreorder
+      ? total - acompte
+      : 0;
 
   document.getElementById('modalItems').innerHTML =
 
@@ -1552,69 +1609,107 @@ function openCart(){
 
     ? cart.map(x => `
 
- <div class="cart-item">
+      <div class="cart-item">
 
-  <div class="cart-item-info">
+        <div class="cart-item-info">
 
-    <strong>${x.name}</strong>
+          <strong>${x.name}</strong>
 
-    <span>Quantité : ${x.qty}</span>
+          <span>Quantité : ${x.qty}</span>
 
-    ${
-      x.size
-      ? `<small>👕 Taille : ${x.size}</small>`
-      : ''
-    }
+          ${
+            x.size
+            ? `<small>👕 Taille : ${x.size}</small>`
+            : ''
+          }
 
-    ${
-      x.flavor
-      ? `<small>🍊 Parfum : ${x.flavor}</small>`
-      : ''
-    }
+          ${
+            x.flavor
+            ? `<small>🍊 Parfum : ${x.flavor}</small>`
+            : ''
+          }
 
-    ${
-      x.finish
-      ? `<small>✨ Finition : ${x.finish}</small>`
-      : ''
-    }
+          ${
+            x.finish
+            ? `<small>✨ Finition : ${x.finish}</small>`
+            : ''
+          }
 
-    ${
-      x.color
-      ? `<small>🎨 Couleur : ${x.color}</small>`
-      : ''
-    }
+          ${
+            x.color
+            ? `<small>🎨 Couleur : ${x.color}</small>`
+            : ''
+          }
 
-  </div>
+          ${
+            x.storage
+            ? `<small>💾 Stockage : ${x.storage}</small>`
+            : ''
+          }
 
-  <div class="cart-item-actions">
+        </div>
 
-    <strong>
-      ${money(x.price * x.qty)}
-    </strong>
+        <div class="cart-item-actions">
 
-    <button
-      type="button"
-      class="remove-cart-btn"
-      onclick="removeFromCart('${x.cartId}')">
-      🗑️ Supprimer
-    </button>
+          <strong>
+            ${money(x.price * x.qty)}
+          </strong>
 
-  </div>
+          <button
+            type="button"
+            class="remove-cart-btn"
+            onclick="removeFromCart('${x.cartId}')">
+            🗑️ Supprimer
+          </button>
 
-</div>
+        </div>
+
+      </div>
 
     `).join('')
 
     : '<p>Votre panier est vide.</p>';
 
+  if(hasPreorder){
+
+    document.getElementById('modalItems').innerHTML += `
+
+      <div class="preorder-info">
+
+        <div class="preorder-title">
+          🎄 PRÉCOMMANDE
+        </div>
+
+        <div class="preorder-line">
+          💰 <strong>Acompte de 50 % à la commande :
+          ${money(acompte)}</strong>
+        </div>
+
+        <div class="preorder-line">
+          📦 <strong>Solde de 50 % à la livraison :
+          ${money(solde)}</strong>
+        </div>
+
+        <div class="preorder-line">
+          🚚 <strong>Livraison offerte</strong>
+        </div>
+
+        <div class="preorder-warning">
+          ⚠️ L'acompte de 50 % constitue un engagement ferme
+          et n'est pas remboursable en cas d'annulation par le client,
+          sous réserve des exceptions légales applicables.
+        </div>
+
+      </div>
+
+    `;
+  }
 
   document.getElementById('modalTotal').textContent =
     money(total);
 
   document.getElementById('cartModal').classList.add('show');
 }
-
-
 function closeCart(){
 
   document
@@ -1741,12 +1836,40 @@ Prix : ${money(x.price * x.qty)}`;
       : "Autres destinations sur Tahiti • + 1 500 Frs";
 
 
+ /* =========================
+     PRÉCOMMANDE
+  ========================= */
+
+  const hasPreorder =
+    cart.some(x => x.preorder === true);
+
+  const finalDeliveryFee =
+    hasPreorder
+      ? 0
+      : deliveryFee;
+
+  const finalDeliveryText =
+    hasPreorder
+      ? "🎄 Précommande • Livraison offerte"
+      : deliveryText;
+
+
   /* =========================
      TOTAL FINAL
   ========================= */
 
   const total =
-    productsTotal + deliveryFee;
+    productsTotal + finalDeliveryFee;
+
+  const acompte =
+    hasPreorder
+      ? Math.round(total * 0.50)
+      : 0;
+
+  const solde =
+    hasPreorder
+      ? total - acompte
+      : 0;
 
 
   /* =========================
@@ -1764,12 +1887,23 @@ Prix : ${money(x.price * x.qty)}`;
 
     products_total: money(productsTotal),
 
-    delivery: deliveryText,
+    delivery: finalDeliveryText,
 
-    delivery_fee: money(deliveryFee),
+    delivery_fee: money(finalDeliveryFee),
 
-    total: money(total)
+    total: money(total),
 
+    acompte: hasPreorder
+      ? money(acompte)
+      : "",
+
+    solde: hasPreorder
+      ? money(solde)
+      : "",
+
+    paiement: hasPreorder
+      ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
+      : ""
   };
 
 
