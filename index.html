@@ -77,6 +77,21 @@ button.preorder-btn:hover{
 <!-- ===== FIN EMAILJS ===== -->
 
 <style>
+/* ===== INFORMATIONS PRÉCOMMANDE ===== */
+.preorder-info{
+  margin-top:14px;
+  padding:14px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#fff8e1,#fff3cd);
+  border:1px solid #ffd54f;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+.preorder-title{font-size:16px;font-weight:800;color:#c62828;margin-bottom:10px;}
+.preorder-line{margin:6px 0;font-size:14px;color:#333;}
+.preorder-warning{margin-top:12px;padding:10px;border-radius:8px;background:#fff;border-left:4px solid #e53935;font-size:12px;line-height:1.5;color:#555;}
+</style>
+
+<style>
 /* ===== QUANTITÉS PRODUITS ===== */
 .quantity-control{
   display:flex;
@@ -261,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="order-layout">
     <div class="order-card">
       <div id="orderSummary">Votre panier est vide.</div>
-      <div class="total"><span>Total</span><strong id="cartTotal">0 F CFP</strong></div>
+      <div class="total"><span id="cartTotalLabel">Total</span><strong id="cartTotal">0 F CFP</strong></div>
     </div>
 
     <form class="order-form" onsubmit="sendOrder(event)">
@@ -301,7 +316,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <button class="close" onclick="closeCart()">×</button>
     <h2>Votre panier</h2>
     <div id="modalItems"></div>
-    <div class="total"><span>Total</span><strong id="modalTotal">0 F CFP</strong></div>
+    <div id="modalPreorderInfo"></div>
+    <div class="total"><span id="modalTotalLabel">Total</span><strong id="modalTotal">0 F CFP</strong></div>
     <a class="cta" href="#commande" onclick="closeCart()">Finaliser la commande</a>
   </div>
 </div>
@@ -1477,8 +1493,23 @@ function updateCart(){
       ? total - acompte
       : 0;
 
+  const amountToPayNow =
+    hasPreorder
+      ? acompte
+      : total;
+
   document.getElementById('cartTotal').textContent =
-    money(total);
+    money(amountToPayNow);
+
+  const cartTotalLabel =
+    document.getElementById('cartTotalLabel');
+
+  if(cartTotalLabel){
+    cartTotalLabel.textContent =
+      hasPreorder
+        ? "Acompte à payer maintenant"
+        : "Total";
+  }
 
   document.getElementById('orderSummary').innerHTML =
     cart.length
@@ -1671,24 +1702,24 @@ function openCart(){
     : '<p>Votre panier est vide.</p>';
 
 
-  /* =========================
-     INFORMATIONS PAIEMENT
-  ========================= */
+  const modalPreorderInfo =
+    document.getElementById('modalPreorderInfo');
+
+  const modalTotalLabel =
+    document.getElementById('modalTotalLabel');
 
   if(hasPreorder){
 
     document.getElementById('modalTotal').textContent =
       money(acompte);
 
-    const totalElement =
-      document.getElementById('modalTotal');
+    if(modalTotalLabel){
+      modalTotalLabel.textContent =
+        "Acompte à payer maintenant";
+    }
 
-    if(totalElement){
-
-      totalElement.insertAdjacentHTML(
-        'beforebegin',
-
-        `
+    if(modalPreorderInfo){
+      modalPreorderInfo.innerHTML = `
         <div class="preorder-info">
 
           <div class="preorder-title">
@@ -1716,9 +1747,7 @@ function openCart(){
           </div>
 
         </div>
-        `
-      );
-
+      `;
     }
 
   } else {
@@ -1726,8 +1755,15 @@ function openCart(){
     document.getElementById('modalTotal').textContent =
       money(total);
 
-  }
+    if(modalTotalLabel){
+      modalTotalLabel.textContent = "Total";
+    }
 
+    if(modalPreorderInfo){
+      modalPreorderInfo.innerHTML = "";
+    }
+
+  }
 
   document.getElementById('cartModal').classList.add('show');
 
@@ -1941,7 +1977,6 @@ Prix : ${money(x.price * x.qty)}`;
   ========================= */
 
   const orderNumber = "FS-" + Date.now();
-  const orderNumber = "FS-" + Date.now();
 
 const internalOrder = {
   order_number: orderNumber,
@@ -1952,9 +1987,9 @@ const internalOrder = {
   email: email,
   address: address,
 
-  city: deliveryText,
-  delivery: deliveryText,
-  delivery_fee: deliveryFee,
+  city: finalDeliveryText,
+  delivery: finalDeliveryText,
+  delivery_fee: finalDeliveryFee,
 
   total: total,
 
@@ -2040,5 +2075,8 @@ updateCart();
 </script>
 </body>
 </html>
+
+
+
 
 
