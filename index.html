@@ -1504,53 +1504,56 @@ function openCart(){
 
     ? cart.map(x => `
 
-      <div class="cart-item">
+ <div class="cart-item">
 
-        <div class="cart-item-info">
+  <div class="cart-item-info">
 
-          <strong>${x.name}</strong>
+    <strong>${x.name}</strong>
 
-          <span>
-            Quantité : ${x.qty}
-          </span>
+    <span>Quantité : ${x.qty}</span>
 
-          ${
-            x.size
-            ? `<small>👕 Taille : ${x.size}</small>`
-            : ''
-          }
+    ${
+      x.size
+      ? `<small>👕 Taille : ${x.size}</small>`
+      : ''
+    }
 
-          ${
-            x.flavor
-            ? `<small>🍊 Parfum : ${x.flavor}</small>`
-            : ''
-          }
+    ${
+      x.flavor
+      ? `<small>🍊 Parfum : ${x.flavor}</small>`
+      : ''
+    }
 
-          ${
-            x.finish
-            ? `<small>✨ Finition : ${x.finish}</small>`
-            : ''
-          }
+    ${
+      x.finish
+      ? `<small>✨ Finition : ${x.finish}</small>`
+      : ''
+    }
 
-          ${
-            x.color
-            ? `<small>🎨 Couleur : ${x.color}</small>`
-            : ''
-          }
+    ${
+      x.color
+      ? `<small>🎨 Couleur : ${x.color}</small>`
+      : ''
+    }
 
-          ${
-            x.storage
-            ? `<small>💾 Stockage : ${x.storage}</small>`
-            : ''
-          }
+  </div>
 
-        </div>
+  <div class="cart-item-actions">
 
-        <strong>
-          ${money(x.price * x.qty)}
-        </strong>
+    <strong>
+      ${money(x.price * x.qty)}
+    </strong>
 
-      </div>
+    <button
+      type="button"
+      class="remove-cart-btn"
+      onclick="removeFromCart('${x.cartId}')">
+      🗑️ Supprimer
+    </button>
+
+  </div>
+
+</div>
 
     `).join('')
 
