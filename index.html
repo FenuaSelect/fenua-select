@@ -1919,37 +1919,46 @@ Prix : ${money(x.price * x.qty)}`;
   ========================= */
 
   const orderNumber = "FS-" + Date.now();
-  const internalOrder = {
-    order_number: orderNumber,
-    date: new Date().toLocaleString("fr-FR"),
-    name: name,
-    phone: phone,
-    email: email,
-    address: address,
-    city: deliveryText,
-    delivery: deliveryText,
-    delivery_fee: deliveryFee,
-    total: total,
-    preorder: cart.some(x => x.preorder === true),
-    payment: "",
-    payment_received: "",
-    status: "Nouveau",
-    notes: "",
-    order: cart.map(function(x){
-      return {
-        product: x.name || "",
-        color: x.color || "",
-        variant: x.finish || "",
-        flavor: x.flavor || "",
-        size: x.size || "",
-        storage: x.storage || "",
-        quantity: x.qty || 0,
-        price: x.price || 0,
-        total: (x.price || 0) * (x.qty || 0)
-      };
-    })
-  };
+  const orderNumber = "FS-" + Date.now();
 
+const internalOrder = {
+  order_number: orderNumber,
+  date: new Date().toLocaleString("fr-FR"),
+
+  name: name,
+  phone: phone,
+  email: email,
+  address: address,
+
+  city: deliveryText,
+  delivery: deliveryText,
+  delivery_fee: deliveryFee,
+
+  total: total,
+
+  // Précommande : calcul automatique 50 / 50
+  preorder: cart.some(x => x.preorder === true),
+
+  payment: "",
+  payment_received: "",
+
+  status: "Nouveau",
+  notes: "",
+
+  order: cart.map(function(x){
+    return {
+      product: x.name || "",
+      color: x.color || "",
+      variant: x.finish || "",
+      flavor: x.flavor || "",
+      size: x.size || "",
+      storage: x.storage || "",
+      quantity: x.qty || 0,
+      price: x.price || 0,
+      total: (x.price || 0) * (x.qty || 0)
+    };
+  })
+};
   sendOrderToGoogleSheets(internalOrder);
 
   /* =========================
