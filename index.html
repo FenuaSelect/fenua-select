@@ -1930,6 +1930,7 @@ Prix : ${money(x.price * x.qty)}`;
     delivery: deliveryText,
     delivery_fee: deliveryFee,
     total: total,
+    preorder: cart.some(x => x.preorder === true),
     payment: "",
     payment_received: "",
     status: "Nouveau",
