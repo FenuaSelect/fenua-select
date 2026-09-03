@@ -1576,7 +1576,7 @@ function openCart(){
 
   const productsTotal =
     cart.reduce(
-      (s,x) => s + x.price * x.qty,
+      (s, x) => s + x.price * x.qty,
       0
     );
 
@@ -1596,15 +1596,15 @@ function openCart(){
   const acompte =
     hasPreorder
       ? Math.round(total * 0.50)
-      : 0;
+      : total;
 
   const solde =
     hasPreorder
       ? total - acompte
       : 0;
 
-  document.getElementById('modalItems').innerHTML =
 
+  document.getElementById('modalItems').innerHTML =
     cart.length
 
     ? cart.map(x => `
@@ -1670,45 +1670,67 @@ function openCart(){
 
     : '<p>Votre panier est vide.</p>';
 
+
+  /* =========================
+     INFORMATIONS PAIEMENT
+  ========================= */
+
   if(hasPreorder){
 
-    document.getElementById('modalItems').innerHTML += `
+    document.getElementById('modalTotal').textContent =
+      money(acompte);
 
-      <div class="preorder-info">
+    const totalElement =
+      document.getElementById('modalTotal');
 
-        <div class="preorder-title">
-          🎄 PRÉCOMMANDE
+    if(totalElement){
+
+      totalElement.insertAdjacentHTML(
+        'beforebegin',
+
+        `
+        <div class="preorder-info">
+
+          <div class="preorder-title">
+            🎄 PRÉCOMMANDE
+          </div>
+
+          <div class="preorder-line">
+            💰 Acompte de 50 % à la commande :
+            <strong>${money(acompte)}</strong>
+          </div>
+
+          <div class="preorder-line">
+            📦 Solde de 50 % à la livraison :
+            <strong>${money(solde)}</strong>
+          </div>
+
+          <div class="preorder-line">
+            🚚 Livraison offerte
+          </div>
+
+          <div class="preorder-warning">
+            ⚠️ L'acompte de 50 % constitue un engagement ferme
+            et n'est pas remboursable en cas d'annulation par le client,
+            sous réserve des exceptions légales applicables.
+          </div>
+
         </div>
+        `
+      );
 
-        <div class="preorder-line">
-          💰 <strong>Acompte de 50 % à la commande :
-          ${money(acompte)}</strong>
-        </div>
+    }
 
-        <div class="preorder-line">
-          📦 <strong>Solde de 50 % à la livraison :
-          ${money(solde)}</strong>
-        </div>
+  } else {
 
-        <div class="preorder-line">
-          🚚 <strong>Livraison offerte</strong>
-        </div>
+    document.getElementById('modalTotal').textContent =
+      money(total);
 
-        <div class="preorder-warning">
-          ⚠️ L'acompte de 50 % constitue un engagement ferme
-          et n'est pas remboursable en cas d'annulation par le client,
-          sous réserve des exceptions légales applicables.
-        </div>
-
-      </div>
-
-    `;
   }
 
-  document.getElementById('modalTotal').textContent =
-    money(total);
 
   document.getElementById('cartModal').classList.add('show');
+
 }
 function closeCart(){
 
