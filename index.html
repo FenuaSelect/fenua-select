@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="fr">
 <style>
@@ -240,11 +241,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <div class="categories">
     <button class="active" onclick="setCategory('Tous',this)">Tous</button>
-   <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
+    <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
     <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
-    <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
-   <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
+    <button onclick="setCategory('Lunettes',this)">🕶️ Lunettes</button>
+    <button onclick="setCategory('Casquettes',this)">🧢 Casquettes</button>
+    <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
+    <button onclick="setCategory('Accessoires',this)">👜 Accessoires</button>
     <button onclick="setCategory('Beauté',this)">💄 Beauté</button>
     <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
   </div>
@@ -996,19 +999,6 @@ const products = [
     "🥥 Coconut Passion"
   ]
 },
-  {
-    id: 60,
-    name: "Casquette Neymar Edition Limitée",
-    price: 11990,
-    cat: "Accessoires",
-    image: "images/casquette-neymar-edition-limitee.png",
-    emoji: "🧢",
-    desc: "🧢 Casquette Neymar Edition Limitée<br><strong>2 coloris • 1 jaune • 2 noir</strong><br><br>Style <strong>streetwear</strong> et <strong>hip hop</strong>, mettant en avant des lettres inspirées de la littérature Salomon. Un design unique qui allie culture et mode urbaine pour un look distinctif.<br><br><strong>✨ Confort et ajustement personnalisé</strong><br>Grâce à sa bande ajustable et à sa structure en <strong>coton</strong>, cette casquette s’adapte parfaitement à toutes les tailles de tête. Idéale pour un port longue durée sans inconfort.<br><br><strong>🔥 Design multifonctionnel et universel</strong><br>Conçue pour un usage <strong>casual</strong> tout au long de l’année, cette casquette convient à toutes les saisons. Son style <strong>unisexe</strong> la rend adaptée à tous les genres.",
-    colors: [
-      "🟡 1 Jaune",
-      "⚫ 2 Noir"
-    ]
-  },
 ];
 
 
@@ -1026,12 +1016,21 @@ function setCategory(c,btn){
   renderProducts();
 }
 
+function getProductFilterCategory(p){
+  // Sous-catégories virtuelles : aucun produit ni aucune image n'est déplacé.
+  if(p.cat === "Accessoires"){
+    if(/lunettes/i.test(p.name)) return "Lunettes";
+    if(/casquette/i.test(p.name)) return "Casquettes";
+  }
+  return p.cat;
+}
+
 function renderProducts(){
 
   const q = document.getElementById('search').value.toLowerCase().trim();
 
   const list = products.filter(p =>
-    (category === "Tous" || p.cat === category) &&
+    (category === "Tous" || p.cat === category || getProductFilterCategory(p) === category) &&
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
@@ -2088,6 +2087,8 @@ updateCart();
 </script>
 </body>
 </html>
+
+
 
 
 
