@@ -166,3 +166,453 @@ footer p{margin:8px 0}
 }
 
 
+/* =========================================================
+   PRESENTATION FENUA SELECT - adaptation de la maquette
+   Conserve les fonctions et les données existantes.
+   ========================================================= */
+body{
+  background:#020304;
+  color:#f5f7fb;
+}
+
+.banner{
+  display:none;
+}
+
+.header{
+  min-height:74px;
+  padding:10px 2.2%;
+  background:rgba(2,3,4,.92);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+
+.brand{display:none}
+.header nav{
+  gap:26px;
+}
+.header nav a{
+  color:#dce3eb;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.cart-btn{
+  margin-left:auto;
+  min-width:170px;
+  border:1px solid rgba(43,210,255,.7);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(5,10,15,.96),rgba(11,17,27,.96));
+  box-shadow:0 0 18px rgba(43,210,255,.12);
+}
+
+.hero{
+  min-height:315px;
+  padding:42px 4% 28px;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(43,210,255,.08),transparent 28%),
+    radial-gradient(circle at 50% 55%,rgba(255,30,160,.05),transparent 34%),
+    #020304;
+}
+.hero-content{
+  max-width:1200px;
+  width:100%;
+}
+.hero .eyebrow,
+.hero .intro,
+.hero .cta{
+  display:none;
+}
+.hero h1{
+  font-size:clamp(58px,9vw,118px);
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#14cfff 0%,#31e7b2 22%,#ffe000 42%,#ff5a2f 56%,#ff1e8a 72%,#a63cff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 16px rgba(35,210,255,.14));
+}
+.hero h1::after{
+  margin:18px auto 0;
+  font-size:clamp(13px,1.8vw,22px);
+  letter-spacing:6px;
+  width:max-content;
+  max-width:95%;
+  background:linear-gradient(90deg,#ff3cac,#ff5a3d,#a63cff,#2bd2ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero .tagline{
+  margin:14px 0 0;
+  color:#f5f5f5;
+  font-size:clamp(13px,1.6vw,20px);
+  letter-spacing:8px;
+  font-weight:700;
+}
+
+.section{
+  width:calc(100% - 48px);
+  max-width:1480px;
+  padding:24px 0 60px;
+}
+
+.section-head{
+  justify-content:center;
+  margin-bottom:18px;
+  text-align:center;
+}
+.section-head > div{width:100%}
+.section-head .eyebrow{display:none}
+.section-head h2{
+  font-size:clamp(30px,4vw,42px);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  position:relative;
+  display:inline-block;
+  padding-bottom:14px;
+}
+.section-head h2::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:158px;
+  height:4px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:linear-gradient(90deg,#19dfff,#a63cff,#ff386e);
+  box-shadow:0 0 14px rgba(43,210,255,.35);
+}
+#search{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+  width:1px;
+  height:1px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:8px;
+  margin:0 0 16px;
+}
+.categories button{
+  min-height:58px;
+  border-radius:10px;
+  padding:9px 10px;
+  border:1px solid rgba(255,255,255,.24);
+  background:linear-gradient(145deg,#07090d,#0b0d12);
+  color:#f3f5f8;
+  font-size:14px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+}
+.categories button:hover,
+.categories button.active{
+  border-color:#1de4ff;
+  background:linear-gradient(145deg,rgba(9,24,31,.98),rgba(18,10,31,.98));
+  box-shadow:0 0 16px rgba(29,228,255,.18);
+}
+
+.service-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin:0 0 18px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:12px;
+  background:linear-gradient(145deg,rgba(5,7,10,.96),rgba(10,12,16,.96));
+  overflow:hidden;
+}
+.service-item{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 22px;
+  border-right:1px solid rgba(255,255,255,.14);
+}
+.service-item:last-child{border-right:0}
+.service-icon{font-size:30px;line-height:1;filter:drop-shadow(0 0 7px currentColor)}
+.service-item strong{display:block;font-size:14px;letter-spacing:.4px}
+.service-item small{display:block;margin-top:5px;color:#d3d8df;font-size:12px}
+.service-cyan{color:#20dcff}
+.service-orange{color:#ffad16}
+.service-purple{color:#b64cff}
+
+.grid{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:10px;
+}
+.product{
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(145deg,#090b0f,#040507);
+  box-shadow:0 12px 35px rgba(0,0,0,.38);
+}
+.product:hover{
+  transform:translateY(-3px);
+  border-color:rgba(43,210,255,.42);
+  box-shadow:0 15px 40px rgba(0,0,0,.5),0 0 20px rgba(43,210,255,.08);
+}
+.product-img{
+  height:245px;
+  background:#050608;
+}
+.product-body{
+  padding:14px 14px 16px;
+  text-align:center;
+}
+.product .pill{
+  position:relative;
+  margin-bottom:2px;
+  padding:6px 9px;
+  background:linear-gradient(135deg,#1268bd,#16518c);
+  color:#fff;
+}
+.product h3{
+  margin:12px 0 8px;
+  font-size:17px;
+}
+.product p{font-size:13px;min-height:38px}
+.product-bottom{
+  flex-direction:column;
+  align-items:stretch;
+  padding-top:12px;
+}
+.product-bottom>strong{
+  text-align:center;
+  font-size:20px;
+  color:#25cfff;
+}
+.product-bottom button,
+.product button[onclick*="add"]{
+  width:100%;
+  min-height:44px;
+  border:1px solid currentColor;
+  background:transparent;
+  color:#2bd2ff;
+  box-shadow:none;
+}
+.product-bottom button:hover,
+.product button[onclick*="add"]:hover{
+  background:rgba(43,210,255,.08);
+  box-shadow:0 0 14px rgba(43,210,255,.16);
+}
+
+.photo-notice{
+  margin-top:16px;
+  text-align:center;
+  background:#07090d;
+}
+
+.promo{
+  width:calc(100% - 48px);
+  max-width:1480px;
+  margin:0 auto 30px;
+  padding:32px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#080a0e,#0d1118);
+}
+
+.order-layout{gap:14px}
+.order-card,.order-form{
+  border-radius:14px;
+  background:#080b10;
+  border-color:rgba(255,255,255,.15);
+}
+
+footer{background:#010203}
+
+@media(max-width:1200px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+@media(max-width:700px){
+  .header{min-height:62px;padding:8px 4%}
+  .header nav{display:none}
+  .cart-btn{min-width:auto;padding:10px 14px}
+  .hero{min-height:265px;padding:34px 5% 24px}
+  .hero h1{font-size:clamp(46px,14vw,72px)}
+  .hero h1::after{letter-spacing:3px;font-size:12px}
+  .hero .tagline{font-size:11px;letter-spacing:4px}
+  .section{width:92%;padding:22px 0 45px}
+  .categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .categories button{min-height:50px;font-size:13px}
+  .service-strip{grid-template-columns:1fr 1fr}
+  .service-item{border-right:0;border-bottom:1px solid rgba(255,255,255,.12);padding:12px}
+  .service-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.12)}
+  .service-item:nth-last-child(-n+2){border-bottom:0}
+  .service-icon{font-size:24px}
+  .service-item strong{font-size:11px}
+  .service-item small{font-size:10px}
+  .grid{grid-template-columns:1fr 1fr;gap:8px}
+  .product-img{height:190px}
+  .product-body{padding:11px 9px 12px}
+  .product h3{font-size:14px}
+  .product p{font-size:11px}
+}
+
+/* Titre visuel de la grille, sans changer le texte de l'index */
+.section-head h2{
+  font-size:0;
+}
+.section-head h2::before{
+  content:"NOS PRODUITS";
+  font-size:clamp(30px,4vw,42px);
+}
+
+/* Masquer le bloc « PRODUITS 100% AUTHENTIQUES » du bandeau services */
+.services > :nth-child(3),
+.service-highlights > :nth-child(3){
+  display:none !important;
+}
+
+/* =========================================================
+   EFFETS VISUELS PREMIUM
+   Aucun changement du HTML, des produits ou du fonctionnement
+   ========================================================= */
+
+/* Halo lumineux général très subtil */
+body{
+  background:
+    radial-gradient(circle at 50% 8%, rgba(0,210,255,.055), transparent 24%),
+    radial-gradient(circle at 85% 35%, rgba(255,0,153,.045), transparent 25%),
+    #070b12;
+}
+
+/* Titre FENUA SELECT : effet néon multicolore */
+.hero h1{
+  background:linear-gradient(
+    90deg,
+    #00d9ff 0%,
+    #39ff88 22%,
+    #ffe600 42%,
+    #ff8a00 58%,
+    #ff2ca8 76%,
+    #9b4dff 100%
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:
+    0 0 8px rgba(0,217,255,.18),
+    0 0 22px rgba(255,44,168,.12);
+}
+
+/* COMMANDE UNIQUEMENT */
+.hero h1::after{
+  animation:commandeGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes commandeGlow{
+  from{
+    filter:brightness(.9);
+    text-shadow:0 0 8px rgba(0,217,255,.12);
+  }
+  to{
+    filter:brightness(1.18);
+    text-shadow:
+      0 0 10px rgba(255,44,168,.22),
+      0 0 22px rgba(0,217,255,.14);
+  }
+}
+
+/* Cartes produits : léger halo au survol */
+.product{
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  border-color:rgba(43,210,255,.42);
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.42),
+    0 0 24px rgba(43,210,255,.08);
+}
+
+.product-img img{
+  transition:transform .35s ease, filter .35s ease;
+}
+
+.product:hover .product-img img{
+  filter:brightness(1.06);
+}
+
+/* Boutons : halo animé discret */
+.cta,
+.cart-btn,
+.product-bottom button,
+.product button[onclick*="add"]{
+  box-shadow:
+    0 8px 24px rgba(36,198,220,.12),
+    0 0 0 rgba(255,44,168,0);
+  transition:
+    transform .2s ease,
+    filter .2s ease,
+    box-shadow .25s ease;
+}
+
+.cta:hover,
+.cart-btn:hover,
+.product-bottom button:hover,
+.product button[onclick*="add"]:hover{
+  box-shadow:
+    0 10px 28px rgba(36,198,220,.18),
+    0 0 18px rgba(255,44,168,.08);
+}
+
+/* Catégories : effet lumineux au survol */
+.categories button{
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.categories button:hover,
+.categories button.active{
+  box-shadow:0 0 16px rgba(36,198,220,.10);
+}
+
+.categories button:hover{
+  transform:translateY(-2px);
+}
+
+/* Recherche : focus premium */
+#search:focus{
+  border-color:rgba(43,210,255,.5);
+  box-shadow:0 0 18px rgba(43,210,255,.09);
+}
+
+/* Bandeaux et blocs : profondeur légère */
+.promo,
+.order-card,
+.order-form,
+.modal-card{
+  box-shadow:0 18px 55px rgba(0,0,0,.24);
+}
+
+/* Respect des utilisateurs qui désactivent les animations */
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+
+
+
+
