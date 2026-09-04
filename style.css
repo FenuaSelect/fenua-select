@@ -125,3 +125,44 @@ footer p{margin:8px 0}
     height: auto;
   }
 }
+
+/* =========================================================
+   COMMANDE UNIQUEMENT sous FENUA SELECT
+   ========================================================= */
+.hero h1::after{
+  content:"COMMANDE UNIQUEMENT";
+  display:block;
+  margin-top:14px;
+  font-size:clamp(13px,1.8vw,20px);
+  line-height:1;
+  font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#ff3cac,#784ba0,#2bd2ff,#7cff6b,#ffd166);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 0 18px rgba(43,210,255,.18);
+}
+
+@media(max-width:700px){
+  .hero h1::after{
+    margin-top:12px;
+    font-size:13px;
+    letter-spacing:2.5px;
+  }
+}
+
+/* =========================================================
+   TITRE FENUA SELECT : sans palmier ni fleur
+   ========================================================= */
+.hero::before,
+.hero::after,
+.hero-content::before,
+.hero-content::after,
+.hero h1::before{
+  content:none !important;
+  display:none !important;
+}
+
+
