@@ -613,6 +613,66 @@ body{
   }
 }
 
+/* =========================================================
+   CARTES PRODUITS PLUS PETITES
+   Présentation plus compacte sur ordinateur
+   ========================================================= */
+@media (min-width: 1200px){
+  .grid{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .product{
+    border-radius:14px;
+  }
+
+  .product-img{
+    height:220px;
+  }
+
+  .product-img img{
+    padding:7px;
+  }
+
+  .product-body{
+    padding:14px;
+  }
+
+  .product h3{
+    margin:10px 0 8px;
+    font-size:17px;
+  }
+
+  .product p{
+    font-size:13px;
+    line-height:1.35;
+  }
+
+  .pill{
+    padding:5px 8px;
+    font-size:10px;
+  }
+
+  .product-bottom{
+    padding-top:13px;
+    gap:8px;
+  }
+
+  .product-bottom>strong{
+    font-size:16px;
+  }
+
+  .product-bottom button,
+  .product button[onclick*="add"]{
+    padding:8px 11px;
+    font-size:12px;
+    border-radius:9px;
+  }
+}
+
+
+
 
 
 
