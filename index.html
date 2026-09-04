@@ -818,54 +818,46 @@ button.preorder-btn:hover{
 </style>
 
 
-<style id="precommande-noel-2026">
-/* Bouton Précommande : très visible, thème Noël */
-button[data-category="preorder"],
-.category-btn[data-category="preorder"],
-.filter-btn[data-category="preorder"],
-button[onclick*="preorder"]{
+<style id="precommande-noel-visible-fix-2026">
+/* 🎄 VRAI bouton de catégorie Précommande */
+#categories button[onclick*="Précommande"]{
   position:relative !important;
-  background:linear-gradient(135deg,#b3132b 0%,#d7193f 48%,#0b7a43 100%) !important;
+  background:linear-gradient(135deg,#b5122f 0%,#d7193f 48%,#08783f 100%) !important;
   color:#fff !important;
-  border:2px solid #f6d36b !important;
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,.08) inset,
-    0 6px 18px rgba(179,19,43,.35),
-    0 0 22px rgba(246,211,107,.20) !important;
+  border:2px solid #f5d36b !important;
+  border-radius:12px !important;
   font-weight:900 !important;
-  text-shadow:0 1px 2px rgba(0,0,0,.45);
-  transform:translateY(-1px);
-  z-index:2;
+  text-shadow:0 1px 2px rgba(0,0,0,.55) !important;
+  box-shadow:
+    0 5px 16px rgba(179,19,43,.35),
+    0 0 18px rgba(246,211,107,.22) !important;
+  transform:scale(1.03);
+  z-index:3;
 }
 
-button[data-category="preorder"]::after,
-.category-btn[data-category="preorder"]::after,
-.filter-btn[data-category="preorder"]::after{
-  content:"🎄" !important;
-  margin-left:6px;
-}
-
-button[data-category="preorder"]:hover,
-.category-btn[data-category="preorder"]:hover,
-.filter-btn[data-category="preorder"]:hover{
-  background:linear-gradient(135deg,#d7193f 0%,#ed263f 45%,#0d9551 100%) !important;
+#categories button[onclick*="Précommande"]:hover{
+  background:linear-gradient(135deg,#e21b40 0%,#f02a45 48%,#0a9850 100%) !important;
   border-color:#ffe9a6 !important;
   box-shadow:
-    0 0 0 2px rgba(255,255,255,.12) inset,
-    0 8px 24px rgba(179,19,43,.45),
+    0 7px 22px rgba(179,19,43,.48),
     0 0 28px rgba(246,211,107,.35) !important;
-  transform:translateY(-2px) scale(1.02);
+  transform:scale(1.05) translateY(-1px);
 }
 
-/* Si le bouton utilise la classe .category */
-.category-preorder,
-.preorder-category,
-.btn-preorder{
-  background:linear-gradient(135deg,#b3132b,#d7193f 48%,#0b7a43) !important;
+/* Petit effet festif */
+#categories button[onclick*="Précommande"]::after{
+  content:" ✨" !important;
+}
+
+/* Boutons produits "PRÉCOMMANDER NOËL" */
+button.preorder-btn{
+  background:linear-gradient(135deg,#b5122f,#d7193f 50%,#08783f) !important;
   color:#fff !important;
-  border:2px solid #f6d36b !important;
-  box-shadow:0 6px 20px rgba(179,19,43,.35),0 0 22px rgba(246,211,107,.20) !important;
+  border:2px solid #f5d36b !important;
   font-weight:900 !important;
+  box-shadow:
+    0 6px 18px rgba(179,19,43,.35),
+    0 0 20px rgba(246,211,107,.18) !important;
 }
 </style>
 
@@ -1056,7 +1048,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const products = [
     {
     id: 47,
-    name: "🎄 Console de jeu rétro U36 128 Go Pack Orange",
+    name: "🎄Console de jeu rétro U36 128 Go Pack Orange",
     price: 22990,
      cat: "Précommande",
     image: "images/console-u36-128go-pack-orange.png",
@@ -1066,7 +1058,7 @@ const products = [
   },
     {
     id: 48,
-    name: "🎄 Console de jeu rétro U36 128 Go Pack Bleu",
+    name: "🎄Console de jeu rétro U36 128 Go Pack Bleu",
     price: 22990,
     cat: "Précommande",
     image: "images/console-u36-128go-pack-bleu.png",
@@ -1076,7 +1068,7 @@ const products = [
   },
   {
   id: 58,
-  name: "🎄 Clé de jeu d’arcade rétro M15 Ultra",
+  name: "🎄Clé de jeu d’arcade rétro M15 Ultra",
   price: 15950,
   cat: "Précommande",
   preorder: true,
@@ -1086,7 +1078,7 @@ const products = [
 },
   {
   id: 59,
-  name: "🎄 Console de jeu portable haute performance",
+  name: "🎄Console de jeu portable haute performance",
   price: 12500,
   cat: "Précommande",
   preorder: true,
