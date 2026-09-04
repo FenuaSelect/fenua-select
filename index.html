@@ -969,9 +969,22 @@ footer{
 /* Mobile : fond toujours statique, sans déplacement */
 @media(max-width:760px){
   body{
-    background-position:center top !important;
+    background-color:#050811 !important;
+    background-image:
+      linear-gradient(rgba(3,7,14,.48),rgba(3,7,14,.48)),
+      url("images/fond-neon-fenua-select-2026.png") !important;
     background-size:auto 100% !important;
-    background-attachment:fixed !important;
+    background-position:center top !important;
+    background-repeat:no-repeat !important;
+    background-attachment:scroll !important;
+    min-height:100vh !important;
+  }
+
+  /* Évite que les grands aplats masquent complètement le fond */
+  .hero,
+  .shop,
+  #commande{
+    background-color:transparent !important;
   }
 }
 </style>
