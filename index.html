@@ -928,6 +928,54 @@ button.preorder-btn:hover{
 }
 </style>
 
+
+<style id="fond-neon-fenua-select-2026">
+/* =========================================================
+   FENUA SELECT • FOND NEON STATIQUE
+   Cyan + rose + violet + vert • formes géométriques
+   ========================================================= */
+html{
+  background:#050811 !important;
+}
+
+body{
+  background-color:#050811 !important;
+  background-image:
+    linear-gradient(rgba(3,7,14,.72),rgba(3,7,14,.72)),
+    url("images/fond-neon-fenua-select-2026.png") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-attachment:fixed !important;
+  background-repeat:no-repeat !important;
+}
+
+/* Le contenu reste lisible devant le fond */
+main,
+section,
+footer{
+  position:relative;
+  z-index:1;
+}
+
+/* Laisse apparaître le fond sans rendre les cartes transparentes */
+.product,
+.product-card,
+.order-card,
+.order-form,
+.modal-content{
+  position:relative;
+}
+
+/* Mobile : fond toujours statique, sans déplacement */
+@media(max-width:760px){
+  body{
+    background-position:center top !important;
+    background-size:auto 100% !important;
+    background-attachment:fixed !important;
+  }
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -2059,7 +2107,12 @@ function renderProducts(){
           </div>
 
 
-
+          <button
+            type="button"
+            onclick="add(${p.id})"
+          >
+            Ajouter
+          </button>
 
         </div>
 
