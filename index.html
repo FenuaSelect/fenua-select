@@ -817,6 +817,58 @@ button.preorder-btn:hover{
 }
 </style>
 
+
+<style id="precommande-noel-2026">
+/* Bouton Précommande : très visible, thème Noël */
+button[data-category="preorder"],
+.category-btn[data-category="preorder"],
+.filter-btn[data-category="preorder"],
+button[onclick*="preorder"]{
+  position:relative !important;
+  background:linear-gradient(135deg,#b3132b 0%,#d7193f 48%,#0b7a43 100%) !important;
+  color:#fff !important;
+  border:2px solid #f6d36b !important;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.08) inset,
+    0 6px 18px rgba(179,19,43,.35),
+    0 0 22px rgba(246,211,107,.20) !important;
+  font-weight:900 !important;
+  text-shadow:0 1px 2px rgba(0,0,0,.45);
+  transform:translateY(-1px);
+  z-index:2;
+}
+
+button[data-category="preorder"]::after,
+.category-btn[data-category="preorder"]::after,
+.filter-btn[data-category="preorder"]::after{
+  content:"🎄" !important;
+  margin-left:6px;
+}
+
+button[data-category="preorder"]:hover,
+.category-btn[data-category="preorder"]:hover,
+.filter-btn[data-category="preorder"]:hover{
+  background:linear-gradient(135deg,#d7193f 0%,#ed263f 45%,#0d9551 100%) !important;
+  border-color:#ffe9a6 !important;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.12) inset,
+    0 8px 24px rgba(179,19,43,.45),
+    0 0 28px rgba(246,211,107,.35) !important;
+  transform:translateY(-2px) scale(1.02);
+}
+
+/* Si le bouton utilise la classe .category */
+.category-preorder,
+.preorder-category,
+.btn-preorder{
+  background:linear-gradient(135deg,#b3132b,#d7193f 48%,#0b7a43) !important;
+  color:#fff !important;
+  border:2px solid #f6d36b !important;
+  box-shadow:0 6px 20px rgba(179,19,43,.35),0 0 22px rgba(246,211,107,.20) !important;
+  font-weight:900 !important;
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
