@@ -1453,284 +1453,177 @@ body{
 }
 
 /* =========================================================
-   BANNIÈRE FENUA SELECT
-   Affichée juste au-dessus du titre, sans modifier l'index
+   PAGINATION PRODUITS
    ========================================================= */
-
-/* Le hero devient la zone de référence */
-.hero{
-  position:relative !important;
-  padding-top:260px !important;
+.pagination{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  margin:24px auto 8px;
+  flex-wrap:wrap;
 }
 
-/* Bannière existante : images/banniere.png */
-.hero::before{
-  content:"" !important;
-  display:block !important;
-  position:absolute !important;
-  top:18px !important;
-  left:50% !important;
-  transform:translateX(-50%) !important;
-  width:min(1200px,92vw) !important;
-  height:225px !important;
-  background-image:url("images/banniere.png") !important;
-  background-size:cover !important;
-  background-position:center !important;
-  background-repeat:no-repeat !important;
-  border-radius:14px !important;
-  overflow:hidden !important;
-  z-index:1 !important;
+.pagination .page-btn{
+  min-width:38px;
+  height:38px;
+  padding:0 11px;
+  border:1px solid #39e7ff;
+  border-radius:10px;
+  background:linear-gradient(135deg,#08121f,#15102b);
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  box-shadow:0 0 8px rgba(57,231,255,.20);
+  transition:.2s ease;
+}
+
+.pagination .page-btn:hover:not(:disabled){
+  transform:translateY(-2px);
+  border-color:#ff3cac;
   box-shadow:
-    0 0 12px rgba(0,220,255,.45),
-    0 0 28px rgba(255,0,160,.25) !important;
+    0 0 10px rgba(57,231,255,.55),
+    0 0 18px rgba(255,60,172,.35);
 }
 
-/* Le contenu reste au-dessus et ne change pas */
-.hero-content{
-  position:relative !important;
-  z-index:2 !important;
+.pagination .page-btn.active{
+  border-color:#ff3cac;
+  background:linear-gradient(135deg,#ff3cac,#7b2cff);
+  box-shadow:
+    0 0 10px rgba(255,60,172,.65),
+    0 0 20px rgba(57,231,255,.30);
 }
 
-/* Évite l'ancien élément .banner de s'afficher deux fois */
-.banner{
-  display:none !important;
+.pagination .page-btn:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+  box-shadow:none;
 }
 
-/* PC : bannière large et proportionnée */
-@media(min-width:1200px){
-  .hero{
-    padding-top:275px !important;
-  }
-
-  .hero::before{
-    width:min(1400px,94vw) !important;
-    height:235px !important;
-  }
-}
-
-/* Tablette */
-@media(min-width:701px) and (max-width:1199px){
-  .hero{
-    padding-top:220px !important;
-  }
-
-  .hero::before{
-    width:94vw !important;
-    height:190px !important;
-  }
-}
-
-/* Mobile : bannière plus basse et compacte */
-@media(max-width:700px){
-  .hero{
-    padding-top:150px !important;
-  }
-
-  .hero::before{
-    top:10px !important;
-    width:94vw !important;
-    height:125px !important;
-    border-radius:10px !important;
-  }
-}
-
-
-/* =========================================================
-   FENUA SELECT : LOGO À GAUCHE + ÉCRITURE STYLE GRAFFITI
-   ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
-.hero h1{
-  position:relative !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:18px !important;
-  font-family:'Permanent Marker','Brush Script MT','Segoe Print',cursive !important;
-  font-weight:400 !important;
-  letter-spacing:2px !important;
-  line-height:1 !important;
-  text-transform:uppercase !important;
-  width:100% !important;
-  margin:0 auto !important;
-  padding:0 !important;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* Logo FS à gauche du titre.
-   Utilise images/logo.png et ne touche pas à l'index. */
-.hero h1::before{
-  content:"" !important;
-  display:block !important;
-  flex:0 0 auto !important;
-  width:78px !important;
-  height:78px !important;
-  background-image:url('images/logo.png') !important;
-  background-size:contain !important;
-  background-position:center !important;
-  background-repeat:no-repeat !important;
-  filter:drop-shadow(0 0 7px rgba(0,217,255,.65)) drop-shadow(0 0 12px rgba(255,44,168,.45)) !important;
-}
-
-/* COMMANDE UNIQUEMENT reste sous le titre */
-.hero h1::after{
-  position:absolute !important;
-  left:50% !important;
-  bottom:-30px !important;
-  transform:translateX(-50%) !important;
-  margin:0 !important;
-  white-space:nowrap !important;
-}
-
-@media(min-width:1200px){
-  .hero h1{
-    font-size:clamp(58px,6.2vw,92px) !important;
-    gap:20px !important;
-  }
-  .hero h1::before{
-    width:92px !important;
-    height:92px !important;
-  }
-}
-
-@media(min-width:701px) and (max-width:1199px){
-  .hero h1{
-    font-size:clamp(48px,7vw,72px) !important;
-    gap:15px !important;
-  }
-  .hero h1::before{
-    width:70px !important;
-    height:70px !important;
-  }
+.pagination .page-prev,
+.pagination .page-next{
+  font-size:22px;
+  line-height:1;
 }
 
 @media(max-width:700px){
-  .hero h1{
-    font-size:clamp(38px,12vw,58px) !important;
-    gap:10px !important;
+  .pagination{
+    gap:5px;
+    margin-top:18px;
   }
-  .hero h1::before{
-    width:52px !important;
-    height:52px !important;
-  }
-  .hero h1::after{
-    bottom:-25px !important;
-    letter-spacing:3px !important;
+
+  .pagination .page-btn{
+    min-width:34px;
+    height:34px;
+    padding:0 9px;
+    font-size:13px;
   }
 }
 
 /* =========================================================
-   VERSION FINALE : SANS BANNIÈRE, LOGO À GAUCHE DU TITRE
+   TITRE FENUA SELECT : POLICE BRUSHER
    ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Brusher&display=swap');
 
-/* Supprime complètement la bannière de l'ancienne version */
-.banner,
-.hero::before{
-  display:none !important;
-  content:none !important;
-  background-image:none !important;
-}
-
-/* Le hero reprend une hauteur normale */
-.hero{
-  padding-top:55px !important;
-  position:relative !important;
-}
-
-/* Titre FENUA SELECT façon brush/graffiti */
 .hero h1{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:18px !important;
-  font-family:'Permanent Marker','Brush Script MT','Segoe Print',cursive !important;
+  font-family:'Brusher', cursive !important;
   font-weight:400 !important;
   letter-spacing:2px !important;
-  line-height:1 !important;
-  width:100% !important;
+  text-transform:uppercase;
+  line-height:.95 !important;
+  text-align:center;
   margin:0 auto !important;
-  position:relative !important;
+  background:linear-gradient(
+    90deg,
+    #ff2d55 0%,
+    #ff8a00 22%,
+    #ffe600 42%,
+    #28e7ff 65%,
+    #7c4dff 82%,
+    #ff2fb3 100%
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 7px rgba(57,231,255,.35))
+         drop-shadow(0 0 12px rgba(255,47,179,.25));
 }
 
-/* Logo à gauche du titre.
-   Le fichier logo.png peut être chargé par CSS même si le script
-   retire l'image .brand du HTML. */
-.hero h1::before{
-  content:"" !important;
-  display:block !important;
-  flex:0 0 auto !important;
-  width:82px !important;
-  height:82px !important;
-  background-image:url('logo.png') !important;
-  background-size:contain !important;
-  background-position:center !important;
-  background-repeat:no-repeat !important;
-  filter:drop-shadow(0 0 7px rgba(0,217,255,.70))
-         drop-shadow(0 0 14px rgba(255,44,168,.50)) !important;
-}
-
-/* COMMANDE UNIQUEMENT reste directement sous FENUA SELECT */
+/* =========================================================
+   CADRE COMMANDE UNIQUEMENT
+   ========================================================= */
 .hero h1::after{
-  position:absolute !important;
-  left:50% !important;
-  bottom:-30px !important;
-  transform:translateX(-50%) !important;
-  margin:0 !important;
-  white-space:nowrap !important;
+  content:"COMMANDE UNIQUEMENT";
+  display:table;
+  margin:14px auto 0;
+  padding:7px 18px 6px;
+  border:1.5px solid #39e7ff;
+  border-radius:7px;
+  background:rgba(4,10,20,.78);
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  letter-spacing:2.5px !important;
+  line-height:1.1 !important;
+  box-shadow:
+    0 0 7px rgba(57,231,255,.45),
+    inset 0 0 8px rgba(57,231,255,.08);
+  filter:none !important;
 }
 
-@media(min-width:1200px){
-  .hero{
-    padding-top:70px !important;
-  }
-
-  .hero h1{
-    font-size:clamp(58px,6.2vw,92px) !important;
-    gap:20px !important;
-  }
-
-  .hero h1::before{
-    width:96px !important;
-    height:96px !important;
-  }
+/* =========================================================
+   CADRE LA QUALITÉ • LE CHOIX • LE PRIX
+   ========================================================= */
+.hero .tagline{
+  display:table;
+  margin:16px auto 12px !important;
+  padding:8px 20px 7px;
+  border:1.5px solid #ff3cac;
+  border-radius:7px;
+  background:rgba(7,9,18,.80);
+  color:#fff !important;
+  font-weight:800 !important;
+  letter-spacing:2px !important;
+  line-height:1.15 !important;
+  box-shadow:
+    0 0 8px rgba(255,60,172,.42),
+    0 0 14px rgba(57,231,255,.16),
+    inset 0 0 8px rgba(255,60,172,.07);
 }
 
-@media(min-width:701px) and (max-width:1199px){
-  .hero{
-    padding-top:55px !important;
-  }
-
-  .hero h1{
-    font-size:clamp(48px,7vw,72px) !important;
-    gap:15px !important;
-  }
-
-  .hero h1::before{
-    width:72px !important;
-    height:72px !important;
-  }
+/* Petit effet lumineux au survol */
+.hero h1::after:hover,
+.hero .tagline:hover{
+  filter:brightness(1.12);
 }
 
+/* Mobile */
 @media(max-width:700px){
-  .hero{
-    padding-top:40px !important;
-  }
-
   .hero h1{
-    font-size:clamp(36px,11vw,56px) !important;
-    gap:9px !important;
-  }
-
-  .hero h1::before{
-    width:50px !important;
-    height:50px !important;
+    font-size:clamp(42px,13vw,70px) !important;
+    letter-spacing:1px !important;
   }
 
   .hero h1::after{
-    bottom:-25px !important;
-    letter-spacing:3px !important;
+    font-size:10px !important;
+    letter-spacing:1.8px !important;
+    padding:6px 12px 5px;
+    margin-top:11px;
+  }
+
+  .hero .tagline{
+    font-size:10px !important;
+    letter-spacing:1.4px !important;
+    padding:7px 12px 6px;
+    margin-top:13px !important;
   }
 }
+
+
 
 
 
