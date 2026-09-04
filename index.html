@@ -56,6 +56,186 @@ button.preorder-btn:hover{
 <title>Fenua Select | La qualité • Le choix • Le prix</title>
 <meta name="description" content="Fenua Select - La qualité • Le choix • Le prix. Découvrez notre sélection de produits à Tahiti.">
 <link rel="stylesheet" href="style.css">
+
+<style id="commande-premium-2026">
+/* ===== PRESENTATION PREMIUM DE LA ZONE COMMANDE ===== */
+#commande.order-section{
+  padding-top:58px !important;
+  padding-bottom:65px !important;
+}
+#commande .section-head{
+  margin-bottom:24px !important;
+}
+#commande .order-layout{
+  width:min(1180px,100%) !important;
+  margin:0 auto !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr) !important;
+  gap:22px !important;
+  align-items:start !important;
+}
+#commande .order-card,
+#commande .order-form{
+  min-width:0 !important;
+  padding:20px !important;
+  box-sizing:border-box !important;
+}
+#commande .order-card{
+  overflow:hidden !important;
+}
+#commande #orderSummary{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:0 !important;
+}
+#commande .order-line{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  gap:16px !important;
+  align-items:center !important;
+  padding:15px 2px !important;
+  border-bottom:1px solid rgba(255,255,255,.08) !important;
+  line-height:1.45 !important;
+}
+#commande .order-line > span{
+  min-width:0 !important;
+  color:#dfe7f1 !important;
+}
+#commande .order-line > span strong{
+  display:block !important;
+  color:#fff !important;
+  font-size:15px !important;
+  margin-bottom:3px !important;
+}
+#commande .order-line > span small{
+  color:#94a4b7 !important;
+  font-size:12px !important;
+}
+#commande .order-line > strong{
+  white-space:nowrap !important;
+  color:#fff !important;
+  font-size:15px !important;
+}
+#commande .preorder-info{
+  margin-top:16px !important;
+  padding:17px 18px !important;
+  border-radius:14px !important;
+  border:1px solid rgba(255,209,102,.32) !important;
+  background:linear-gradient(135deg,rgba(58,38,13,.48),rgba(18,16,13,.88)) !important;
+  box-shadow:0 8px 25px rgba(0,0,0,.18) !important;
+}
+#commande .preorder-title{
+  font-size:16px !important;
+  margin-bottom:10px !important;
+  color:#ffd166 !important;
+}
+#commande .preorder-line{
+  padding:5px 0 !important;
+  font-size:14px !important;
+  color:#eef3f8 !important;
+}
+#commande .preorder-warning{
+  margin-top:10px !important;
+  padding-top:10px !important;
+  border-top:1px solid rgba(255,255,255,.08) !important;
+  font-size:12px !important;
+  line-height:1.5 !important;
+  color:#ffc9c9 !important;
+}
+#commande .total{
+  margin-top:18px !important;
+  padding:17px 18px !important;
+  border-radius:14px !important;
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+  background:linear-gradient(135deg,#101d2a,#0b1119) !important;
+  border:1px solid rgba(57,231,255,.20) !important;
+}
+#commande .total span{
+  color:#aebdcd !important;
+  font-weight:700 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.7px !important;
+}
+#commande .total strong{
+  color:#fff !important;
+  font-size:22px !important;
+  font-weight:900 !important;
+}
+#commande .order-form{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+}
+#commande .order-form input,
+#commande .order-form textarea,
+#commande .order-form select{
+  width:100% !important;
+  min-height:45px !important;
+  box-sizing:border-box !important;
+  padding:11px 13px !important;
+}
+#commande .order-form textarea{
+  min-height:92px !important;
+  resize:vertical !important;
+}
+#commande .delivery-info{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+  margin-top:2px !important;
+}
+#commande .delivery-info label{
+  font-size:13px !important;
+  color:#dbe5ef !important;
+}
+#commande .order-form button[type="submit"]{
+  width:100% !important;
+  min-height:48px !important;
+  margin-top:2px !important;
+  border-radius:11px !important;
+  font-weight:900 !important;
+}
+#commande .order-form .small{
+  margin:2px 0 0 !important;
+  color:#8f9dae !important;
+  font-size:11px !important;
+  line-height:1.5 !important;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  #commande .order-layout{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+}
+@media(max-width:600px){
+  #commande .order-card,
+  #commande .order-form{
+    padding:15px !important;
+  }
+  #commande .order-line{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    gap:10px !important;
+    padding:13px 0 !important;
+  }
+  #commande .order-line > span strong{
+    font-size:13px !important;
+  }
+  #commande .order-line > strong{
+    font-size:13px !important;
+  }
+  #commande .preorder-info{
+    padding:14px !important;
+  }
+  #commande .total strong{
+    font-size:19px !important;
+  }
+}
+</style>
+
 <style id="panier-premium-2026">
 /* ===== PANIER PREMIUM FENUA SELECT ===== */
 #cartModal .modal-content{
@@ -1758,8 +1938,16 @@ function updateCart(){
       ? total - acompte
       : 0;
 
-  document.getElementById('cartTotal').textContent =
-    money(total);
+  const cartTotalLabel = document.querySelector('#commande .total span');
+  const cartTotalValue = document.getElementById('cartTotal');
+
+  if(hasPreorder){
+    if(cartTotalLabel) cartTotalLabel.textContent = 'Acompte à payer maintenant';
+    if(cartTotalValue) cartTotalValue.textContent = money(acompte);
+  }else{
+    if(cartTotalLabel) cartTotalLabel.textContent = 'Total';
+    if(cartTotalValue) cartTotalValue.textContent = money(total);
+  }
 
   document.getElementById('orderSummary').innerHTML =
     cart.length
@@ -1823,6 +2011,11 @@ function updateCart(){
 
         <div class="preorder-title">
           🎄 PRÉCOMMANDE
+        </div>
+
+        <div class="preorder-line">
+          🧾 <strong>Total de la commande :
+          ${money(total)}</strong>
         </div>
 
         <div class="preorder-line">
