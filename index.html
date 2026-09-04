@@ -928,48 +928,10 @@ button.preorder-btn:hover{
 }
 </style>
 
-
-<style id="fond-neon-fenua-select-2026">
-/* ===== FENUA SELECT • FOND NEON PC + MOBILE ===== */
-html{
-  background:#050811 !important;
-}
-
-body{
-  background-color:#050811 !important;
-  background-image:
-    linear-gradient(rgba(3,7,14,.72),rgba(3,7,14,.72)),
-    url("images/fond-neon-fenua-select-2026.png") !important;
-  background-size:cover !important;
-  background-position:center center !important;
-  background-attachment:fixed !important;
-  background-repeat:no-repeat !important;
-}
-
-main, section, footer{
-  position:relative;
-  z-index:1;
-}
-
-@media(max-width:760px){
-  body{
-    background-color:#050811 !important;
-    background-image:
-      linear-gradient(rgba(3,7,14,.42),rgba(3,7,14,.42)),
-      url("images/fond-neon-fenua-select-mobile-2026.png") !important;
-    background-size:cover !important;
-    background-position:center top !important;
-    background-repeat:no-repeat !important;
-    background-attachment:scroll !important;
-    min-height:100vh !important;
-  }
-
-  .hero, .shop, #commande{
-    background-color:transparent !important;
-  }
-}
+<style id="ssd-five-colors-2026">
+.ssd-five-colors{margin:8px 0;color:#dce9f5;font-size:.88rem}
+.ssd-five-colors strong{color:#35d9ff}
 </style>
-
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -1204,7 +1166,7 @@ const products = [
   {
     id: 1,
     name: "Disque dur externe 2TB",
-    price: 8000,
+    price: 5000,
     cat: "High-Tech",
     image: "images/disque-2tb.png",
     emoji: "💾",
@@ -1237,6 +1199,32 @@ const products = [
     emoji: "💾",
     desc: "Auto alimenté / USB 3.0."
   },
+  /* ===== NOUVEAU : SSD PORTABLE 2 TB À 64 TB ===== */
+  {
+    id: 62,
+    name: "Disque dur SSD portable 2 TB à 64 TB",
+    price: 8000,
+    cat: "High-Tech",
+    image: "images/disque-ssd-2tb-64tb-5-coloris.png",
+    emoji: "💾",
+    desc: "Disque dur SSD portable auto alimenté • USB 3.1 • 5 coloris • Stockage de 2 TB à 64 TB.",
+    colors: [
+      "🔵 Bleu",
+      "🔴 Rouge",
+      "⚫ Noir",
+      "⚪ Argent",
+      "🟤 Doré"
+    ],
+    storages: [
+      { name: "2 TB", price: 8000 },
+      { name: "4 TB", price: 10000 },
+      { name: "8 TB", price: 15000 },
+      { name: "16 TB", price: 20000 },
+      { name: "32 TB", price: 23000 },
+      { name: "64 TB", price: 25000 }
+    ]
+  },
+
   {
     id: 5,
     name: "Hub USB 7-en-2 USB + Type-C",
@@ -1262,7 +1250,7 @@ const products = [
     cat: "High-Tech",
     image: "images/cable-micro-usb.png",
     emoji: "🔌",
-    desc: "Câble USB pratique pour recharge et transfert,longueur 30 cm.",
+    desc: "Câble USB pratique pour recharge et transfert, longueur 30 cm.","
   },
 
   /* ===== NOUVEAU : CÂBLE 3-EN-1 ===== */
@@ -2107,7 +2095,8 @@ function renderProducts(){
 
       </div>
 
-    </article>
+    <div class="ssd-five-colors"><strong>🎨 5 coloris :</strong> 🔵 Bleu&nbsp;&nbsp; 🔴 Rouge&nbsp;&nbsp; ⚫ Noir&nbsp;&nbsp; ⚪ Blanc&nbsp;&nbsp; 🟤 Or/Beige</div>
+</article>
 
   `;
 
@@ -2798,16 +2787,7 @@ Prix : ${money(x.price * x.qty)}`;
      DONNÉES ENVOYÉES À EMAILJS
   ========================= */
 
-  const orderNumber = "FS-" + Date.now();
-
-  const paymentText = hasPreorder
-    ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
-    : "";
-
-  /* Même jeu de données pour l'e-mail et Google Sheets */
   const templateParams = {
-    order_number: orderNumber,
-    date: new Date().toLocaleString("fr-FR"),
 
     name: name,
     phone: phone,
@@ -2832,9 +2812,9 @@ Prix : ${money(x.price * x.qty)}`;
       ? money(solde)
       : "",
 
-    preorder: hasPreorder ? "Oui" : "Non",
-
-    paiement: paymentText
+    paiement: hasPreorder
+      ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
+      : ""
   };
 
 
@@ -2849,44 +2829,46 @@ Prix : ${money(x.price * x.qty)}`;
      Cette copie est destinée uniquement au tableau privé.
   ========================= */
 
-  const internalOrder = {
-    order_number: orderNumber,
-    date: new Date().toLocaleString("fr-FR"),
+  const orderNumber = "FS-" + Date.now();
 
-    name: name,
-    phone: phone,
-    email: email,
-    address: address,
+const internalOrder = {
+  order_number: orderNumber,
+  date: new Date().toLocaleString("fr-FR"),
 
-    city: finalDeliveryText,
-    delivery: finalDeliveryText,
-    delivery_fee: finalDeliveryFee,
+  name: name,
+  phone: phone,
+  email: email,
+  address: address,
 
-    products_total: productsTotal,
-    total: total,
-    acompte: hasPreorder ? acompte : 0,
-    solde: hasPreorder ? solde : 0,
+  city: deliveryText,
+  delivery: deliveryText,
+  delivery_fee: deliveryFee,
 
-    preorder: hasPreorder,
-    payment: paymentText,
-    payment_received: "",
-    status: "Nouveau",
-    notes: "",
+  total: total,
 
-    order: cart.map(function(x){
-      return {
-        product: x.name || "",
-        color: x.color || "",
-        variant: x.finish || "",
-        flavor: x.flavor || "",
-        size: x.size || "",
-        storage: x.storage || "",
-        quantity: x.qty || 0,
-        price: x.price || 0,
-        total: (x.price || 0) * (x.qty || 0)
-      };
-    })
-  };
+  // Précommande : calcul automatique 50 / 50
+  preorder: cart.some(x => x.preorder === true),
+
+  payment: "",
+  payment_received: "",
+
+  status: "Nouveau",
+  notes: "",
+
+  order: cart.map(function(x){
+    return {
+      product: x.name || "",
+      color: x.color || "",
+      variant: x.finish || "",
+      flavor: x.flavor || "",
+      size: x.size || "",
+      storage: x.storage || "",
+      quantity: x.qty || 0,
+      price: x.price || 0,
+      total: (x.price || 0) * (x.qty || 0)
+    };
+  })
+};
   sendOrderToGoogleSheets(internalOrder);
 
   /* =========================
