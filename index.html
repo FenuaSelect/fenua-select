@@ -542,6 +542,250 @@ button.preorder-btn:hover{
 }
 </style>
 
+
+<style id="fenua-panier-commande-style-2026">
+/* =========================================================
+   FENUA SELECT • PANIER + VOTRE COMMANDE
+   Même identité visuelle que le reste du site
+   ========================================================= */
+
+:root{
+  --fs-cyan:#35d9ff;
+  --fs-cyan-soft:rgba(53,217,255,.18);
+  --fs-panel:#0b121b;
+  --fs-panel-2:#0f1823;
+  --fs-line:rgba(53,217,255,.20);
+  --fs-text:#f4f8fc;
+  --fs-muted:#93a4b8;
+}
+
+/* ---------- CARDS "VOTRE COMMANDE" ---------- */
+#commande .order-layout{
+  gap:24px !important;
+}
+
+#commande .order-card,
+#commande .order-form{
+  position:relative !important;
+  background:
+    linear-gradient(145deg,rgba(16,28,41,.98),rgba(7,13,20,.98)) !important;
+  border:1px solid var(--fs-line) !important;
+  border-radius:20px !important;
+  box-shadow:
+    0 16px 45px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.035) !important;
+  padding:24px !important;
+}
+
+#commande .order-card::before,
+#commande .order-form::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  right:22px;
+  top:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--fs-cyan),transparent);
+  opacity:.85;
+  border-radius:50%;
+}
+
+#commande .order-card h3,
+#commande .order-form h3{
+  color:#fff !important;
+  font-size:20px !important;
+  margin:0 0 18px !important;
+  letter-spacing:.2px;
+}
+
+/* lignes produits */
+#commande .order-line{
+  padding:14px 0 !important;
+  border-bottom:1px solid rgba(255,255,255,.075) !important;
+}
+
+#commande .order-line > span strong{
+  color:#fff !important;
+  font-size:15px !important;
+}
+
+#commande .order-line > span small{
+  color:var(--fs-muted) !important;
+}
+
+#commande .order-line > strong{
+  color:var(--fs-cyan) !important;
+  font-size:15px !important;
+}
+
+/* bloc précommande */
+#commande .preorder-info{
+  margin-top:18px !important;
+  border-radius:16px !important;
+  background:
+    linear-gradient(145deg,rgba(62,45,15,.55),rgba(17,18,19,.95)) !important;
+  border:1px solid rgba(255,209,102,.32) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.22) !important;
+}
+
+#commande .preorder-title{
+  color:#ffd166 !important;
+  font-weight:900 !important;
+  letter-spacing:.4px !important;
+}
+
+#commande .preorder-line{
+  color:#edf4fa !important;
+}
+
+#commande .preorder-warning{
+  color:#ffc8c8 !important;
+}
+
+/* total */
+#commande .total{
+  margin-top:18px !important;
+  border:1px solid rgba(53,217,255,.22) !important;
+  border-radius:16px !important;
+  background:
+    linear-gradient(135deg,rgba(21,45,61,.95),rgba(8,16,24,.98)) !important;
+  box-shadow:0 8px 25px rgba(0,0,0,.22) !important;
+}
+
+#commande .total span{
+  color:#a9bacb !important;
+  text-transform:uppercase !important;
+  letter-spacing:.6px !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+}
+
+#commande .total strong{
+  color:var(--fs-cyan) !important;
+  font-size:22px !important;
+  text-shadow:0 0 18px rgba(53,217,255,.22) !important;
+}
+
+/* formulaire */
+#commande .order-form label{
+  color:#dce6ef !important;
+  font-weight:700 !important;
+}
+
+#commande .order-form input,
+#commande .order-form select,
+#commande .order-form textarea{
+  background:#07101a !important;
+  color:#f4f8fc !important;
+  border:1px solid rgba(53,217,255,.18) !important;
+  border-radius:11px !important;
+}
+
+#commande .order-form input:focus,
+#commande .order-form select:focus,
+#commande .order-form textarea:focus{
+  border-color:var(--fs-cyan) !important;
+  box-shadow:0 0 0 3px rgba(53,217,255,.10) !important;
+  outline:none !important;
+}
+
+#commande .order-form button{
+  border-radius:12px !important;
+  font-weight:900 !important;
+}
+
+/* ---------- FENÊTRE "VOTRE PANIER" ---------- */
+#cartModal .modal-content{
+  background:
+    linear-gradient(145deg,#101b27,#070d14) !important;
+  color:var(--fs-text) !important;
+  border:1px solid rgba(53,217,255,.25) !important;
+  border-radius:22px !important;
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.55),
+    0 0 45px rgba(53,217,255,.07) !important;
+}
+
+#cartModal .modal-header{
+  background:linear-gradient(90deg,rgba(53,217,255,.07),transparent) !important;
+  border-bottom:1px solid rgba(53,217,255,.16) !important;
+  padding:20px 22px !important;
+}
+
+#cartModal .modal-header h3{
+  color:#fff !important;
+  font-size:20px !important;
+  font-weight:900 !important;
+}
+
+#cartModal #modalItems{
+  background:transparent !important;
+}
+
+#cartModal #modalItems > div{
+  border-bottom:1px solid rgba(255,255,255,.075) !important;
+}
+
+#cartModal #modalItems img{
+  border:1px solid rgba(53,217,255,.16) !important;
+  background:#08111a !important;
+}
+
+#cartModal .preorder-info{
+  background:
+    linear-gradient(145deg,rgba(62,45,15,.55),rgba(17,18,19,.95)) !important;
+  border:1px solid rgba(255,209,102,.32) !important;
+  color:#f4f7fa !important;
+}
+
+#cartModal .total{
+  background:
+    linear-gradient(135deg,rgba(21,45,61,.95),rgba(8,16,24,.98)) !important;
+  border:1px solid rgba(53,217,255,.22) !important;
+  color:#fff !important;
+}
+
+#cartModal .total span{
+  color:#a9bacb !important;
+  text-transform:uppercase !important;
+  letter-spacing:.6px !important;
+}
+
+#cartModal .total strong{
+  color:var(--fs-cyan) !important;
+  text-shadow:0 0 18px rgba(53,217,255,.22) !important;
+}
+
+#cartModal .modal-actions{
+  background:rgba(5,10,16,.55) !important;
+  border-top:1px solid rgba(53,217,255,.10) !important;
+}
+
+/* boutons panier */
+#cartModal .modal-actions button{
+  border-radius:12px !important;
+  font-weight:900 !important;
+}
+
+/* mobile */
+@media(max-width:760px){
+  #commande .order-card,
+  #commande .order-form{
+    border-radius:17px !important;
+    padding:18px !important;
+  }
+
+  #commande .total strong{
+    font-size:19px !important;
+  }
+
+  #cartModal .modal-content{
+    width:96vw !important;
+    border-radius:19px !important;
+  }
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
