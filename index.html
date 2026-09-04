@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="fr">
 <style>
@@ -78,6 +76,21 @@ button.preorder-btn:hover{
 </script>
 
 <!-- ===== FIN EMAILJS ===== -->
+
+<style>
+/* ===== INFORMATIONS PRÉCOMMANDE ===== */
+.preorder-info{
+  margin-top:14px;
+  padding:14px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#fff8e1,#fff3cd);
+  border:1px solid #ffd54f;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+.preorder-title{font-size:16px;font-weight:800;color:#c62828;margin-bottom:10px;}
+.preorder-line{margin:6px 0;font-size:14px;color:#333;}
+.preorder-warning{margin-top:12px;padding:10px;border-radius:8px;background:#fff;border-left:4px solid #e53935;font-size:12px;line-height:1.5;color:#555;}
+</style>
 
 <style>
 /* ===== QUANTITÉS PRODUITS ===== */
@@ -223,21 +236,22 @@ document.addEventListener("DOMContentLoaded", function () {
       <p class="eyebrow">NOTRE SÉLECTION</p>
       <h2>La boutique</h2>
     </div>
-    <input id="search" type="search" placeholder="Rechercher un produit…" oninput="currentPage=1; renderProducts()">
+    <input id="search" type="search" placeholder="Rechercher un produit…" oninput="renderProducts()">
   </div>
 
   <div class="categories">
     <button class="active" onclick="setCategory('Tous',this)">Tous</button>
-   <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
+    <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
     <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
-    <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
-   <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
+    <button onclick="setCategory('Lunettes',this)">🕶️ Lunettes</button>
+    <button onclick="setCategory('Casquettes',this)">🧢 Casquettes</button>
+    <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
+    <button onclick="setCategory('Accessoires',this)">👜 Accessoires</button>
     <button onclick="setCategory('Beauté',this)">💄 Beauté</button>
     <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
   </div>
 <div id="products" class="grid"></div>
-<div id="pagination" class="pagination" aria-label="Pagination des produits"></div>
  <div class="photo-notice">
   📸 <strong>Photos non contractuelles.</strong>
   Les produits peuvent présenter de légères différences de couleur,
@@ -265,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="order-layout">
     <div class="order-card">
       <div id="orderSummary">Votre panier est vide.</div>
-      <div class="total"><span>Total</span><strong id="cartTotal">0 F CFP</strong></div>
+      <div class="total"><span id="cartTotalLabel">Total</span><strong id="cartTotal">0 F CFP</strong></div>
     </div>
 
     <form class="order-form" onsubmit="sendOrder(event)">
@@ -305,7 +319,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <button class="close" onclick="closeCart()">×</button>
     <h2>Votre panier</h2>
     <div id="modalItems"></div>
-    <div class="total"><span>Total</span><strong id="modalTotal">0 F CFP</strong></div>
+    <div id="modalPreorderInfo"></div>
+    <div class="total"><span id="modalTotalLabel">Total</span><strong id="modalTotal">0 F CFP</strong></div>
     <a class="cta" href="#commande" onclick="closeCart()">Finaliser la commande</a>
   </div>
 </div>
@@ -325,7 +340,7 @@ const products = [
   },
     {
     id: 48,
-    name: "Console de jeu rétro U36 128 Go Pack Bleu",
+    name: "🎄 Console de jeu rétro U36 128 Go Pack Bleu",
     price: 22990,
     cat: "Précommande",
     image: "images/console-u36-128go-pack-bleu.png",
@@ -335,7 +350,7 @@ const products = [
   },
   {
   id: 58,
-  name: "Clé de jeu d’arcade rétro M15 Ultra",
+  name: "🎄 Clé de jeu d’arcade rétro M15 Ultra",
   price: 15950,
   cat: "Précommande",
   preorder: true,
@@ -345,7 +360,7 @@ const products = [
 },
   {
   id: 59,
-  name: "Console de jeu portable haute performance",
+  name: "🎄 Console de jeu portable haute performance",
   price: 12500,
   cat: "Précommande",
   preorder: true,
@@ -470,7 +485,7 @@ const products = [
     id: 8,
     name: "Lunettes sport SCVCN orange / blanc",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-sport-orange-blanc.png",
     emoji: "🕶️",
     desc: "Lunettes sport orange avec monture blanche, protection UV400."
@@ -479,7 +494,7 @@ const products = [
     id: 9,
     name: "Lunettes sport SCVCN bleu / blanc",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-sport-bleu-blanc.png",
     emoji: "🕶️",
     desc: "Lunettes sport bleu avec monture blanche, protection UV400."
@@ -488,7 +503,7 @@ const products = [
     id: 10,
     name: "Lunettes sport SCVCN jaune / noir",
     price: 1250,
-    cat: "Accessoires",
+   cat: "Lunettes",
     image: "images/lunettes-sport-jaune-noir.png",
     emoji: "🕶️",
     desc: "Lunettes sport jaune avec monture noire, protection UV400."
@@ -497,7 +512,7 @@ const products = [
     id: 11,
     name: "Lunettes sport SCVCN orange",
     price: 1250,
-    cat: "Accessoires",
+   cat: "Lunettes",
     image: "images/lunettes-sport-orange.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec verre coloré, protection UV400."
@@ -506,7 +521,7 @@ const products = [
     id: 12,
     name: "Lunettes sport SCVCN bleu",
     price: 1250,
-    cat: "Accessoires",
+   cat: "Lunettes",
     image: "images/lunettes-sport-bleu.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec verre bleu, protection UV400."
@@ -515,7 +530,7 @@ const products = [
     id: 13,
     name: "Lunettes sport SCVCN rose",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-sport-rose.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec finition rose, protection UV 400."
@@ -524,7 +539,7 @@ const products = [
     id: 14,
     name: "Lunettes sport SCVCN rose/vert",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-sport-rose-vert.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec finition colorée, protection UV400."
@@ -533,7 +548,7 @@ const products = [
     id: 15,
     name: "Lunettes sport SCVCN noir/orange",
     price: 1250,
-    cat: "Accessoires",
+   cat: "Lunettes",
     image: "images/lunettes-sport-noir-orange.png",
     emoji: "🕶️",
     desc: "Lunettes sport noire avec verre orange, protection UV400."
@@ -542,7 +557,7 @@ const products = [
     id: 16,
     name: "Lunettes polarisées noire",
     price: 900,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-polarisees-noire.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées sport, protection UV400."
@@ -551,7 +566,7 @@ const products = [
     id: 17,
     name: "Lunettes polarisées bleue",
     price: 900,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-polarisees-bleue.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre bleu, protection UV400."
@@ -560,7 +575,7 @@ const products = [
     id: 18,
     name: "Lunettes polarisées verte",
     price: 900,
-    cat: "Accessoires",
+   cat: "Lunettes",
     image: "images/lunettes-polarisees-verte.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre vert, protection UV400."
@@ -569,7 +584,7 @@ const products = [
     id: 19,
     name: "Lunettes polarisées jaune",
     price: 900,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-polarisees-jaune.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre jaune, protection UV400."
@@ -578,7 +593,7 @@ const products = [
     id: 20,
     name: "Lunettes polarisées rouge",
     price: 900,
-    cat: "Accessoires",
+    cat: "Lunettes",
     image: "images/lunettes-polarisees-rouge.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre rouge, protection UV400."
@@ -891,7 +906,7 @@ const products = [
   id: 51,
   name: "Casquette de baseball en maille",
   price: 1750,
-  cat: "Accessoires",
+  cat: "Casquettes",
   image: "images/casquette-maille.png",
   emoji: "🧢",
   desc: "Casquette de baseball en maille complète mixte, style casual, disponible en divers coloris.",
@@ -943,7 +958,7 @@ const products = [
   id: 55,
   name: "Lunettes de soleil sport UV400",
   price: 1000,
-  cat: "Accessoires",
+  cat: "Lunettes",
   image: "images/lunettes-sport-uv400.png",
   emoji: "🕶️",
   desc: "Lunettes de soleil sport UV400 pour course, cyclisme, pêche, VTT et vélo de route, modèle mixte.",
@@ -984,13 +999,24 @@ const products = [
     "🥥 Coconut Passion"
   ]
 },
+  {
+    id: 60,
+    name: "Casquette Neymar Edition Limitée",
+    price: 11990,
+    cat: "Casquettes",
+    image: "images/casquette-neymar-edition-limitee.png",
+    emoji: "🧢",
+    desc: "🧢 Casquette Neymar Edition Limitée<br><strong>2 coloris • 1 jaune • 2 noir</strong><br><br>Style <strong>streetwear</strong> et <strong>hip hop</strong>, mettant en avant des lettres inspirées de la littérature Salomon. Un design unique qui allie culture et mode urbaine pour un look distinctif.<br><br><strong>✨ Confort et ajustement personnalisé</strong><br>Grâce à sa bande ajustable et à sa structure en <strong>coton</strong>, cette casquette s’adapte parfaitement à toutes les tailles de tête. Idéale pour un port longue durée sans inconfort.<br><br><strong>🔥 Design multifonctionnel et universel</strong><br>Conçue pour un usage <strong>casual</strong> tout au long de l’année, cette casquette convient à toutes les saisons. Son style <strong>unisexe</strong> la rend adaptée à tous les genres.",
+    colors: [
+      "🟡 1 Jaune",
+      "⚫ 2 Noir"
+    ]
+  },
 ];
 
 
 let category="Tous";
 let cart=[];
-let currentPage=1;
-const productsPerPage=12;
 
 function money(n){
   return new Intl.NumberFormat('fr-FR').format(n)+" Frs";
@@ -998,10 +1024,18 @@ function money(n){
 
 function setCategory(c,btn){
   category=c;
-  currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderProducts();
+}
+
+function getProductFilterCategory(p){
+  // Sous-catégories virtuelles : aucun produit ni aucune image n'est déplacé.
+  if(p.cat === "Accessoires"){
+    if(/lunettes/i.test(p.name)) return "Lunettes";
+    if(/casquette/i.test(p.name)) return "Casquettes";
+  }
+  return p.cat;
 }
 
 function renderProducts(){
@@ -1009,21 +1043,15 @@ function renderProducts(){
   const q = document.getElementById('search').value.toLowerCase().trim();
 
   const list = products.filter(p =>
-    (category === "Tous" || p.cat === category) &&
+    (category === "Tous" || p.cat === category || getProductFilterCategory(p) === category) &&
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
     )
   );
 
-  const totalPages = Math.max(1, Math.ceil(list.length / productsPerPage));
-  if (currentPage > totalPages) currentPage = totalPages;
-
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const pageList = list.slice(startIndex, startIndex + productsPerPage);
-
-  document.getElementById('products').innerHTML = pageList.length
-    ? pageList.map(p => {
+  document.getElementById('products').innerHTML = list.length
+    ? list.map(p => {
 
         const firstPrice =
           p.storages && p.storages.length
@@ -1276,40 +1304,6 @@ function renderProducts(){
 
       }).join('')
     : '<p>Aucun produit trouvé.</p>';
-
-  renderPagination(totalPages);
-}
-
-
-function goToPage(page){
-  currentPage=page;
-  renderProducts();
-  const productsSection=document.getElementById('products');
-  if(productsSection){
-    productsSection.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-}
-
-function renderPagination(totalPages){
-  const pagination=document.getElementById('pagination');
-  if(!pagination) return;
-
-  if(totalPages <= 1){
-    pagination.innerHTML='';
-    return;
-  }
-
-  let buttons='';
-
-  buttons += `<button type="button" class="page-btn page-prev" onclick="goToPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
-
-  for(let i=1;i<=totalPages;i++){
-    buttons += `<button type="button" class="page-btn ${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
-  }
-
-  buttons += `<button type="button" class="page-btn page-next" onclick="goToPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
-
-  pagination.innerHTML=buttons;
 }
 
 
@@ -1524,8 +1518,23 @@ function updateCart(){
       ? total - acompte
       : 0;
 
+  const amountToPayNow =
+    hasPreorder
+      ? acompte
+      : total;
+
   document.getElementById('cartTotal').textContent =
-    money(total);
+    money(amountToPayNow);
+
+  const cartTotalLabel =
+    document.getElementById('cartTotalLabel');
+
+  if(cartTotalLabel){
+    cartTotalLabel.textContent =
+      hasPreorder
+        ? "Acompte à payer maintenant"
+        : "Total";
+  }
 
   document.getElementById('orderSummary').innerHTML =
     cart.length
@@ -1718,24 +1727,24 @@ function openCart(){
     : '<p>Votre panier est vide.</p>';
 
 
-  /* =========================
-     INFORMATIONS PAIEMENT
-  ========================= */
+  const modalPreorderInfo =
+    document.getElementById('modalPreorderInfo');
+
+  const modalTotalLabel =
+    document.getElementById('modalTotalLabel');
 
   if(hasPreorder){
 
     document.getElementById('modalTotal').textContent =
       money(acompte);
 
-    const totalElement =
-      document.getElementById('modalTotal');
+    if(modalTotalLabel){
+      modalTotalLabel.textContent =
+        "Acompte à payer maintenant";
+    }
 
-    if(totalElement){
-
-      totalElement.insertAdjacentHTML(
-        'beforebegin',
-
-        `
+    if(modalPreorderInfo){
+      modalPreorderInfo.innerHTML = `
         <div class="preorder-info">
 
           <div class="preorder-title">
@@ -1763,9 +1772,7 @@ function openCart(){
           </div>
 
         </div>
-        `
-      );
-
+      `;
     }
 
   } else {
@@ -1773,8 +1780,15 @@ function openCart(){
     document.getElementById('modalTotal').textContent =
       money(total);
 
-  }
+    if(modalTotalLabel){
+      modalTotalLabel.textContent = "Total";
+    }
 
+    if(modalPreorderInfo){
+      modalPreorderInfo.innerHTML = "";
+    }
+
+  }
 
   document.getElementById('cartModal').classList.add('show');
 
@@ -1988,7 +2002,6 @@ Prix : ${money(x.price * x.qty)}`;
   ========================= */
 
   const orderNumber = "FS-" + Date.now();
-  const orderNumber = "FS-" + Date.now();
 
 const internalOrder = {
   order_number: orderNumber,
@@ -1999,9 +2012,9 @@ const internalOrder = {
   email: email,
   address: address,
 
-  city: deliveryText,
-  delivery: deliveryText,
-  delivery_fee: deliveryFee,
+  city: finalDeliveryText,
+  delivery: finalDeliveryText,
+  delivery_fee: finalDeliveryFee,
 
   total: total,
 
