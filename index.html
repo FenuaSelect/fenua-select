@@ -929,76 +929,13 @@ button.preorder-btn:hover{
 </style>
 
 
-<style id="fond-neon-fenua-select-2026">
-/* =========================================================
-   FENUA SELECT • FOND NEON STATIQUE
-   Cyan + rose + violet + vert • formes géométriques
-   ========================================================= */
-html{
-  background:#050811 !important;
-}
-
-body{
-  background-color:#050811 !important;
-  background-image:
-    linear-gradient(rgba(3,7,14,.72),rgba(3,7,14,.72)),
-    url("images/fond-neon-fenua-select-2026.png") !important;
-  background-size:cover !important;
-  background-position:center center !important;
-  background-attachment:fixed !important;
-  background-repeat:no-repeat !important;
-}
-
-/* Le contenu reste lisible devant le fond */
-main,
-section,
-footer{
-  position:relative;
-  z-index:1;
-}
-
-/* Laisse apparaître le fond sans rendre les cartes transparentes */
-.product,
-.product-card,
-.order-card,
-.order-form,
-.modal-content{
-  position:relative;
-}
-
-/* Mobile : fond toujours statique, sans déplacement */
-@media(max-width:760px){
-  body{
-    background-color:#050811 !important;
-    background-image:
-      linear-gradient(rgba(3,7,14,.48),rgba(3,7,14,.48)),
-      url("images/fond-neon-fenua-select-2026.png") !important;
-    background-size:auto 100% !important;
-    background-position:center top !important;
-    background-repeat:no-repeat !important;
-    background-attachment:scroll !important;
-    min-height:100vh !important;
-  }
-
-  /* Évite que les grands aplats masquent complètement le fond */
-  .hero,
-  .shop,
-  #commande{
-    background-color:transparent !important;
-  }
-}
+<style id="rupture-stock-style-2026">
+.product-img{position:relative;overflow:hidden}
+.stock-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;background:rgba(0,0,0,.08)}
+.stock-overlay img{width:82%;max-width:250px;max-height:82%;object-fit:contain;filter:drop-shadow(0 5px 12px rgba(0,0,0,.45));transform:rotate(-8deg);opacity:.94}
+.out-of-stock-btn{background:linear-gradient(135deg,#7a101c,#c9152e)!important;color:#fff!important;border:2px solid #ffb0b0!important;opacity:.9!important;cursor:not-allowed!important;box-shadow:0 4px 14px rgba(201,21,46,.25)!important}
+.out-of-stock-btn:disabled{opacity:.9!important}
 </style>
-
-
-<style id="ssd-coloris-style-2026">
-.ssd-coloris-note{
-  margin:7px 0 2px;
-  color:#b9c9d8;
-  font-size:.82rem;
-}
-.ssd-coloris-note strong{color:#35d9ff}
-</style>
-
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -1230,35 +1167,10 @@ const products = [
     "🟡 Jaune"
   ]
 },
-
-  {
-    id: 62,
-    name: "Disque dur SSD portable 2 TB à 64 TB",
-    price: 8000,
-    cat: "High-Tech",
-    image: "images/disque-ssd-2tb-64tb-5-coloris.png",
-    emoji: "💾",
-    desc: "SSD portable auto alimenté • USB 3.1 • Haut débit • 5 coloris disponibles.",
-    colors: [
-      "🔵 Bleu",
-      "🔴 Rouge",
-      "⚫ Noir",
-      "⚪ Blanc",
-      "🟤 Or / Beige"
-    ],
-    storages: [
-      { name: "2 TB", price: 8000 },
-      { name: "4 TB", price: 10000 },
-      { name: "8 TB", price: 15000 },
-      { name: "16 TB", price: 20000 },
-      { name: "32 TB", price: 23000 },
-      { name: "64 TB", price: 25000 }
-    ]
-  },
   {
     id: 1,
     name: "Disque dur externe 2TB",
-    price: 8000,
+    price: 5000,
     cat: "High-Tech",
     image: "images/disque-2tb.png",
     emoji: "💾",
@@ -1316,7 +1228,7 @@ const products = [
     cat: "High-Tech",
     image: "images/cable-micro-usb.png",
     emoji: "🔌",
-    desc: "Câble USB pratique pour recharge et transfert, longueur 1,20 m.",
+    desc: "Câble USB pratique pour recharge et transfert."
   },
 
   /* ===== NOUVEAU : CÂBLE 3-EN-1 ===== */
@@ -1557,7 +1469,7 @@ const products = [
   {
     id: 29,
     name: "Veste coupe-vent imperméable mixte noire à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-noire.png",
     emoji: "🧥",
@@ -1567,7 +1479,7 @@ const products = [
   {
     id: 30,
     name: "Veste coupe-vent imperméable mixte bleu marine à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-bleu-marine.png",
     emoji: "🧥",
@@ -1577,7 +1489,7 @@ const products = [
   {
     id: 31,
     name: "Veste coupe-vent imperméable mixte rouge à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-rouge.png",
     emoji: "🧥",
@@ -1587,7 +1499,7 @@ const products = [
   {
     id: 32,
     name: "Veste coupe-vent imperméable mixte grise à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-gris.png",
     emoji: "🧥",
@@ -1597,7 +1509,7 @@ const products = [
   {
     id: 33,
     name: "Veste coupe-vent imperméable mixte rose à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-rose.png",
     emoji: "🧥",
@@ -1607,7 +1519,7 @@ const products = [
   {
     id: 34,
     name: "Veste coupe-vent imperméable mixte kaki à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-kaki.png",
     emoji: "🧥",
@@ -1617,7 +1529,7 @@ const products = [
   {
     id: 35,
     name: "Veste coupe-vent imperméable mixte ivoire à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-ivoire.png",
     emoji: "🧥",
@@ -1887,6 +1799,7 @@ let category="Tous";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
+const outOfStockIds = new Set([1, 2, 3, 4]);
 
 function money(n){
   return new Intl.NumberFormat('fr-FR').format(n)+" Frs";
@@ -1937,6 +1850,7 @@ function renderProducts(){
           loading="lazy"
           onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
         >
+        ${outOfStockIds.has(p.id) ? '<div class="stock-overlay"><img src="images/rupture-de-stock.png" alt="Rupture de stock"></div>' : ''}
       </div>
 
       <div class="product-body">
@@ -2109,9 +2023,10 @@ function renderProducts(){
   <strong id="price-${p.id}">${money(firstPrice)}</strong>
 
   <button
-    class="${p.preorder ? 'preorder-btn' : ''}"
-    onclick="add(${p.id})">
-    ${p.preorder ? "🎄 PRÉCOMMANDER NOËL" : "Ajouter"}
+    class="${p.preorder ? 'preorder-btn' : ''}${outOfStockIds.has(p.id) ? ' out-of-stock-btn' : ''}"
+    onclick="add(${p.id})"
+    ${outOfStockIds.has(p.id) ? 'disabled' : ''}>
+    ${outOfStockIds.has(p.id) ? "🔴 RUPTURE DE STOCK" : (p.preorder ? "🎄 PRÉCOMMANDER NOËL" : "Ajouter")}
   </button>
 
 </div>
@@ -2153,6 +2068,8 @@ function renderProducts(){
             </div>
 
           </div>
+
+
 
 
         </div>
@@ -2252,6 +2169,9 @@ function add(id){
   const p = products.find(x => x.id === id);
 
   if(!p) return;
+  if(outOfStockIds.has(id)){
+    return;
+  }
 
   let flavor = "";
   let finish = "";
