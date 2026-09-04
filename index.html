@@ -786,6 +786,37 @@ button.preorder-btn:hover{
 }
 </style>
 
+
+<style id="cart-delete-button-2026">
+#cartModal .cart-delete-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex:0 0 auto;
+  padding:7px 10px;
+  border:1px solid rgba(255,90,90,.30);
+  border-radius:9px;
+  background:rgba(90,20,25,.35);
+  color:#ffb0b0;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+#cartModal .cart-delete-btn:hover{
+  border-color:rgba(255,90,90,.65);
+  background:rgba(120,25,30,.55);
+  color:#fff;
+}
+@media(max-width:600px){
+  #cartModal .cart-delete-btn{
+    padding:6px 8px;
+    font-size:11px;
+  }
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -2140,6 +2171,9 @@ function add(id){
 
 
   updateCart();
+
+  // Ouvre automatiquement le panier après l'ajout d'un produit.
+  openCart();
 }
 
 
@@ -2202,7 +2236,7 @@ function updateCart(){
 
           <span>
 
-            <strong>${x.name}</strong>
+            <strong>${x.name}</strong> <button type="button" class="cart-delete-btn" onclick="removeFromCart(${x.cartId})" aria-label="Supprimer ${x.name}">🗑️ Supprimer</button>
             × ${x.qty}
 
             ${
