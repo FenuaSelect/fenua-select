@@ -928,10 +928,77 @@ button.preorder-btn:hover{
 }
 </style>
 
-<style id="ssd-five-colors-2026">
-.ssd-five-colors{margin:8px 0;color:#dce9f5;font-size:.88rem}
-.ssd-five-colors strong{color:#35d9ff}
+
+<style id="fond-neon-fenua-select-2026">
+/* =========================================================
+   FENUA SELECT • FOND NEON STATIQUE
+   Cyan + rose + violet + vert • formes géométriques
+   ========================================================= */
+html{
+  background:#050811 !important;
+}
+
+body{
+  background-color:#050811 !important;
+  background-image:
+    linear-gradient(rgba(3,7,14,.72),rgba(3,7,14,.72)),
+    url("images/fond-neon-fenua-select-2026.png") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-attachment:fixed !important;
+  background-repeat:no-repeat !important;
+}
+
+/* Le contenu reste lisible devant le fond */
+main,
+section,
+footer{
+  position:relative;
+  z-index:1;
+}
+
+/* Laisse apparaître le fond sans rendre les cartes transparentes */
+.product,
+.product-card,
+.order-card,
+.order-form,
+.modal-content{
+  position:relative;
+}
+
+/* Mobile : fond toujours statique, sans déplacement */
+@media(max-width:760px){
+  body{
+    background-color:#050811 !important;
+    background-image:
+      linear-gradient(rgba(3,7,14,.48),rgba(3,7,14,.48)),
+      url("images/fond-neon-fenua-select-2026.png") !important;
+    background-size:auto 100% !important;
+    background-position:center top !important;
+    background-repeat:no-repeat !important;
+    background-attachment:scroll !important;
+    min-height:100vh !important;
+  }
+
+  /* Évite que les grands aplats masquent complètement le fond */
+  .hero,
+  .shop,
+  #commande{
+    background-color:transparent !important;
+  }
+}
 </style>
+
+
+<style id="ssd-coloris-style-2026">
+.ssd-coloris-note{
+  margin:7px 0 2px;
+  color:#b9c9d8;
+  font-size:.82rem;
+}
+.ssd-coloris-note strong{color:#35d9ff}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -1163,6 +1230,31 @@ const products = [
     "🟡 Jaune"
   ]
 },
+
+  {
+    id: 62,
+    name: "Disque dur SSD portable 2 TB à 64 TB",
+    price: 8000,
+    cat: "High-Tech",
+    image: "images/disque-ssd-2tb-64tb-5-coloris.png",
+    emoji: "💾",
+    desc: "SSD portable auto alimenté • USB 3.1 • Haut débit • 5 coloris disponibles.",
+    colors: [
+      "🔵 Bleu",
+      "🔴 Rouge",
+      "⚫ Noir",
+      "⚪ Blanc",
+      "🟤 Or / Beige"
+    ],
+    storages: [
+      { name: "2 TB", price: 8000 },
+      { name: "4 TB", price: 10000 },
+      { name: "8 TB", price: 15000 },
+      { name: "16 TB", price: 20000 },
+      { name: "32 TB", price: 23000 },
+      { name: "64 TB", price: 25000 }
+    ]
+  },
   {
     id: 1,
     name: "Disque dur externe 2TB",
@@ -1199,32 +1291,6 @@ const products = [
     emoji: "💾",
     desc: "Auto alimenté / USB 3.0."
   },
-  /* ===== NOUVEAU : SSD PORTABLE 2 TB À 64 TB ===== */
-  {
-    id: 62,
-    name: "Disque dur SSD portable 2 TB à 64 TB",
-    price: 8000,
-    cat: "High-Tech",
-    image: "images/disque-ssd-2tb-64tb-5-coloris.png",
-    emoji: "💾",
-    desc: "Disque dur SSD portable auto alimenté • USB 3.1 • 5 coloris • Stockage de 2 TB à 64 TB.",
-    colors: [
-      "🔵 Bleu",
-      "🔴 Rouge",
-      "⚫ Noir",
-      "⚪ Argent",
-      "🟤 Doré"
-    ],
-    storages: [
-      { name: "2 TB", price: 8000 },
-      { name: "4 TB", price: 10000 },
-      { name: "8 TB", price: 15000 },
-      { name: "16 TB", price: 20000 },
-      { name: "32 TB", price: 23000 },
-      { name: "64 TB", price: 25000 }
-    ]
-  },
-
   {
     id: 5,
     name: "Hub USB 7-en-2 USB + Type-C",
@@ -1250,7 +1316,7 @@ const products = [
     cat: "High-Tech",
     image: "images/cable-micro-usb.png",
     emoji: "🔌",
-    desc: "Câble USB pratique pour recharge et transfert, longueur 30 cm.","
+    desc: "Câble USB pratique pour recharge et transfert."
   },
 
   /* ===== NOUVEAU : CÂBLE 3-EN-1 ===== */
@@ -1491,7 +1557,7 @@ const products = [
   {
     id: 29,
     name: "Veste coupe-vent imperméable mixte noire à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-noire.png",
     emoji: "🧥",
@@ -1501,7 +1567,7 @@ const products = [
   {
     id: 30,
     name: "Veste coupe-vent imperméable mixte bleu marine à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-bleu-marine.png",
     emoji: "🧥",
@@ -1511,7 +1577,7 @@ const products = [
   {
     id: 31,
     name: "Veste coupe-vent imperméable mixte rouge à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-rouge.png",
     emoji: "🧥",
@@ -1521,7 +1587,7 @@ const products = [
   {
     id: 32,
     name: "Veste coupe-vent imperméable mixte grise à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-gris.png",
     emoji: "🧥",
@@ -1531,7 +1597,7 @@ const products = [
   {
     id: 33,
     name: "Veste coupe-vent imperméable mixte rose à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-rose.png",
     emoji: "🧥",
@@ -1541,7 +1607,7 @@ const products = [
   {
     id: 34,
     name: "Veste coupe-vent imperméable mixte kaki à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-kaki.png",
     emoji: "🧥",
@@ -1551,7 +1617,7 @@ const products = [
   {
     id: 35,
     name: "Veste coupe-vent imperméable mixte ivoire à capuche",
-    price: 11900,
+    price: 12500,
     cat: "Vêtements",
     image: "images/veste-reebok-ivoire.png",
     emoji: "🧥",
@@ -2089,14 +2155,11 @@ function renderProducts(){
           </div>
 
 
-
-
         </div>
 
       </div>
 
-    <div class="ssd-five-colors"><strong>🎨 5 coloris :</strong> 🔵 Bleu&nbsp;&nbsp; 🔴 Rouge&nbsp;&nbsp; ⚫ Noir&nbsp;&nbsp; ⚪ Blanc&nbsp;&nbsp; 🟤 Or/Beige</div>
-</article>
+    </article>
 
   `;
 
