@@ -930,10 +930,7 @@ button.preorder-btn:hover{
 
 
 <style id="fond-neon-fenua-select-2026">
-/* =========================================================
-   FENUA SELECT • FOND NEON STATIQUE
-   Cyan + rose + violet + vert • formes géométriques
-   ========================================================= */
+/* ===== FENUA SELECT • FOND NEON PC + MOBILE ===== */
 html{
   background:#050811 !important;
 }
@@ -949,41 +946,25 @@ body{
   background-repeat:no-repeat !important;
 }
 
-/* Le contenu reste lisible devant le fond */
-main,
-section,
-footer{
+main, section, footer{
   position:relative;
   z-index:1;
 }
 
-/* Laisse apparaître le fond sans rendre les cartes transparentes */
-.product,
-.product-card,
-.order-card,
-.order-form,
-.modal-content{
-  position:relative;
-}
-
-/* Mobile : fond toujours statique, sans déplacement */
 @media(max-width:760px){
   body{
     background-color:#050811 !important;
     background-image:
-      linear-gradient(rgba(3,7,14,.48),rgba(3,7,14,.48)),
-      url("images/fond-neon-fenua-select-2026.png") !important;
-    background-size:auto 100% !important;
+      linear-gradient(rgba(3,7,14,.42),rgba(3,7,14,.42)),
+      url("images/fond-neon-fenua-select-mobile-2026.png") !important;
+    background-size:cover !important;
     background-position:center top !important;
     background-repeat:no-repeat !important;
     background-attachment:scroll !important;
     min-height:100vh !important;
   }
 
-  /* Évite que les grands aplats masquent complètement le fond */
-  .hero,
-  .shop,
-  #commande{
+  .hero, .shop, #commande{
     background-color:transparent !important;
   }
 }
@@ -2120,12 +2101,7 @@ function renderProducts(){
           </div>
 
 
-          <button
-            type="button"
-            onclick="add(${p.id})"
-          >
-            Ajouter
-          </button>
+
 
         </div>
 
@@ -2822,7 +2798,16 @@ Prix : ${money(x.price * x.qty)}`;
      DONNÉES ENVOYÉES À EMAILJS
   ========================= */
 
+  const orderNumber = "FS-" + Date.now();
+
+  const paymentText = hasPreorder
+    ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
+    : "";
+
+  /* Même jeu de données pour l'e-mail et Google Sheets */
   const templateParams = {
+    order_number: orderNumber,
+    date: new Date().toLocaleString("fr-FR"),
 
     name: name,
     phone: phone,
@@ -2847,9 +2832,9 @@ Prix : ${money(x.price * x.qty)}`;
       ? money(solde)
       : "",
 
-    paiement: hasPreorder
-      ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
-      : ""
+    preorder: hasPreorder ? "Oui" : "Non",
+
+    paiement: paymentText
   };
 
 
@@ -2864,46 +2849,44 @@ Prix : ${money(x.price * x.qty)}`;
      Cette copie est destinée uniquement au tableau privé.
   ========================= */
 
-  const orderNumber = "FS-" + Date.now();
+  const internalOrder = {
+    order_number: orderNumber,
+    date: new Date().toLocaleString("fr-FR"),
 
-const internalOrder = {
-  order_number: orderNumber,
-  date: new Date().toLocaleString("fr-FR"),
+    name: name,
+    phone: phone,
+    email: email,
+    address: address,
 
-  name: name,
-  phone: phone,
-  email: email,
-  address: address,
+    city: finalDeliveryText,
+    delivery: finalDeliveryText,
+    delivery_fee: finalDeliveryFee,
 
-  city: deliveryText,
-  delivery: deliveryText,
-  delivery_fee: deliveryFee,
+    products_total: productsTotal,
+    total: total,
+    acompte: hasPreorder ? acompte : 0,
+    solde: hasPreorder ? solde : 0,
 
-  total: total,
+    preorder: hasPreorder,
+    payment: paymentText,
+    payment_received: "",
+    status: "Nouveau",
+    notes: "",
 
-  // Précommande : calcul automatique 50 / 50
-  preorder: cart.some(x => x.preorder === true),
-
-  payment: "",
-  payment_received: "",
-
-  status: "Nouveau",
-  notes: "",
-
-  order: cart.map(function(x){
-    return {
-      product: x.name || "",
-      color: x.color || "",
-      variant: x.finish || "",
-      flavor: x.flavor || "",
-      size: x.size || "",
-      storage: x.storage || "",
-      quantity: x.qty || 0,
-      price: x.price || 0,
-      total: (x.price || 0) * (x.qty || 0)
-    };
-  })
-};
+    order: cart.map(function(x){
+      return {
+        product: x.name || "",
+        color: x.color || "",
+        variant: x.finish || "",
+        flavor: x.flavor || "",
+        size: x.size || "",
+        storage: x.storage || "",
+        quantity: x.qty || 0,
+        price: x.price || 0,
+        total: (x.price || 0) * (x.qty || 0)
+      };
+    })
+  };
   sendOrderToGoogleSheets(internalOrder);
 
   /* =========================
