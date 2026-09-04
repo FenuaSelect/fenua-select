@@ -671,6 +671,489 @@ body{
   }
 }
 
+/* =========================================================
+   FENUA SELECT • PRÉSENTATION VISUELLE FINALE
+   CSS UNIQUEMENT : index.html et fonctionnement inchangés
+   ========================================================= */
+
+/* Fond général */
+html{
+  background:#030405;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0,210,255,.06), transparent 28%),
+    radial-gradient(circle at 90% 20%, rgba(255,0,153,.045), transparent 24%),
+    #030405;
+  color:#f5f7fb;
+}
+
+/* Bandeau existant */
+.banner{
+  margin:0 auto;
+  max-width:1480px;
+  padding:10px 18px 0;
+  background:#030405;
+}
+
+.banner img{
+  display:block;
+  width:100%;
+  max-height:110px;
+  object-fit:cover;
+  border-radius:18px;
+}
+
+/* Header */
+.header{
+  position:relative;
+  z-index:10;
+  max-width:1480px;
+  margin:0 auto;
+  min-height:72px;
+  padding:8px 22px;
+  box-sizing:border-box;
+  background:rgba(4,6,10,.92);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.45),
+    0 0 24px rgba(0,210,255,.035);
+  backdrop-filter:blur(14px);
+}
+
+/* Logo existant, si visible */
+.header .brand img{
+  max-height:62px;
+  width:auto;
+  object-fit:contain;
+}
+
+/* Navigation */
+.header nav a{
+  color:#f4f6fb;
+  font-weight:800;
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.header nav a:hover{
+  color:#25d9ff;
+  text-shadow:0 0 12px rgba(37,217,255,.45);
+}
+
+/* Panier */
+.cart-btn{
+  border:1px solid rgba(0,220,255,.55) !important;
+  background:linear-gradient(135deg,#08121b,#0a0d14) !important;
+  color:#fff !important;
+  box-shadow:0 0 18px rgba(0,210,255,.10);
+}
+
+.cart-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 24px rgba(0,210,255,.22),
+    0 0 18px rgba(255,0,153,.10);
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  overflow:hidden;
+  max-width:1480px;
+  margin:12px auto 0;
+  min-height:235px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 25% 45%,rgba(0,210,255,.08),transparent 25%),
+    radial-gradient(circle at 78% 45%,rgba(255,0,153,.08),transparent 27%),
+    linear-gradient(180deg,#05070a,#020304);
+  border:1px solid rgba(255,255,255,.11);
+  box-shadow:
+    inset 0 0 60px rgba(0,0,0,.45),
+    0 20px 50px rgba(0,0,0,.30);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+/* Titre multicolore */
+.hero h1{
+  font-weight:1000;
+  letter-spacing:-2px;
+  background:linear-gradient(
+    90deg,
+    #00d9ff 0%,
+    #22f0a7 20%,
+    #ffe600 40%,
+    #ff8a00 57%,
+    #ff2ca8 77%,
+    #9d4dff 100%
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:
+    0 0 12px rgba(0,217,255,.13),
+    0 0 28px rgba(255,44,168,.10);
+}
+
+/* COMMANDE UNIQUEMENT sous le titre */
+.hero h1::after{
+  content:"COMMANDE UNIQUEMENT";
+  display:block;
+  margin:10px auto 0;
+  font-size:clamp(12px,1.25vw,18px);
+  line-height:1;
+  letter-spacing:5px;
+  font-weight:900;
+  text-transform:uppercase;
+  background:linear-gradient(
+    90deg,
+    #ff2ca8,
+    #9d4dff,
+    #00d9ff,
+    #7cff63,
+    #ffd43b,
+    #ff2ca8
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:fenuaCommandGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes fenuaCommandGlow{
+  from{filter:brightness(.88);}
+  to{
+    filter:brightness(1.2);
+    text-shadow:0 0 14px rgba(0,217,255,.16);
+  }
+}
+
+/* Supprime les décorations autour du titre */
+.hero::before,
+.hero::after,
+.hero-content::before,
+.hero-content::after,
+.hero h1::before{
+  content:none !important;
+  display:none !important;
+}
+
+/* Recherche */
+#search{
+  background:#080b10 !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+  border-radius:11px !important;
+  box-shadow:inset 0 0 20px rgba(0,0,0,.25);
+}
+
+#search::placeholder{
+  color:#8e96a3;
+}
+
+#search:focus{
+  border-color:#1fdcff !important;
+  box-shadow:0 0 20px rgba(31,220,255,.12) !important;
+}
+
+/* Catégories */
+.categories{
+  gap:9px !important;
+}
+
+.categories button{
+  min-height:48px;
+  border:1px solid rgba(255,255,255,.20) !important;
+  background:linear-gradient(180deg,#0d1015,#07090d) !important;
+  color:#f5f7fb !important;
+  border-radius:11px !important;
+  font-weight:800;
+  transition:.22s ease;
+}
+
+.categories button:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,220,255,.55) !important;
+  box-shadow:0 0 18px rgba(0,220,255,.10);
+}
+
+.categories button.active{
+  border-color:#00d9ff !important;
+  box-shadow:
+    0 0 16px rgba(0,217,255,.18),
+    inset 0 0 15px rgba(0,217,255,.035);
+}
+
+/* Bandeau services */
+.services,
+.service-highlights{
+  background:linear-gradient(180deg,#090c11,#050608) !important;
+  border:1px solid rgba(255,255,255,.17) !important;
+  border-radius:15px !important;
+  box-shadow:0 14px 40px rgba(0,0,0,.30);
+}
+
+/* Cartes produits */
+.grid{
+  gap:12px !important;
+}
+
+.product{
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(18,20,24,.96),rgba(6,7,9,.98)) !important;
+  border:1px solid rgba(255,255,255,.17) !important;
+  border-radius:14px !important;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.34),
+    inset 0 0 25px rgba(255,255,255,.015);
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  border-color:rgba(0,217,255,.50) !important;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.48),
+    0 0 24px rgba(0,217,255,.09);
+}
+
+.product-img{
+  background:#050608 !important;
+  border-radius:10px;
+}
+
+.product-img img{
+  transition:filter .3s ease;
+}
+
+.product:hover .product-img img{
+  filter:brightness(1.07) saturate(1.05);
+}
+
+.product h3{
+  color:#fff !important;
+}
+
+.product p{
+  color:#aeb5c0 !important;
+}
+
+.product-price{
+  font-weight:900 !important;
+  background:linear-gradient(90deg,#00d9ff,#ff36b7);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* Boutons produits */
+.product button,
+.product-bottom button{
+  border-radius:9px !important;
+  background:#07090d !important;
+  font-weight:800 !important;
+  transition:.2s ease;
+}
+
+.product button:hover,
+.product-bottom button:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.15);
+  box-shadow:0 0 15px rgba(0,217,255,.12);
+}
+
+/* Bloc "voir tous les produits" / CTA */
+.cta{
+  border-radius:11px !important;
+  font-weight:900 !important;
+  background:linear-gradient(135deg,#071116,#0b0c12) !important;
+  border:1px solid rgba(0,217,255,.65) !important;
+  box-shadow:
+    0 0 18px rgba(0,217,255,.10),
+    0 0 18px rgba(255,44,168,.06);
+  transition:.22s ease;
+}
+
+.cta:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 25px rgba(0,217,255,.18),
+    0 0 20px rgba(255,44,168,.10);
+}
+
+/* Sections */
+.section{
+  max-width:1480px;
+}
+
+.section-head h2,
+.section-head h1{
+  color:#fff;
+  text-shadow:0 0 18px rgba(255,255,255,.06);
+}
+
+/* Ligne lumineuse sous les grands titres */
+.section-head h2::after{
+  content:"";
+  display:block;
+  width:155px;
+  height:3px;
+  margin-top:9px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#00d9ff,#ff2ca8,#ffd43b);
+  box-shadow:0 0 10px rgba(0,217,255,.25);
+}
+
+/* Promo / commande */
+.promo,
+.order-card,
+.order-form,
+.modal-card{
+  background:linear-gradient(180deg,#0b0e13,#050608) !important;
+  border-color:rgba(255,255,255,.16) !important;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .banner{
+    padding:6px 8px 0;
+  }
+
+  .header{
+    margin:8px;
+    border-radius:14px;
+  }
+
+  .hero{
+    margin:8px;
+    min-height:200px;
+    border-radius:16px;
+  }
+
+  .hero h1{
+    letter-spacing:-1px;
+  }
+
+  .hero h1::after{
+    letter-spacing:2.5px;
+    font-size:12px;
+  }
+
+  .categories{
+    overflow-x:auto;
+    flex-wrap:nowrap !important;
+    padding-bottom:5px;
+  }
+
+  .categories button{
+    flex:0 0 auto;
+  }
+}
+
+@media(max-width:600px){
+  .hero{
+    min-height:180px;
+  }
+
+  .hero h1{
+    font-size:clamp(38px,12vw,64px);
+  }
+
+  .hero h1::after{
+    margin-top:8px;
+    font-size:10px;
+    letter-spacing:2px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero h1::after{
+    animation:none !important;
+  }
+
+  *,
+  *::before,
+  *::after{
+    transition:none !important;
+  }
+}
+
+/* =========================================================
+   ONGLET « TOUS » : fiches produits plus compactes
+   Uniquement lorsque « Tous » est sélectionné
+   ========================================================= */
+.categories:has(> button:first-child.active) ~ .grid{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:10px !important;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product{
+  border-radius:11px !important;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product-img{
+  height:190px !important;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product-body{
+  padding:10px !important;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product h3{
+  font-size:15px !important;
+  line-height:1.2;
+  margin:8px 0 5px;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product p{
+  font-size:12px !important;
+  line-height:1.25;
+  margin:4px 0;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product-price{
+  font-size:17px !important;
+}
+
+.categories:has(> button:first-child.active) ~ .grid .product button,
+.categories:has(> button:first-child.active) ~ .grid .product-bottom button{
+  padding:7px 9px !important;
+  font-size:11px !important;
+  border-radius:8px !important;
+}
+
+@media(max-width:1199px){
+  .categories:has(> button:first-child.active) ~ .grid .product-img{
+    height:180px !important;
+  }
+}
+
+@media(max-width:700px){
+  .categories:has(> button:first-child.active) ~ .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px !important;
+  }
+
+  .categories:has(> button:first-child.active) ~ .grid .product-img{
+    height:150px !important;
+  }
+}
+
+
+
 
 
 
