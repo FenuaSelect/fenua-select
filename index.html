@@ -129,6 +129,92 @@ button.preorder-btn:hover{
 }
 </style>
 
+
+<style id="compact-product-cards">
+/* Cartes produits compactes, style proche du format initial */
+.grid{
+  gap:10px !important;
+}
+.product{
+  border-radius:10px !important;
+  overflow:hidden;
+}
+.product-img{
+  min-height:125px !important;
+  height:125px !important;
+  padding:6px !important;
+}
+.product-img img{
+  max-height:115px !important;
+  object-fit:contain !important;
+}
+.product-body{
+  padding:7px !important;
+}
+.product h3{
+  font-size:12px !important;
+  line-height:1.2 !important;
+  margin:0 0 4px !important;
+}
+.product p{
+  font-size:10px !important;
+  line-height:1.25 !important;
+  margin:3px 0 !important;
+  display:-webkit-box !important;
+  -webkit-line-clamp:2 !important;
+  -webkit-box-orient:vertical !important;
+  overflow:hidden !important;
+}
+.product .pill,
+.product .badge{
+  font-size:8px !important;
+  padding:3px 6px !important;
+}
+.product select,
+.product input{
+  min-height:28px !important;
+  height:28px !important;
+  font-size:10px !important;
+}
+.product .qty-btn,
+.product button{
+  min-height:28px !important;
+  padding:5px 7px !important;
+  font-size:10px !important;
+}
+.product .price,
+.product strong{
+  font-size:13px !important;
+}
+.product .options,
+.product .quantity,
+.product .product-actions{
+  gap:5px !important;
+  margin-top:5px !important;
+}
+@media (max-width:600px){
+  .grid{
+    gap:8px !important;
+  }
+  .product-img{
+    min-height:105px !important;
+    height:105px !important;
+  }
+  .product-img img{
+    max-height:98px !important;
+  }
+  .product-body{
+    padding:6px !important;
+  }
+  .product h3{
+    font-size:11px !important;
+  }
+  .product p{
+    font-size:9px !important;
+  }
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
