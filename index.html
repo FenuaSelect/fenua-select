@@ -131,35 +131,61 @@ button.preorder-btn:hover{
 
 
 <style id="compact-product-cards">
-/* Cartes produits compactes, style proche du format initial */
+/* Grille uniforme : images légèrement plus grandes + textes alignés */
 .grid{
-  gap:10px !important;
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:14px !important;
+  align-items:stretch !important;
 }
 .product{
-  border-radius:10px !important;
-  overflow:hidden;
+  width:100% !important;
+  min-width:0 !important;
+  height:100% !important;
+  min-height:375px !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  border-radius:12px !important;
 }
 .product-img{
-  min-height:125px !important;
-  height:125px !important;
-  padding:6px !important;
+  flex:0 0 170px !important;
+  height:170px !important;
+  min-height:170px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
 }
 .product-img img{
-  max-height:115px !important;
+  width:100% !important;
+  height:100% !important;
+  max-height:158px !important;
   object-fit:contain !important;
 }
 .product-body{
-  padding:7px !important;
+  flex:1 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:10px !important;
+  box-sizing:border-box !important;
 }
 .product h3{
-  font-size:12px !important;
+  font-size:13px !important;
   line-height:1.2 !important;
-  margin:0 0 4px !important;
+  height:31px !important;
+  min-height:31px !important;
+  margin:0 0 5px !important;
+  overflow:hidden !important;
 }
 .product p{
-  font-size:10px !important;
-  line-height:1.25 !important;
-  margin:3px 0 !important;
+  font-size:10.5px !important;
+  line-height:1.3 !important;
+  height:28px !important;
+  min-height:28px !important;
+  max-height:28px !important;
+  margin:0 0 7px !important;
   display:-webkit-box !important;
   -webkit-line-clamp:2 !important;
   -webkit-box-orient:vertical !important;
@@ -172,19 +198,10 @@ button.preorder-btn:hover{
 }
 .product select,
 .product input{
-  min-height:28px !important;
-  height:28px !important;
+  min-height:30px !important;
+  height:30px !important;
   font-size:10px !important;
-}
-.product .qty-btn,
-.product button{
-  min-height:28px !important;
-  padding:5px 7px !important;
-  font-size:10px !important;
-}
-.product .price,
-.product strong{
-  font-size:13px !important;
+  box-sizing:border-box !important;
 }
 .product .options,
 .product .quantity,
@@ -192,25 +209,69 @@ button.preorder-btn:hover{
   gap:5px !important;
   margin-top:5px !important;
 }
-@media (max-width:600px){
+.product .qty-btn,
+.product button{
+  min-height:30px !important;
+  height:30px !important;
+  padding:5px 7px !important;
+  font-size:10px !important;
+}
+.product .price,
+.product strong{
+  font-size:13px !important;
+}
+
+/* Tablette */
+@media (max-width:1100px){
   .grid{
-    gap:8px !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:12px !important;
+  }
+  .product{
+    min-height:365px !important;
   }
   .product-img{
-    min-height:105px !important;
-    height:105px !important;
+    flex-basis:160px !important;
+    height:160px !important;
+    min-height:160px !important;
   }
   .product-img img{
-    max-height:98px !important;
+    max-height:150px !important;
+  }
+}
+
+/* Mobile : 2 produits côte à côte, avec images assez grandes */
+@media (max-width:700px){
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  .product{
+    min-height:350px !important;
+  }
+  .product-img{
+    flex-basis:135px !important;
+    height:135px !important;
+    min-height:135px !important;
+    padding:5px !important;
+  }
+  .product-img img{
+    max-height:126px !important;
   }
   .product-body{
-    padding:6px !important;
+    padding:8px !important;
   }
   .product h3{
-    font-size:11px !important;
+    font-size:11.5px !important;
+    height:28px !important;
+    min-height:28px !important;
   }
   .product p{
     font-size:9px !important;
+    height:25px !important;
+    min-height:25px !important;
+    max-height:25px !important;
+    margin-bottom:6px !important;
   }
 }
 </style>
