@@ -56,6 +56,92 @@ button.preorder-btn:hover{
 <title>Fenua Select | La qualité • Le choix • Le prix</title>
 <meta name="description" content="Fenua Select - La qualité • Le choix • Le prix. Découvrez notre sélection de produits à Tahiti.">
 <link rel="stylesheet" href="style.css">
+<style id="panier-premium-2026">
+/* ===== PANIER PREMIUM FENUA SELECT ===== */
+#cartModal .modal-content{
+  max-width:560px;
+  width:min(94vw,560px);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 22px 70px rgba(0,0,0,.32);
+}
+#cartModal .modal-header{
+  padding:20px 22px 16px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+#cartModal .modal-header h3{
+  margin:0;
+  font-size:1.35rem;
+  letter-spacing:.2px;
+}
+#cartModal #modalItems{
+  padding:8px 18px 4px;
+  max-height:48vh;
+  overflow-y:auto;
+}
+#cartModal #modalItems > div{
+  display:grid !important;
+  grid-template-columns:58px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:12px 2px;
+  border-bottom:1px solid rgba(0,0,0,.07);
+}
+#cartModal #modalItems img{
+  width:58px !important;
+  height:58px !important;
+  object-fit:cover;
+  border-radius:12px;
+  background:#f3f3f3;
+}
+#cartModal .preorder-info{
+  margin:12px 18px 8px !important;
+  padding:15px 16px !important;
+  border-radius:16px !important;
+  background:linear-gradient(135deg,#fff8e7,#fffdf7) !important;
+  border:1px solid rgba(190,140,30,.25) !important;
+  line-height:1.55 !important;
+}
+#cartModal .preorder-info strong{
+  font-weight:800;
+}
+#cartModal .total{
+  margin:12px 18px !important;
+  padding:17px 18px !important;
+  border-radius:16px !important;
+  background:#f5f7f9 !important;
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+}
+#cartModal .total span{
+  font-size:.95rem;
+  font-weight:700;
+}
+#cartModal .total strong{
+  font-size:1.35rem;
+  font-weight:900;
+}
+#cartModal .modal-actions{
+  padding:14px 18px 18px !important;
+  gap:10px !important;
+}
+#cartModal .modal-actions button{
+  min-height:46px;
+  border-radius:12px;
+  font-weight:800;
+}
+@media(max-width:600px){
+  #cartModal .modal-content{width:96vw;border-radius:20px}
+  #cartModal #modalItems{padding-left:14px;padding-right:14px;max-height:45vh}
+  #cartModal #modalItems > div{grid-template-columns:52px 1fr auto;gap:9px}
+  #cartModal #modalItems img{width:52px !important;height:52px !important}
+  #cartModal .preorder-info{margin-left:14px !important;margin-right:14px !important}
+  #cartModal .total{margin-left:14px !important;margin-right:14px !important}
+  #cartModal .modal-actions{padding-left:14px !important;padding-right:14px !important}
+}
+</style>
+
 <style>
 .product-img img{width:100%;height:100%;object-fit:contain;padding:12px;box-sizing:border-box}
 .product-img{overflow:hidden}
