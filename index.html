@@ -861,6 +861,37 @@ button.preorder-btn{
 }
 </style>
 
+
+<style id="precommande-noel-rouge-final-2026">
+/* 🎅🎄 Précommande : rouge Noël, bien visible */
+#categories button[onclick*="setCategory('Précommande'"]{
+  background:#c9152e !important;
+  color:#fff !important;
+  border:2px solid #f4d06f !important;
+  border-radius:12px !important;
+  font-weight:900 !important;
+  font-size:15px !important;
+  box-shadow:0 5px 18px rgba(201,21,46,.38),0 0 18px rgba(244,208,111,.18) !important;
+  transform:scale(1.04);
+}
+
+/* Remplace l'affichage du texte du bouton par une version festive */
+#categories button[onclick*="setCategory('Précommande'"]{
+  font-size:0 !important;
+}
+#categories button[onclick*="setCategory('Précommande'"]::before{
+  content:"🎅 🎄 Précommande" !important;
+  font-size:15px !important;
+}
+
+#categories button[onclick*="setCategory('Précommande'"]:hover{
+  background:#e01836 !important;
+  border-color:#ffe7a0 !important;
+  box-shadow:0 7px 24px rgba(201,21,46,.50),0 0 25px rgba(244,208,111,.30) !important;
+  transform:scale(1.06) translateY(-1px);
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
@@ -1048,7 +1079,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const products = [
     {
     id: 47,
-    name: "🎄Console de jeu rétro U36 128 Go Pack Orange",
+    name: "🎄 Console de jeu rétro U36 128 Go Pack Orange",
     price: 22990,
      cat: "Précommande",
     image: "images/console-u36-128go-pack-orange.png",
@@ -1058,7 +1089,7 @@ const products = [
   },
     {
     id: 48,
-    name: "🎄Console de jeu rétro U36 128 Go Pack Bleu",
+    name: "Console de jeu rétro U36 128 Go Pack Bleu",
     price: 22990,
     cat: "Précommande",
     image: "images/console-u36-128go-pack-bleu.png",
@@ -1068,7 +1099,7 @@ const products = [
   },
   {
   id: 58,
-  name: "🎄Clé de jeu d’arcade rétro M15 Ultra",
+  name: "Clé de jeu d’arcade rétro M15 Ultra",
   price: 15950,
   cat: "Précommande",
   preorder: true,
@@ -1078,7 +1109,7 @@ const products = [
 },
   {
   id: 59,
-  name: "🎄Console de jeu portable haute performance",
+  name: "Console de jeu portable haute performance",
   price: 12500,
   cat: "Précommande",
   preorder: true,
