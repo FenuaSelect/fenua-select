@@ -1619,6 +1619,121 @@ body{
   }
 }
 
+/* =========================================================
+   VERSION FINALE : SANS BANNIÈRE, LOGO À GAUCHE DU TITRE
+   ========================================================= */
+
+/* Supprime complètement la bannière de l'ancienne version */
+.banner,
+.hero::before{
+  display:none !important;
+  content:none !important;
+  background-image:none !important;
+}
+
+/* Le hero reprend une hauteur normale */
+.hero{
+  padding-top:55px !important;
+  position:relative !important;
+}
+
+/* Titre FENUA SELECT façon brush/graffiti */
+.hero h1{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:18px !important;
+  font-family:'Permanent Marker','Brush Script MT','Segoe Print',cursive !important;
+  font-weight:400 !important;
+  letter-spacing:2px !important;
+  line-height:1 !important;
+  width:100% !important;
+  margin:0 auto !important;
+  position:relative !important;
+}
+
+/* Logo à gauche du titre.
+   Le fichier logo.png peut être chargé par CSS même si le script
+   retire l'image .brand du HTML. */
+.hero h1::before{
+  content:"" !important;
+  display:block !important;
+  flex:0 0 auto !important;
+  width:82px !important;
+  height:82px !important;
+  background-image:url('logo.png') !important;
+  background-size:contain !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+  filter:drop-shadow(0 0 7px rgba(0,217,255,.70))
+         drop-shadow(0 0 14px rgba(255,44,168,.50)) !important;
+}
+
+/* COMMANDE UNIQUEMENT reste directement sous FENUA SELECT */
+.hero h1::after{
+  position:absolute !important;
+  left:50% !important;
+  bottom:-30px !important;
+  transform:translateX(-50%) !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+}
+
+@media(min-width:1200px){
+  .hero{
+    padding-top:70px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(58px,6.2vw,92px) !important;
+    gap:20px !important;
+  }
+
+  .hero h1::before{
+    width:96px !important;
+    height:96px !important;
+  }
+}
+
+@media(min-width:701px) and (max-width:1199px){
+  .hero{
+    padding-top:55px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(48px,7vw,72px) !important;
+    gap:15px !important;
+  }
+
+  .hero h1::before{
+    width:72px !important;
+    height:72px !important;
+  }
+}
+
+@media(max-width:700px){
+  .hero{
+    padding-top:40px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(36px,11vw,56px) !important;
+    gap:9px !important;
+  }
+
+  .hero h1::before{
+    width:50px !important;
+    height:50px !important;
+  }
+
+  .hero h1::after{
+    bottom:-25px !important;
+    letter-spacing:3px !important;
+  }
+}
+
+
+
 
 
 
