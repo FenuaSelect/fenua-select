@@ -1046,8 +1046,7 @@ button.preorder-btn:hover{
 }
 </style>
 </head>
-<!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
-
+<!-- ===== LOUPE PHOTO PRODUIT + MOLETTE - PC ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -1058,9 +1057,11 @@ document.addEventListener("DOMContentLoaded", function () {
   images.forEach(function (img) {
 
     const container = img.closest(".product-img");
-
     if (!container) return;
 
+    let zoom = 2;
+
+    /* Zoom avec le déplacement de la souris */
     container.addEventListener("mousemove", function (e) {
 
       const rect = container.getBoundingClientRect();
@@ -1071,12 +1072,37 @@ document.addEventListener("DOMContentLoaded", function () {
       const percentX = (x / rect.width) * 100;
       const percentY = (y / rect.height) * 100;
 
-      img.style.transformOrigin = percentX + "% " + percentY + "%";
-      img.style.transform = "scale(2)";
+      img.style.transformOrigin =
+        percentX + "% " + percentY + "%";
+
+      img.style.transform =
+        "scale(" + zoom + ")";
 
     });
 
+    /* Zoom avec la molette */
+    container.addEventListener("wheel", function (e) {
+
+      e.preventDefault();
+
+      if (e.deltaY < 0) {
+        zoom += 0.2;
+      } else {
+        zoom -= 0.2;
+      }
+
+      /* Limites du zoom */
+      zoom = Math.max(1, Math.min(3, zoom));
+
+      img.style.transform =
+        "scale(" + zoom + ")";
+
+    }, { passive: false });
+
+    /* Retour à la taille normale */
     container.addEventListener("mouseleave", function () {
+
+      zoom = 2;
 
       img.style.transformOrigin = "center center";
       img.style.transform = "scale(1)";
@@ -1086,6 +1112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 </script>
 <!-- ===== SUPPRIMER LE PETIT LOGO DU SITE ===== -->
 
