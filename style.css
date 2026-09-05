@@ -1,10 +1,51 @@
 /* FENUA SELECT • PREMIUM 2026 • STYLE UNIQUEMENT */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap');
 
-:root{--bg:#05070b;--card:#0c121c;--text:#f7f9fc;--muted:#9aa7b8;--cyan:#39e7ff;--pink:#ff3cac;--gold:#ffd166}
+:root{--bg:#05070b;--card:#0c121c;--text:#f7f9fc;--muted:#9aa7b8;--cyan:#39e7ff;--pink:#ff3cac;--gold:#ffd166;--violet:#7c4dff;--green:#39ff88}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--text);background:radial-gradient(circle at 50% -10%,rgba(57,231,255,.09),transparent 34%),radial-gradient(circle at 100% 25%,rgba(255,60,172,.055),transparent 30%),linear-gradient(180deg,#04060a,#070b12 45%,#05070b);font-family:Inter,Arial,sans-serif}
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 12% 12%,rgba(57,231,255,.22),transparent 22%),
+    radial-gradient(circle at 88% 18%,rgba(255,60,172,.18),transparent 24%),
+    radial-gradient(circle at 18% 72%,rgba(124,77,255,.15),transparent 24%),
+    radial-gradient(circle at 86% 78%,rgba(57,255,136,.12),transparent 22%),
+    radial-gradient(circle at 50% 45%,rgba(57,231,255,.055),transparent 34%),
+    linear-gradient(180deg,#03050a 0%,#070b13 45%,#04060b 100%);
+  font-family:Inter,Arial,sans-serif;
+  position:relative;
+  isolation:isolate;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.28;
+  background:
+    linear-gradient(135deg,transparent 0 18%,rgba(57,231,255,.12) 18.2%,transparent 18.5% 42%,rgba(255,60,172,.10) 42.2%,transparent 42.5% 68%,rgba(124,77,255,.10) 68.2%,transparent 68.5%),
+    linear-gradient(45deg,transparent 0 27%,rgba(57,255,136,.08) 27.2%,transparent 27.5% 55%,rgba(57,231,255,.08) 55.2%,transparent 55.5% 82%,rgba(255,60,172,.08) 82.2%,transparent 82.5%);
+  background-size:720px 720px,900px 900px;
+  background-position:0 0,180px 120px;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.12;
+  background-image:
+    linear-gradient(rgba(57,231,255,.22) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,60,172,.18) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent);
+}
 
 .banner{background:#05070b!important;padding:0!important;overflow:hidden}
 .banner img{width:100%;display:block;object-fit:cover}
