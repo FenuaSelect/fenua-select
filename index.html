@@ -998,6 +998,53 @@ button.preorder-btn:hover{
 .out-of-stock-btn{background:linear-gradient(135deg,#7a101c,#c9152e)!important;color:#fff!important;border:2px solid #ffb0b0!important;opacity:.9!important;cursor:not-allowed!important;box-shadow:0 4px 14px rgba(201,21,46,.25)!important}
 .out-of-stock-btn:disabled{opacity:.9!important}
 </style>
+
+<style id="description-scroll-final-2026">
+/* ===== DESCRIPTION PRODUIT : DÉFILEMENT PC + MOBILE ===== */
+.product p{
+  height:110px !important;
+  min-height:0 !important;
+  max-height:110px !important;
+  display:block !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+  box-sizing:border-box !important;
+  padding:7px 9px !important;
+  margin:0 0 8px !important;
+  line-height:1.4 !important;
+  background:rgba(3,8,15,.72) !important;
+  border:1px solid rgba(57,231,255,.38) !important;
+  border-radius:9px !important;
+  scrollbar-width:thin !important;
+  scrollbar-color:#39e7ff rgba(8,14,24,.95) !important;
+}
+.product p::-webkit-scrollbar{width:7px !important;}
+.product p::-webkit-scrollbar-track{
+  background:rgba(8,14,24,.95) !important;
+  border-radius:10px;
+}
+.product p::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#39e7ff 0%,#ff3cac 55%,#ffd166 100%) !important;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 0 7px rgba(57,231,255,.9),0 0 12px rgba(255,60,172,.6);
+}
+.product p::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg,#ffd166 0%,#ff3cac 50%,#39e7ff 100%) !important;
+}
+@media(max-width:700px){
+  .product p{
+    height:95px !important;
+    max-height:95px !important;
+    padding:6px 8px !important;
+    font-size:9px !important;
+    line-height:1.4 !important;
+  }
+  .product p::-webkit-scrollbar{width:6px !important;}
+}
+</style>
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
