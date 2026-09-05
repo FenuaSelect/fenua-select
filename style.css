@@ -408,3 +408,61 @@ body{
     width:6px !important;
   }
 }
+/* DESCRIPTION PRODUIT ADAPTATIVE */
+
+.product-card p {
+  display: block;
+  height: auto;
+  max-height: 115px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 8px 10px;
+  margin: 8px 0;
+
+  box-sizing: border-box;
+
+  background: rgba(3, 8, 15, 0.72);
+  border: 1px solid rgba(57, 231, 255, 0.30);
+  border-radius: 10px;
+
+  line-height: 1.5;
+
+  scrollbar-width: thin;
+  scrollbar-color: #39e7ff rgba(5, 10, 18, 0.85);
+}
+
+.product-card p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.product-card p::-webkit-scrollbar-track {
+  background: rgba(5, 10, 18, 0.85);
+  border-radius: 10px;
+}
+
+.product-card p::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #39e7ff,
+    #ff3cac,
+    #ffd166
+  );
+  border-radius: 10px;
+  box-shadow:
+    0 0 5px #39e7ff,
+    0 0 8px #ff3cac;
+}
+
+@media (max-width: 700px) {
+  .product-card p {
+    max-height: 105px;
+    padding: 7px 8px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .product-card p::-webkit-scrollbar {
+    width: 5px;
+  }
+}
