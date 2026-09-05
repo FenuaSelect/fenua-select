@@ -2335,309 +2335,116 @@ function removeFromCart(cartId){
 }
 
 
-function updateCart(){
+function calculateOrderTotals(){
+  const regularTotal = cart.reduce((s,x) => s + (!x.preorder ? x.price * x.qty : 0), 0);
+  const preorderTotal = cart.reduce((s,x) => s + (x.preorder ? x.price * x.qty : 0), 0);
+  const productsTotal = regularTotal + preorderTotal;
+  const hasPreorder = preorderTotal > 0;
+  const selectedDeliveryFee = Number(document.getElementById('deliveryZone')?.value || 0);
+  const deliveryFee = hasPreorder ? 0 : selectedDeliveryFee;
+  const total = productsTotal + deliveryFee;
+  const acompte = Math.round(preorderTotal * 0.50);
+  const solde = preorderTotal - acompte;
+  const amountDueNow = regularTotal + acompte + deliveryFee;
+  return {regularTotal, preorderTotal, productsTotal, hasPreorder, selectedDeliveryFee, deliveryFee, total, acompte, solde, amountDueNow};
+}
 
+function updateCart(){
   document.getElementById('cartCount').textContent =
     cart.reduce((s,x) => s + x.qty, 0);
 
-  const productsTotal =
-    cart.reduce((s, x) => s + x.price * x.qty, 0);
-
-  const hasPreorder =
-    cart.some(x => x.preorder === true);
-
-  const deliveryFee =
-    hasPreorder
-      ? 0
-      : Number(document.getElementById('deliveryZone')?.value || 0);
-
-  const total =
-    productsTotal + deliveryFee;
-
-  const acompte =
-    hasPreorder
-      ? Math.round(total * 0.50)
-      : 0;
-
-  const solde =
-    hasPreorder
-      ? total - acompte
-      : 0;
+  const t = calculateOrderTotals();
 
   const cartTotalLabel = document.querySelector('#commande .total span');
   const cartTotalValue = document.getElementById('cartTotal');
 
-  if(hasPreorder){
-    if(cartTotalLabel) cartTotalLabel.textContent = 'Acompte à payer maintenant';
-    if(cartTotalValue) cartTotalValue.textContent = money(acompte);
-  }else{
-    if(cartTotalLabel) cartTotalLabel.textContent = 'Total';
-    if(cartTotalValue) cartTotalValue.textContent = money(total);
-  }
+  if(cartTotalLabel) cartTotalLabel.textContent = t.hasPreorder ? 'À payer maintenant' : 'Total';
+  if(cartTotalValue) cartTotalValue.textContent = money(t.amountDueNow);
 
   document.getElementById('orderSummary').innerHTML =
     cart.length
-
     ? cart.map(x => `
-
         <div class="order-line">
-
           <span>
-
             <strong>${x.name}</strong> <button type="button" class="cart-delete-btn" onclick="removeFromCart(${x.cartId})" aria-label="Supprimer ${x.name}">🗑️ Supprimer</button>
             × ${x.qty}
-
-            ${
-              x.size
-              ? `<br><small>👕 Taille : ${x.size}</small>`
-              : ''
-            }
-
-            ${
-              x.flavor
-              ? `<br><small>🍊 Parfum : ${x.flavor}</small>`
-              : ''
-            }
-
-            ${
-              x.finish
-              ? `<br><small>✨ Finition : ${x.finish}</small>`
-              : ''
-            }
-
-            ${
-              x.color
-              ? `<br><small>🎨 Couleur : ${x.color}</small>`
-              : ''
-            }
-
-            ${
-              x.storage
-              ? `<br><small>💾 Stockage : ${x.storage}</small>`
-              : ''
-            }
-
+            ${x.size ? `<br><small>👕 Taille : ${x.size}</small>` : ''}
+            ${x.flavor ? `<br><small>🍊 Parfum : ${x.flavor}</small>` : ''}
+            ${x.finish ? `<br><small>✨ Finition : ${x.finish}</small>` : ''}
+            ${x.color ? `<br><small>🎨 Couleur : ${x.color}</small>` : ''}
+            ${x.storage ? `<br><small>💾 Stockage : ${x.storage}</small>` : ''}
+            ${x.preorder ? `<br><small>🎄 Précommande</small>` : ''}
           </span>
-
-          <strong>
-            ${money(x.price * x.qty)}
-          </strong>
-
+          <strong>${money(x.price * x.qty)}</strong>
         </div>
-
       `).join('')
-
     : "Votre panier est vide.";
 
-  if(hasPreorder){
-
+  if(t.hasPreorder){
     document.getElementById('orderSummary').innerHTML += `
-
       <div class="preorder-info">
-
-        <div class="preorder-title">
-          🎄 PRÉCOMMANDE
-        </div>
-
-        <div class="preorder-line">
-          🧾 <strong>Total de la commande :
-          ${money(total)}</strong>
-        </div>
-
-        <div class="preorder-line">
-          💰 <strong>Acompte de 50 % à la commande :
-          ${money(acompte)}</strong>
-        </div>
-
-        <div class="preorder-line">
-          📦 <strong>Solde de 50 % à la livraison :
-          ${money(solde)}</strong>
-        </div>
-
-        <div class="preorder-line">
-          🚚 <strong>Livraison offerte</strong>
-        </div>
-
-        <div class="preorder-warning">
-          ⚠️ L'acompte de 50 % constitue un engagement ferme
-          et n'est pas remboursable en cas d'annulation par le client,
-          sous réserve des exceptions légales applicables.
-        </div>
-
-      </div>
-
-    `;
+        <div class="preorder-title">🎄 PRÉCOMMANDE</div>
+        ${t.regularTotal > 0 ? `<div class="preorder-line">🛒 Produits classiques à payer maintenant : <strong>${money(t.regularTotal)}</strong></div>` : ''}
+        <div class="preorder-line">🧾 Total des précommandes : <strong>${money(t.preorderTotal)}</strong></div>
+        <div class="preorder-line">💰 Acompte de 50 % à la commande : <strong>${money(t.acompte)}</strong></div>
+        <div class="preorder-line">📦 Solde de 50 % à la livraison : <strong>${money(t.solde)}</strong></div>
+        <div class="preorder-line">💳 <strong>À payer maintenant : ${money(t.amountDueNow)}</strong></div>
+        <div class="preorder-line">🚚 Livraison offerte</div>
+        <div class="preorder-warning">⚠️ L'acompte de 50 % constitue un engagement ferme et n'est pas remboursable en cas d'annulation par le client, sous réserve des exceptions légales applicables.</div>
+      </div>`;
   }
 }
 
-
-
 function openCart(){
-
-  const productsTotal =
-    cart.reduce(
-      (s, x) => s + x.price * x.qty,
-      0
-    );
-
-  const hasPreorder =
-    cart.some(x => x.preorder === true);
-
-  const deliveryFee =
-    hasPreorder
-      ? 0
-      : Number(
-          document.getElementById('deliveryZone')?.value || 0
-        );
-
-  const total =
-    productsTotal + deliveryFee;
-
-  const acompte =
-    hasPreorder
-      ? Math.round(total * 0.50)
-      : total;
-
-  const solde =
-    hasPreorder
-      ? total - acompte
-      : 0;
-
+  const t = calculateOrderTotals();
 
   document.getElementById('modalItems').innerHTML =
     cart.length
-
     ? cart.map(x => `
-
       <div class="cart-item">
-
         <div class="cart-item-info">
-
           <strong>${x.name}</strong>
-
           <span>Quantité : ${x.qty}</span>
-
-          ${
-            x.size
-            ? `<small>👕 Taille : ${x.size}</small>`
-            : ''
-          }
-
-          ${
-            x.flavor
-            ? `<small>🍊 Parfum : ${x.flavor}</small>`
-            : ''
-          }
-
-          ${
-            x.finish
-            ? `<small>✨ Finition : ${x.finish}</small>`
-            : ''
-          }
-
-          ${
-            x.color
-            ? `<small>🎨 Couleur : ${x.color}</small>`
-            : ''
-          }
-
-          ${
-            x.storage
-            ? `<small>💾 Stockage : ${x.storage}</small>`
-            : ''
-          }
-
+          ${x.size ? `<small>👕 Taille : ${x.size}</small>` : ''}
+          ${x.flavor ? `<small>🍊 Parfum : ${x.flavor}</small>` : ''}
+          ${x.finish ? `<small>✨ Finition : ${x.finish}</small>` : ''}
+          ${x.color ? `<small>🎨 Couleur : ${x.color}</small>` : ''}
+          ${x.storage ? `<small>💾 Stockage : ${x.storage}</small>` : ''}
+          ${x.preorder ? `<small>🎄 Précommande</small>` : ''}
         </div>
-
         <div class="cart-item-actions">
-
-          <strong>
-            ${money(x.price * x.qty)}
-          </strong>
-
-          <button
-            type="button"
-            class="remove-cart-btn"
-            onclick="removeFromCart('${x.cartId}')">
-            🗑️ Supprimer
-          </button>
-
+          <strong>${money(x.price * x.qty)}</strong>
+          <button type="button" class="remove-cart-btn" onclick="removeFromCart('${x.cartId}')">🗑️ Supprimer</button>
         </div>
-
-      </div>
-
-    `).join('')
-
+      </div>`).join('')
     : '<p>Votre panier est vide.</p>';
 
+  document.getElementById('modalTotal').textContent = money(t.total);
 
-  /* =========================
-     INFORMATIONS PAIEMENT
-  ========================= */
+  const oldInfo = document.querySelector('#cartModal .preorder-info');
+  if(oldInfo) oldInfo.remove();
 
-  if(hasPreorder){
-
-    document.getElementById('modalTotal').textContent =
-      money(total);
-
-    const totalElement =
-      document.getElementById('modalTotal');
-
+  if(t.hasPreorder){
+    const totalElement = document.getElementById('modalTotal');
     if(totalElement){
-
-      totalElement.insertAdjacentHTML(
-        'beforebegin',
-
-        `
+      totalElement.insertAdjacentHTML('beforebegin', `
         <div class="preorder-info">
-
-          <div class="preorder-title">
-            🎄 PRÉCOMMANDE
-          </div>
-
-          <div class="preorder-line">
-            💰 Acompte de 50 % à la commande :
-            <strong>${money(acompte)}</strong>
-          </div>
-
-          <div class="preorder-line">
-            📦 Solde de 50 % à la livraison :
-            <strong>${money(solde)}</strong>
-          </div>
-
-          <div class="preorder-line">
-            🚚 Livraison offerte
-          </div>
-
-          <div class="preorder-warning">
-            ⚠️ L'acompte de 50 % constitue un engagement ferme
-            et n'est pas remboursable en cas d'annulation par le client,
-            sous réserve des exceptions légales applicables.
-          </div>
-
-        </div>
-        `
-      );
-
+          <div class="preorder-title">🎄 PRÉCOMMANDE</div>
+          ${t.regularTotal > 0 ? `<div class="preorder-line">🛒 Produits classiques : <strong>${money(t.regularTotal)}</strong></div>` : ''}
+          <div class="preorder-line">🧾 Total des précommandes : <strong>${money(t.preorderTotal)}</strong></div>
+          <div class="preorder-line">💰 Acompte 50 % à la commande : <strong>${money(t.acompte)}</strong></div>
+          <div class="preorder-line">📦 Solde 50 % à la livraison : <strong>${money(t.solde)}</strong></div>
+          <div class="preorder-line">💳 <strong>À payer maintenant : ${money(t.amountDueNow)}</strong></div>
+          <div class="preorder-line">🚚 Livraison offerte</div>
+          <div class="preorder-warning">⚠️ L'acompte de 50 % constitue un engagement ferme et n'est pas remboursable en cas d'annulation par le client, sous réserve des exceptions légales applicables.</div>
+        </div>`);
     }
-
-  } else {
-
-    document.getElementById('modalTotal').textContent =
-      money(total);
-
   }
 
-
   document.getElementById('cartModal').classList.add('show');
-
 }
 function closeCart(){
-
-  document
-    .getElementById('cartModal')
-    .classList.remove('show');
-
+  document.getElementById('cartModal').classList.remove('show');
 }
 
 
@@ -2646,9 +2453,7 @@ async function sendOrderToGoogleSheets(payload){
     await fetch(FENUA_GOOGLE_SHEETS_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload)
     });
     console.log("Commande enregistrée dans Google Sheets.");
@@ -2658,281 +2463,87 @@ async function sendOrderToGoogleSheets(payload){
 }
 
 function sendOrder(e){
-
   e.preventDefault();
-
-  if(!cart.length){
-    alert("Ajoute au moins un produit au panier.");
-    return;
-  }
+  if(!cart.length){ alert("Ajoute au moins un produit au panier."); return; }
 
   const form = e.target;
+  const name = form.querySelector('[name="name"]')?.value.trim() || "";
+  const phone = form.querySelector('[name="phone"]')?.value.trim() || "";
+  const email = form.querySelector('[name="email"]')?.value.trim() || "";
+  const address = form.querySelector('[name="address"]')?.value.trim() || "";
+  if(!name || !phone || !email){ alert("Merci de renseigner votre nom, votre téléphone et votre e-mail."); return; }
 
-  /* =========================
-     INFORMATIONS CLIENT
-  ========================= */
+  const t = calculateOrderTotals();
+  const deliveryText = t.hasPreorder ? "🎄 Précommande • Livraison offerte" : (t.deliveryFee === 0 ? "Papara à Taravao • Livraison gratuite" : "Autres destinations sur Tahiti • + 1 500 Frs");
 
-  const nameField = form.querySelector('[name="name"]');
-  const phoneField = form.querySelector('[name="phone"]');
-  const emailField = form.querySelector('[name="email"]');
-  const addressField = form.querySelector('[name="address"]');
-
-  const name = nameField ? nameField.value.trim() : "";
-  const phone = phoneField ? phoneField.value.trim() : "";
-  const email = emailField ? emailField.value.trim() : "";
-  const address = addressField ? addressField.value.trim() : "";
-
-
-  /* =========================
-     VÉRIFICATION
-  ========================= */
-
-  if(!name || !phone || !email){
-
-    alert(
-      "Merci de renseigner votre nom, votre téléphone et votre e-mail."
-    );
-
-    return;
-  }
-
-
-  /* =========================
-     DÉTAILS DE LA COMMANDE
-  ========================= */
-
-  const lines = cart.map((x, i) => {
-
+  const lines = cart.map((x,i) => {
     let details = "";
-
-    if(x.size){
-      details += `\nTaille : ${x.size}`;
-    }
-
-    if(x.flavor){
-      details += `\nParfum : ${x.flavor}`;
-    }
-
-    if(x.finish){
-      details += `\nFinition : ${x.finish}`;
-    }
-
-    if(x.color){
-      details += `\nCouleur : ${x.color}`;
-    }
-
-    if(x.storage){
-      details += `\nStockage : ${x.storage}`;
-    }
-
-    return `${i + 1}. ${x.name}
+    if(x.size) details += `
+Taille : ${x.size}`;
+    if(x.flavor) details += `
+Parfum : ${x.flavor}`;
+    if(x.finish) details += `
+Finition : ${x.finish}`;
+    if(x.color) details += `
+Couleur : ${x.color}`;
+    if(x.storage) details += `
+Stockage : ${x.storage}`;
+    if(x.preorder) details += `
+Précommande : Oui`;
+    return `${i+1}. ${x.name}
 Quantité : ${x.qty}${details}
 Prix : ${money(x.price * x.qty)}`;
-
   }).join("\n\n--------------------\n\n");
 
-
-  /* =========================
-     TOTAL PRODUITS
-  ========================= */
-
-  const productsTotal = cart.reduce(
-    (s, x) => s + (x.price * x.qty),
-    0
-  );
-
-
-  /* =========================
-     LIVRAISON
-  ========================= */
-
-  const deliverySelect =
-    document.getElementById("deliveryZone");
-
-  const deliveryFee =
-    Number(deliverySelect ? deliverySelect.value : 0);
-
-  const deliveryText =
-    deliveryFee === 0
-      ? "Papara à Taravao • Livraison gratuite"
-      : "Autres destinations sur Tahiti • + 1 500 Frs";
-
-
- /* =========================
-     PRÉCOMMANDE
-  ========================= */
-
-  const hasPreorder =
-    cart.some(x => x.preorder === true);
-
-  const finalDeliveryFee =
-    hasPreorder
-      ? 0
-      : deliveryFee;
-
-  const finalDeliveryText =
-    hasPreorder
-      ? "🎄 Précommande • Livraison offerte"
-      : deliveryText;
-
-
-  /* =========================
-     TOTAL FINAL
-  ========================= */
-
-  const total =
-    productsTotal + finalDeliveryFee;
-
-  const acompte =
-    hasPreorder
-      ? Math.round(total * 0.50)
-      : 0;
-
-  const solde =
-    hasPreorder
-      ? total - acompte
-      : 0;
-
-
-  /* =========================
-     DONNÉES ENVOYÉES À EMAILJS
-  ========================= */
-
   const templateParams = {
-
-    name: name,
-    phone: phone,
-    email: email,
-    address: address,
-
-    order: lines,
-
-    products_total: money(productsTotal),
-
-    delivery: finalDeliveryText,
-
-    delivery_fee: money(finalDeliveryFee),
-
-    total: money(total),
-
-    acompte: hasPreorder
-      ? money(acompte)
-      : "",
-
-    solde: hasPreorder
-      ? money(solde)
-      : "",
-
-    paiement: hasPreorder
-      ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
-      : ""
+    name, phone, email, address, order: lines,
+    products_total: money(t.productsTotal),
+    regular_total: money(t.regularTotal),
+    preorder_total: money(t.preorderTotal),
+    delivery: deliveryText,
+    delivery_fee: money(t.deliveryFee),
+    total: money(t.total),
+    acompte: t.hasPreorder ? money(t.acompte) : "",
+    solde: t.hasPreorder ? money(t.solde) : "",
+    amount_due_now: money(t.amountDueNow),
+    paiement: t.hasPreorder ? "Acompte de 50 % à la commande • solde de 50 % à la livraison" : "Paiement intégral à la commande"
   };
 
-
-  console.log(
-    "Données envoyées à EmailJS :",
-    templateParams
-  );
-
-
-  /* =========================
-     ENREGISTREMENT INTERNE GOOGLE SHEETS
-     Cette copie est destinée uniquement au tableau privé.
-  ========================= */
-
   const orderNumber = "FS-" + Date.now();
+  const internalOrder = {
+    order_number: orderNumber,
+    date: new Date().toLocaleString("fr-FR"),
+    name, phone, email, address,
+    city: deliveryText, delivery: deliveryText,
+    delivery_fee: t.deliveryFee,
+    products_total: t.productsTotal,
+    regular_total: t.regularTotal,
+    preorder_total: t.preorderTotal,
+    total: t.total,
+    acompte: t.acompte,
+    solde: t.solde,
+    amount_due_now: t.amountDueNow,
+    preorder: t.hasPreorder,
+    payment: "", payment_received: "", status: "Nouveau", notes: "",
+    order: cart.map(x => ({
+      product: x.name || "", color: x.color || "", variant: x.finish || "", flavor: x.flavor || "",
+      size: x.size || "", storage: x.storage || "", quantity: x.qty || 0, price: x.price || 0,
+      total: (x.price || 0) * (x.qty || 0), preorder: x.preorder === true
+    }))
+  };
 
-const internalOrder = {
-  order_number: orderNumber,
-  date: new Date().toLocaleString("fr-FR"),
-
-  name: name,
-  phone: phone,
-  email: email,
-  address: address,
-
-  city: deliveryText,
-  delivery: deliveryText,
-  delivery_fee: deliveryFee,
-
-  total: total,
-
-  // Précommande : calcul automatique 50 / 50
-  preorder: cart.some(x => x.preorder === true),
-
-  payment: "",
-  payment_received: "",
-
-  status: "Nouveau",
-  notes: "",
-
-  order: cart.map(function(x){
-    return {
-      product: x.name || "",
-      color: x.color || "",
-      variant: x.finish || "",
-      flavor: x.flavor || "",
-      size: x.size || "",
-      storage: x.storage || "",
-      quantity: x.qty || 0,
-      price: x.price || 0,
-      total: (x.price || 0) * (x.qty || 0)
-    };
-  })
-};
   sendOrderToGoogleSheets(internalOrder);
 
-  /* =========================
-     ENVOI EMAILJS
-  ========================= */
-
-  emailjs.send(
-    "service_yozt0ns",
-    "template_7seldam",
-    templateParams
-  )
-
-  .then(function(response){
-
-    console.log(
-      "EmailJS OK :",
-      response.status,
-      response.text
-    );
-
-    alert(
-      "✅ Votre commande a bien été envoyée !\n\n" +
-      "Merci pour votre commande chez Fenua Select."
-    );
-
-    cart.length = 0;
-
-    updateCart();
-
-    form.reset();
-
-  })
-
-  .catch(function(error){
-
-    console.error(
-      "ERREUR EMAILJS :",
-      error
-    );
-
-    alert(
-      "❌ Impossible d'envoyer la commande.\n\n" +
-      "Erreur : " +
-      (
-        error.text ||
-        error.message ||
-        "Erreur inconnue"
-      )
-    );
-
-  });
-
-
+  emailjs.send("service_yozt0ns", "template_7seldam", templateParams)
+    .then(function(response){
+      console.log("EmailJS OK :", response.status, response.text);
+      alert("✅ Votre commande a bien été envoyée !\n\nMerci pour votre commande chez Fenua Select.");
+      cart.length = 0; updateCart(); form.reset();
+    })
+    .catch(function(error){
+      console.error("ERREUR EMAILJS :", error);
+      alert("❌ Impossible d'envoyer la commande.\n\nErreur : " + (error.text || error.message || "Erreur inconnue"));
+    });
 }
 renderProducts();
 updateCart();
