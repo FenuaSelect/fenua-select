@@ -344,11 +344,11 @@ body{
 }
 
 /* =========================================================
-   DESCRIPTION PRODUIT : BARRE DE DEFILEMENT VERTICALE NEON
+   DESCRIPTION PRODUIT : BARRE VERTICALE NEON TOUJOURS VISIBLE
    ========================================================= */
 .product-body > p{
   max-height:105px !important;
-  overflow-y:auto !important;
+  overflow-y:scroll !important;
   overflow-x:hidden !important;
   display:block !important;
   -webkit-line-clamp:unset !important;
@@ -356,33 +356,46 @@ body{
   box-sizing:border-box !important;
   padding:7px 9px !important;
   margin:6px 0 !important;
-  border:1px solid rgba(57,231,255,.22) !important;
+  border:1px solid rgba(57,231,255,.30) !important;
   border-radius:9px !important;
   background:rgba(3,8,15,.58) !important;
   scrollbar-width:thin !important;
-  scrollbar-color:#39e7ff rgba(8,14,24,.9) !important;
+  scrollbar-color:#39e7ff rgba(8,14,24,.95) !important;
+  scrollbar-gutter:stable !important;
 }
 
+/* Chrome / Edge / Safari */
 .product-body > p::-webkit-scrollbar{
-  width:5px;
+  width:7px !important;
+  display:block !important;
 }
 
 .product-body > p::-webkit-scrollbar-track{
-  background:rgba(8,14,24,.9);
+  background:rgba(8,14,24,.98) !important;
   border-radius:10px;
+  box-shadow:inset 0 0 4px rgba(57,231,255,.18);
 }
 
 .product-body > p::-webkit-scrollbar-thumb{
-  background:linear-gradient(180deg,#39e7ff 0%,#ff3cac 55%,#ffd166 100%);
+  background:linear-gradient(180deg,#39e7ff 0%,#ff3cac 55%,#ffd166 100%) !important;
   border-radius:10px;
-  box-shadow:0 0 6px rgba(57,231,255,.7),0 0 8px rgba(255,60,172,.45);
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 0 7px rgba(57,231,255,.95),0 0 12px rgba(255,60,172,.65);
 }
 
 .product-body > p::-webkit-scrollbar-thumb:hover{
-  background:linear-gradient(180deg,#ff3cac 0%,#ffd166 50%,#39e7ff 100%);
+  background:linear-gradient(180deg,#ffd166 0%,#ff3cac 50%,#39e7ff 100%) !important;
 }
 
-/* Mobile : cadre légèrement plus compact */
+/* Firefox */
+@supports (scrollbar-color:#39e7ff #080e18){
+  .product-body > p{
+    scrollbar-color:#39e7ff #080e18 !important;
+    scrollbar-width:thin !important;
+  }
+}
+
+/* Mobile */
 @media(max-width:768px){
   .product-body > p{
     max-height:95px !important;
@@ -392,6 +405,6 @@ body{
   }
 
   .product-body > p::-webkit-scrollbar{
-    width:4px;
+    width:6px !important;
   }
 }
