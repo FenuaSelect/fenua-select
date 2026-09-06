@@ -1154,7 +1154,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="hero-content">
     <p class="eyebrow">TAHITI • POLYNÉSIE FRANÇAISE</p>
     <h1>FENUA SELECT</h1>
-    <p class="tagline">LA QUALITÉ • LE CHOIX • LE PRIX</p>
+    <p class="tagline">🔥 DES PRODUITS QUI FONT ENVIE • DES PRIX QUI FONT PLAISIR</p>
     <p class="intro">Une sélection de produits tendance, disponibles sur commande.</p>
     <a class="cta" href="#boutique">Voir la boutique</a>
   </div>
@@ -1241,12 +1241,79 @@ document.addEventListener("DOMContentLoaded", function () {
   <a class="cta light" href="#commande">Passer une commande</a>
 </section>
 
+<style id="paiement-virement-global-2026">
+/* ===== BLOC PAIEMENT GLOBAL : TOUS LES PRODUITS ===== */
+.payment-global{
+  margin:0 0 28px;
+  padding:22px 24px;
+  border:1px solid rgba(53,217,255,.28);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(10,27,39,.96),rgba(8,14,22,.98));
+  box-shadow:0 12px 30px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.04);
+  text-align:center;
+}
+.payment-global .payment-icon{
+  font-size:30px;
+  line-height:1;
+  margin-bottom:8px;
+}
+.payment-global h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.3px;
+}
+.payment-global h3 span{
+  color:var(--fs-cyan);
+}
+.payment-global p{
+  margin:0;
+  color:#d9e4ee;
+  font-size:15px;
+  line-height:1.6;
+}
+.payment-global strong{
+  color:#fff;
+}
+.payment-global .payment-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:14px;
+  padding:9px 16px;
+  border-radius:999px;
+  background:rgba(53,217,255,.10);
+  border:1px solid rgba(53,217,255,.25);
+  color:var(--fs-cyan);
+  font-weight:900;
+  font-size:13px;
+}
+@media(max-width:600px){
+  .payment-global{
+    margin-bottom:22px;
+    padding:18px 15px;
+    border-radius:15px;
+  }
+  .payment-global h3{font-size:18px;}
+  .payment-global p{font-size:14px;}
+}
+</style>
+
 <section id="commande" class="section order-section">
   <div class="section-head">
     <div>
       <p class="eyebrow">COMMANDE</p>
       <h2>Votre commande</h2>
     </div>
+  </div>
+
+  <!-- ===== PAIEMENT GLOBAL POUR TOUS LES PRODUITS ===== -->
+  <div class="payment-global" role="note" aria-label="Mode de paiement">
+    <div class="payment-icon">💳</div>
+    <h3><span>PAIEMENT</span> PAR VIREMENT BANCAIRE</h3>
+    <p>Le paiement de <strong>tous les produits</strong> de Fenua Select s’effectue par <strong>virement bancaire</strong>.</p>
   </div>
 
   <div class="order-layout">
@@ -1279,7 +1346,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <footer>
   <img src="logo.png" alt="Fenua Select">
-  <p>LA QUALITÉ • LE CHOIX • LE PRIX</p>
+  <p>🔥 DES PRODUITS QUI FONT ENVIE • DES PRIX QUI FONT PLAISIR</p>
   <p>📧 fenuaselect@gmail.com • Facebook : Fenua Select</p>
 
   <p class="delivery-note">
@@ -1300,25 +1367,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 
 const products = [
-{
-  id: 77,
-  name: "🎄Peluche Demon Slayer Blade",
-  price: 6990,
-  cat: "Précommande",
-  preorder: true,
-  image: "images/peluche-demon-slayer-blade-id77.png",
-  emoji: "🧸",
- colors: [
-  "🔴 1. Nezuko",
-  "🟠 2. Rengoku",
-  "🟣 3. Shinobu",
-  "🟡 4. Zenitsu",
-  "🟢 5. Tanjiro",
-  "🔵 6. Giyu",
-  "🩷 7. Inosuke"
-],
-  desc: "Adorables peluches Demon Slayer de 20 cm, inspirées des personnages emblématiques de la série. Un format idéal pour les fans, enfants et collectionneurs, avec un design soigné et plein de charme."
-},
+
   {
   id: 76,
   name: " 🎄Peluche Petits Pois Toy Story 3",
