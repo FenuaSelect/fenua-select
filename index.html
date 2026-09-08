@@ -1217,14 +1217,15 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div id="precommande-subcategories" class="precommande-subcategories">
-    <button type="button" class="active">✨ Tous</button>
-    <button type="button">🎮 Jeux &amp; Consoles</button>
-    <button type="button">🧸 Peluches</button>
-    <button type="button">💎 Bijoux</button>
-    <button type="button">⌚ Montres</button>
-    <button type="button">📱 Étuis téléphone</button>
-    <button type="button">💄 Beauté</button>
-    <button type="button">🎁 Cadeau</button>
+    <button type="button" class="active" onclick="setPreorderSubcategory('Tous',this)">✨ Tous</button>
+    <button type="button" onclick="setPreorderSubcategory('Jeux & Consoles',this)">🎮 Jeux &amp; Consoles</button>
+    <button type="button" onclick="setPreorderSubcategory('Audio & Casques',this)">🎧 Audio &amp; Casques</button>
+    <button type="button" onclick="setPreorderSubcategory('Peluches',this)">🧸 Peluches</button>
+    <button type="button" onclick="setPreorderSubcategory('Bijoux',this)">💎 Bijoux</button>
+    <button type="button" onclick="setPreorderSubcategory('Montres',this)">⌚ Montres</button>
+    <button type="button" onclick="setPreorderSubcategory('Étuis téléphone',this)">📱 Étuis téléphone</button>
+    <button type="button" onclick="setPreorderSubcategory('Beauté',this)">💄 Beauté</button>
+    <button type="button" onclick="setPreorderSubcategory('Cadeau',this)">🎁 Cadeau</button>
   </div>
 <div id="pagination-top" class="pagination pagination-top" aria-label="Pagination des produits en haut"></div>
 
@@ -1416,9 +1417,10 @@ document.addEventListener("DOMContentLoaded", function () {
 const products = [
  {
   id: 78,
-  name: " 🎄Étui de protection Demons Hot Slayers iPhone",
+  name: " 🎄Étui de protection Demons Hot Slayers compatible iPhone",
   price: 1000,
   cat: "Précommande",
+    subcat: "Étuis téléphone",
   image: "images/etui-demons-hot-slayers-id78.png",
   emoji: "📱",
   preorder: true,
@@ -1514,6 +1516,7 @@ const products = [
   name: " 🎄Peluche Petits Pois",
   price: 1290,
   cat: "Précommande",
+    subcat: "Peluches",
   preorder: true,
   image: "images/peluche-petits-pois-toy-story-23cm.png",
   emoji: "🧸",
@@ -1528,6 +1531,7 @@ const products = [
     name: "🎄Peluche pieuvre Koro Sensei, 30cm",
     price: 7990,
     cat: "Précommande",
+    subcat: "Peluches",
     preorder: true,
     image: "images/peluche-koro-sensei-30cm.png",
     emoji: "🧸",
@@ -1538,6 +1542,7 @@ const products = [
     name: "🎄MEGIR 2068 – Montre Homme Luxe Quartz ",
     price: 14990,
     cat: "Précommande",
+    subcat: "Montres",
     preorder: true,
     image: "images/megir-2068.png",
     emoji: "⌚",
@@ -1553,6 +1558,7 @@ const products = [
     name: "🎄Lot de 6 bracelets perlés en cuir PU tendance, montre à quartz et collier pendentif croix pour homme noir",
     price: 7990,
     cat: "Précommande",
+    subcat: "Cadeau",
     preorder: true,
     image: "images/coffret-homme-premium.png",
     emoji: "⌚",
@@ -1563,6 +1569,7 @@ const products = [
     name: "🎄Boucles d'oreilles créoles cœur & fleur, 26 lettres A-Z",
     price: 1200,
     cat: "Précommande",
+    subcat: "Bijoux",
     preorder: true,
     image: "images/boucles-coeur-fleur-az.png",
     emoji: "💎",
@@ -1601,6 +1608,7 @@ const products = [
     name: "🎄Ensemble collier et boucles d'oreilles en cristal pour femmes",
     price: 1200,
     cat: "Précommande",
+    subcat: "Bijoux",
     preorder: true,
     image: "images/ensemble-collier-cristal.png",
     emoji: "💎",
@@ -1611,6 +1619,7 @@ const products = [
     name: " 🎄Ensemble de bijoux bohèmes tressés à fleurs pour femmes, collier et boucles d'oreilles à fleurs",
     price: 1200,
     cat: "Précommande",
+    subcat: "Bijoux",
     preorder: true,
     image: "images/bijoux-bohemes-fleurs.png",
     emoji: "🌺",
@@ -1626,6 +1635,7 @@ const products = [
     name: "🎄Ensembles de bijoux hawaïens, collier + boucles d'oreilles",
     price: 1200,
     cat: "Précommande",
+    subcat: "Bijoux",
     preorder: true,
     image: "images/ensemble-bijoux-hawaiens.png",
     emoji: "💎",
@@ -1641,6 +1651,7 @@ const products = [
   name: "🎄Mini haut-parleur Bluetooth 5.3 sans fil",
   price: 6990,
   cat: "Précommande",
+    subcat: "Audio & Casques",
   preorder: true,
   image: "images/mini-haut-parleur-bluetooth.png",
   emoji: "🔊",
@@ -1659,6 +1670,7 @@ const products = [
   name: "🎄MLOVE E80 Enceinte Bluetooth Portable",
   price: 14990,
   cat: "Précommande",
+    subcat: "Audio & Casques",
   preorder: true,
   image: "images/mlove-e80.png",
   emoji: "🔊",
@@ -1669,6 +1681,7 @@ const products = [
   name: "🎄T-WOLF - Clavier filaire rétro 4.2 TFfemale, 104 touches, avec souris filaire",
   price: 9990,
   cat: "Précommande",
+    subcat: "Jeux & Consoles",
   preorder: true,
   image: "images/t-wolf-clavier-souris.png",
   emoji: "🎮",
@@ -1679,6 +1692,7 @@ const products = [
   name: "🎄Casque de jeu pour Gamer filaire avec micro",
   price: 7990,
   cat: "Précommande",
+    subcat: "Audio & Casques",
   preorder: true,
   image: "images/casque-gamer-filaire.png",
   emoji: "🎧",
@@ -1690,6 +1704,7 @@ const products = [
   name: "🎄Casque de jeu 7.1 Surround avec LED pour Gamer",
   price: 9990,
   cat: "Précommande",
+    subcat: "Audio & Casques",
   preorder: true,
   image: "images/casque-gamer-71.png",
   emoji: "🎧",
@@ -1701,6 +1716,7 @@ const products = [
   name: "🎄Support mural multifonctionnel pour PS5 / PS5 Slim / PS5 Pro",
   price: 9990,
   cat: "Précommande",
+    subcat: "Jeux & Consoles",
   preorder: true,
   image: "images/support-mural-ps5.png",
   emoji: "🎮",
@@ -1711,6 +1727,7 @@ const products = [
     name: "🎄Support refroidisseur RGB PS5 + charge manettes",
     price: 10990,
     cat: "Précommande",
+    subcat: "Jeux & Consoles",
     preorder: true,
     image: "images/support-refroidissement-rgb-ps5.png",
     emoji: "🎮",
@@ -1725,6 +1742,7 @@ const products = [
     name: "🎄Station de charge pour 2 manettes PS5",
     price: 7990,
     cat: "Précommande",
+    subcat: "Jeux & Consoles",
     emoji: "🎮",
     preorder: true,
     image: "images/station-charge-ps5.png",
@@ -1736,6 +1754,7 @@ const products = [
     name: "🎄Console de jeu rétro U36 128 Go Pack Orange",
     price: 24990,
      cat: "Précommande",
+    subcat: "Jeux & Consoles",
     image: "images/console-u36-128go-pack-orange.png",
     emoji: "🎮",
     preorder: true,
@@ -1746,6 +1765,7 @@ const products = [
     name: "🎄Console de jeu rétro U36 128 Go Pack Bleu",
     price: 24990,
     cat: "Précommande",
+    subcat: "Jeux & Consoles",
     image: "images/console-u36-128go-pack-bleu.png",
     emoji: "🎮",
     preorder: true,
@@ -1756,6 +1776,7 @@ const products = [
   name: "🎄Clé de jeu d’arcade rétro M15 Ultra",
   price: 19990,
   cat: "Précommande",
+    subcat: "Jeux & Consoles",
   preorder: true,
   image: "images/m15-ultra.png",
   emoji: "🎮",
@@ -1766,6 +1787,7 @@ const products = [
   name: "🎄Console de jeu portable haute performance",
   price: 15990,
   cat: "Précommande",
+    subcat: "Jeux & Consoles",
   preorder: true,
   image: "images/console-portable-43-pouces.png",
   emoji: "🎮",
@@ -2454,9 +2476,29 @@ function setCategory(c,btn){
   }
 
   category=c;
+  preorderSubcategory="Tous";
+  const subBar=document.getElementById("precommande-subcategories");
+  if(subBar){
+    subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+    const first=subBar.querySelector("button");
+    if(first) first.classList.add("active");
+  }
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
+  renderProducts();
+}
+
+let preorderSubcategory = "Tous";
+
+function setPreorderSubcategory(sub, btn){
+  preorderSubcategory = sub;
+  const bar = document.getElementById("precommande-subcategories");
+  if (bar) {
+    bar.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+  }
+  currentPage = 1;
   renderProducts();
 }
 
@@ -2469,6 +2511,11 @@ function renderProducts(){
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
+    ) &&
+    (
+      category !== "Précommande" ||
+      preorderSubcategory === "Tous" ||
+      p.subcat === preorderSubcategory
     )
   );
 
@@ -3556,19 +3603,5 @@ const internalOrder = {
 renderProducts();
 updateCart();
 </script>
-
-<script id="precommande-subcategories-js">
-document.addEventListener("DOMContentLoaded", function(){
-  const bar = document.getElementById("precommande-subcategories");
-  if (!bar) return;
-  bar.querySelectorAll("button").forEach(function(button){
-    button.addEventListener("click", function(){
-      bar.querySelectorAll("button").forEach(function(b){ b.classList.remove("active"); });
-      this.classList.add("active");
-    });
-  });
-});
-</script>
-
 </body>
 </html>
