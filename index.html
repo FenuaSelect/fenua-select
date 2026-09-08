@@ -1046,14 +1046,38 @@ button.preorder-btn:hover{
 }
 </style>
 
-<style id="precommande-cadres-rouge-2026">
-/* 🎄 Cadres des produits en précommande : même rouge que le bouton */
-.product:has(.preorder-btn){
-  background:#c9152e !important;
-  border-color:#f4d06f !important;
-  box-shadow:
-    0 8px 24px rgba(201,21,46,.30),
-    0 0 18px rgba(244,208,111,.12) !important;
+<style id="precommande-subcategories-css">
+.precommande-subcategories{
+  display:none;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin:12px 0 18px;
+}
+.precommande-subcategories button{
+  border:1px solid rgba(255,255,255,.18);
+  background:#171717;
+  color:#fff;
+  border-radius:10px;
+  padding:9px 13px;
+  font-weight:700;
+  cursor:pointer;
+}
+.precommande-subcategories button.active{
+  background:#c9152e;
+  color:#fff;
+  border-color:#c9152e;
+}
+</style>
+
+
+<style id="precommande-card-red-final">
+/* Fond rouge uniquement pour les cartes Précommande */
+.product.precommande-card,
+.product-card.precommande-card,
+article.product.precommande-card {
+  background: #c9152e !important;
+  border-color: #c9152e !important;
 }
 </style>
 
@@ -1190,6 +1214,17 @@ document.addEventListener("DOMContentLoaded", function () {
    <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
     <button onclick="setCategory('Beauté',this)">💄 Beauté</button>
     <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
+  </div>
+
+  <div id="precommande-subcategories" class="precommande-subcategories">
+    <button type="button" class="active">✨ Tous</button>
+    <button type="button">🎮 Jeux &amp; Consoles</button>
+    <button type="button">🧸 Peluches</button>
+    <button type="button">💎 Bijoux</button>
+    <button type="button">⌚ Montres</button>
+    <button type="button">📱 Étuis téléphone</button>
+    <button type="button">💄 Beauté</button>
+    <button type="button">🎁 Cadeau</button>
   </div>
 <div id="pagination-top" class="pagination pagination-top" aria-label="Pagination des produits en haut"></div>
 
@@ -1430,7 +1465,48 @@ const products = [
     "26 - iPhone 16 ProMax",
     "27 - iPhone 15 Plus",
     "28 - iPhone 15 ProMax"
-  ]
+  ],
+
+   colors: [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8"
+   ],
+
+   sizes: [
+     "1 - iPhone 15 Pro",
+     "2 - iPhone 17",
+     "3 - iPhone 16",
+     "4 - iPhone 17 Air",
+     "5 - iPhone 17 Pro",
+     "6 - iPhone 17 ProMax",
+     "7 - iPhone 11",
+     "8 - iPhone 11 Pro",
+     "9 - iPhone 11 ProMax",
+     "10 - iPhone 12",
+     "11 - iPhone 16e 17e",
+     "12 - iPhone 12 Pro",
+     "13 - iPhone 12 ProMax",
+     "14 - iPhone 13",
+     "15 - iPhone 13 mini",
+     "16 - iPhone 13 Pro",
+     "17 - iPhone 13 ProMax",
+     "18 - iPhone 14",
+     "19 - iPhone 14 Plus",
+     "20 - iPhone 14 Pro",
+     "21 - iPhone 14 ProMax",
+     "22 - iPhone 15",
+     "23 - iPhone 16 Plus",
+     "24 - iPhone 16 Pro",
+     "25 - iPhone 16 ProMax",
+     "26 - iPhone 15 Plus",
+     "27 - iPhone 15 ProMax"
+   ]
 },
 
   {
@@ -2372,6 +2448,11 @@ function setCategory(c,btn){
   const preorderNotice = document.getElementById("preorderNotice");
   if (preorderNotice) preorderNotice.style.display = (c === "Précommande") ? "block" : "none";
 
+  const preorderSubcategories = document.getElementById("precommande-subcategories");
+  if (preorderSubcategories) {
+    preorderSubcategories.style.display = (c === "Précommande") ? "flex" : "none";
+  }
+
   category=c;
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
@@ -2407,7 +2488,7 @@ function renderProducts(){
 
         return `
 
-    <article class="product">
+    <article class="product ${p.cat === "Précommande" ? "precommande-card" : ""}">
 
       <div class="product-img">
         <img
@@ -3475,6 +3556,19 @@ const internalOrder = {
 renderProducts();
 updateCart();
 </script>
+
+<script id="precommande-subcategories-js">
+document.addEventListener("DOMContentLoaded", function(){
+  const bar = document.getElementById("precommande-subcategories");
+  if (!bar) return;
+  bar.querySelectorAll("button").forEach(function(button){
+    button.addEventListener("click", function(){
+      bar.querySelectorAll("button").forEach(function(b){ b.classList.remove("active"); });
+      this.classList.add("active");
+    });
+  });
+});
+</script>
+
 </body>
 </html>
-
