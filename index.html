@@ -1303,8 +1303,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div class="categories">
-    <button class="active" onclick="setCategory('Tous',this)">Tous</button>
-   <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
+    <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
     <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
     <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
@@ -1314,7 +1313,6 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div id="precommande-subcategories" class="precommande-subcategories">
-    <button type="button" class="active" onclick="setPreorderSubcategory('Tous',this)">✨ Tous</button>
     <button type="button" onclick="setPreorderSubcategory('Jeux & Consoles',this)">🎮 Jeux &amp; Consoles</button>
     <button type="button" onclick="setPreorderSubcategory('Audio & Casques',this)">🎧 Audio &amp; Casques</button>
     <button type="button" onclick="setPreorderSubcategory('Peluches',this)">🧸 Peluches</button>
@@ -1512,73 +1510,6 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 
 const products = [
-  {
-  id: 81,
-  name: "🎄Sac à dos à cordon Demon Slayer",
-  price: 790,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/sac-cordon-demon-slayer.png",
-  emoji: "🎒",
-  desc: "Sac à dos à cordon inspiré de l’univers Demon Slayer. Idéal pour transporter chaussures, vêtements et accessoires. Fabriqué en nylon résistant et durable, il est léger, pratique et adapté à une utilisation quotidienne. 📏 Dimensions : 34 × 45 cm • ✨ Léger • Résistant • Pratique • Multifonctionnel",
-
-  colors: [
-    "N°1",
-    "N°2",
-    "N°3",
-    "N°4",
-    "N°5",
-    "N°6",
-    "N°7",
-    "N°8",
-    "N°9",
-    "N°10",
-    "N°11",
-    "N°12",
-    "N°13",
-    "N°14",
-    "N°15",
-    "N°16"
-  ]
-},
-  {
-  id: 80,
-  name: "🎄Portefeuille Demons Slayers",
-  price: 700,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/portefeuille-demons-slayers.png",
-  emoji: "👛",
-  desc: "📏 Dimensions : 11,8 × 9 cm • 🎨 Plusieurs designs et coloris • 💪 Compact, pratique et résistant • 🎁 Idéal pour les fans d’anime",
-
-  colors: [
-    "N°1",
-    "N°2",
-    "N°3",
-    "N°4",
-    "N°5",
-    "N°6",
-    "N°7",
-    "N°8",
-    "N°9",
-    "N°10",
-    "N°11",
-    "N°12",
-    "N°13",
-    "N°14",
-    "N°15",
-    "N°16",
-    "N°17",
-    "N°18",
-    "N°19",
-    "N°20",
-    "N°21",
-    "N°22",
-    "N°23",
-    "N°24",
-    "N°25"
-  ]
-},
   {
   id: 79,
   name: "🎄Étui de téléphone Demon Slayer pour Samsung Galaxy",
@@ -2659,7 +2590,7 @@ const products = [
 ];
 
 
-let category="Tous";
+let category="";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
@@ -2679,12 +2610,10 @@ function setCategory(c,btn){
   }
 
   category=c;
-  preorderSubcategory="Tous";
+  preorderSubcategory="";
   const subBar=document.getElementById("precommande-subcategories");
   if(subBar){
     subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
-    const first=subBar.querySelector("button");
-    if(first) first.classList.add("active");
   }
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
@@ -2692,7 +2621,7 @@ function setCategory(c,btn){
   renderProducts();
 }
 
-let preorderSubcategory = "Tous";
+let preorderSubcategory = "";
 
 function setPreorderSubcategory(sub, btn){
   preorderSubcategory = sub;
@@ -2710,15 +2639,15 @@ function renderProducts(){
   const q = document.getElementById('search').value.toLowerCase().trim();
 
   const list = products.filter(p =>
-    (category === "Tous" || p.cat === category) &&
+    category &&
+    p.cat === category &&
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
     ) &&
     (
       category !== "Précommande" ||
-      preorderSubcategory === "Tous" ||
-      p.subcat === preorderSubcategory
+      (preorderSubcategory && p.subcat === preorderSubcategory)
     )
   );
 
