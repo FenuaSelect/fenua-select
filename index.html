@@ -446,16 +446,31 @@ button.preorder-btn:hover{
   overflow:hidden !important;
 }
 .product p{
+  /* Hauteur automatique : le cadre suit la longueur du texte */
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
   font-size:10.5px !important;
-  line-height:1.3 !important;
-  height:28px !important;
-  min-height:28px !important;
-  max-height:28px !important;
-  margin:0 0 7px !important;
-  display:-webkit-box !important;
-  -webkit-line-clamp:2 !important;
-  -webkit-box-orient:vertical !important;
-  overflow:hidden !important;
+  line-height:1.4 !important;
+
+  margin:0 0 8px !important;
+  padding:7px 9px !important;
+
+  display:block !important;
+
+  /* Désactive la coupure en 2 lignes */
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+
+  overflow:visible !important;
+  box-sizing:border-box !important;
+
+  background:rgba(3,8,15,.68) !important;
+  border:1px solid rgba(57,231,255,.32) !important;
+  border-radius:9px !important;
+
+  color:inherit !important;
 }
 .product .pill,
 .product .badge{
@@ -533,15 +548,62 @@ button.preorder-btn:hover{
     min-height:28px !important;
   }
   .product p{
+    /* Même principe sur mobile : hauteur selon le texte */
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+
     font-size:9px !important;
-    height:25px !important;
-    min-height:25px !important;
-    max-height:25px !important;
-    margin-bottom:6px !important;
+    line-height:1.4 !important;
+
+    margin:0 0 7px !important;
+    padding:6px 8px !important;
+
+    display:block !important;
+    -webkit-line-clamp:unset !important;
+    -webkit-box-orient:initial !important;
+
+    overflow:visible !important;
+    box-sizing:border-box !important;
+
+    background:rgba(3,8,15,.68) !important;
+    border:1px solid rgba(57,231,255,.32) !important;
+    border-radius:8px !important;
   }
 }
 </style>
 
+
+<style id="description-adaptative-final-2026">
+/* ===== DESCRIPTION PRODUIT : CADRE ADAPTÉ AU TEXTE ===== */
+.product p{
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  display:block !important;
+  overflow:visible !important;
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+  box-sizing:border-box !important;
+  padding:7px 9px !important;
+  margin:0 0 8px !important;
+  line-height:1.4 !important;
+  background:rgba(3,8,15,.68) !important;
+  border:1px solid rgba(57,231,255,.32) !important;
+  border-radius:9px !important;
+}
+@media(max-width:700px){
+  .product p{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    padding:6px 8px !important;
+    margin:0 0 7px !important;
+    font-size:9px !important;
+    line-height:1.4 !important;
+  }
+}
+</style>
 
 <style id="fenua-panier-commande-style-2026">
 /* =========================================================
@@ -862,57 +924,6 @@ button.preorder-btn{
 </style>
 
 
-<style id="precommande-sous-categories-2026">
-/* ===== SOUS-CATÉGORIES PRÉCOMMANDE ===== */
-.preorder-subcategories{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:12px 0 18px;
-  padding:10px;
-  border-radius:14px;
-  background:rgba(201,21,46,.08);
-  border:1px solid rgba(201,21,46,.22);
-}
-.preorder-subcategories[hidden]{display:none !important}
-.preorder-subcat{
-  appearance:none;
-  border:1px solid #c9152e;
-  background:#fff;
-  color:#c9152e;
-  border-radius:10px;
-  padding:9px 13px;
-  font-weight:800;
-  font-size:14px;
-  line-height:1.1;
-  cursor:pointer;
-  transition:.18s ease;
-}
-.preorder-subcat:hover{
-  transform:translateY(-1px);
-  box-shadow:0 4px 12px rgba(201,21,46,.16);
-}
-.preorder-subcat.active{
-  background:#c9152e;
-  color:#fff;
-  border-color:#c9152e;
-  box-shadow:0 4px 12px rgba(201,21,46,.22);
-}
-@media(max-width:600px){
-  .preorder-subcategories{
-    gap:7px;
-    margin-top:10px;
-    padding:8px;
-  }
-  .preorder-subcat{
-    flex:1 1 calc(50% - 7px);
-    min-height:42px;
-    padding:8px 9px;
-    font-size:13px;
-  }
-}
-</style>
-
 <style id="precommande-noel-rouge-final-2026">
 /* 🎅🎄 Précommande : rouge Noël, bien visible */
 .categories button[onclick*="setCategory('Précommande'"]{
@@ -987,9 +998,67 @@ button.preorder-btn:hover{
 .out-of-stock-btn{background:linear-gradient(135deg,#7a101c,#c9152e)!important;color:#fff!important;border:2px solid #ffb0b0!important;opacity:.9!important;cursor:not-allowed!important;box-shadow:0 4px 14px rgba(201,21,46,.25)!important}
 .out-of-stock-btn:disabled{opacity:.9!important}
 </style>
-</head>
-<!-- ===== LOUPE PHOTO PRODUIT - PC ===== -->
 
+<style id="description-scroll-final-2026">
+/* ===== DESCRIPTION PRODUIT : DÉFILEMENT PC + MOBILE ===== */
+.product p{
+  height:110px !important;
+  min-height:0 !important;
+  max-height:110px !important;
+  display:block !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+  box-sizing:border-box !important;
+  padding:7px 9px !important;
+  margin:0 0 8px !important;
+  line-height:1.4 !important;
+  background:rgba(3,8,15,.72) !important;
+  border:1px solid rgba(57,231,255,.38) !important;
+  border-radius:9px !important;
+  scrollbar-width:thin !important;
+  scrollbar-color:#39e7ff rgba(8,14,24,.95) !important;
+}
+.product p::-webkit-scrollbar{width:7px !important;}
+.product p::-webkit-scrollbar-track{
+  background:rgba(8,14,24,.95) !important;
+  border-radius:10px;
+}
+.product p::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#39e7ff 0%,#ff3cac 55%,#ffd166 100%) !important;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 0 7px rgba(57,231,255,.9),0 0 12px rgba(255,60,172,.6);
+}
+.product p::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg,#ffd166 0%,#ff3cac 50%,#39e7ff 100%) !important;
+}
+@media(max-width:700px){
+  .product p{
+    height:95px !important;
+    max-height:95px !important;
+    padding:6px 8px !important;
+    font-size:9px !important;
+    line-height:1.4 !important;
+  }
+  .product p::-webkit-scrollbar{width:6px !important;}
+}
+</style>
+
+<style id="precommande-cadres-rouge-2026">
+/* 🎄 Cadres des produits en précommande : même rouge que le bouton */
+.product:has(.preorder-btn){
+  background:#c9152e !important;
+  border-color:#f4d06f !important;
+  box-shadow:
+    0 8px 24px rgba(201,21,46,.30),
+    0 0 18px rgba(244,208,111,.12) !important;
+}
+</style>
+
+</head>
+<!-- ===== LOUPE PHOTO PRODUIT + MOLETTE - PC ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -1000,9 +1069,11 @@ document.addEventListener("DOMContentLoaded", function () {
   images.forEach(function (img) {
 
     const container = img.closest(".product-img");
-
     if (!container) return;
 
+    let zoom = 2;
+
+    /* Zoom avec le déplacement de la souris */
     container.addEventListener("mousemove", function (e) {
 
       const rect = container.getBoundingClientRect();
@@ -1013,12 +1084,37 @@ document.addEventListener("DOMContentLoaded", function () {
       const percentX = (x / rect.width) * 100;
       const percentY = (y / rect.height) * 100;
 
-      img.style.transformOrigin = percentX + "% " + percentY + "%";
-      img.style.transform = "scale(2)";
+      img.style.transformOrigin =
+        percentX + "% " + percentY + "%";
+
+      img.style.transform =
+        "scale(" + zoom + ")";
 
     });
 
+    /* Zoom avec la molette */
+    container.addEventListener("wheel", function (e) {
+
+      e.preventDefault();
+
+      if (e.deltaY < 0) {
+        zoom += 0.2;
+      } else {
+        zoom -= 0.2;
+      }
+
+      /* Limites du zoom */
+      zoom = Math.max(1, Math.min(3, zoom));
+
+      img.style.transform =
+        "scale(" + zoom + ")";
+
+    }, { passive: false });
+
+    /* Retour à la taille normale */
     container.addEventListener("mouseleave", function () {
+
+      zoom = 2;
 
       img.style.transformOrigin = "center center";
       img.style.transform = "scale(1)";
@@ -1028,6 +1124,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 </script>
 <!-- ===== SUPPRIMER LE PETIT LOGO DU SITE ===== -->
 
@@ -1069,7 +1166,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="hero-content">
     <p class="eyebrow">TAHITI • POLYNÉSIE FRANÇAISE</p>
     <h1>FENUA SELECT</h1>
-    <p class="tagline">LA QUALITÉ • LE CHOIX • LE PRIX</p>
+    <p class="tagline">🔥 DES PRODUITS QUI FONT ENVIE • DES PRIX QUI FONT PLAISIR</p>
     <p class="intro">Une sélection de produits tendance, disponibles sur commande.</p>
     <a class="cta" href="#boutique">Voir la boutique</a>
   </div>
@@ -1086,19 +1183,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <div class="categories">
     <button class="active" onclick="setCategory('Tous',this)">Tous</button>
-    <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
+   <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
     <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
     <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
-    <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
+   <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
     <button onclick="setCategory('Beauté',this)">💄 Beauté</button>
     <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
   </div>
-
-  <!-- ===== SOUS-CATÉGORIES PRÉCOMMANDE ===== -->
-  <div id="preorder-subcategories" class="preorder-subcategories" hidden></div>
-
 <div id="pagination-top" class="pagination pagination-top" aria-label="Pagination des produits en haut"></div>
+
+<style>
+.preorder-notice{
+  position:relative;
+  margin:18px 0 22px;
+  padding:20px 18px;
+  text-align:center;
+  border:2px solid #ffd166;
+  border-radius:18px;
+  background:linear-gradient(135deg,#8b0018 0%,#ff123f 28%,#d4002f 55%,#ff1744 78%,#7a0015 100%);
+  box-shadow:0 0 22px rgba(255,20,65,.75), 0 0 48px rgba(255,0,55,.38), inset 0 0 28px rgba(255,255,255,.14);
+  overflow:hidden;
+}
+.preorder-notice:before,.preorder-notice:after{
+  content:""; position:absolute; top:0; width:7px; height:7px;
+  border-radius:50%; background:#fff; box-shadow:0 0 10px #fff;
+  animation:preorderBlink 1.8s infinite alternate;
+}
+.preorder-notice:before{left:12%;}.preorder-notice:after{right:12%;animation-delay:.7s;}
+.preorder-title{font-size:25px;font-weight:900;color:#ffd166;text-shadow:0 0 10px rgba(255,209,102,.8),0 0 22px rgba(255,255,255,.35);margin:5px 0 10px;}
+.preorder-text{font-size:16px;line-height:1.65;color:#fff;}
+.preorder-text strong{color:#fff;}
+.preorder-sparkles{font-size:22px;letter-spacing:5px;line-height:1.3;}
+@keyframes preorderBlink{from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.3)}}
+@media(max-width:600px){
+ .preorder-notice{padding:16px 12px;margin:14px 0 18px;border-radius:15px;}
+ .preorder-title{font-size:20px;}
+ .preorder-text{font-size:14px;}
+ .preorder-sparkles{font-size:18px;letter-spacing:2px;}
+}
+</style>
+<div id="preorderNotice" class="preorder-notice" style="display:none;">
+  <div class="preorder-sparkles">✨ ❄️ 🎄 ❄️ ✨</div>
+  <div class="preorder-title">🎅 PRÉCOMMANDES DE NOËL 🎄</div>
+  <div class="preorder-text">
+    <strong>Les précommandes se font séparément des commandes classiques.</strong><br>
+    💰 Acompte de <strong>50 %</strong> à la commande<br>
+    🎁 Solde de <strong>50 %</strong> à la livraison<br>
+    📅 <strong>Précommandes Noël 2026 : du 5 septembre au 31 octobre 2026.</strong><br>
+    🎅 <strong>Ne tardez pas ! Passez votre précommande avant le 31 octobre pour préparer Noël sereinement.</strong> 🎄
+  </div>
+  <div class="preorder-sparkles">🎁 ✨ ⛄ ✨ 🎁</div>
+</div>
 <div id="products" class="grid"></div>
 
  <div class="photo-notice">
@@ -1117,12 +1253,79 @@ document.addEventListener("DOMContentLoaded", function () {
   <a class="cta light" href="#commande">Passer une commande</a>
 </section>
 
+<style id="paiement-virement-global-2026">
+/* ===== BLOC PAIEMENT GLOBAL : TOUS LES PRODUITS ===== */
+.payment-global{
+  margin:0 0 28px;
+  padding:22px 24px;
+  border:1px solid rgba(53,217,255,.28);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(10,27,39,.96),rgba(8,14,22,.98));
+  box-shadow:0 12px 30px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.04);
+  text-align:center;
+}
+.payment-global .payment-icon{
+  font-size:30px;
+  line-height:1;
+  margin-bottom:8px;
+}
+.payment-global h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.3px;
+}
+.payment-global h3 span{
+  color:var(--fs-cyan);
+}
+.payment-global p{
+  margin:0;
+  color:#d9e4ee;
+  font-size:15px;
+  line-height:1.6;
+}
+.payment-global strong{
+  color:#fff;
+}
+.payment-global .payment-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:14px;
+  padding:9px 16px;
+  border-radius:999px;
+  background:rgba(53,217,255,.10);
+  border:1px solid rgba(53,217,255,.25);
+  color:var(--fs-cyan);
+  font-weight:900;
+  font-size:13px;
+}
+@media(max-width:600px){
+  .payment-global{
+    margin-bottom:22px;
+    padding:18px 15px;
+    border-radius:15px;
+  }
+  .payment-global h3{font-size:18px;}
+  .payment-global p{font-size:14px;}
+}
+</style>
+
 <section id="commande" class="section order-section">
   <div class="section-head">
     <div>
       <p class="eyebrow">COMMANDE</p>
       <h2>Votre commande</h2>
     </div>
+  </div>
+
+  <!-- ===== PAIEMENT GLOBAL POUR TOUS LES PRODUITS ===== -->
+  <div class="payment-global" role="note" aria-label="Mode de paiement">
+    <div class="payment-icon">💳</div>
+    <h3><span>PAIEMENT</span> PAR VIREMENT BANCAIRE</h3>
+    <p>Le paiement de <strong>tous les produits</strong> de Fenua Select s’effectue par <strong>virement bancaire</strong>.</p>
   </div>
 
   <div class="order-layout">
@@ -1155,7 +1358,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <footer>
   <img src="logo.png" alt="Fenua Select">
-  <p>LA QUALITÉ • LE CHOIX • LE PRIX</p>
+  <p>🔥 DES PRODUITS QUI FONT ENVIE • DES PRIX QUI FONT PLAISIR</p>
   <p>📧 fenuaselect@gmail.com • Facebook : Fenua Select</p>
 
   <p class="delivery-note">
@@ -1176,10 +1379,286 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 
 const products = [
+ {
+  id: 78,
+  name: " 🎄Étui de protection Demons Hot Slayers compatible iPhone",
+  price: 1000,
+  cat: "Précommande",
+  image: "images/etui-demons-hot-slayers-id78.png",
+  emoji: "📱",
+  preorder: true,
+
+  desc: "Étui de protection Demons Hot Slayers au design anime, compatible avec de nombreux modèles iPhone. ✨📱",
+
+  variants: [
+    "1 - Transparent Cool Dark",
+    "2 - Hot-blood Love",
+    "3 - Fast Fashion",
+    "4 - Just For You",
+    "5 - Ninja Spirit",
+    "6 - Wind Power",
+    "7 - Demon Bond",
+    "8 - Water Breath"
+  ],
+
+  iphoneModels: [
+    "1 - iPhone 15 Pro",
+    "2 - iPhone 17",
+    "3 - iPhone 16",
+    "4 - iPhone 17 Air",
+    "5 - iPhone 17 Pro",
+    "6 - iPhone 17 ProMax",
+    "7 - iPhone 11",
+    "8 - iPhone 11 Pro",
+    "9 - iPhone 11 ProMax",
+    "10 - iPhone 12",
+    "11 - iPhone 16e",
+    "12 - iPhone 17e",
+    "13 - iPhone 12 Pro",
+    "14 - iPhone 12 ProMax",
+    "15 - iPhone 13",
+    "16 - iPhone 13 mini",
+    "17 - iPhone 13 Pro",
+    "18 - iPhone 13 ProMax",
+    "19 - iPhone 14",
+    "20 - iPhone 14 Plus",
+    "21 - iPhone 14 Pro",
+    "22 - iPhone 14 ProMax",
+    "23 - iPhone 15",
+    "24 - iPhone 16 Plus",
+    "25 - iPhone 16 Pro",
+    "26 - iPhone 16 ProMax",
+    "27 - iPhone 15 Plus",
+    "28 - iPhone 15 ProMax"
+  ]
+},
+
+  {
+  id: 76,
+  name: " 🎄Peluche Petits Pois",
+  price: 1290,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/peluche-petits-pois-toy-story-23cm.png",
+  emoji: "🧸",
+  colors: [
+    "🟢 Vert",
+    "🟡 Jaune"
+  ],
+  desc: "🧸 Peluche Petits Pois dans sa cosse, modèle Peas-in-a-pod de 23 cm. Douce, adorable et parfaite comme petit cadeau. 🎁💚 Disponible en 2 coloris : 🟢 Vert et 🟡 Jaune."
+},
+    {
+    id: 75,
+    name: "🎄Peluche pieuvre Koro Sensei, 30cm",
+    price: 7990,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/peluche-koro-sensei-30cm.png",
+    emoji: "🧸",
+    desc: "🧸 Peluche pieuvre Koro Sensei de 30 cm, douce, originale et idéale comme cadeau pour les fans d’anime. 🎁✨"
+  },
+    {
+    id: 74,
+    name: "🎄MEGIR 2068 – Montre Homme Luxe Quartz ",
+    price: 14990,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/megir-2068.png",
+    emoji: "⌚",
+    colors: [
+      "⚫ Noir",
+      "🔵 Bleu",
+      "🟡 Or",
+       ],
+    desc: "✨ <strong>Style premium, robustesse et précision.</strong> La MEGIR 2068 associe acier inoxydable, cadran lumineux, chronographe, date et mouvement quartz. Disponible en <strong>noir, bleu, or </strong>, elle accompagne votre quotidien avec élégance. 💎⌚<br><br><strong>MEGIR 2068 : le style qui se remarque.</strong>"
+  },
+    {
+    id: 73,
+    name: "🎄Lot de 6 bracelets perlés en cuir PU tendance, montre à quartz et collier pendentif croix pour homme noir",
+    price: 7990,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/coffret-homme-premium.png",
+    emoji: "⌚",
+    desc: "🖤 <strong>Coffret homme premium</strong> ⌚🔥<br>Montre noire, bracelets tendance & collier croix dans un élégant coffret. 🎁"
+  },
+    {
+    id: 72,
+    name: "🎄Boucles d'oreilles créoles cœur & fleur, 26 lettres A-Z",
+    price: 1200,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/boucles-coeur-fleur-az.png",
+    emoji: "💎",
+    colors: [
+      "A Lettre A",
+      "B Lettre B",
+      "C Lettre C",
+      "🇩 Lettre D",
+      "🇪 Lettre E",
+      "🇫 Lettre F",
+      "🇬 Lettre G",
+      "🇭 Lettre H",
+      "🇮 Lettre I",
+      "🇯 Lettre J",
+      "🇰 Lettre K",
+      "🇱 Lettre L",
+      "🇲 Lettre M",
+      "🇳 Lettre N",
+      "🇴 Lettre O",
+      "🇵 Lettre P",
+      "🇶 Lettre Q",
+      "🇷 Lettre R",
+      "🇸 Lettre S",
+      "🇹 Lettre T",
+      "🇺 Lettre U",
+      "🇻 Lettre V",
+      "🇼 Lettre W",
+      "🇽 Lettre X",
+      "🇾 Lettre Y",
+      "🇿 Lettre Z"
+    ],
+    desc: "💖 Boucles d’oreilles personnalisées. Créoles cœur & fleur en or jaune et zircone blanche, disponibles de A à Z pour un style personnalisé et élégant. ✨ Légères et confortables, elles sont parfaites au quotidien comme pour les mariages et soirées. 🌸💎"
+  },
+    {
+    id: 71,
+    name: "🎄Ensemble collier et boucles d'oreilles en cristal pour femmes",
+    price: 1200,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/ensemble-collier-cristal.png",
+    emoji: "💎",
+    desc: "Élégant ensemble composé d’un collier et de boucles d’oreilles ornés de cristaux étincelants. Finition soignée et style raffiné, idéal pour une tenue élégante ou pour offrir."
+  },
+    {
+    id: 70,
+    name: " 🎄Ensemble de bijoux bohèmes tressés à fleurs pour femmes, collier et boucles d'oreilles à fleurs",
+    price: 1200,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/bijoux-bohemes-fleurs.png",
+    emoji: "🌺",
+    colors: [
+      "🌺 Rouge",
+      "🌼 Blanc",
+      "💙 Bleu"
+    ],
+    desc: "Ensemble de bijoux bohèmes à fleurs composé d’un collier et de boucles d’oreilles assorties."
+  },
+    {
+    id: 69,
+    name: "🎄Ensembles de bijoux hawaïens, collier + boucles d'oreilles",
+    price: 1200,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/ensemble-bijoux-hawaiens.png",
+    emoji: "💎",
+    colors: [
+      "🟡 Doré",
+      "⚪ Argenté",
+      "🩷 Rose gold"
+    ],
+    desc: "Ensemble de bijoux hawaïens composé d’un collier et de boucles d’oreilles assorties. Design élégant et tropical, idéal pour offrir ou compléter une tenue. Disponible en plusieurs coloris."
+  },
+  {
+  id: 68,
+  name: "🎄Mini haut-parleur Bluetooth 5.3 sans fil",
+  price: 6990,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/mini-haut-parleur-bluetooth.png",
+  emoji: "🔊",
+  colors: [
+    "🟣 Violet",
+    "🔵 Bleu",
+    "🟢 Vert",
+    "⚫ Noir",
+    "⚪ Blanc",
+    "🔴 Rouge"
+  ],
+  desc: "Mini haut-parleur Bluetooth 5.3. Bluetooth 5.3 avec portée jusqu’à 10 m. Batterie 300 à 500 mAh pour une utilisation nomade. Résistance à l’eau IPX4 contre les éclaboussures. Son clair et équilibré de 100 Hz à 20 kHz. Bluetooth, AUX, USB et carte mémoire. Compatible smartphones, tablettes et ordinateurs. 👉 Compact, polyvalent et idéal pour la maison comme pour l’extérieur."
+},
+  {
+  id: 67,
+  name: "🎄MLOVE E80 Enceinte Bluetooth Portable",
+  price: 14990,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/mlove-e80.png",
+  emoji: "🔊",
+  desc: "La MLOVE E80 délivre 30W de puissance avec Bluetooth 5.4, TWS stéréo et un son immersif aux basses profondes. ✨ Son éclairage RGB synchronisé avec la musique crée une ambiance unique. Étanche IPX7 et résistante à la poussière IP6X, elle est idéale pour la plage, les soirées et les activités en extérieur. 🌴🎶 Puissante, compacte et prête à faire vibrer vos moments ! 🔥"
+},
+  {
+  id: 66,
+  name: "🎄T-WOLF - Clavier filaire rétro 4.2 TFfemale, 104 touches, avec souris filaire",
+  price: 9990,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/t-wolf-clavier-souris.png",
+  emoji: "🎮",
+  desc: "🎮 Clavier + souris RGB T-WOLF ⚡ 🔥 Design métal • Éclairage RGB • Sensation mécanique 🚀 Le setup gaming qui change tout !"
+},
+  {
+  id: 65,
+  name: "🎄Casque de jeu pour Gamer filaire avec micro",
+  price: 7990,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/casque-gamer-filaire.png",
+  emoji: "🎧",
+  colors: ["🔴 Rouge", "🔵 Bleu"],
+  desc: "Modèle compatible : PS5, PS4, PC et téléphone portable. Avec une prise de 3,5 mm et un câble de 110 cm. Avec contrôle du micro et du volume."
+},
+ {
+  id: 64,
+  name: "🎄Casque de jeu 7.1 Surround avec LED pour Gamer",
+  price: 9990,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/casque-gamer-71.png",
+  emoji: "🎧",
+  colors: ["⚪ Blanc", "⚫ Noir", "🌸 Rose"],
+  desc: "Compatibilité : avec une interface de 3,5 mm, il convient aux téléphones intelligents, tablettes, PC, ordinateurs portables et autres appareils audio de 3,5 mm. Microphone omnidirectionnel réglable avec grande sensibilité et réduction du bruit de fond pour de meilleures discussions dans le jeu. Excellent son grâce à l’unité d’entraînement de 50 mm offrant un champ sonore vif, une bonne clarté sonore et une sensation de choc sonore. Confortable à porter grâce aux coussinets supra-auriculaires doux et au bandeau réglable adapté à différentes tailles de tête. Contrôleur de volume rotatif et touche pour activer ou désactiver le micro. Plug and play. Longueur du câble : 1,5 à 2,4 m."
+},
+  {
+  id: 63,
+  name: "🎄Support mural multifonctionnel pour PS5 / PS5 Slim / PS5 Pro",
+  price: 9990,
+  cat: "Précommande",
+  preorder: true,
+  image: "images/support-mural-ps5.png",
+  emoji: "🎮",
+  desc: "Fabriqué en acier, il sécurise votre console tout en améliorant la ventilation et en économisant de l’espace. Il intègre également 2 stations de charge pour manettes et un support pour casque, pour une installation gaming propre et organisée. <strong>✅ Sécurisé • Ventilation optimale • Gain de place • Charge 2 manettes • Support casque</strong>"
+},
+    {
+    id: 62,
+    name: "🎄Support refroidisseur RGB PS5 + charge manettes",
+    price: 10990,
+    cat: "Précommande",
+    preorder: true,
+    image: "images/support-refroidissement-rgb-ps5.png",
+    emoji: "🎮",
+    desc: "Compatible avec PS5, PS5 Slim, PS5 Pro et PlayStation 5 Disc, Notre support PS5 Slim est équipé d'un puissant ventilateur turbo. Il offre un refroidissement efficace pour réduire considérablement la température de votre console et prolonger sa durée de vie. La station de refroidissement PS5 dispose de 3 niveaux de ventilateur (Faible, Moyen, Élevé), vous pouvez modifier la vitesse du ventilateur en cliquant sur le bouton.<br><br>Le support vertical pour PS5 offre 9 modes d'éclairage. Un simple clic suffit pour que le support de manette bascule entre les modes d'effets lumineux. Il propose un clignotement rapide à 7 couleurs, un éclairage respirant à 7 couleurs et un mode d'éclairage à couleur unique : rouge, vert, bleu, violet, bleu clair, jaune, blanc, créant une atmosphère fantastique pour votre salle de jeu. Appuyez longuement pendant 2 secondes pour éteindre la lumière.",
+    colors: [
+      "⚫ Noir",
+      "⚪ Blanc"
+    ]
+  },
+   {
+    id: 61,
+    name: "🎄Station de charge pour 2 manettes PS5",
+    price: 7990,
+    cat: "Précommande",
+    emoji: "🎮",
+    preorder: true,
+    image: "images/station-charge-ps5.png",
+    emoji: "🎮",
+    desc: "Cette station de charge permet la recharge simultanée de 2 manettes PS5, parfaitement compatible avec PlayStation 5 DualSense et les contrôleurs sans fil DualSense Edge.<br><br>Pas besoin de brancher des câbles sur vos manettes de jeu : il suffit de placer les contrôleurs sur la station d'accueil pour une recharge sans effort.<br><br>✨ <strong>9 modes d'éclairage RGB réglables</strong> et indicateur de charge LED clair.<br><br>💡 Livré avec un éclairage ambiant RGB époustouflant offrant <strong>9 effets lumineux</strong> : 6 couleurs statiques + lumière pulsante rapide/lente.<br><br>🎛️ <strong>Contrôle intégré</strong> pour personnaliser facilement l'éclairage RGB."
+  },
     {
     id: 47,
-    name: "🎄 Console de jeu rétro U36 128 Go Pack Orange",
-    price: 22990,
+    name: "🎄Console de jeu rétro U36 128 Go Pack Orange",
+    price: 24990,
      cat: "Précommande",
     image: "images/console-u36-128go-pack-orange.png",
     emoji: "🎮",
@@ -1188,8 +1667,8 @@ const products = [
   },
     {
     id: 48,
-    name: "Console de jeu rétro U36 128 Go Pack Bleu",
-    price: 22990,
+    name: "🎄Console de jeu rétro U36 128 Go Pack Bleu",
+    price: 24990,
     cat: "Précommande",
     image: "images/console-u36-128go-pack-bleu.png",
     emoji: "🎮",
@@ -1198,8 +1677,8 @@ const products = [
   },
   {
   id: 58,
-  name: "Clé de jeu d’arcade rétro M15 Ultra",
-  price: 15950,
+  name: "🎄Clé de jeu d’arcade rétro M15 Ultra",
+  price: 19990,
   cat: "Précommande",
   preorder: true,
   image: "images/m15-ultra.png",
@@ -1208,13 +1687,13 @@ const products = [
 },
   {
   id: 59,
-  name: "Console de jeu portable haute performance",
-  price: 12500,
+  name: "🎄Console de jeu portable haute performance",
+  price: 15990,
   cat: "Précommande",
   preorder: true,
   image: "images/console-portable-43-pouces.png",
   emoji: "🎮",
-  desc: "🎮 Console de jeu portable haute performance<br><strong>Facile à utiliser • Haute performance</strong><br>Profitez d’une console portable équipée d’un <strong>écran HD de 4,3 pouces</strong> et de <strong>plus de 10 000 jeux intégrés</strong>. Elle permet également d’écouter de la musique, regarder des vidéos et lire des livres électroniques, où que vous soyez.<br><br><strong>⭐ Caractéristiques</strong><br><br>• 🎮 <strong>Écran de 4,3 pouces</strong>, format 16:9<br>• 🕹️ <strong>Plus de 10 000 jeux intégrés</strong><br>• 🎮 Compatible avec les jeux <strong>8, 16, 32, 64 et 128 bits</strong><br>• 🎥 Lecteur vidéo intégré<br>• 📖 Fonction <strong>e-book</strong><br>• 🎵 Lecture de musique<br>• 🎧 Prise en charge des écouteurs<br>• 🔊 <strong>Haut-parleur intégré</strong> avec réglage du volume<br>• 🔊 Excellente qualité sonore avec <strong>effets surround 3D</strong><br>• 📺 Prise en charge de la <strong>sortie vidéo</strong><br>• 🎬 Compatible avec plusieurs formats vidéo : <strong>AVI, FIV, RM, RMVB, MP4, 3GP, ASF, MPEG, DGT, MOV, MPE</strong>, etc.<br>• 🔋 <strong>Batterie rechargeable intégrée</strong><br>• 📅 Calendrier perpétuel<br>• ⏱️ Chronomètre<br><br><strong>📏 Dimensions et poids</strong><br><br>• <strong>Dimensions :</strong> 20 × 10 × 6 cm<br>• <strong>Poids :</strong> 255 g",
+  desc: "🎮 Console de jeu portable haute performance<br><strong>Facile à utiliser • Haute performance</strong><br>Profitez d’une console portable équipée d’un <strong>écran HD de 4,3 pouces</strong> et de <strong>plus de 10 000 jeux intégrés</strong>. Elle permet également d’écouter de la musique, regarder des vidéos et lire des livres électroniques, où que vous soyez.<br><br><strong>📏 Dimensions et poids</strong><br><br>• <strong>Dimensions :</strong> 20 × 10 × 6 cm<br>• <strong>Poids :</strong> 255 g",
   colors: [
     "🔴 Rouge",
     "🔵🔴 Bleu/Rouge",
@@ -1874,12 +2353,12 @@ const products = [
       { name: "64 TB", price: 25000 }
     ]
   },
+    
   
 ];
 
 
 let category="Tous";
-let preorderSubcategory="Tous";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
@@ -1889,71 +2368,14 @@ function money(n){
   return new Intl.NumberFormat('fr-FR').format(n)+" Frs";
 }
 
-/* ===== SOUS-CATÉGORIES PRÉCOMMANDE =====
-   Elles sont automatiques : dès qu'un produit a cat:"Précommande",
-   son nom permet de le ranger dans la bonne sous-catégorie.
-   Un futur produit peut aussi préciser subcat:"..." pour forcer le classement. */
-function getPreorderSubcategory(p){
-  if(p.subcat) return p.subcat;
-
-  const n = `${p.name || ''} ${p.desc || ''}`.toLowerCase();
-
-  if(/étui|etui|coque|phone case|téléphone|telephone|iphone|samsung galaxy/.test(n))
-    return "📱 Étuis téléphone";
-  if(/peluche|plush|doudou/.test(n))
-    return "🧸 Peluches";
-  if(/montre|watch|chronographe/.test(n))
-    return "⌚ Montres";
-  if(/collier|boucle|bracelet|bijou|pendentif|zircon/.test(n))
-    return "💎 Bijoux";
-  if(/console|jeu|arcade|gaming|manette/.test(n))
-    return "🎮 Jeux & Consoles";
-  if(/parfum|maquillage|beauté|beaute/.test(n))
-    return "💄 Beauté";
-
-  return "📦 Autres précommandes";
-}
-
-function renderPreorderSubcategories(){
-  const box = document.getElementById('preorder-subcategories');
-  if(!box) return;
-
-  if(category !== "Précommande"){
-    box.hidden = true;
-    box.innerHTML = '';
-    return;
-  }
-
-  const names = [...new Set(
-    products
-      .filter(p => p.cat === "Précommande")
-      .map(getPreorderSubcategory)
-  )];
-
-  box.hidden = false;
-  box.innerHTML = [
-    `<button class="preorder-subcat ${preorderSubcategory === 'Tous' ? 'active' : ''}" onclick="setPreorderSubcategory('Tous',this)">✨ Tous</button>`,
-    ...names.map(name =>
-      `<button class="preorder-subcat ${preorderSubcategory === name ? 'active' : ''}" onclick="setPreorderSubcategory(${JSON.stringify(name)},this)">${name}</button>`
-    )
-  ].join('');
-}
-
-function setPreorderSubcategory(c,btn){
-  preorderSubcategory = c;
-  currentPage = 1;
-  document.querySelectorAll('.preorder-subcat').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  renderProducts();
-}
-
 function setCategory(c,btn){
+  const preorderNotice = document.getElementById("preorderNotice");
+  if (preorderNotice) preorderNotice.style.display = (c === "Précommande") ? "block" : "none";
+
   category=c;
-  preorderSubcategory="Tous";
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  renderPreorderSubcategories();
   renderProducts();
 }
 
@@ -1963,7 +2385,6 @@ function renderProducts(){
 
   const list = products.filter(p =>
     (category === "Tous" || p.cat === category) &&
-    (category !== "Précommande" || preorderSubcategory === "Tous" || getPreorderSubcategory(p) === preorderSubcategory) &&
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
@@ -3054,6 +3475,6 @@ const internalOrder = {
 renderProducts();
 updateCart();
 </script>
-<script>renderPreorderSubcategories(); renderProducts();</script>
 </body>
 </html>
+
