@@ -1045,6 +1045,18 @@ button.preorder-btn:hover{
   .product p::-webkit-scrollbar{width:6px !important;}
 }
 </style>
+
+<style id="precommande-cadres-rouge-2026">
+/* 🎄 Cadres des produits en précommande : même rouge que le bouton */
+.product:has(.preorder-btn){
+  background:#c9152e !important;
+  border-color:#f4d06f !important;
+  box-shadow:
+    0 8px 24px rgba(201,21,46,.30),
+    0 0 18px rgba(244,208,111,.12) !important;
+}
+</style>
+
 </head>
 <!-- ===== LOUPE PHOTO PRODUIT + MOLETTE - PC ===== -->
 <script>
@@ -2506,37 +2518,6 @@ function renderProducts(){
         }
 
 
-        <!-- ===== CHOIX / VARIANTES ===== -->
-        ${
-          p.variants
-          ? `
-            <div class="beauty-options">
-              <div class="beauty-option">
-                <label for="variant-${p.id}">Choix :</label>
-                <select id="variant-${p.id}" class="variant-select">
-                  ${p.variants.map(variant => `<option value="${variant}">${variant}</option>`).join('')}
-                </select>
-              </div>
-            </div>
-          ` : ''
-        }
-
-        <!-- ===== MODÈLE COMPATIBLE ===== -->
-        ${
-          p.iphoneModels
-          ? `
-            <div class="beauty-options">
-              <div class="beauty-option">
-                <label for="iphone-${p.id}">📱 Modèle :</label>
-                <select id="iphone-${p.id}" class="iphone-select">
-                  ${p.iphoneModels.map(model => `<option value="${model}">${model}</option>`).join('')}
-                </select>
-              </div>
-            </div>
-          ` : ''
-        }
-
-
         <!-- ===== TAILLE ===== -->
 
         ${
@@ -2765,8 +2746,6 @@ function add(id){
   let storage = "";
   let price = p.price;
   let qty = 1;
-  let variant = "";
-  let iphoneModel = "";
 
 
   if(p.flavors){
@@ -2809,16 +2788,6 @@ function add(id){
   }
 
 
-  if(p.variants){
-    const select = document.getElementById(`variant-${id}`);
-    if(select) variant = select.value;
-  }
-
-  if(p.iphoneModels){
-    const select = document.getElementById(`iphone-${id}`);
-    if(select) iphoneModel = select.value;
-  }
-
   if(p.storages){
 
     const select =
@@ -2858,9 +2827,7 @@ function add(id){
     finish,
     color,
     size,
-    storage,
-    variant,
-    iphoneModel
+    storage
   ].filter(Boolean).join("-");
 
 
@@ -2883,9 +2850,7 @@ function add(id){
       finish: finish,
       color: color,
       size: size,
-      storage: storage,
-      variant: variant,
-      iphoneModel: iphoneModel
+      storage: storage
     });
 
   }
@@ -2987,17 +2952,6 @@ function updateCart(){
             ${
               x.storage
               ? `<br><small>💾 Stockage : ${x.storage}</small>`
-              : ''
-            }
-            ${
-              x.variant
-              ? `<br><small>🔢 Choix : ${x.variant}</small>`
-              : ''
-            }
-
-            ${
-              x.iphoneModel
-              ? `<br><small>📱 Modèle : ${x.iphoneModel}</small>`
               : ''
             }
 
@@ -3128,17 +3082,6 @@ function openCart(){
           ${
             x.storage
             ? `<small>💾 Stockage : ${x.storage}</small>`
-            : ''
-          }
-          ${
-            x.variant
-            ? `<small>🔢 Choix : ${x.variant}</small>`
-            : ''
-          }
-
-          ${
-            x.iphoneModel
-            ? `<small>📱 Modèle : ${x.iphoneModel}</small>`
             : ''
           }
 
@@ -3319,12 +3262,6 @@ function sendOrder(e){
     if(x.storage){
       details += `\nStockage : ${x.storage}`;
     }
-    if(x.variant){
-      details += `\nChoix : ${x.variant}`;
-    }
-    if(x.iphoneModel){
-      details += `\nModèle iPhone : ${x.iphoneModel}`;
-    }
 
     return `${i + 1}. ${x.name}
 Quantité : ${x.qty}${details}
@@ -3475,8 +3412,6 @@ const internalOrder = {
       flavor: x.flavor || "",
       size: x.size || "",
       storage: x.storage || "",
-      variant_choice: x.variant || "",
-      iphone_model: x.iphoneModel || "",
       quantity: x.qty || 0,
       price: x.price || 0,
       total: (x.price || 0) * (x.qty || 0)
