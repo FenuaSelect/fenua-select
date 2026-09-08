@@ -1206,8 +1206,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div class="categories">
-    <button class="active" onclick="setCategory('Tous',this)">Tous</button>
-   <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
+       <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
     <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
     <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
@@ -1217,7 +1216,6 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div id="precommande-subcategories" class="precommande-subcategories">
-    <button type="button" class="active" onclick="setPreorderSubcategory('Tous',this)">✨ Tous</button>
     <button type="button" onclick="setPreorderSubcategory('Jeux & Consoles',this)">🎮 Jeux &amp; Consoles</button>
     <button type="button" onclick="setPreorderSubcategory('Audio & Casques',this)">🎧 Audio &amp; Casques</button>
     <button type="button" onclick="setPreorderSubcategory('Peluches',this)">🧸 Peluches</button>
@@ -2495,7 +2493,7 @@ const products = [
 ];
 
 
-let category="Tous";
+let category="";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
@@ -2515,20 +2513,16 @@ function setCategory(c,btn){
   }
 
   category=c;
-  preorderSubcategory="Tous";
+  preorderSubcategory="";
   const subBar=document.getElementById("precommande-subcategories");
-  if(subBar){
-    subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
-    const first=subBar.querySelector("button");
-    if(first) first.classList.add("active");
-  }
+  if(subBar){ subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active")); }
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderProducts();
 }
 
-let preorderSubcategory = "Tous";
+let preorderSubcategory = "";
 
 function setPreorderSubcategory(sub, btn){
   preorderSubcategory = sub;
@@ -2546,15 +2540,14 @@ function renderProducts(){
   const q = document.getElementById('search').value.toLowerCase().trim();
 
   const list = products.filter(p =>
-    (category === "Tous" || p.cat === category) &&
+    (p.cat === category) &&
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
     ) &&
     (
       category !== "Précommande" ||
-      preorderSubcategory === "Tous" ||
-      p.subcat === preorderSubcategory
+      preorderSubcategory && p.subcat === preorderSubcategory
     )
   );
 
