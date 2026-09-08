@@ -1082,75 +1082,172 @@ article.product.precommande-card {
 </style>
 
 </head>
-<!-- ===== LOUPE PHOTO PRODUIT + MOLETTE - PC ===== -->
+<!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
+<style id="product-photo-zoom-final">
+.product-img { position: relative; overflow: hidden; cursor: default; }
+@media (min-width: 769px) { .product-img { cursor: zoom-in; } }
+.product-img img { transition: transform .15s ease; transform-origin: center center; }
+.product-zoom-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.72);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  pointer-events: none;
+}
+.product-photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.product-photo-lightbox.open { display: flex; }
+.product-photo-lightbox img {
+  max-width: 94vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.55);
+  cursor: zoom-out;
+}
+.product-photo-lightbox .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-size: 28px;
+  line-height: 42px;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .product-zoom-icon { width: 32px; height: 32px; font-size: 17px; top: 8px; right: 8px; }
+}
+</style>
+<style id="hide-product-zoom-icon">
+.product-zoom-icon { display: none !important; }
+</style>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  /* ZOOM UNIQUEMENT SUR PC : survol + molette + clic pour grand écran */
+  const pcOnly = () => window.matchMedia('(min-width: 769px)').matches;
 
-  if (window.innerWidth <= 768) return;
+  function resetZoom(container) {
+    const img = container && container.querySelector('img:not(.stock-overlay img)');
+    if (!img) return;
+    img.dataset.zoom = '1';
+    img.style.transformOrigin = 'center center';
+    img.style.transform = 'scale(1)';
+  }
 
-  const images = document.querySelectorAll(".product-img img");
+  function setupProductImage(container) {
+    if (!container || container.dataset.zoomReady === '1') return;
+    container.dataset.zoomReady = '1';
 
-  images.forEach(function (img) {
+    container.addEventListener('mousemove', function(e) {
+      if (!pcOnly()) return;
+      const img = container.querySelector('img');
+      if (!img) return;
 
-    const container = img.closest(".product-img");
-    if (!container) return;
+      /* Zoom automatique au survol */
+      const zoom = Math.max(1.8, parseFloat(img.dataset.zoom || '1.8'));
+      const rect = container.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.dataset.zoom = String(zoom);
+      img.style.transformOrigin = x + '% ' + y + '%';
+      img.style.transform = 'scale(' + zoom + ')';
+    });
 
-    let zoom = 2;
+    container.addEventListener('mouseleave', function() {
+      resetZoom(container);
+    });
 
-    /* Zoom avec le déplacement de la souris */
-    container.addEventListener("mousemove", function (e) {
+    container.addEventListener('wheel', function(e) {
+      if (!pcOnly()) return;
+      const img = container.querySelector('img');
+      if (!img) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      let zoom = parseFloat(img.dataset.zoom || '1.8');
+      zoom += e.deltaY < 0 ? 0.25 : -0.25;
+      zoom = Math.max(1, Math.min(4, zoom));
 
       const rect = container.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.dataset.zoom = String(zoom);
+      img.style.transformOrigin = x + '% ' + y + '%';
+      img.style.transform = 'scale(' + zoom + ')';
+    }, {passive:false});
+  }
 
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+  document.querySelectorAll('.product-img').forEach(setupProductImage);
 
-      const percentX = (x / rect.width) * 100;
-      const percentY = (y / rect.height) * 100;
+  /* Lightbox : clic sur la photo, uniquement sur PC */
+  const lightbox = document.createElement('div');
+  lightbox.className = 'product-photo-lightbox';
+  lightbox.innerHTML = '<button class="close" aria-label="Fermer">×</button><img alt="Photo produit agrandie">';
+  document.body.appendChild(lightbox);
+  const bigImg = lightbox.querySelector('img');
 
-      img.style.transformOrigin =
-        percentX + "% " + percentY + "%";
-
-      img.style.transform =
-        "scale(" + zoom + ")";
-
-    });
-
-    /* Zoom avec la molette */
-    container.addEventListener("wheel", function (e) {
-
-      e.preventDefault();
-
-      if (e.deltaY < 0) {
-        zoom += 0.2;
-      } else {
-        zoom -= 0.2;
+  document.addEventListener('click', function(e) {
+    if (!pcOnly()) return;
+    const container = e.target.closest('.product-img');
+    if (container) {
+      const img = container.querySelector('img');
+      if (img && img.src) {
+        bigImg.src = img.src;
+        bigImg.alt = img.alt || 'Photo produit agrandie';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
       }
-
-      /* Limites du zoom */
-      zoom = Math.max(1, Math.min(3, zoom));
-
-      img.style.transform =
-        "scale(" + zoom + ")";
-
-    }, { passive: false });
-
-    /* Retour à la taille normale */
-    container.addEventListener("mouseleave", function () {
-
-      zoom = 2;
-
-      img.style.transformOrigin = "center center";
-      img.style.transform = "scale(1)";
-
-    });
-
+      return;
+    }
+    if (e.target === lightbox || e.target.closest('.product-photo-lightbox .close')) {
+      lightbox.classList.remove('open');
+      bigImg.src = '';
+      document.body.style.overflow = '';
+    }
   });
 
-});
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      lightbox.classList.remove('open');
+      bigImg.src = '';
+      document.body.style.overflow = '';
+    }
+  });
 
+  /* Produits ajoutés dynamiquement */
+  const observer = new MutationObserver(function() {
+    document.querySelectorAll('.product-img').forEach(setupProductImage);
+  });
+  observer.observe(document.body, {childList:true, subtree:true});
+});
 </script>
 <!-- ===== SUPPRIMER LE PETIT LOGO DU SITE ===== -->
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1206,7 +1303,8 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div class="categories">
-       <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
+    <button class="active" onclick="setCategory('Tous',this)">Tous</button>
+   <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
     <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
     <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
@@ -1216,6 +1314,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
   <div id="precommande-subcategories" class="precommande-subcategories">
+    <button type="button" class="active" onclick="setPreorderSubcategory('Tous',this)">✨ Tous</button>
     <button type="button" onclick="setPreorderSubcategory('Jeux & Consoles',this)">🎮 Jeux &amp; Consoles</button>
     <button type="button" onclick="setPreorderSubcategory('Audio & Casques',this)">🎧 Audio &amp; Casques</button>
     <button type="button" onclick="setPreorderSubcategory('Peluches',this)">🧸 Peluches</button>
@@ -1414,73 +1513,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const products = [
   {
-  id: 81,
-  name: "🎄Sac à dos à cordon Demon Slayer",
-  price: 790,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/sac-cordon-demon-slayer.png",
-  emoji: "🎒",
-  desc: "Sac à dos à cordon inspiré de l’univers Demon Slayer. Idéal pour transporter chaussures, vêtements et accessoires. Fabriqué en nylon résistant et durable, il est léger, pratique et adapté à une utilisation quotidienne. 📏 Dimensions : 34 × 45 cm • ✨ Léger • Résistant • Pratique • Multifonctionnel",
-
-  colors: [
-    "N°1",
-    "N°2",
-    "N°3",
-    "N°4",
-    "N°5",
-    "N°6",
-    "N°7",
-    "N°8",
-    "N°9",
-    "N°10",
-    "N°11",
-    "N°12",
-    "N°13",
-    "N°14",
-    "N°15",
-    "N°16"
-  ]
-},
-  {
-  id: 80,
-  name: "Portefeuille Demons Slayers",
-  price: 700,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/portefeuille-demons-slayers.png",
-  emoji: "👛",
-  desc: "📏 Dimensions : 11,8 × 9 cm • 🎨 Plusieurs designs et coloris • 💪 Compact, pratique et résistant • 🎁 Idéal pour les fans d’anime",
-
-  colors: [
-    "N°1",
-    "N°2",
-    "N°3",
-    "N°4",
-    "N°5",
-    "N°6",
-    "N°7",
-    "N°8",
-    "N°9",
-    "N°10",
-    "N°11",
-    "N°12",
-    "N°13",
-    "N°14",
-    "N°15",
-    "N°16",
-    "N°17",
-    "N°18",
-    "N°19",
-    "N°20",
-    "N°21",
-    "N°22",
-    "N°23",
-    "N°24",
-    "N°25"
-  ]
-},
-  {
   id: 79,
   name: "🎄Étui de téléphone Demon Slayer pour Samsung Galaxy",
   price: 1000,
@@ -1521,7 +1553,7 @@ const products = [
 },
  {
   id: 78,
-  name: " 🎄Étui de protection Demons Hot Slayers iPhone",
+  name: " 🎄Étui de protection Demons Hot Slayers compatible iPhone",
   price: 1000,
   cat: "Précommande",
     subcat: "Étuis téléphone",
@@ -2560,7 +2592,7 @@ const products = [
 ];
 
 
-let category="";
+let category="Tous";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
@@ -2580,16 +2612,20 @@ function setCategory(c,btn){
   }
 
   category=c;
-  preorderSubcategory="";
+  preorderSubcategory="Tous";
   const subBar=document.getElementById("precommande-subcategories");
-  if(subBar){ subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active")); }
+  if(subBar){
+    subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+    const first=subBar.querySelector("button");
+    if(first) first.classList.add("active");
+  }
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderProducts();
 }
 
-let preorderSubcategory = "";
+let preorderSubcategory = "Tous";
 
 function setPreorderSubcategory(sub, btn){
   preorderSubcategory = sub;
@@ -2607,14 +2643,15 @@ function renderProducts(){
   const q = document.getElementById('search').value.toLowerCase().trim();
 
   const list = products.filter(p =>
-    (p.cat === category) &&
+    (category === "Tous" || p.cat === category) &&
     (
       p.name.toLowerCase().includes(q) ||
       p.desc.toLowerCase().includes(q)
     ) &&
     (
       category !== "Précommande" ||
-      preorderSubcategory && p.subcat === preorderSubcategory
+      preorderSubcategory === "Tous" ||
+      p.subcat === preorderSubcategory
     )
   );
 
