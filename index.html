@@ -1246,6 +1246,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  /* MOBILE : fermeture du zoom avec le bouton X ou en touchant le fond */
+  document.addEventListener('click', function(e) {
+    if (pcOnly()) return;
+    if (e.target === lightbox || e.target.closest('.product-photo-lightbox .close')) {
+      e.preventDefault();
+      e.stopPropagation();
+      lightbox.classList.remove('open');
+      bigImg.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && lightbox.classList.contains('open')) {
       lightbox.classList.remove('open');
