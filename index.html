@@ -1231,6 +1231,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  /* MOBILE UNIQUEMENT : clic sur la photo = image agrandie.
+     Ne modifie aucun comportement PC ci-dessus. */
+  document.addEventListener('click', function(e) {
+    if (pcOnly()) return;
+    const container = e.target.closest('.product-img');
+    if (!container) return;
+    const img = container.querySelector('img');
+    if (img && img.src) {
+      bigImg.src = img.src;
+      bigImg.alt = img.alt || 'Photo produit agrandie';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && lightbox.classList.contains('open')) {
       lightbox.classList.remove('open');
@@ -1510,83 +1525,6 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 
 const products = [
-  {
-  id: 82,
-  name: "🎄Figurine en vinyle Lumimira Zoey",
-  price: 4890,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/figurine-lumimira-zoey.png",
-  emoji: "🧸",
-  desc: "Figurine en vinyle Lumimira Zoey, la nouvelle poupée K-Pop Demon Slayer."
-},
-  {
-  id: 81,
-  name: "🎄Sac à dos à cordon Demon Slayer",
-  price: 790,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/sac-cordon-demon-slayer.png",
-  emoji: "🎒",
-  desc: "Sac à dos à cordon inspiré de l’univers Demon Slayer. Idéal pour transporter chaussures, vêtements et accessoires. Fabriqué en nylon résistant et durable, il est léger, pratique et adapté à une utilisation quotidienne. 📏 Dimensions : 34 × 45 cm • ✨ Léger • Résistant • Pratique • Multifonctionnel",
-
-  colors: [
-    "N°1",
-    "N°2",
-    "N°3",
-    "N°4",
-    "N°5",
-    "N°6",
-    "N°7",
-    "N°8",
-    "N°9",
-    "N°10",
-    "N°11",
-    "N°12",
-    "N°13",
-    "N°14",
-    "N°15",
-    "N°16"
-  ]
-},
-  {
-  id: 80,
-  name: "🎄Portefeuille Demons Slayers",
-  price: 700,
-  cat: "Précommande",
-  subcat: "Cadeau",
-  image: "images/portefeuille-demons-slayers.png",
-  emoji: "👛",
-  desc: "📏 Dimensions : 11,8 × 9 cm • 🎨 Plusieurs designs et coloris • 💪 Compact, pratique et résistant • 🎁 Idéal pour les fans d’anime",
-
-  colors: [
-    "N°1",
-    "N°2",
-    "N°3",
-    "N°4",
-    "N°5",
-    "N°6",
-    "N°7",
-    "N°8",
-    "N°9",
-    "N°10",
-    "N°11",
-    "N°12",
-    "N°13",
-    "N°14",
-    "N°15",
-    "N°16",
-    "N°17",
-    "N°18",
-    "N°19",
-    "N°20",
-    "N°21",
-    "N°22",
-    "N°23",
-    "N°24",
-    "N°25"
-  ]
-},
   {
   id: 79,
   name: "🎄Étui de téléphone Demon Slayer pour Samsung Galaxy",
@@ -2664,6 +2602,51 @@ const products = [
   },
     
   
+
+  {
+    id: 80,
+    name: "Portefeuille Demons Slayers",
+    price: 700,
+    cat: "Précommande",
+    subcat: "Cadeau",
+    preorder: true,
+    image: "images/portefeuille-demons-slayers.png",
+    emoji: "👛",
+    colors: [
+      "N°1", "N°2", "N°3", "N°4", "N°5",
+      "N°6", "N°7", "N°8", "N°9", "N°10",
+      "N°11", "N°12", "N°13", "N°14", "N°15",
+      "N°16", "N°17", "N°18", "N°19", "N°20",
+      "N°21", "N°22", "N°23", "N°24", "N°25"
+    ],
+    desc: "📏 Dimensions : 11,8 × 9 cm • 🎨 Plusieurs designs et coloris • 💪 Compact, pratique et résistant • 🎁 Idéal pour les fans d’anime"
+  },
+  {
+    id: 81,
+    name: "Sac à dos à cordon Demon Slayer",
+    price: 790,
+    cat: "Précommande",
+    subcat: "Cadeau",
+    preorder: true,
+    image: "images/sac-cordon-demon-slayer.png",
+    emoji: "🎒",
+    colors: [
+      "N°1", "N°2", "N°3", "N°4", "N°5", "N°6", "N°7", "N°8",
+      "N°9", "N°10", "N°11", "N°12", "N°13", "N°14", "N°15", "N°16"
+    ],
+    desc: "Sac à dos à cordon inspiré de l’univers Demon Slayer. Idéal pour transporter chaussures, vêtements et accessoires. Fabriqué en nylon résistant et durable, il est léger, pratique et adapté à une utilisation quotidienne. 📏 Dimensions : 34 × 45 cm • ✨ Léger • Résistant • Pratique • Multifonctionnel"
+  },
+  {
+    id: 82,
+    name: "Figurine en vinyle Lumimira Zoey",
+    price: 4890,
+    cat: "Précommande",
+    subcat: "Cadeau",
+    preorder: true,
+    image: "images/figurine-lumimira-zoey.png",
+    emoji: "🧸",
+    desc: "Figurine en vinyle Lumimira Zoey, la nouvelle poupée K-Pop Demon Slayer."
+  },
 ];
 
 
