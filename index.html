@@ -1071,6 +1071,11 @@ button.preorder-btn:hover{
 </style>
 
 
+
+<style id="ordinary-subcategories-css">
+#ordinary-subcategories{display:none;}
+#ordinary-subcategories button.active{background:#2563eb;color:#fff;border-color:#2563eb;}
+</style>
 <style id="precommande-card-red-final">
 /* Fond rouge uniquement pour les cartes Précommande */
 .product.precommande-card,
@@ -1331,12 +1336,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <div class="categories">
     <button onclick="setCategory('Précommande',this)">🎄 Précommande</button>
-    <button onclick="setCategory('High-Tech',this)">💻 High-Tech</button>
+    <button onclick="setCategory('Stockage',this)">💾 Stockage</button>
+    <button onclick="setCategory('Câbles & Connectique',this)">🔌 Câbles &amp; Connectique</button>
+    <button onclick="setCategory('Audio',this)">🎧 Audio</button>
+    <button onclick="setCategory('Accessoires',this)">📱 Accessoires</button>
+    <button onclick="setCategory('Informatique',this)">🖥️ Informatique</button>
+    <button onclick="setCategory('Consoles & Gaming',this)">🎮 Consoles &amp; Gaming</button>
+    <button onclick="setCategory('Sports & Loisirs',this)">🏄 Sports &amp; Loisirs</button>
     <button onclick="setCategory('Vêtements',this)">👕 Vêtements</button>
-    <button onclick="setCategory('Accessoires',this)">🕶️ Accessoires</button>
-   <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
+    <button onclick="setCategory('Montres connectées',this)">⌚ Montres</button>
     <button onclick="setCategory('Beauté',this)">💄 Beauté</button>
     <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
+  </div>
+
+  <div id="ordinary-subcategories" class="precommande-subcategories">
+    <button type="button" data-category="Stockage" onclick="setOrdinarySubcategory('Disques durs',this)">💽 Disques durs</button>
+    <button type="button" data-category="Stockage" onclick="setOrdinarySubcategory('SSD externes',this)">💾 SSD externes</button>
+    <button type="button" data-category="Stockage" onclick="setOrdinarySubcategory('SSD internes',this)">⚡ SSD internes</button>
+    <button type="button" data-category="Stockage" onclick="setOrdinarySubcategory('Clés USB',this)">🔑 Clés USB</button>
+    <button type="button" data-category="Informatique" onclick="setOrdinarySubcategory('Claviers & Souris',this)">⌨️ Claviers &amp; Souris</button>
+    <button type="button" data-category="Informatique" onclick="setOrdinarySubcategory('Hubs & Adaptateurs',this)">🔌 Hubs &amp; Adaptateurs</button>
+    <button type="button" data-category="Sports & Loisirs" onclick="setOrdinarySubcategory('Sport & Fitness',this)">🏋️ Sport &amp; Fitness</button>
+    <button type="button" data-category="Sports & Loisirs" onclick="setOrdinarySubcategory('Plein air & Outdoor',this)">🏕️ Plein air &amp; Outdoor</button>
+    <button type="button" data-category="Sports & Loisirs" onclick="setOrdinarySubcategory('Sports',this)">⚽ Sports</button>
+    <button type="button" data-category="Consoles & Gaming" onclick="setOrdinarySubcategory('Consoles',this)">🎮 Consoles</button>
+    <button type="button" data-category="Consoles & Gaming" onclick="setOrdinarySubcategory('Manettes',this)">🕹️ Manettes</button>
+    <button type="button" data-category="Consoles & Gaming" onclick="setOrdinarySubcategory('Accessoires Gaming',this)">🎧 Accessoires Gaming</button>
   </div>
 
   <div id="precommande-subcategories" class="precommande-subcategories">
@@ -1964,7 +1989,8 @@ const products = [
     id: 1,
     name: "Disque dur externe 2TB",
     price: 8000,
-    cat: "High-Tech",
+    cat: "Stockage",
+    subcat: "Disques durs",
     image: "images/disque-2tb.png",
     emoji: "💾",
     desc: "Auto alimenté / USB 3.0."
@@ -1973,7 +1999,8 @@ const products = [
     id: 2,
     name: "Disque dur externe 4TB",
     price: 10000,
-    cat: "High-Tech",
+    cat: "Stockage",
+    subcat: "Disques durs",
     image: "images/disque-4tb.png",
     emoji: "💾",
     desc: "Auto alimenté / USB 3.0."
@@ -1982,7 +2009,8 @@ const products = [
     id: 3,
     name: "Disque dur externe 8TB",
     price: 15000,
-    cat: "High-Tech",
+    cat: "Stockage",
+    subcat: "Disques durs",
     image: "images/disque-8tb.png",
     emoji: "💾",
     desc: "Auto alimenté / USB 3.0."
@@ -1991,7 +2019,8 @@ const products = [
     id: 4,
     name: "Disque dur externe 16TB",
     price: 20000,
-    cat: "High-Tech",
+    cat: "Stockage",
+    subcat: "Disques durs",
     image: "images/disque-16tb.png",
     emoji: "💾",
     desc: "Auto alimenté / USB 3.0."
@@ -2000,7 +2029,8 @@ const products = [
     id: 5,
     name: "Hub USB 7-en-2 USB + Type-C",
     price: 2500,
-    cat: "High-Tech",
+    cat: "Informatique",
+    subcat: "Hubs & Adaptateurs",
     image: "images/hub-7-en-2.png",
     emoji: "🔌",
     desc: "Hub 7-en-2 avec ports USB et Type-C."
@@ -2009,7 +2039,8 @@ const products = [
     id: 6,
     name: "Hub USB 5-en-2 USB + Type-C",
     price: 2000,
-    cat: "High-Tech",
+    cat: "Informatique",
+    subcat: "Hubs & Adaptateurs",
     image: "images/hub-5-en-2.png",
     emoji: "🔌",
     desc: "Hub 5-en-2 avec USB, Type-C, SD et TF."
@@ -2018,7 +2049,7 @@ const products = [
     id: 7,
     name: "Câble USB vers Micro-USB",
     price: 850,
-    cat: "High-Tech",
+    cat: "Câbles & Connectique",
     image: "images/cable-micro-usb.png",
     emoji: "🔌",
     desc: "Câble USB pratique pour recharge et transfert, longueur 30 cm.",
@@ -2029,7 +2060,7 @@ const products = [
     id: 47,
     name: "Câble de chargeur USB 3 en 1",
     price: 950,
-    cat: "High-Tech",
+    cat: "Câbles & Connectique",
     image: "images/cable-3-en-1.png",
     emoji: "🔌",
     desc: "Câble de chargeur 3 en 1 Type-C, Micro-USB et iPhone, longueur 1,20 m.",
@@ -2045,7 +2076,8 @@ const products = [
   {
     id: 48,
     name: "Clé USB 2.0",
-    cat: "High-Tech",
+    cat: "Stockage",
+    subcat: "Clés USB",
     image: "images/cle-usb-2.0.png",
     emoji: "💾",
     desc: "Clé USB 2.0 pratique pour stocker, transférer et emporter vos fichiers.",
@@ -2071,7 +2103,8 @@ const products = [
     id: 8,
     name: "Lunettes sport SCVCN orange / blanc",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-orange-blanc.png",
     emoji: "🕶️",
     desc: "Lunettes sport orange avec monture blanche, protection UV400."
@@ -2080,7 +2113,8 @@ const products = [
     id: 9,
     name: "Lunettes sport SCVCN bleu / blanc",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-bleu-blanc.png",
     emoji: "🕶️",
     desc: "Lunettes sport bleu avec monture blanche, protection UV400."
@@ -2089,7 +2123,8 @@ const products = [
     id: 10,
     name: "Lunettes sport SCVCN jaune / noir",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-jaune-noir.png",
     emoji: "🕶️",
     desc: "Lunettes sport jaune avec monture noire, protection UV400."
@@ -2098,7 +2133,8 @@ const products = [
     id: 11,
     name: "Lunettes sport SCVCN orange",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-orange.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec verre coloré, protection UV400."
@@ -2107,7 +2143,8 @@ const products = [
     id: 12,
     name: "Lunettes sport SCVCN bleu",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-bleu.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec verre bleu, protection UV400."
@@ -2116,7 +2153,8 @@ const products = [
     id: 13,
     name: "Lunettes sport SCVCN rose",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-rose.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec finition rose, protection UV 400."
@@ -2125,7 +2163,8 @@ const products = [
     id: 14,
     name: "Lunettes sport SCVCN rose/vert",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-rose-vert.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec finition colorée, protection UV400."
@@ -2134,7 +2173,8 @@ const products = [
     id: 15,
     name: "Lunettes sport SCVCN noir/orange",
     price: 1250,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-sport-noir-orange.png",
     emoji: "🕶️",
     desc: "Lunettes sport noire avec verre orange, protection UV400."
@@ -2143,7 +2183,8 @@ const products = [
     id: 16,
     name: "Lunettes polarisées noire",
     price: 900,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-polarisees-noire.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées sport, protection UV400."
@@ -2152,7 +2193,8 @@ const products = [
     id: 17,
     name: "Lunettes polarisées bleue",
     price: 900,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-polarisees-bleue.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre bleu, protection UV400."
@@ -2161,7 +2203,8 @@ const products = [
     id: 18,
     name: "Lunettes polarisées verte",
     price: 900,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-polarisees-verte.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre vert, protection UV400."
@@ -2170,7 +2213,8 @@ const products = [
     id: 19,
     name: "Lunettes polarisées jaune",
     price: 900,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-polarisees-jaune.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre jaune, protection UV400."
@@ -2179,7 +2223,8 @@ const products = [
     id: 20,
     name: "Lunettes polarisées rouge",
     price: 900,
-    cat: "Accessoires",
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
     image: "images/lunettes-polarisees-rouge.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre rouge, protection UV400."
@@ -2189,7 +2234,8 @@ const products = [
     id: 21,
     name: "Montre connectée Sport noire",
     price: 9500,
-    cat: "Montres connectées",
+    cat: "Sports & Loisirs",
+    subcat: "Sport & Fitness",
     image: "images/montre-sport-noire.png",
     emoji: "⌚",
     desc: "Montre connectée sport avec bracelet noir."
@@ -2198,7 +2244,8 @@ const products = [
     id: 22,
     name: "Montre connectée Sport verte",
     price: 9500,
-    cat: "Montres connectées",
+    cat: "Sports & Loisirs",
+    subcat: "Sport & Fitness",
     image: "images/montre-sport-verte.png",
     emoji: "⌚",
     desc: "Montre connectée sport avec bracelet vert."
@@ -2207,7 +2254,8 @@ const products = [
     id: 23,
     name: "Montre connectée Sport marron",
     price: 9500,
-    cat: "Montres connectées",
+    cat: "Sports & Loisirs",
+    subcat: "Sport & Fitness",
     image: "images/montre-sport-marron.png",
     emoji: "⌚",
     desc: "Montre connectée sport avec bracelet marron."
@@ -2405,7 +2453,8 @@ const products = [
     id: 43,
     name: "Pompe à Air Électrique Portable",
     price: 3000,
-    cat: "High-Tech",
+    cat: "Sports & Loisirs",
+    subcat: "Plein air & Outdoor",
     image: "images/pompe-a-air.png",
     emoji: "💨",
     desc: "Pompe à air électrique portable rechargeable USB-C, batterie 1500mAh, pression jusqu'à 4000 Pa et 3 embouts."
@@ -2484,7 +2533,7 @@ const products = [
   id: 50,
   name: "Chargeur USB C PD Charge rapide 3.0",
   price: 990,
-  cat: "High-Tech",
+  cat: "Câbles & Connectique",
   image: "images/chargeur-usb-c-pd.png",
   desc: "Chargeur rapide USB C PD 3.0 avec ports USB et Type-C. Compatible avec les smartphones, iPhone et autres appareils USB."
 },
@@ -2544,7 +2593,8 @@ const products = [
   id: 55,
   name: "Lunettes de soleil sport UV400",
   price: 1000,
-  cat: "Accessoires",
+  cat: "Sports & Loisirs",
+    subcat: "Sports",
   image: "images/lunettes-sport-uv400.png",
   emoji: "🕶️",
   desc: "Lunettes de soleil sport UV400 pour course, cyclisme, pêche, VTT et vélo de route, modèle mixte.",
@@ -2590,7 +2640,8 @@ const products = [
     id: 60,
     name: "Disque dur SSD portable 2 TB à 64 TB",
     price: 8000,
-    cat: "High-Tech",
+    cat: "Stockage",
+    subcat: "SSD externes",
     image: "images/disque-ssd-2tb-64tb-5-coloris.png",
     emoji: "💾",
     desc: "Disque dur SSD portable auto alimenté • USB 3.1 • 5 coloris • Stockage de 2 TB à 64 TB.",
@@ -2663,7 +2714,8 @@ const products = [
   id: 83,
   name: "PS5 For Sony PlayStation 5 Wireless Controller Joystick",
   price: 9990,
-  cat: "High-Tech",
+  cat: "Consoles & Gaming",
+    subcat: "Manettes",
   image: "images/manette-ps5.png",
   emoji: "🎮",
   desc: "Manette sans fil pour Sony PlayStation 5, avec joystick précis, gâchettes adaptatives, micro intégré, détection de mouvements, batterie longue durée et connexion Bluetooth.",
@@ -2682,7 +2734,8 @@ const products = [
   id: 84,
   name: "SSD Fanxiang S880R NVMe PCIe 4.0",
   price: 8990,
-  cat: "High-Tech",
+  cat: "Stockage",
+    subcat: "SSD internes",
   image: "images/ssd-fanxiang-s880r.png",
   emoji: "💾",
   desc: "SSD M.2 2280 NVMe PCIe 4.0×4 avec mémoire 3D TLC NAND Flash et dissipateur en aluminium. Compatible PS5 et Windows 7/8/10/11, il offre des vitesses allant jusqu’à 7 450 Mo/s en lecture et 6 800 Mo/s en écriture selon la capacité. Disponible en 2 To et 4 To, avec une endurance jusqu’à 2 800 TBW et une garantie de 5 ans. 📏 80 × 22 × 2,4 mm • ≈40 g • 🌡️ Température de fonctionnement : 0 à 70 °C • 🎮 Compatible PS5",
@@ -2710,16 +2763,24 @@ function setCategory(c,btn){
   if (preorderNotice) preorderNotice.style.display = (c === "Précommande") ? "block" : "none";
 
   const preorderSubcategories = document.getElementById("precommande-subcategories");
-  if (preorderSubcategories) {
-    preorderSubcategories.style.display = (c === "Précommande") ? "flex" : "none";
+  if (preorderSubcategories) preorderSubcategories.style.display = (c === "Précommande") ? "flex" : "none";
+
+  const ordinaryBar = document.getElementById("ordinary-subcategories");
+  if (ordinaryBar) {
+    const buttons = ordinaryBar.querySelectorAll("button[data-category]");
+    const matching = [...buttons].filter(b => b.dataset.category === c);
+    buttons.forEach(b => {
+      b.style.display = (b.dataset.category === c) ? "inline-flex" : "none";
+      b.classList.remove("active");
+    });
+    ordinaryBar.style.display = (c !== "Précommande" && matching.length) ? "flex" : "none";
   }
 
   category=c;
   preorderSubcategory="";
+  ordinarySubcategory="";
   const subBar=document.getElementById("precommande-subcategories");
-  if(subBar){
-    subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
-  }
+  if(subBar) subBar.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
@@ -2727,10 +2788,22 @@ function setCategory(c,btn){
 }
 
 let preorderSubcategory = "";
+let ordinarySubcategory = "";
 
 function setPreorderSubcategory(sub, btn){
   preorderSubcategory = sub;
   const bar = document.getElementById("precommande-subcategories");
+  if (bar) {
+    bar.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+  }
+  currentPage = 1;
+  renderProducts();
+}
+
+function setOrdinarySubcategory(sub, btn){
+  ordinarySubcategory = sub;
+  const bar = document.getElementById("ordinary-subcategories");
   if (bar) {
     bar.querySelectorAll("button").forEach(b => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
@@ -2753,6 +2826,11 @@ function renderProducts(){
     (
       category !== "Précommande" ||
       (preorderSubcategory && p.subcat === preorderSubcategory)
+    ) &&
+    (
+      category === "Précommande" ||
+      !ordinarySubcategory ||
+      p.subcat === ordinarySubcategory
     )
   );
 
