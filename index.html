@@ -1086,6 +1086,10 @@ article.product.precommande-card {
 }
 </style>
 
+<style id="responsive-banner-fenua-select">
+.banner picture{display:block;width:100%}
+.banner img{display:block;width:100%;height:auto}
+</style>
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -1302,7 +1306,10 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
   <body>
   <section class="banner">
-  <img src="images/banniere.png" alt="Fenua Select">
+  <picture>
+    <source media="(max-width: 768px)" srcset="images/banniere-mobile.png">
+    <img src="images/banniere.png" alt="Fenua Select">
+  </picture>
 </section>
 <header class="header">
   <a class="brand" href="#"><img src="logo.png" alt="Fenua Select"></a>
