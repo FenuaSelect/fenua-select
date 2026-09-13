@@ -1072,6 +1072,20 @@ button.preorder-btn:hover{
 
 
 
+<style id="catalog-filter-css">
+.catalog-filter-box{margin:16px 0 18px;padding:18px;border:1px solid rgba(53,217,255,.25);border-radius:16px;background:rgba(7,15,24,.92);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.catalog-filter-title{font-weight:900;font-size:17px;margin-bottom:13px;color:#fff}
+.catalog-filter-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.catalog-filter-grid label{display:flex;flex-direction:column;gap:6px;color:#cbd5e1;font-size:12px;font-weight:800}
+.catalog-filter-grid select{width:100%;min-height:42px;border-radius:10px;border:1px solid rgba(148,163,184,.25);background:#0b1420;color:#fff;padding:8px 10px}
+.catalog-filter-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:13px}
+.catalog-filter-actions button{border:0;border-radius:10px;padding:10px 15px;font-weight:900;cursor:pointer}
+.catalog-filter-actions button:first-child{background:#22c55e;color:#04130a}
+.catalog-filter-actions button:nth-child(2){background:#263447;color:#fff}
+#catalog-result-count{color:#93a4b8;font-size:12px;font-weight:700}
+@media(max-width:800px){.catalog-filter-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.catalog-filter-grid{grid-template-columns:1fr}.catalog-filter-box{padding:13px}}
+</style>
 <style id="ordinary-subcategories-css">
 #ordinary-subcategories{display:none;}
 #ordinary-subcategories button.active{background:#2563eb;color:#fff;border-color:#2563eb;}
@@ -1355,6 +1369,57 @@ document.addEventListener("DOMContentLoaded", function () {
     <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
   </div>
 
+  <div id="catalog-filter-box" class="catalog-filter-box">
+    <div class="catalog-filter-title">🔎 Filtrer le catalogue</div>
+    <div class="catalog-filter-grid">
+      <label>🗂️ Catégorie
+        <select id="catalogCategoryFilter">
+          <option value="">Toutes les catégories classiques</option>
+          <option value="Stockage">💾 Stockage</option>
+          <option value="Câbles & Connectique">🔌 Câbles & Connectique</option>
+          <option value="Accessoires">✨ Accessoires</option>
+          <option value="Informatique">🖥️ Informatique</option>
+          <option value="Consoles & Gaming">🎮 Consoles & Gaming</option>
+          <option value="Sports & Loisirs">🏄 Sports & Loisirs</option>
+          <option value="Vêtements">👕 Vêtements</option>
+          <option value="Montres connectées">⌚ Montres</option>
+          <option value="Beauté">💄 Beauté</option>
+          <option value="Bijoux">💎 Bijoux</option>
+          <option value="Précommande">🎄 Précommande</option>
+        </select>
+      </label>
+      <label>📂 Sous-catégorie
+        <select id="catalogSubcategoryFilter">
+          <option value="">Toutes</option>
+        </select>
+      </label>
+      <label>💰 Prix
+        <select id="catalogPriceFilter">
+          <option value="all">Tous les prix</option>
+          <option value="0-5000">Moins de 5 000 Frs</option>
+          <option value="5000-10000">5 000 à 10 000 Frs</option>
+          <option value="10000-20000">10 000 à 20 000 Frs</option>
+          <option value="20000-50000">20 000 à 50 000 Frs</option>
+          <option value="50000-plus">50 000 Frs et +</option>
+        </select>
+      </label>
+      <label>↕️ Trier
+        <select id="catalogSortFilter">
+          <option value="relevance">Pertinence</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="name-asc">Nom A → Z</option>
+          <option value="name-desc">Nom Z → A</option>
+        </select>
+      </label>
+    </div>
+    <div class="catalog-filter-actions">
+      <button type="button" onclick="applyCatalogFilters()">✅ OK — Afficher les produits</button>
+      <button type="button" onclick="resetCatalogFilters()">↺ Réinitialiser</button>
+      <span id="catalog-result-count"></span>
+    </div>
+  </div>
+
   <div id="ordinary-subcategories" class="precommande-subcategories">
     <button type="button" data-category="Stockage" onclick="setOrdinarySubcategory('Disques durs',this)">💽 Disques durs</button>
     <button type="button" data-category="Stockage" onclick="setOrdinarySubcategory('SSD externes',this)">💾 SSD externes</button>
@@ -1366,7 +1431,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <button type="button" data-category="Sports & Loisirs" onclick="setOrdinarySubcategory('Plein air & Outdoor',this)">🏕️ Plein air &amp; Outdoor</button>
     <button type="button" data-category="Sports & Loisirs" onclick="setOrdinarySubcategory('Sports',this)">⚽ Sports</button>
     <button type="button" data-category="Consoles & Gaming" onclick="setOrdinarySubcategory('Consoles',this)">🎮 Consoles</button>
-   <button type="button" data-category="Consoles & Gaming" onclick="setOrdinarySubcategory('Accessoires Gaming',this)">🎧 Accessoires Gaming</button>
+        <button type="button" data-category="Consoles & Gaming" onclick="setOrdinarySubcategory('Accessoires Gaming',this)">🎧 Accessoires Gaming</button>
     <button type="button" data-category="Beauté" onclick="setOrdinarySubcategory('Rasoirs / Tondeuses',this)">🪒 Rasoirs / Tondeuses</button>
   </div>
 
@@ -2965,27 +3030,123 @@ function setOrdinarySubcategory(sub, btn){
   renderProducts();
 }
 
+let catalogFilterCategory = "";
+let catalogFilterSubcategory = "";
+let catalogFilterPrice = "all";
+let catalogFilterSort = "relevance";
+
+const catalogSubcategories = {
+  "Stockage": ["Disques durs","SSD externes","SSD internes","Clés USB"],
+  "Informatique": ["Claviers & Souris","Hubs & Adaptateurs"],
+  "Consoles & Gaming": ["Consoles","Accessoires Gaming"],
+  "Sports & Loisirs": ["Sport & Fitness","Plein air & Outdoor","Sports"],
+  "Beauté": ["Rasoirs / Tondeuses"],
+  "Précommande": ["Consoles & Gaming","Enceintes Bluetooth","Peluches","Bijoux","Montres","Étuis téléphone","Beauté","Cadeau"]
+};
+
+function updateCatalogSubcategories(){
+  const cat = document.getElementById("catalogCategoryFilter");
+  const sub = document.getElementById("catalogSubcategoryFilter");
+  if(!cat || !sub) return;
+  const values = catalogSubcategories[cat.value] || [];
+  sub.innerHTML = '<option value="">Toutes</option>' + values.map(v => `<option value="${v.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">${v}</option>`).join('');
+  if(values.includes(catalogFilterSubcategory)) sub.value = catalogFilterSubcategory;
+  else catalogFilterSubcategory = "";
+}
+
+function applyCatalogFilters(){
+  catalogFilterCategory = document.getElementById("catalogCategoryFilter")?.value || "";
+  catalogFilterSubcategory = document.getElementById("catalogSubcategoryFilter")?.value || "";
+  catalogFilterPrice = document.getElementById("catalogPriceFilter")?.value || "all";
+  catalogFilterSort = document.getElementById("catalogSortFilter")?.value || "relevance";
+  category = catalogFilterCategory;
+  preorderSubcategory = catalogFilterCategory === "Précommande" ? catalogFilterSubcategory : "";
+  ordinarySubcategory = catalogFilterCategory !== "Précommande" ? catalogFilterSubcategory : "";
+  currentPage = 1;
+  renderProducts();
+}
+
+function resetCatalogFilters(){
+  catalogFilterCategory = "";
+  catalogFilterSubcategory = "";
+  catalogFilterPrice = "all";
+  catalogFilterSort = "relevance";
+  category = "";
+  preorderSubcategory = "";
+  ordinarySubcategory = "";
+  const cat=document.getElementById("catalogCategoryFilter");
+  const price=document.getElementById("catalogPriceFilter");
+  const sort=document.getElementById("catalogSortFilter");
+  if(cat) cat.value="";
+  if(price) price.value="all";
+  if(sort) sort.value="relevance";
+  updateCatalogSubcategories();
+  document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#ordinary-subcategories button,#precommande-subcategories button').forEach(b=>b.classList.remove('active'));
+  const notice=document.getElementById("preorderNotice");
+  if(notice) notice.style.display="none";
+  const ob=document.getElementById("ordinary-subcategories");
+  if(ob) ob.style.display="none";
+  const pb=document.getElementById("precommande-subcategories");
+  if(pb) pb.style.display="none";
+  currentPage=1;
+  renderProducts();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  const cat=document.getElementById("catalogCategoryFilter");
+  const sub=document.getElementById("catalogSubcategoryFilter");
+  if(cat) cat.addEventListener("change", function(){ catalogFilterSubcategory=""; updateCatalogSubcategories(); });
+  if(sub) sub.addEventListener("change", function(){ catalogFilterSubcategory=sub.value; });
+  updateCatalogSubcategories();
+});
+
 function renderProducts(){
 
-  const q = document.getElementById('search').value.toLowerCase().trim();
+  const searchEl = document.getElementById('search');
+  const q = searchEl ? searchEl.value.toLowerCase().trim() : "";
+  const activeCategory = catalogFilterCategory || category;
+  const activeSubcategory = catalogFilterSubcategory || (activeCategory === "Précommande" ? preorderSubcategory : ordinarySubcategory);
+  const activePrice = catalogFilterCategory ? catalogFilterPrice : "all";
+  const activeSort = catalogFilterCategory ? catalogFilterSort : "relevance";
 
-  const list = products.filter(p =>
-    category &&
-    p.cat === category &&
-    (
-      p.name.toLowerCase().includes(q) ||
-      p.desc.toLowerCase().includes(q)
-    ) &&
-    (
-      category !== "Précommande" ||
-      (preorderSubcategory && p.subcat === preorderSubcategory)
-    ) &&
-    (
-      category === "Précommande" ||
-      !ordinarySubcategory ||
-      p.subcat === ordinarySubcategory
-    )
-  );
+  const getPrice = p => Number(p.storages && p.storages.length ? p.storages[0].price : p.price) || 0;
+
+  const list = products.filter(p => {
+    // Par défaut, le catalogue affiche tous les produits classiques.
+    // Les précommandes ne sont affichées que lorsqu'elles sont choisies.
+    if (activeCategory) {
+      if (p.cat !== activeCategory) return false;
+    } else if (p.cat === "Précommande") {
+      return false;
+    }
+
+    if (q && !(
+      String(p.name || "").toLowerCase().includes(q) ||
+      String(p.desc || "").toLowerCase().includes(q)
+    )) return false;
+
+    if (activeSubcategory && p.subcat !== activeSubcategory) return false;
+
+    if (activePrice !== "all") {
+      const price = getPrice(p);
+      if (activePrice === "50000-plus") {
+        if (price < 50000) return false;
+      } else {
+        const [min,max] = activePrice.split("-").map(Number);
+        if (price < min || price >= max) return false;
+      }
+    }
+    return true;
+  });
+
+  if (activeSort === "price-asc") list.sort((a,b) => getPrice(a) - getPrice(b));
+  if (activeSort === "price-desc") list.sort((a,b) => getPrice(b) - getPrice(a));
+  if (activeSort === "name-asc") list.sort((a,b) => String(a.name).localeCompare(String(b.name), "fr", {sensitivity:"base"}));
+  if (activeSort === "name-desc") list.sort((a,b) => String(b.name).localeCompare(String(a.name), "fr", {sensitivity:"base"}));
+
+  const count=document.getElementById("catalog-result-count");
+  if(count) count.textContent=`${list.length} produit${list.length>1?'s':''}`;
 
   const totalPages = Math.max(1, Math.ceil(list.length / productsPerPage));
   if (currentPage > totalPages) currentPage = totalPages;
