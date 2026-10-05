@@ -3457,6 +3457,36 @@ function renderProducts(){
         }
 
 
+        <!-- ===== PUISSANCE ===== -->
+
+        ${
+          p.powers
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="power-${p.id}">
+                  👓 Puissance :
+                </label>
+
+                <select
+                  id="power-${p.id}"
+                  class="power-select"
+                >
+                  ${p.powers.map(power => `
+                    <option value="${power}">
+                      ${power}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
         <!-- ===== STOCKAGE ===== -->
 
         ${
@@ -3653,6 +3683,7 @@ function add(id){
   let color = "";
   let size = "";
   let storage = "";
+  let power = "";
   let price = p.price;
   let qty = 1;
 
@@ -3697,6 +3728,16 @@ function add(id){
   }
 
 
+  if(p.powers){
+    const select =
+      document.getElementById(`power-${id}`);
+
+    if(select){
+      power = select.value;
+    }
+  }
+
+
   if(p.storages){
 
     const select =
@@ -3736,6 +3777,7 @@ function add(id){
     finish,
     color,
     size,
+    power,
     storage
   ].filter(Boolean).join("-");
 
@@ -3759,6 +3801,7 @@ function add(id){
       finish: finish,
       color: color,
       size: size,
+      power: power,
       storage: storage
     });
 
@@ -3855,6 +3898,12 @@ function updateCart(){
             ${
               x.color
               ? `<br><small>🎨 Couleur : ${x.color}</small>`
+              : ''
+            }
+
+            ${
+              x.power
+              ? `<br><small>👓 Puissance : ${x.power}</small>`
               : ''
             }
 
