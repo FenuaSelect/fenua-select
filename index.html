@@ -1265,7 +1265,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 
 
-<div id="pagination-top" class="pagination pagination-top" aria-label="Pagination des produits en haut"></div>
+<!-- Pagination supprimée à la demande : tous les produits filtrés sont affichés -->
 
 <style>
 .preorder-notice{
@@ -2493,13 +2493,17 @@ const products = [
 },
   {
   id: 84,
-  name: "SSD Fanxiang S880R NVMe PCIe 4.0 2TB",
+  name: "SSD Fanxiang S880R NVMe PCIe 4.0",
   price: 9500,
   cat: "Gaming",
   image: "images/ssd-fanxiang-s880r.png",
   emoji: "💾",
-  desc: "SSD M.2 2280 NVMe PCIe 4.0×4 avec mémoire 3D TLC NAND Flash et dissipateur en aluminium. Compatible PS5 et Windows 7/8/10/11, il offre des vitesses allant jusqu’à 7 450 Mo/s en lecture et 6 800 Mo/s en écriture selon la capacité. Disponible en 2 To , avec une endurance jusqu’à 2 800 TBW et une garantie de 5 ans. 📏 80 × 22 × 2,4 mm • ≈40 g • 🌡️ Température de fonctionnement : 0 à 70 °C • 🎮 Compatible PS5",
+  desc: "SSD M.2 2280 NVMe PCIe 4.0×4 avec mémoire 3D TLC NAND Flash et dissipateur en aluminium. Compatible PS5 et Windows 7/8/10/11, il offre des vitesses allant jusqu’à 7 450 Mo/s en lecture et 6 800 Mo/s en écriture selon la capacité. Disponible en 2 To et 4 To, avec une endurance jusqu’à 2 800 TBW et une garantie de 5 ans. 📏 80 × 22 × 2,4 mm • ≈40 g • 🌡️ Température de fonctionnement : 0 à 70 °C • 🎮 Compatible PS5",
 
+  colors: [
+    "2 To",
+    "4 To"
+  ]
 },
   {
   id: 85,
@@ -2808,6 +2812,9 @@ function money(n){
 
 function setCategory(c,btn){
   category=c;
+  catalogFilterCategory=c;
+  const catSelect=document.getElementById("catalogCategoryFilter");
+  if(catSelect) catSelect.value=c;
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
@@ -2852,8 +2859,20 @@ function renderProducts(){
   const searchEl = document.getElementById('search');
   const q = searchEl ? searchEl.value.toLowerCase().trim() : "";
   const activeCategory = catalogFilterCategory || category;
-  const activePrice = catalogFilterCategory ? catalogFilterPrice : "all";
-  const activeSort = catalogFilterCategory ? catalogFilterSort : "relevance";
+
+  // Aucun produit ni image avant que le visiteur choisisse une catégorie.
+  if (!activeCategory) {
+    const productsContainer=document.getElementById('products');
+    if(productsContainer) productsContainer.innerHTML='<div class="catalog-empty-prompt" role="status">👆 Choisissez une catégorie ci-dessus pour découvrir les produits.</div>';
+    const count=document.getElementById("catalog-result-count");
+    if(count) count.textContent="Sélectionnez une catégorie";
+    const pagination=document.getElementById('pagination-top');
+    if(pagination) pagination.innerHTML='';
+    return;
+  }
+
+  const activePrice = catalogFilterPrice;
+  const activeSort = catalogFilterSort;
 
   const getPrice = p => Number(p.storages && p.storages.length ? p.storages[0].price : p.price) || 0;
 
@@ -2890,11 +2909,8 @@ function renderProducts(){
   const count=document.getElementById("catalog-result-count");
   if(count) count.textContent=`${list.length} produit${list.length>1?'s':''}`;
 
-  const totalPages = Math.max(1, Math.ceil(list.length / productsPerPage));
-  if (currentPage > totalPages) currentPage = totalPages;
-
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const pageList = list.slice(startIndex, startIndex + productsPerPage);
+  // Affichage sans pagination : tous les produits correspondant aux filtres sont visibles.
+  const pageList = list;
 
   document.getElementById('products').innerHTML = pageList.length
     ? pageList.map(p => {
@@ -3178,7 +3194,7 @@ function renderProducts(){
       }).join('')
     : '<p>Aucun produit trouvé.</p>';
 
-  renderPagination(totalPages);
+  // Pagination désactivée : aucun bouton de page à afficher.
 }
 
 
@@ -3922,8 +3938,12 @@ const internalOrder = {
 
 
 }
+// Au chargement, la boutique reste vide jusqu'au choix d'une catégorie.
 renderProducts();
 updateCart();
 </script>
+<style id="catalog-empty-prompt-style">
+.catalog-empty-prompt{grid-column:1/-1;text-align:center;padding:32px 18px;margin:8px 0 18px;border:1px dashed rgba(53,217,255,.42);border-radius:14px;background:rgba(7,15,24,.78);color:#dbeafe;font-size:16px;font-weight:800}
+</style>
 </body>
 </html>
