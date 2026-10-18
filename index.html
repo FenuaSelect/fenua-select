@@ -1305,6 +1305,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <button type="button" onclick="setJewelryAudience('Mixte',this)">💑 Mixte</button>
   </div>
 
+  <div id="beauty-audience-filters" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Beauté">
+    <button type="button" onclick="setBeautyAudience('Homme',this)">👨 Homme</button>
+    <button type="button" onclick="setBeautyAudience('Femme',this)">👩 Femme</button>
+  </div>
+
   <div id="catalog-filter-box" class="catalog-filter-box">
     <div class="catalog-filter-title">🔎 Filtrer le catalogue</div>
     <div class="catalog-filter-grid">
@@ -2348,6 +2353,7 @@ const products = [
     name: "Mini boîte de 4 brillants à lèvres",
     price: 2000,
     cat: "Beauté",
+    audience: "Femme",
     image: "images/mini-boite-brillant-levres.png",
     emoji: "💄",
     desc: "Mat velours, waterproof, 4 parfums.",
@@ -2363,6 +2369,7 @@ const products = [
     name: "Ensemble de 3 brillants à lèvres",
     price: 500,
     cat: "Beauté",
+    audience: "Femme",
     image: "images/ensemble-3-brillants-levres.png",
     emoji: "💄",
     desc: "Ensemble de 3 brillants à lèvres, waterproof, tenue 24H.",
@@ -2391,6 +2398,7 @@ const products = [
     name: "Eye-liner liquide noir",
     price: 500,
     cat: "Beauté",
+    audience: "Femme",
     image: "images/eye-liner-liquide-noir.png",
     emoji: "🖊️",
     desc: "Longue durée, waterproof, 1 ml. 1 pièce.",
@@ -2444,6 +2452,7 @@ const products = [
   name: "Ensemble de 8 rouges à lèvres en capsules",
   price: 500,
   cat: "Beauté",
+  audience: "Femme",
   image: "images/rouges-a-levres-capsules-8.png",
   emoji: "💄",
   desc: "Ensemble de 8 rouges à lèvres en capsules, finition mate, tenue longue durée et résistance au transfert.",
@@ -2453,6 +2462,7 @@ const products = [
   name: "Miroir de maquillage pliable",
   price: 500,
   cat: "Beauté",
+  audience: "Femme",
   image: "images/miroir-maquillage-pliable.png",
   emoji: "💄",
   desc: "Miroir de maquillage pliable double face, compact et pratique, dimensions 7,5 cm x 6 cm, disponible en plusieurs coloris.",
@@ -2469,6 +2479,7 @@ const products = [
   name: "Rasoir électrique portable pour femmes",
   price: 1000,
   cat: "Beauté",
+  audience: "Femme",
   subcat: "Rasoirs / Tondeuses",
   image: "images/rasoir-electrique-femme.png",
   emoji: "💄",
@@ -2511,6 +2522,7 @@ const products = [
   name: "Parfum unisex MISS ROSE",
   price: 1000,
   cat: "Beauté",
+  audience: "Femme",
   image: "images/parfum-miss-rose.png",
   emoji: "💄",
   desc: "Parfum unisex MISS ROSE disponible en 4 parfums.",
@@ -2704,6 +2716,7 @@ const products = [
   name: "Rasoir 3 têtes Enchen Blackstone Plus",
   price: 5000,
   cat: "Beauté",
+  audience: "Homme",
   subcat: "Rasoirs / Tondeuses",
   image: "images/rasoir-3-tetes-enchen-blackstone-plus.png",
   emoji: "🪒",
@@ -3002,6 +3015,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Kit Maquillage Complet – Beauté & Éclat",
   price: 9500,
   cat: "Beauté",
+  audience: "Femme",
   subcat: "Maquillage",
   image: "images/kit-maquillage-id106.png",
   emoji: "💄",
@@ -3015,6 +3029,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Set de 10 Pinceaux Maquillage Professionnels",
   price: 1000,
   cat: "Beauté",
+  audience: "Femme",
   subcat: "Accessoires maquillage",
   image: "images/pinceaux-maquillage-id107.png",
   emoji: "💄",
@@ -3028,6 +3043,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Lot de 12 Éponges Maquillage – 7 Couleurs",
   price: 2500,
   cat: "Beauté",
+  audience: "Femme",
   subcat: "Accessoires maquillage",
   image: "images/eponges-maquillage-id108.png",
   emoji: "💄",
@@ -3049,6 +3065,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Set de 3 Éponges Maquillage avec Boîte",
   price: 1000,
   cat: "Beauté",
+  audience: "Femme",
   subcat: "Accessoires maquillage",
   image: "images/eponges-boite-id109.png",
   emoji: "💄",
@@ -3187,12 +3204,12 @@ Boîte à bague en velours, idéale pour fiançailles, mariage et cadeaux romant
  colors: ["Beige", "Bleu", "Gris", "Rose", "Rouge", "Rouge vin"],
 },
 
-
 ];
 
 
 let category="";
 let jewelryAudience="";
+let beautyAudience="";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
@@ -3205,9 +3222,12 @@ function money(n){
 function setCategory(c,btn){
   category=c;
   jewelryAudience="";
+  beautyAudience="";
   const audienceFilters=document.getElementById("jewelry-audience-filters");
+  const beautyFilters=document.getElementById("beauty-audience-filters");
   if(audienceFilters) audienceFilters.hidden=(c!=="Bijoux");
-  document.querySelectorAll("#jewelry-audience-filters button").forEach(b=>b.classList.remove("active"));
+  if(beautyFilters) beautyFilters.hidden=(c!=="Beauté");
+  document.querySelectorAll("#jewelry-audience-filters button, #beauty-audience-filters button").forEach(b=>b.classList.remove("active"));
   catalogFilterCategory=c;
   const catSelect=document.getElementById("catalogCategoryFilter");
   if(catSelect) catSelect.value=c;
@@ -3229,6 +3249,18 @@ function setJewelryAudience(audience,btn){
   renderProducts();
 }
 
+function setBeautyAudience(audience,btn){
+  beautyAudience=audience;
+  category="Beauté";
+  catalogFilterCategory="Beauté";
+  const catSelect=document.getElementById("catalogCategoryFilter");
+  if(catSelect) catSelect.value="Beauté";
+  document.querySelectorAll("#beauty-audience-filters button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentPage=1;
+  renderProducts();
+}
+
 let catalogFilterCategory = "";
 let catalogFilterPrice = "all";
 let catalogFilterSort = "relevance";
@@ -3238,15 +3270,24 @@ function applyCatalogFilters(){
   catalogFilterPrice = document.getElementById("catalogPriceFilter")?.value || "all";
   catalogFilterSort = document.getElementById("catalogSortFilter")?.value || "relevance";
   category = catalogFilterCategory;
+  const jewelryFilters=document.getElementById("jewelry-audience-filters");
+  const beautyFilters=document.getElementById("beauty-audience-filters");
+  if(jewelryFilters) jewelryFilters.hidden=(category!=="Bijoux");
+  if(beautyFilters) beautyFilters.hidden=(category!=="Beauté");
+  if(category!=="Bijoux") jewelryAudience="";
+  if(category!=="Beauté") beautyAudience="";
   currentPage = 1;
   renderProducts();
 }
 
 function resetCatalogFilters(){
   jewelryAudience="";
+  beautyAudience="";
   const audienceFilters=document.getElementById("jewelry-audience-filters");
+  const beautyFilters=document.getElementById("beauty-audience-filters");
   if(audienceFilters) audienceFilters.hidden=true;
-  document.querySelectorAll("#jewelry-audience-filters button").forEach(b=>b.classList.remove("active"));
+  if(beautyFilters) beautyFilters.hidden=true;
+  document.querySelectorAll("#jewelry-audience-filters button, #beauty-audience-filters button").forEach(b=>b.classList.remove("active"));
   catalogFilterCategory = "";
   catalogFilterPrice = "all";
   catalogFilterSort = "relevance";
@@ -3296,6 +3337,7 @@ function renderProducts(){
     }
 
     if (jewelryAudience && p.cat === "Bijoux" && p.audience !== jewelryAudience) return false;
+    if (beautyAudience && p.cat === "Beauté" && p.audience !== beautyAudience) return false;
 
     if (q && !(
       String(p.name || "").toLowerCase().includes(q) ||
