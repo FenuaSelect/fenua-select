@@ -3203,25 +3203,23 @@ Boîte à bague en velours, idéale pour fiançailles, mariage et cadeaux romant
     
  colors: ["Beige", "Bleu", "Gris", "Rose", "Rouge", "Rouge vin"],
 },
-  
-{
-  id: 118,
-  cat: "Beauté",
-  audience: "Femme",
-  name: "Masque LED Visage – Soin Beauté Anti-Âge & Éclat",
-  price: 7500,
-  image: "images/Masques LED visage et cou futuristes.png",
-  emoji: "✨",
-  
-  desc: `✨ Révélez l’éclat de votre peau à la maison !
+  {
+    id: 118,
+    name: "Masque LED Visage – Soin Beauté Anti-Âge & Éclat",
+    price: 7500,
+    cat: "Beauté",
+    audience: "Femme",
+    image: "images/Masques LED visage et cou futuristes.png",
+    emoji: "✨",
+    freeShipping: true,
+    desc: `✨ Révélez l’éclat de votre peau à la maison !
 
 Masque LED visage et cou à 7 couleurs, conçu pour compléter votre routine beauté et cibler les besoins des peaux ternes ou sujettes aux imperfections. 💆‍♀️ Léger et pratique, pour un moment de soin à domicile.
 
 🌈 7 couleurs LED
 💖 Soin beauté visage et cou
 🏡 Utilisation à domicile`
-}
-
+  },
 
 ];
 
@@ -3416,6 +3414,18 @@ function renderProducts(){
         <h3>${p.name}*</h3>
 
         <p>${p.desc}</p>
+
+        ${[114, 115, 116].includes(Number(p.id)) ? `
+          <div class="ring-size-guide" style="margin:14px 0 18px;">
+            <h4 style="margin:0 0 8px;">📏 Guide des tailles de bague</h4>
+            <img
+              src="images/guide-tailles-bague.png"
+              alt="Guide des tailles de bague de 5 à 13"
+              loading="lazy"
+              style="display:block;width:100%;height:auto;max-width:760px;margin:0 auto;border-radius:12px;"
+            >
+          </div>
+        ` : ''}
 
 
         <!-- ===== PARFUM ===== -->
@@ -3971,8 +3981,9 @@ function updateCart(){
 
   const hasPreorder = false;
 
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
   const deliveryFee =
-    hasPreorder
+    (hasPreorder || hasFreeShipping)
       ? 0
       : Number(document.getElementById('deliveryZone')?.value || 0);
 
@@ -4078,8 +4089,9 @@ function openCart(){
 
   const hasPreorder = false;
 
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
   const deliveryFee =
-    hasPreorder
+    (hasPreorder || hasFreeShipping)
       ? 0
       : Number(
           document.getElementById('deliveryZone')?.value || 0
@@ -4297,13 +4309,16 @@ Prix : ${money(x.price * x.qty)}`;
   const deliverySelect =
     document.getElementById("deliveryZone");
 
-  const deliveryFee =
-    Number(deliverySelect ? deliverySelect.value : 0);
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
+  const selectedDeliveryFee = Number(deliverySelect ? deliverySelect.value : 0);
+  const deliveryFee = hasFreeShipping ? 0 : selectedDeliveryFee;
 
   const deliveryText =
-    deliveryFee === 0
-      ? "Papara à Taravao • Livraison gratuite"
-      : "Autres destinations sur Tahiti • + 1 500 Frs";
+    hasFreeShipping
+      ? "🎁 Livraison gratuite (offerte avec le produit ID 118)"
+      : deliveryFee === 0
+        ? "Papara à Taravao • Livraison gratuite"
+        : "Autres destinations sur Tahiti • + 1 500 Frs";
 
 
  /* =========================
@@ -4313,7 +4328,7 @@ Prix : ${money(x.price * x.qty)}`;
   const hasPreorder = false;
 
   const finalDeliveryFee =
-    hasPreorder
+    (hasPreorder || hasFreeShipping)
       ? 0
       : deliveryFee;
 
@@ -4398,9 +4413,9 @@ const internalOrder = {
   email: email,
   address: address,
 
-  city: deliveryText,
-  delivery: deliveryText,
-  delivery_fee: deliveryFee,
+  city: finalDeliveryText,
+  delivery: finalDeliveryText,
+  delivery_fee: finalDeliveryFee,
 
   total: total,
 
