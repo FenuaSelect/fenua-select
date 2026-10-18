@@ -1094,6 +1094,15 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 @media (max-width: 768px) {
   .product-zoom-icon { width: 32px; height: 32px; font-size: 17px; top: 8px; right: 8px; }
 }
+.ring-guide-zoom-target::after {
+  content: "⌕";
+  position: absolute; top: 10px; right: 10px; z-index: 5;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(0,0,0,.72); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 25px; line-height: 1; pointer-events: none;
+}
+@media (min-width: 769px) { .ring-guide-zoom-target { cursor: zoom-in !important; } }
 </style>
 <style id="hide-product-zoom-icon">
 .product-zoom-icon { display: none !important; }
@@ -3418,12 +3427,14 @@ function renderProducts(){
         ${[114, 115, 116].includes(Number(p.id)) ? `
           <div class="ring-size-guide" style="margin:14px 0 18px;">
             <h4 style="margin:0 0 8px;">📏 Guide des tailles de bague</h4>
-            <img
-              src="images/guide-tailles-bague.png"
-              alt="Guide des tailles de bague de 5 à 13"
-              loading="lazy"
-              style="display:block;width:100%;height:auto;max-width:760px;margin:0 auto;border-radius:12px;"
-            >
+            <div class="product-img ring-guide-zoom-target" style="width:100%;max-width:760px;margin:0 auto;border-radius:12px;overflow:hidden;position:relative;">
+              <img
+                src="images/guide-tailles-bague.png"
+                alt="Guide des tailles de bague de 5 à 13"
+                loading="lazy"
+                style="display:block;width:100%;height:auto;margin:0 auto;border-radius:12px;"
+              >
+            </div>
           </div>
         ` : ''}
 
