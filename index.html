@@ -998,6 +998,42 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 @media(max-width:600px){.header{gap:10px!important;padding:10px 12px!important}.header nav{gap:4px!important}.header nav a{padding:8px 9px!important;font-size:12px!important}.social-links{gap:5px!important}.social-links a{width:34px!important;height:34px!important}.social-links a svg{width:20px!important;height:20px!important}.cart-btn{padding:9px 11px!important;font-size:12px!important}.section-head{align-items:stretch!important}.section-head #search{width:100%!important;min-width:0!important}.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.product{border-radius:12px!important}.product-img{flex-basis:125px!important;height:125px!important;min-height:125px!important}.product-body{padding:8px!important}.product h3{font-size:11.5px!important}.product p{font-size:9px!important}.promo{padding:17px!important}}
 </style>
 
+<style>
+.gender-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.gender-btn {
+  flex: 1;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #d49a35;
+  border-radius: 10px;
+  background: #fff8e9;
+  color: #38240d;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.gender-btn:hover {
+  border-color: #b87916;
+}
+.gender-btn.active {
+  background: linear-gradient(100deg, #f4c76c, #d99a2b);
+  border-color: #a66b0a;
+  color: #201303;
+  box-shadow: 0 0 0 2px rgba(212,154,53,.18);
+}
+</style>
+
+
+<style id="jewelry-audience-subcategories">
+.jewelry-audience-filters{margin-top:10px;gap:8px;flex-wrap:wrap}
+.jewelry-audience-filters[hidden]{display:none!important}
+.jewelry-audience-filters button{border:1px solid rgba(53,217,255,.45)}
+.jewelry-audience-filters button.active{background:linear-gradient(100deg,#ed00b9,#087df7);color:#fff;border-color:#39e7ff}
+</style>
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -1261,6 +1297,12 @@ document.addEventListener("DOMContentLoaded", function () {
     <button onclick="setCategory('Informatique',this)">🖥️ Informatique</button>
     <button onclick="setCategory('Vêtements & Accessoires',this)">👕 Vêtements &amp; Accessoires</button>
     <button onclick="setCategory('Jouets',this)">🧸 Jouets</button>
+  </div>
+
+  <div id="jewelry-audience-filters" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Bijoux">
+    <button type="button" onclick="setJewelryAudience('Homme',this)">👨 Homme</button>
+    <button type="button" onclick="setJewelryAudience('Femme',this)">👩 Femme</button>
+    <button type="button" onclick="setJewelryAudience('Mixte',this)">💑 Mixte</button>
   </div>
 
   <div id="catalog-filter-box" class="catalog-filter-box">
@@ -1624,6 +1666,7 @@ const products = [
     name: "MEGIR 2068 – Montre Homme Luxe Quartz ",
     price: 14500,
     cat: "Bijoux",
+  audience: "Homme",
     subcat: "Montres",
     image: "images/megir-2068.png",
     emoji: "⌚",
@@ -1639,6 +1682,7 @@ const products = [
     name: "Lot de 6 bracelets perlés en cuir PU tendance, montre à quartz et collier pendentif croix pour homme noir",
     price: 8000,
     cat: "Bijoux",
+  audience: "Homme",
     subcat: "Cadeau",
     image: "images/coffret-homme-premium.png",
     emoji: "⌚",
@@ -1649,6 +1693,7 @@ const products = [
     name: "Boucles d'oreilles créoles cœur & fleur, 26 lettres A-Z",
     price: 1000,
     cat: "Bijoux",
+  audience: "Femme",
     subcat: "Bijoux",
     image: "images/boucles-coeur-fleur-az.png",
     emoji: "💎",
@@ -1687,6 +1732,7 @@ const products = [
     name: "Ensemble collier et boucles d'oreilles en cristal pour femmes",
     price: 1000,
     cat: "Bijoux",
+  audience: "Femme",
     subcat: "Bijoux",
     image: "images/ensemble-collier-cristal.png",
     emoji: "💎",
@@ -1697,6 +1743,7 @@ const products = [
     name: " Ensemble de bijoux bohèmes tressés à fleurs pour femmes, collier et boucles d'oreilles à fleurs",
     price: 1000,
     cat: "Bijoux",
+  audience: "Femme",
     subcat: "Bijoux",
     image: "images/bijoux-bohemes-fleurs.png",
     emoji: "🌺",
@@ -1712,6 +1759,7 @@ const products = [
     name: "Ensembles de bijoux hawaïens, collier + boucles d'oreilles",
     price: 1000,
     cat: "Bijoux",
+  audience: "Femme",
     subcat: "Bijoux",
     image: "images/ensemble-bijoux-hawaiens.png",
     emoji: "💎",
@@ -2449,6 +2497,7 @@ const products = [
   name: "Pendentif collier croix",
   price: 1000,
   cat: "Bijoux",
+  audience: "Homme",
   image: "images/croix-pendentif-collier.png",
   emoji: "✝️",
   desc: "Pour les fans de Fast & Furious ou simplement comme cadeau, excellent rapport qualité-prix. Croix pendentif collier, longueur du collier 50 cm. Croix : 5,1 cm x 3,5 cm.",
@@ -2728,6 +2777,7 @@ const products = [
   name: "💎 Collier Feuille Émeraude Doré & Argenté",
   price: 1000,
   cat: "Bijoux",
+  audience: "Mixte",
   image: "images/collier-feuille-emeraude.png",
   emoji: "💎",
   desc: "✨ Un Style Unique • Collier feuille émeraude avec finition dorée ou argentée. 📏 Longueur : 45 cm.",
@@ -2741,6 +2791,7 @@ const products = [
   name: "Set de 2 colliers assortis 🎮❤️ avec pendentifs manette aimantés",
   price: 1000,
   cat: "Bijoux",
+  audience: "Mixte",
   image: "images/set-2-colliers-manette.png",
   emoji: "🎮",
   desc: "🎮❤️ 2 colliers assortis avec pendentifs manette de jeu aimantés, conçus pour les couples, meilleurs amis ou duos. Les deux pendentifs se rapprochent et s’assemblent grâce à leur système magnétique. 📏 Longueur : 45 cm.",
@@ -2844,6 +2895,7 @@ Choisis ton modèle parmi les numéros 1 à 36 !`,
     name: "Parure Femme – Collier Torsadé & Boucles",
     price: 1000,
     cat: "Bijoux",
+  audience: "Femme",
     image: "images/ensemble-noeud-amour-97.png",
     emoji: "💛",
     desc: `✨ Collection Glamour – Nœud d’Amour
@@ -2854,6 +2906,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
 {
   id: 98,
   cat: "Bijoux",
+  audience: "Mixte",
   name: "Ensemble collier et pendentif Raie Manta - Mixte H/F",
   price: 1500,
   image: "images/bijoux_raie_manta_98.png",
@@ -2868,6 +2921,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   id: 99,
   name: "Collier pendentif tortue de mer- Mixte H/F",
   cat: "Bijoux",
+  audience: "Mixte",
   price: 1500,
   desc: "🌊 <strong>Collier Tortue de mer – Tribal polynésien</strong><br>✨ Un bijou unisexe en acier inoxydable, symbole de liberté et de protection. Style polynésien affirmé, chaîne de 60 cm et élégance au quotidien.<br>🐚 <strong>Portez l’esprit de l’océan !</strong>",
   image: "images/collier-tortue-mer.png",
@@ -2878,6 +2932,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   id: 100,
   name: "Ensemble de bijoux Femme élégant avec motif d’ailes ",
   cat: "Bijoux",
+  audience: "Femme",
   price: 1000,
   desc: "Ensemble de bijoux en argent 925 sterling, élégant au design romantique avec motif d’ailes, idéal pour les fiançailles, les cérémonies et les occasions spéciales. Tendance et raffiné, parfait comme cadeau.",
   image: "images/ensemble-bijoux-ailes.png",
@@ -2887,6 +2942,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   id: 101,
   name: "✨ Parure Zircone Femme – Collier & Créoles",
   cat: "Bijoux",
+  audience: "Femme",
   price: 1000,
   desc: "✨ Ensemble de bijoux pour femme en argent Sterling 925 véritable, avec collier orné de zircones cubiques et boucles d’oreilles créoles. 💍 Idéal pour les fiançailles, les cérémonies et les occasions spéciales. 🎁 Tendance et raffiné, parfait comme cadeau.",
   image: "images/ensemble-bijoux-zircone-101.png",
@@ -2896,6 +2952,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   id: 102,
   name: "✨ Parure Dorée Femme – Collier & Créoles Océan 🌊",
   cat: "Bijoux",
+  audience: "Femme",
   price: 1500,
   desc: "🌊✨ Sublimez votre style avec cette élégante parure dorée inspirée de l’océan !<br>💛 Collier pendentif vague et coquillage + boucles d’oreilles créoles.<br>🐚 Acier inoxydable plaqué or.<br>🎁 Idéale pour se faire plaisir ou offrir un cadeau raffiné.<br>🌺 L’élégance de l’océan à porter au quotidien !",
   image: "images/ensemble-bijoux-ocean-dore-102.png",
@@ -2905,6 +2962,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   id: 103,
   name: "Collier Tortue & Hibiscus Femme",
   cat: "Bijoux",
+  audience: "Femme",
   price: 1000,
   desc: "🐢 Collier tortue de mer avec motif hibiscus ajouré. 🌺 Design tropical élégant, idéal au quotidien ou comme cadeau. ✨ Acier inoxydable, style ras du cou.",
   image: "images/collier-tortue-hibiscus-103.png",
@@ -2916,6 +2974,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Collier Pendentif  Papillon Femme",
   price: 1000,
   cat: "Bijoux",
+  audience: "Femme",
   subcat: "Colliers",
   image: "images/collier-papillon-id104.png",
   emoji: "🦋",
@@ -2929,6 +2988,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Ensemble bijoux Cœur Femme",
   price: 1000,
   cat: "Bijoux",
+  audience: "Femme",
   subcat: "Parures",
   image: "images/parure-coeur-id105.png",
   emoji: "❤️",
@@ -3045,6 +3105,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Ensemble de 3 Bracelets Femme Cœur & Infini",
   price: 500,
   cat: "Bijoux",
+  audience: "Femme",
   image: "images/bracelets-coeur-infini-113.png",
   emoji: "💎",
 
@@ -3061,6 +3122,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Bague Couple en Acier Inoxydable Homme & Femme",
   price: 2000,
   cat: "Bijoux",
+  audience: "Mixte",
   image: "images/bagues-couple-114.png",
   emoji: "💍",
   desc: "❤️ Un symbole d’amour à porter à deux ! 💍 Craquez pour ces bagues de couple au design courbé et moderne, parfaites pour un style élégant et intemporel. Conçues en acier inoxydable, elles sont idéales pour célébrer votre amour au quotidien ou offrir un cadeau romantique. 🎁 ✨ 3 coloris disponibles : Or, Argent et Or rose. 📏 Tailles disponibles : 6, 7, 8, 9, 10, 11, 12 et 13. 💕 Le duo parfait pour symboliser votre amour !",
@@ -3072,6 +3134,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Bague Alliance Couple Homme & Femme en Acier Inoxydable",
   price: 2000,
   cat: "Bijoux",
+  audience: "Mixte",
   image: "images/alliance-couple-115.png",
   emoji: "💍",
   desc: "💍 Un symbole d’amour éternel pour votre couple ! ❤️ Craquez pour cette alliance en acier inoxydable au design sobre et élégant, idéale pour un mariage, un engagement ou un cadeau romantique. ✨ Résistante à la corrosion et facile à assortir, elle convient aux hommes comme aux femmes. 📏 Tailles disponibles : 6, 7, 8, 9, 10, 11 et 12. 💕 L’élégance parfaite pour célébrer votre amour au quotidien !",
@@ -3085,6 +3148,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
 
 
 let category="";
+let jewelryAudience="";
 let cart=[];
 let currentPage=1;
 const productsPerPage=12;
@@ -3096,12 +3160,28 @@ function money(n){
 
 function setCategory(c,btn){
   category=c;
+  jewelryAudience="";
+  const audienceFilters=document.getElementById("jewelry-audience-filters");
+  if(audienceFilters) audienceFilters.hidden=(c!=="Bijoux");
+  document.querySelectorAll("#jewelry-audience-filters button").forEach(b=>b.classList.remove("active"));
   catalogFilterCategory=c;
   const catSelect=document.getElementById("catalogCategoryFilter");
   if(catSelect) catSelect.value=c;
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
+  renderProducts();
+}
+
+function setJewelryAudience(audience,btn){
+  jewelryAudience=audience;
+  category="Bijoux";
+  catalogFilterCategory="Bijoux";
+  const catSelect=document.getElementById("catalogCategoryFilter");
+  if(catSelect) catSelect.value="Bijoux";
+  document.querySelectorAll("#jewelry-audience-filters button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentPage=1;
   renderProducts();
 }
 
@@ -3119,6 +3199,10 @@ function applyCatalogFilters(){
 }
 
 function resetCatalogFilters(){
+  jewelryAudience="";
+  const audienceFilters=document.getElementById("jewelry-audience-filters");
+  if(audienceFilters) audienceFilters.hidden=true;
+  document.querySelectorAll("#jewelry-audience-filters button").forEach(b=>b.classList.remove("active"));
   catalogFilterCategory = "";
   catalogFilterPrice = "all";
   catalogFilterSort = "relevance";
@@ -3166,6 +3250,8 @@ function renderProducts(){
     if (activeCategory) {
       if (p.cat !== activeCategory) return false;
     }
+
+    if (jewelryAudience && p.cat === "Bijoux" && p.audience !== jewelryAudience) return false;
 
     if (q && !(
       String(p.name || "").toLowerCase().includes(q) ||
@@ -3316,6 +3402,32 @@ function renderProducts(){
           : ''
         }
 
+
+        <!-- ===== GENRE HOMME / FEMME ===== -->
+
+        ${
+          p.genders
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+                <label>Genre :</label>
+                <input type="hidden" id="gender-${p.id}" value="">
+                <div class="gender-buttons" role="group" aria-label="Choisir le genre">
+                  ${p.genders.map(gender => `
+                    <button
+                      type="button"
+                      class="gender-btn"
+                      aria-pressed="false"
+                      onclick="selectGender(${p.id}, '${gender}', this)">
+                      ${gender === "Homme" ? "♂️ " : "♀️ "}${gender}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `
+          : ''
+        }
 
         <!-- ===== TAILLE ===== -->
 
@@ -3514,6 +3626,22 @@ function renderPagination(totalPages){
 }
 
 
+function selectGender(id, gender, button) {
+  const input = document.getElementById(`gender-${id}`);
+  if (!input) return;
+
+  input.value = gender;
+  const container = button.closest(".gender-buttons");
+  if (!container) return;
+
+  container.querySelectorAll(".gender-btn").forEach(btn => {
+    const selected = btn === button;
+    btn.classList.toggle("active", selected);
+    btn.setAttribute("aria-pressed", selected ? "true" : "false");
+  });
+}
+
+
 function changeQty(id, amount){
 
   const element =
@@ -3572,6 +3700,7 @@ function add(id){
   let finish = "";
   let color = "";
   let size = "";
+  let gender = "";
   let storage = "";
   let power = "";
   let price = p.price;
@@ -3604,6 +3733,16 @@ function add(id){
 
     if(select){
       color = select.value;
+    }
+  }
+
+
+  if(p.genders){
+    const input = document.getElementById(`gender-${id}`);
+    gender = input ? input.value : "";
+    if(!gender){
+      alert("Veuillez choisir Homme ou Femme.");
+      return;
     }
   }
 
@@ -3667,6 +3806,7 @@ function add(id){
     finish,
     color,
     size,
+    gender,
     power,
     storage
   ].filter(Boolean).join("-");
@@ -3691,6 +3831,7 @@ function add(id){
       finish: finish,
       color: color,
       size: size,
+      gender: gender,
       power: power,
       storage: storage
     });
@@ -3769,6 +3910,11 @@ function updateCart(){
             ${
               x.size
               ? `<br><small>👕 Taille : ${x.size}</small>`
+              : ''
+            }
+            ${
+              x.gender
+              ? `<br><small>⚧ Genre : ${x.gender}</small>`
               : ''
             }
 
@@ -3864,6 +4010,11 @@ function openCart(){
           ${
             x.size
             ? `<small>👕 Taille : ${x.size}</small>`
+            : ''
+          }
+          ${
+            x.gender
+            ? `<small>⚧ Genre : ${x.gender}</small>`
             : ''
           }
 
@@ -3996,6 +4147,9 @@ function sendOrder(e){
 
     if(x.size){
       details += `\nTaille : ${x.size}`;
+    }
+    if(x.gender){
+      details += `\nGenre : ${x.gender}`;
     }
 
     if(x.flavor){
@@ -4161,6 +4315,7 @@ const internalOrder = {
       variant: x.finish || "",
       flavor: x.flavor || "",
       size: x.size || "",
+      gender: x.gender || "",
       storage: x.storage || "",
       quantity: x.qty || 0,
       price: x.price || 0,
