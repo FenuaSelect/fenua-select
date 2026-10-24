@@ -1034,6 +1034,16 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 .jewelry-audience-filters button{border:1px solid rgba(53,217,255,.45)}
 .jewelry-audience-filters button.active{background:linear-gradient(100deg,#ed00b9,#087df7);color:#fff;border-color:#39e7ff}
 </style>
+
+<style id="fenua-pagination-style">
+.pagination{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin:24px 0 30px;padding:8px}
+.pagination .page-btn{min-width:40px;min-height:40px;padding:8px 13px;border:1px solid rgba(32,234,255,.35);border-radius:10px;background:#071326;color:#f5f8ff;font-weight:800;cursor:pointer;transition:transform .18s,background .18s,box-shadow .18s}
+.pagination .page-btn:hover:not(:disabled){transform:translateY(-2px);background:linear-gradient(110deg,#04bce9,#196cff);box-shadow:0 0 14px rgba(32,234,255,.25)}
+.pagination .page-btn.active{background:linear-gradient(110deg,#04bce9,#196cff);border-color:#20eaff;color:#fff;box-shadow:0 0 14px rgba(32,234,255,.25)}
+.pagination .page-btn:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:520px){.pagination{gap:5px;margin:18px 0 24px}.pagination .page-btn{min-width:34px;min-height:36px;padding:7px 10px;font-size:13px}}
+</style>
+
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -1400,6 +1410,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </style>
 
 <div id="products" class="grid"></div>
+<div id="pagination-top" class="pagination" aria-label="Pagination des produits"></div>
 
  <div class="photo-notice">
   📸 <strong>Photos non contractuelles.</strong>
@@ -3262,7 +3273,7 @@ let jewelryAudience="";
 let beautyAudience="";
 let cart=[];
 let currentPage=1;
-const productsPerPage=12;
+const productsPerPage=8;
 const outOfStockIds = new Set([1, 2, 3, 4, 147]);
 
 function money(n){
@@ -3415,8 +3426,11 @@ function renderProducts(){
   const count=document.getElementById("catalog-result-count");
   if(count) count.textContent=`${list.length} produit${list.length>1?'s':''}`;
 
-  // Affichage sans pagination : tous les produits correspondant aux filtres sont visibles.
-  const pageList = list;
+  // Pagination : afficher uniquement les 8 produits de la page sélectionnée.
+  const totalPages = Math.ceil(list.length / productsPerPage);
+  currentPage = Math.max(1, Math.min(currentPage, totalPages || 1));
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const pageList = list.slice(startIndex, startIndex + productsPerPage);
 
   document.getElementById('products').innerHTML = pageList.length
     ? pageList.map(p => {
@@ -3740,7 +3754,7 @@ function renderProducts(){
       }).join('')
     : '<p>Aucun produit trouvé.</p>';
 
-  // Pagination désactivée : aucun bouton de page à afficher.
+  renderPagination(totalPages);
 }
 
 
