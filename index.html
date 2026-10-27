@@ -1337,6 +1337,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   <div id="sports-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Sports et loisirs">
     <button type="button" onclick="setCatalogSubcategory('Lunette de soleil',this)">🕶️ Lunette de soleil</button>
+    <button type="button" onclick="setCatalogSubcategory('Plein air & auto',this)">🏕️ Plein air &amp; auto</button>
+  </div>
+  <div id="multimedia-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Multimédia et Téléphonie">
+    <button type="button" onclick="setCatalogSubcategory('Montres connectées',this)">⌚ Montres connectées</button>
+    <button type="button" onclick="setCatalogSubcategory('Accessoires Téléphonie',this)">📱 Accessoires Téléphonie</button>
+    <button type="button" onclick="setCatalogSubcategory('Son',this)">🔊 Son</button>
+    <button type="button" onclick="setCatalogSubcategory('Accessoires Multimédia',this)">🔌 Accessoires Multimédia</button>
   </div>
   <div id="sunglasses-brands" class="categories jewelry-audience-filters" hidden aria-label="Marques de lunettes de soleil">
     <button type="button" onclick="setSunglassesBrand('SCVCN',this)">🕶️ SCVCN</button>
@@ -1549,7 +1556,7 @@ const products = [
   name: "Étui de téléphone Demon Slayer pour Samsung Galaxy",
   price: 1000,
   cat: "Multimédia & Téléphonie",
-  subcat: "Étuis téléphone",
+  subcat: "Accessoires Téléphonie",
   image: "images/etui-demon-slayer-samsung-id79.png",
   emoji: "📱",
 
@@ -1588,7 +1595,7 @@ const products = [
   name: " Étui de protection Demons Hot Slayers compatible iPhone",
   price: 1000,
   cat: "Multimédia & Téléphonie",
-    subcat: "Étuis téléphone",
+    subcat: "Accessoires Téléphonie",
   image: "images/etui-demons-hot-slayers-id78.png",
   emoji: "📱",
   desc: "Étui de protection Demons Hot Slayers au design anime, compatible avec de nombreux modèles iPhone. ✨📱",
@@ -1815,7 +1822,7 @@ const products = [
   name: "Mini haut-parleur Bluetooth 5.3 sans fil",
   price: 6500,
   cat: "Multimédia & Téléphonie",
-    subcat: "Enceintes Bluetooth",
+    subcat: "Son",
   image: "images/mini-haut-parleur-bluetooth.png",
   emoji: "🔊",
   colors: [
@@ -1833,7 +1840,7 @@ const products = [
   name: "MLOVE E80 Enceinte Bluetooth Portable",
   price: 14500,
   cat: "Multimédia & Téléphonie",
-    subcat: "Enceintes Bluetooth",
+    subcat: "Son",
   image: "images/mlove-e80.png",
   emoji: "🔊",
   desc: "La MLOVE E80 délivre 30W de puissance avec Bluetooth 5.4, TWS stéréo et un son immersif aux basses profondes. ✨ Son éclairage RGB synchronisé avec la musique crée une ambiance unique. Étanche IPX7 et résistante à la poussière IP6X, elle est idéale pour la plage, les soirées et les activités en extérieur. 🌴🎶 Puissante, compacte et prête à faire vibrer vos moments ! 🔥"
@@ -1988,6 +1995,7 @@ const products = [
     name: "Câble de chargeur USB 3 en 1",
     price: 1000,
     cat: "Multimédia & Téléphonie",
+  subcat: "Accessoires Multimédia",
     image: "images/cable-3-en-1.png",
     emoji: "🔌",
     desc: "Câble de chargeur 3 en 1 Type-C, Micro-USB et iPhone, longueur 1,20 m.",
@@ -2162,15 +2170,17 @@ const products = [
     name: "Montre connectée Sport noire",
     price: 9500,
     cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
     image: "images/montre-sport-noire.png",
     emoji: "⌚",
     desc: "Montre connectée sport avec bracelet noir."
   },
   {
     id: 22,
-    name: "Montre connectée Sport kaki",
+    name: "Montre connectée Sport verte",
     price: 9500,
     cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
     image: "images/montre-sport-verte.png",
     emoji: "⌚",
     desc: "Montre connectée sport avec bracelet kaki."
@@ -2180,6 +2190,7 @@ const products = [
     name: "Montre connectée Sport marron",
     price: 9500,
     cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
     image: "images/montre-sport-marron.png",
     emoji: "⌚",
     desc: "Montre connectée sport avec bracelet marron."
@@ -2189,6 +2200,7 @@ const products = [
     name: "Montre connectée noire",
     price: 5500,
     cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
     image: "images/montre-connectee-noire.png",
     emoji: "⌚",
     desc: "Montre connectée élégante avec bracelet noir."
@@ -2198,6 +2210,7 @@ const products = [
     name: "Montre connectée argentée",
     price: 5500,
     cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
     image: "images/montre-connectee-argentee.png",
     emoji: "⌚",
     desc: "Montre connectée élégante avec bracelet argenté."
@@ -2207,6 +2220,7 @@ const products = [
     name: "Montre connectée rose",
     price: 5500,
     cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
     image: "images/montre-connectee-rose.png",
     emoji: "⌚",
     desc: "Montre connectée élégante avec bracelet rose."
@@ -2329,7 +2343,7 @@ const products = [
     name: "Pompe à Air Électrique Portable",
     price: 3000,
     cat: "Sports & Loisirs",
-    subcat: "Plein air & Outdoor",
+    subcat: "Plein air & auto",
     image: "images/pompe-a-air.png",
     emoji: "💨",
     desc: "Pompe à air électrique portable rechargeable USB-C, batterie 1500mAh, pression jusqu'à 4000 Pa et 3 embouts."
@@ -2413,6 +2427,7 @@ const products = [
   name: "Chargeur USB C PD Charge rapide 3.0",
   price: 1000,
   cat: "Multimédia & Téléphonie",
+  subcat: "Accessoires Multimédia",
   image: "images/chargeur-usb-c-pd.png",
   desc: "Chargeur rapide USB C PD 3.0 avec ports USB et Type-C. Compatible avec les smartphones, iPhone et autres appareils USB."
 },
@@ -2421,7 +2436,7 @@ const products = [
   name: "Casquette de baseball en maille",
   price: 1500,
   cat: "Vêtements & Accessoires",
-  subcat: "Casquettes",
+  subcat: "Accessoires Multimédia",
   image: "images/casquette-maille.png",
   emoji: "🧢",
   desc: "Casquette de baseball en maille complète mixte, style casual, disponible en divers coloris.",
@@ -2744,7 +2759,7 @@ const products = [
   name: "Hamac deux personnes pour usage extérieur",
   price: 10500,
   cat: "Sports & Loisirs",
-  subcat: "Plein air & Outdoor",
+  subcat: "Plein air & auto",
   image: "images/hamac-double-moustiquaire.png",
   emoji: "🏕️",
   desc: "🌿 Hamac double 290 × 140 cm avec moustiquaire intégrée. Confortable, résistant et facile à installer, idéal pour 2 adultes en camping, randonnée, jardin ou terrasse. 🏕️✨",
@@ -2824,6 +2839,7 @@ const products = [
   name: "Montre connectée sportive 1,83” avec suivi santé, appels Bluetooth et étanchéité, compatible iOS et Android",
   price: 5000,
   cat: "Multimédia & Téléphonie",
+  subcat: "Montres connectées",
   image: "images/montre-connectee-sportive-95.png",
   emoji: "⌚",
   desc: `⌚ Montre connectée 1,83" – Élégance et performance au quotidien
@@ -2841,7 +2857,7 @@ Le compagnon connecté idéal pour allier sport, santé et style au quotidien !`
     name: "Casquette Dragon Ball Z Son Goku – Style Hip-Hop, Visière Soleil et Réglable",
     price: 2000,
     cat: "Vêtements & Accessoires",
-  subcat: "Casquettes",
+  subcat: "Montres connectées",
     image: "images/casquette-dragon-ball-z-96.png",
     emoji: "🧢",
     desc: `🧢 Casquette Dragon Ball Z Son Goku – Brodée, Réglable et Respirante, Style Hip-Hop Unisexe.
@@ -3069,7 +3085,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Mini Pompe à Air Électrique 150 PSI avec Écran Digital",
   price: 9500,
   cat: "Sports & Loisirs",
-  subcat: "Accessoires vélo et gonflage",
+  subcat: "Plein air & auto",
   image: "images/mini-pompe-air-id110.png",
   emoji: "🚴",
 
@@ -3080,7 +3096,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Support Téléphone Pliable Universel – 7 Couleurs",
   price: 500,
   cat: "Multimédia & Téléphonie",
-  subcat: "Supports téléphone et tablette",
+  subcat: "Accessoires Multimédia",
   image: "images/support-telephone-id111.png",
   emoji: "📱",
 
@@ -3101,7 +3117,7 @@ Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles
   name: "Hub USB-C 8 en 2 – Adaptateur Multifonction",
   price: 3000,
   cat: "Multimédia & Téléphonie",
-  subcat: "Hubs et adaptateurs",
+  subcat: "Accessoires Multimédia",
   image: "images/hub-usbc-8-en-2-id112.png",
   emoji: "💻",
 
@@ -3233,6 +3249,7 @@ Distributeur pratique d’eau et de croquettes avec compartiments séparés, id�
   name: "Mini Enceinte Bluetooth 5.3 Portable 3W – Étanche, Compacte & Puissante 🔊",
   price: 5000,
   cat: "Multimédia & Téléphonie",
+  subcat: "Son",
   image: "images/enceinte-bluetooth-compacte-tout-terrain.png",
   desc: `🔊 **Profitez de votre musique partout avec cette mini enceinte Bluetooth portable !**
 
@@ -3357,9 +3374,11 @@ function setCategory(c,btn){
   document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
   const clothingFilters=document.getElementById("clothing-subcategories");
   const sportsFilters=document.getElementById("sports-subcategories");
+  const multimediaFilters=document.getElementById("multimedia-subcategories");
   if(clothingFilters) clothingFilters.hidden=(c!=="Vêtements & Accessoires");
   if(sportsFilters) sportsFilters.hidden=(c!=="Sports & Loisirs");
-  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  if(multimediaFilters) multimediaFilters.hidden=(c!=="Multimédia & Téléphonie");
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button, #multimedia-subcategories button").forEach(b=>b.classList.remove("active"));
   const audienceFilters=document.getElementById("jewelry-audience-filters");
   const beautyFilters=document.getElementById("beauty-audience-filters");
   if(audienceFilters) audienceFilters.hidden=(c!=="Bijoux");
@@ -3381,7 +3400,7 @@ function setCatalogSubcategory(subcategory,btn){
   if(brandFilters) brandFilters.hidden=!(catalogSubcategory === "Lunette de soleil");
   document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
   currentPage = 1;
-  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button, #multimedia-subcategories button").forEach(b=>b.classList.remove("active"));
   if(catalogSubcategory && btn) btn.classList.add("active");
   renderProducts();
 }
@@ -3430,8 +3449,10 @@ function applyCatalogFilters(){
   if(category!=="Vêtements & Accessoires" && category!=="Sports & Loisirs") catalogSubcategory="";
   const clothingFilters=document.getElementById("clothing-subcategories");
   const sportsFilters=document.getElementById("sports-subcategories");
+  const multimediaFilters=document.getElementById("multimedia-subcategories");
   if(clothingFilters) clothingFilters.hidden=(category!=="Vêtements & Accessoires");
   if(sportsFilters) sportsFilters.hidden=(category!=="Sports & Loisirs");
+  if(multimediaFilters) multimediaFilters.hidden=(category!=="Multimédia & Téléphonie");
   const jewelryFilters=document.getElementById("jewelry-audience-filters");
   const beautyFilters=document.getElementById("beauty-audience-filters");
   if(jewelryFilters) jewelryFilters.hidden=(category!=="Bijoux");
@@ -3450,9 +3471,11 @@ function resetCatalogFilters(){
   document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
   const clothingFilters=document.getElementById("clothing-subcategories");
   const sportsFilters=document.getElementById("sports-subcategories");
+  const multimediaFilters=document.getElementById("multimedia-subcategories");
   if(clothingFilters) clothingFilters.hidden=true;
   if(sportsFilters) sportsFilters.hidden=true;
-  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  if(multimediaFilters) multimediaFilters.hidden=true;
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button, #multimedia-subcategories button").forEach(b=>b.classList.remove("active"));
   jewelryAudience="";
   beautyAudience="";
   const audienceFilters=document.getElementById("jewelry-audience-filters");
