@@ -1336,6 +1336,10 @@ document.addEventListener("DOMContentLoaded", function () {
   <div id="sports-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Sports et loisirs">
     <button type="button" onclick="setCatalogSubcategory('Lunette de soleil',this)">🕶️ Lunette de soleil</button>
   </div>
+  <div id="sunglasses-brands" class="categories jewelry-audience-filters" hidden aria-label="Marques de lunettes de soleil">
+    <button type="button" onclick="setSunglassesBrand('SCVCN',this)">🕶️ SCVCN</button>
+    <button type="button" onclick="setSunglassesBrand('Autres marques',this)">😎 Autres marques</button>
+  </div>
 
   <div id="catalog-filter-box" class="catalog-filter-box">
     <div class="catalog-filter-title">🔎 Filtrer le catalogue</div>
@@ -3359,6 +3363,7 @@ let category="";
 let jewelryAudience="";
 let beautyAudience="";
 let catalogSubcategory="";
+let sunglassesBrand="";
 let cart=[];
 let currentPage=1;
 const productsPerPage=8;
@@ -3373,6 +3378,10 @@ function setCategory(c,btn){
   jewelryAudience="";
   beautyAudience="";
   catalogSubcategory="";
+  sunglassesBrand="";
+  const brandFilters=document.getElementById("sunglasses-brands");
+  if(brandFilters) brandFilters.hidden=true;
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
   const clothingFilters=document.getElementById("clothing-subcategories");
   const sportsFilters=document.getElementById("sports-subcategories");
   if(clothingFilters) clothingFilters.hidden=(c!=="Vêtements & Accessoires");
@@ -3394,9 +3403,21 @@ function setCategory(c,btn){
 
 function setCatalogSubcategory(subcategory,btn){
   catalogSubcategory = catalogSubcategory === subcategory ? "" : subcategory;
+  sunglassesBrand = "";
+  const brandFilters=document.getElementById("sunglasses-brands");
+  if(brandFilters) brandFilters.hidden=!(catalogSubcategory === "Lunette de soleil");
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
   currentPage = 1;
   document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
   if(catalogSubcategory && btn) btn.classList.add("active");
+  renderProducts();
+}
+
+function setSunglassesBrand(brand,btn){
+  sunglassesBrand = sunglassesBrand === brand ? "" : brand;
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
+  if(sunglassesBrand && btn) btn.classList.add("active");
+  currentPage=1;
   renderProducts();
 }
 
@@ -3450,6 +3471,10 @@ function applyCatalogFilters(){
 
 function resetCatalogFilters(){
   catalogSubcategory="";
+  sunglassesBrand="";
+  const brandFilters=document.getElementById("sunglasses-brands");
+  if(brandFilters) brandFilters.hidden=true;
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
   const clothingFilters=document.getElementById("clothing-subcategories");
   const sportsFilters=document.getElementById("sports-subcategories");
   if(clothingFilters) clothingFilters.hidden=true;
@@ -3511,6 +3536,11 @@ function renderProducts(){
     }
 
     if (catalogSubcategory && p.subcat !== catalogSubcategory) return false;
+    if (sunglassesBrand) {
+      const isSCVCN = /SCVCN/i.test(String(p.name || ""));
+      if (sunglassesBrand === "SCVCN" && !isSCVCN) return false;
+      if (sunglassesBrand === "Autres marques" && isSCVCN) return false;
+    }
 
     if (jewelryAudience && p.cat === "Bijoux" && p.audience !== jewelryAudience) return false;
     if (beautyAudience && p.cat === "Beauté" && p.audience !== beautyAudience) return false;
