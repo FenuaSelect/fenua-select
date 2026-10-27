@@ -1332,6 +1332,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <div id="clothing-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Vêtements et accessoires">
     <button type="button" onclick="setCatalogSubcategory('Casquettes',this)">🧢 Casquettes</button>
+    <button type="button" onclick="setCatalogSubcategory('T-Shirts',this)">👕 T-Shirts</button>
+    <button type="button" onclick="setCatalogSubcategory('Accessoires',this)">🎒 Accessoires</button>
   </div>
   <div id="sports-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Sports et loisirs">
     <button type="button" onclick="setCatalogSubcategory('Lunette de soleil',this)">🕶️ Lunette de soleil</button>
@@ -2284,6 +2286,7 @@ const products = [
   {
     id: 36,
     cat: "Vêtements & Accessoires",
+    subcat: "T-Shirts",
     price: 3500,
     name: "T-shirt ECKO 2026 Rhinocéros Rouge H/F",
     desc: "Adoptez le style américain avec le T-shirt ECKO 2026 ! 🦏 Motif rhinocéros rouge audacieux, pur coton confortable et look hip-hop tendance. Unisexe, idéal pour hommes et femmes. Affirmez votre style streetwear dès maintenant !",
@@ -2391,6 +2394,7 @@ const products = [
   name: "Boîte à lunettes compacte",
   price: 500,
   cat: "Vêtements & Accessoires",
+  subcat: "Accessoires",
   image: "images/boite-a-lunettes.png",
   emoji: "🕶️",
   desc: "Boîte à lunettes compacte et pratique, avec fermeture zippée, lanière ajustable et crochet d’attache. Disponible en plusieurs coloris, elle protège facilement vos lunettes au quotidien ou en voyage.",
@@ -2553,7 +2557,7 @@ const products = [
     name: "Portefeuille Demons Slayers",
     price: 1000,
     cat: "Vêtements & Accessoires",
-    subcat: "Cadeau",
+    subcat: "Accessoires",
     image: "images/portefeuille-demons-slayers.png",
     emoji: "👛",
     colors: [
@@ -2570,7 +2574,7 @@ const products = [
     name: "Sac à dos à cordon Demon Slayer",
     price: 1000,
     cat: "Vêtements & Accessoires",
-    subcat: "Cadeau",
+    subcat: "Accessoires",
     image: "images/sac-cordon-demon-slayer.png",
     emoji: "🎒",
     colors: [
