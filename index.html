@@ -1044,6 +1044,53 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 @media(max-width:520px){.pagination{gap:5px;margin:18px 0 24px}.pagination .page-btn{min-width:34px;min-height:36px;padding:7px 10px;font-size:13px}}
 </style>
 
+
+<style id="fenua-premium-category-buttons-2026">
+/* Boutons catégories et sous-catégories — finition premium */
+.categories{display:flex!important;align-items:center!important;gap:10px!important;flex-wrap:wrap!important;margin:20px 0!important}
+.categories button{position:relative!important;isolation:isolate!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;min-height:44px!important;padding:11px 17px!important;border:1px solid rgba(148,163,184,.24)!important;border-radius:14px!important;background:linear-gradient(145deg,rgba(18,30,49,.98),rgba(6,14,29,.98))!important;color:#e8f1ff!important;font-size:13px!important;font-weight:800!important;letter-spacing:.1px!important;line-height:1.25!important;box-shadow:0 4px 12px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.055)!important;cursor:pointer!important;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease,color .2s ease!important; -webkit-tap-highlight-color:transparent}
+.categories button:hover{transform:translateY(-2px)!important;border-color:rgba(32,234,255,.65)!important;background:linear-gradient(135deg,rgba(13,43,68,.98),rgba(13,23,48,.98))!important;color:#fff!important;box-shadow:0 7px 18px rgba(0,0,0,.25),0 0 0 1px rgba(32,234,255,.08),0 0 18px rgba(32,234,255,.12)!important}
+.categories button:focus-visible{outline:3px solid rgba(32,234,255,.8)!important;outline-offset:3px!important}
+.categories button.active{border-color:#20eaff!important;background:linear-gradient(120deg,#087fbd,#2457d9 58%,#6539cf)!important;color:#fff!important;box-shadow:0 6px 18px rgba(12,110,220,.25),0 0 0 1px rgba(32,234,255,.18),0 0 20px rgba(32,234,255,.2)!important}
+/* Les catégories principales sont plus affirmées que les filtres secondaires */
+.categories:not(.jewelry-audience-filters) button{min-height:48px!important;padding:12px 18px!important;border-radius:15px!important;font-size:13.5px!important;border-color:rgba(32,234,255,.22)!important;background:linear-gradient(145deg,rgba(13,28,49,.98),rgba(4,12,26,.98))!important}
+.categories:not(.jewelry-audience-filters) button.active{background:linear-gradient(115deg,#007fae,#1767e8 58%,#7838d5)!important;border-color:rgba(70,239,255,.95)!important;box-shadow:0 7px 20px rgba(0,105,220,.25),0 0 22px rgba(32,234,255,.2)!important}
+.jewelry-audience-filters{gap:8px!important;margin-top:10px!important;padding:12px!important;border:1px solid rgba(32,234,255,.11)!important;border-radius:18px!important;background:linear-gradient(135deg,rgba(5,15,30,.55),rgba(13,20,42,.45))!important}
+.jewelry-audience-filters button{min-height:39px!important;padding:9px 14px!important;border-radius:999px!important;font-size:12.5px!important;background:rgba(15,28,47,.94)!important;border-color:rgba(148,163,184,.22)!important}
+@media(max-width:600px){.categories{gap:7px!important;margin:14px 0!important}.categories button,.categories:not(.jewelry-audience-filters) button{min-height:40px!important;padding:9px 12px!important;border-radius:12px!important;font-size:11.5px!important;gap:6px!important}.jewelry-audience-filters{padding:9px!important;gap:6px!important}.jewelry-audience-filters button{min-height:36px!important;padding:8px 11px!important;font-size:11px!important}}
+@media(prefers-reduced-motion:reduce){.categories button{transition:none!important}.categories button:hover{transform:none!important}}
+</style>
+
+
+<style id="fenua-uppercase-category-labels">
+/* Typographie nette et professionnelle pour catégories et sous-catégories */
+.categories button{
+  text-transform:uppercase!important;
+  letter-spacing:1.05px!important;
+  font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif!important;
+  font-weight:850!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.categories:not(.jewelry-audience-filters) button{
+  letter-spacing:1.15px!important;
+  font-size:12.5px!important;
+  font-weight:900!important;
+}
+.jewelry-audience-filters button{
+  letter-spacing:.75px!important;
+  font-size:11px!important;
+  font-weight:800!important;
+}
+.categories button.active{
+  text-shadow:0 1px 1px rgba(0,0,0,.15)!important;
+}
+@media(max-width:600px){
+  .categories button,.categories:not(.jewelry-audience-filters) button{font-size:10.5px!important;letter-spacing:.7px!important}
+  .jewelry-audience-filters button{font-size:10px!important;letter-spacing:.45px!important}
+}
+</style>
+
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
