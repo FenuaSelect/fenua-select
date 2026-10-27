@@ -4847,5 +4847,72 @@ updateCart();
 }
 </style>
 
+
+
+<style id="fenua-boutons-achat-premium">
+/* Boutons d’achat premium — ne modifie pas les descriptions ni leur typographie */
+.product .product-bottom button[onclick^="add("],
+.product .product-bottom button[onclick*="add("] {
+  position:relative !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+  min-height:42px !important;
+  height:auto !important;
+  min-width:94px !important;
+  padding:10px 17px !important;
+  border:1px solid rgba(105,238,255,.72) !important;
+  border-radius:12px !important;
+  background:linear-gradient(115deg,#087cf0 0%,#0759d8 52%,#6338e8 100%) !important;
+  color:#fff !important;
+  font-family:inherit !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+  letter-spacing:.45px !important;
+  line-height:1.2 !important;
+  text-transform:uppercase !important;
+  white-space:normal !important;
+  box-shadow:0 5px 16px rgba(0,105,255,.24),inset 0 1px 0 rgba(255,255,255,.22) !important;
+  cursor:pointer !important;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease !important;
+}
+.product .product-bottom button[onclick^="add("]:not(:disabled):hover,
+.product .product-bottom button[onclick*="add("]:not(:disabled):hover {
+  transform:translateY(-2px) !important;
+  filter:brightness(1.1) !important;
+  box-shadow:0 9px 22px rgba(0,140,255,.34),0 0 0 3px rgba(53,217,255,.09),inset 0 1px 0 rgba(255,255,255,.25) !important;
+}
+.product .product-bottom button[onclick^="add("]:not(:disabled):active,
+.product .product-bottom button[onclick*="add("]:not(:disabled):active {
+  transform:translateY(0) scale(.98) !important;
+}
+.product .product-bottom button[onclick^="add("]:disabled,
+.product .product-bottom button[onclick*="add("]:disabled,
+.product .product-bottom button.out-of-stock-btn {
+  border-color:rgba(160,174,192,.3) !important;
+  background:linear-gradient(110deg,#3b4655,#283343) !important;
+  color:#e1e7ef !important;
+  box-shadow:none !important;
+  cursor:not-allowed !important;
+  text-transform:uppercase !important;
+}
+@media(max-width:600px){
+  .product .product-bottom button[onclick^="add("],
+  .product .product-bottom button[onclick*="add("] {
+    min-width:0 !important;
+    min-height:36px !important;
+    padding:8px 10px !important;
+    border-radius:10px !important;
+    font-size:10px !important;
+    letter-spacing:.25px !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .product .product-bottom button[onclick^="add("],
+  .product .product-bottom button[onclick*="add("] {transition:none !important;}
+}
+</style>
+
 </body>
 </html>
