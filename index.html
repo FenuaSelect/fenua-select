@@ -8,6 +8,4718 @@
 button.preorder-btn{
   background:linear-gradient(135deg,#c62828,#e53935,#b71c1c);
   color:#fff;
+
+
+<!doctype html>
+<html lang="fr">
+<style>
+/* ===== BOUTON PRÉCOMMANDE NOËL ===== */
+button.preorder-btn{
+  background:linear-gradient(135deg,#c62828,#e53935,#b71c1c);
+  color:#fff;
+  border:2px solid #ffd700;
+  box-shadow:0 4px 14px rgba(198,40,40,.35);
+  font-weight:800;
+}
+
+button.preorder-btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+  box-shadow:0 6px 18px rgba(198,40,40,.5);
+}
+</style>
+  <style>
+.cart-item-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+}
+
+.remove-cart-btn{
+  border:0;
+  border-radius:8px;
+  padding:7px 10px;
+  background:#e53935;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.remove-cart-btn:hover{
+  filter:brightness(1.08);
+}
+</style>
+  <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YB8R9S44PJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YB8R9S44PJ');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fenua Select | La qualité • Le choix • Le prix</title>
+<meta name="description" content="Fenua Select - La qualité • Le choix • Le prix. Découvrez notre sélection de produits à Tahiti.">
+<link rel="stylesheet" href="style.css">
+
+<style id="commande-premium-2026">
+/* ===== PRESENTATION PREMIUM DE LA ZONE COMMANDE ===== */
+#commande.order-section{
+  padding-top:58px !important;
+  padding-bottom:65px !important;
+}
+#commande .section-head{
+  margin-bottom:24px !important;
+}
+#commande .order-layout{
+  width:min(1180px,100%) !important;
+  margin:0 auto !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr) !important;
+  gap:22px !important;
+  align-items:start !important;
+}
+#commande .order-card,
+#commande .order-form{
+  min-width:0 !important;
+  padding:20px !important;
+  box-sizing:border-box !important;
+}
+#commande .order-card{
+  overflow:hidden !important;
+}
+#commande #orderSummary{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:0 !important;
+}
+#commande .order-line{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  gap:16px !important;
+  align-items:center !important;
+  padding:15px 2px !important;
+  border-bottom:1px solid rgba(255,255,255,.08) !important;
+  line-height:1.45 !important;
+}
+#commande .order-line > span{
+  min-width:0 !important;
+  color:#dfe7f1 !important;
+}
+#commande .order-line > span strong{
+  display:block !important;
+  color:#fff !important;
+  font-size:15px !important;
+  margin-bottom:3px !important;
+}
+#commande .order-line > span small{
+  color:#94a4b7 !important;
+  font-size:12px !important;
+}
+#commande .order-line > strong{
+  white-space:nowrap !important;
+  color:#fff !important;
+  font-size:15px !important;
+}
+#commande .preorder-info{
+  margin-top:16px !important;
+  padding:17px 18px !important;
+  border-radius:14px !important;
+  border:1px solid rgba(255,209,102,.32) !important;
+  background:linear-gradient(135deg,rgba(58,38,13,.48),rgba(18,16,13,.88)) !important;
+  box-shadow:0 8px 25px rgba(0,0,0,.18) !important;
+}
+#commande .preorder-title{
+  font-size:16px !important;
+  margin-bottom:10px !important;
+  color:#ffd166 !important;
+}
+#commande .preorder-line{
+  padding:5px 0 !important;
+  font-size:14px !important;
+  color:#eef3f8 !important;
+}
+#commande .preorder-warning{
+  margin-top:10px !important;
+  padding-top:10px !important;
+  border-top:1px solid rgba(255,255,255,.08) !important;
+  font-size:12px !important;
+  line-height:1.5 !important;
+  color:#ffc9c9 !important;
+}
+#commande .total{
+  margin-top:18px !important;
+  padding:17px 18px !important;
+  border-radius:14px !important;
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+  background:linear-gradient(135deg,#101d2a,#0b1119) !important;
+  border:1px solid rgba(57,231,255,.20) !important;
+}
+#commande .total span{
+  color:#aebdcd !important;
+  font-weight:700 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.7px !important;
+}
+#commande .total strong{
+  color:#fff !important;
+  font-size:22px !important;
+  font-weight:900 !important;
+}
+#commande .order-form{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+}
+#commande .order-form input,
+#commande .order-form textarea,
+#commande .order-form select{
+  width:100% !important;
+  min-height:45px !important;
+  box-sizing:border-box !important;
+  padding:11px 13px !important;
+}
+#commande .order-form textarea{
+  min-height:92px !important;
+  resize:vertical !important;
+}
+#commande .delivery-info{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+  margin-top:2px !important;
+}
+#commande .delivery-info label{
+  font-size:13px !important;
+  color:#dbe5ef !important;
+}
+#commande .order-form button[type="submit"]{
+  width:100% !important;
+  min-height:48px !important;
+  margin-top:2px !important;
+  border-radius:11px !important;
+  font-weight:900 !important;
+}
+#commande .order-form .small{
+  margin:2px 0 0 !important;
+  color:#8f9dae !important;
+  font-size:11px !important;
+  line-height:1.5 !important;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  #commande .order-layout{
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+}
+@media(max-width:600px){
+  #commande .order-card,
+  #commande .order-form{
+    padding:15px !important;
+  }
+  #commande .order-line{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    gap:10px !important;
+    padding:13px 0 !important;
+  }
+  #commande .order-line > span strong{
+    font-size:13px !important;
+  }
+  #commande .order-line > strong{
+    font-size:13px !important;
+  }
+  #commande .preorder-info{
+    padding:14px !important;
+  }
+  #commande .total strong{
+    font-size:19px !important;
+  }
+}
+</style>
+
+<style id="panier-premium-2026">
+/* ===== PANIER PREMIUM FENUA SELECT ===== */
+#cartModal .modal-content{
+  max-width:560px;
+  width:min(94vw,560px);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 22px 70px rgba(0,0,0,.32);
+}
+#cartModal .modal-header{
+  padding:20px 22px 16px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+#cartModal .modal-header h3{
+  margin:0;
+  font-size:1.35rem;
+  letter-spacing:.2px;
+}
+#cartModal #modalItems{
+  padding:8px 18px 4px;
+  max-height:48vh;
+  overflow-y:auto;
+}
+#cartModal #modalItems > div{
+  display:grid !important;
+  grid-template-columns:58px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:12px 2px;
+  border-bottom:1px solid rgba(0,0,0,.07);
+}
+#cartModal #modalItems img{
+  width:58px !important;
+  height:58px !important;
+  object-fit:cover;
+  border-radius:12px;
+  background:#f3f3f3;
+}
+#cartModal .preorder-info{
+  margin:12px 18px 8px !important;
+  padding:15px 16px !important;
+  border-radius:16px !important;
+  background:linear-gradient(135deg,#fff8e7,#fffdf7) !important;
+  border:1px solid rgba(190,140,30,.25) !important;
+  line-height:1.55 !important;
+}
+#cartModal .preorder-info strong{
+  font-weight:800;
+}
+#cartModal .total{
+  margin:12px 18px !important;
+  padding:17px 18px !important;
+  border-radius:16px !important;
+  background:#f5f7f9 !important;
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:center !important;
+}
+#cartModal .total span{
+  font-size:.95rem;
+  font-weight:700;
+}
+#cartModal .total strong{
+  font-size:1.35rem;
+  font-weight:900;
+}
+#cartModal .modal-actions{
+  padding:14px 18px 18px !important;
+  gap:10px !important;
+}
+#cartModal .modal-actions button{
+  min-height:46px;
+  border-radius:12px;
+  font-weight:800;
+}
+@media(max-width:600px){
+  #cartModal .modal-content{width:96vw;border-radius:20px}
+  #cartModal #modalItems{padding-left:14px;padding-right:14px;max-height:45vh}
+  #cartModal #modalItems > div{grid-template-columns:52px 1fr auto;gap:9px}
+  #cartModal #modalItems img{width:52px !important;height:52px !important}
+  #cartModal .preorder-info{margin-left:14px !important;margin-right:14px !important}
+  #cartModal .total{margin-left:14px !important;margin-right:14px !important}
+  #cartModal .modal-actions{padding-left:14px !important;padding-right:14px !important}
+}
+</style>
+
+<style>
+.product-img img{width:100%;height:100%;object-fit:contain;padding:12px;box-sizing:border-box}
+.product-img{overflow:hidden}
+.product-body .pill{display:inline-block}
+</style>
+  <!-- ===== EMAILJS ===== -->
+
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+  emailjs.init({
+    publicKey: "LoKilFOBxDhU2M-r7"
+  });
+
+  // ===== GOOGLE SHEETS INTERNE =====
+  const FENUA_GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyCPeJnvn9-q0n4a0qSvGU1ETWE_zidP1qXR67hInX11mbJ9JNlU8YMiFSgZUa1D-PK/exec";
+</script>
+
+<!-- ===== FIN EMAILJS ===== -->
+
+<style>
+/* ===== QUANTITÉS PRODUITS ===== */
+.quantity-control{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:6px;
+  margin-top:10px;
+}
+.quantity-label{
+  font-weight:700;
+}
+.quantity-buttons{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.qty-btn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#43d5e8,#5865f2);
+  color:#fff;
+  font-size:24px;
+  font-weight:800;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(67,213,232,.20);
+}
+.qty-btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+}
+.qty-value{
+  min-width:24px;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+}
+.storage-select{
+  width:100%;
+}
+.product-price{
+  display:block;
+  font-size:20px;
+  font-weight:800;
+}
+</style>
+
+
+<style id="compact-product-cards">
+/* Grille uniforme : images légèrement plus grandes + textes alignés */
+.grid{
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:14px !important;
+  align-items:stretch !important;
+}
+.product{
+  width:100% !important;
+  min-width:0 !important;
+  height:100% !important;
+  min-height:375px !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  border-radius:12px !important;
+}
+.product-img{
+  flex:0 0 170px !important;
+  height:170px !important;
+  min-height:170px !important;
+  padding:7px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.product-img img{
+  width:100% !important;
+  height:100% !important;
+  max-height:158px !important;
+  object-fit:contain !important;
+}
+.product-body{
+  flex:1 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:10px !important;
+  box-sizing:border-box !important;
+}
+.product h3{
+  font-size:13px !important;
+  line-height:1.2 !important;
+  height:31px !important;
+  min-height:31px !important;
+  margin:0 0 5px !important;
+  overflow:hidden !important;
+}
+.product p{
+  /* Hauteur automatique : le cadre suit la longueur du texte */
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+
+  font-size:10.5px !important;
+  line-height:1.4 !important;
+
+  margin:0 0 8px !important;
+  padding:7px 9px !important;
+
+  display:block !important;
+
+  /* Désactive la coupure en 2 lignes */
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+
+  overflow:visible !important;
+  box-sizing:border-box !important;
+
+  background:rgba(3,8,15,.68) !important;
+  border:1px solid rgba(57,231,255,.32) !important;
+  border-radius:9px !important;
+
+  color:inherit !important;
+}
+.product .pill,
+.product .badge{
+  font-size:8px !important;
+  padding:3px 6px !important;
+}
+.product select,
+.product input{
+  min-height:30px !important;
+  height:30px !important;
+  font-size:10px !important;
+  box-sizing:border-box !important;
+}
+.product .options,
+.product .quantity,
+.product .product-actions{
+  gap:5px !important;
+  margin-top:5px !important;
+}
+.product .qty-btn,
+.product button{
+  min-height:30px !important;
+  height:30px !important;
+  padding:5px 7px !important;
+  font-size:10px !important;
+}
+.product .price,
+.product strong{
+  font-size:13px !important;
+}
+
+/* Tablette */
+@media (max-width:1100px){
+  .grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:12px !important;
+  }
+  .product{
+    min-height:365px !important;
+  }
+  .product-img{
+    flex-basis:160px !important;
+    height:160px !important;
+    min-height:160px !important;
+  }
+  .product-img img{
+    max-height:150px !important;
+  }
+}
+
+/* Mobile : 2 produits côte à côte, avec images assez grandes */
+@media (max-width:700px){
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+  .product{
+    min-height:350px !important;
+  }
+  .product-img{
+    flex-basis:135px !important;
+    height:135px !important;
+    min-height:135px !important;
+    padding:5px !important;
+  }
+  .product-img img{
+    max-height:126px !important;
+  }
+  .product-body{
+    padding:8px !important;
+  }
+  .product h3{
+    font-size:11.5px !important;
+    height:28px !important;
+    min-height:28px !important;
+  }
+  .product p{
+    /* Même principe sur mobile : hauteur selon le texte */
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+
+    font-size:9px !important;
+    line-height:1.4 !important;
+
+    margin:0 0 7px !important;
+    padding:6px 8px !important;
+
+    display:block !important;
+    -webkit-line-clamp:unset !important;
+    -webkit-box-orient:initial !important;
+
+    overflow:visible !important;
+    box-sizing:border-box !important;
+
+    background:rgba(3,8,15,.68) !important;
+    border:1px solid rgba(57,231,255,.32) !important;
+    border-radius:8px !important;
+  }
+}
+</style>
+
+
+<style id="description-adaptative-final-2026">
+/* ===== DESCRIPTION PRODUIT : CADRE ADAPTÉ AU TEXTE ===== */
+.product p{
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  display:block !important;
+  overflow:visible !important;
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+  box-sizing:border-box !important;
+  padding:7px 9px !important;
+  margin:0 0 8px !important;
+  line-height:1.4 !important;
+  background:rgba(3,8,15,.68) !important;
+  border:1px solid rgba(57,231,255,.32) !important;
+  border-radius:9px !important;
+}
+@media(max-width:700px){
+  .product p{
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    padding:6px 8px !important;
+    margin:0 0 7px !important;
+    font-size:9px !important;
+    line-height:1.4 !important;
+  }
+}
+</style>
+
+<style id="fenua-panier-commande-style-2026">
+/* =========================================================
+   FENUA SELECT • PANIER + VOTRE COMMANDE
+   Même identité visuelle que le reste du site
+   ========================================================= */
+
+:root{
+  --fs-cyan:#35d9ff;
+  --fs-cyan-soft:rgba(53,217,255,.18);
+  --fs-panel:#0b121b;
+  --fs-panel-2:#0f1823;
+  --fs-line:rgba(53,217,255,.20);
+  --fs-text:#f4f8fc;
+  --fs-muted:#93a4b8;
+}
+
+/* ---------- CARDS "VOTRE COMMANDE" ---------- */
+#commande .order-layout{
+  gap:24px !important;
+}
+
+#commande .order-card,
+#commande .order-form{
+  position:relative !important;
+  background:
+    linear-gradient(145deg,rgba(16,28,41,.98),rgba(7,13,20,.98)) !important;
+  border:1px solid var(--fs-line) !important;
+  border-radius:20px !important;
+  box-shadow:
+    0 16px 45px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.035) !important;
+  padding:24px !important;
+}
+
+#commande .order-card::before,
+#commande .order-form::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  right:22px;
+  top:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--fs-cyan),transparent);
+  opacity:.85;
+  border-radius:50%;
+}
+
+#commande .order-card h3,
+#commande .order-form h3{
+  color:#fff !important;
+  font-size:20px !important;
+  margin:0 0 18px !important;
+  letter-spacing:.2px;
+}
+
+/* lignes produits */
+#commande .order-line{
+  padding:14px 0 !important;
+  border-bottom:1px solid rgba(255,255,255,.075) !important;
+}
+
+#commande .order-line > span strong{
+  color:#fff !important;
+  font-size:15px !important;
+}
+
+#commande .order-line > span small{
+  color:var(--fs-muted) !important;
+}
+
+#commande .order-line > strong{
+  color:var(--fs-cyan) !important;
+  font-size:15px !important;
+}
+
+/* bloc précommande */
+#commande .preorder-info{
+  margin-top:18px !important;
+  border-radius:16px !important;
+  background:
+    linear-gradient(145deg,rgba(62,45,15,.55),rgba(17,18,19,.95)) !important;
+  border:1px solid rgba(255,209,102,.32) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.22) !important;
+}
+
+#commande .preorder-title{
+  color:#ffd166 !important;
+  font-weight:900 !important;
+  letter-spacing:.4px !important;
+}
+
+#commande .preorder-line{
+  color:#edf4fa !important;
+}
+
+#commande .preorder-warning{
+  color:#ffc8c8 !important;
+}
+
+/* total */
+#commande .total{
+  margin-top:18px !important;
+  border:1px solid rgba(53,217,255,.22) !important;
+  border-radius:16px !important;
+  background:
+    linear-gradient(135deg,rgba(21,45,61,.95),rgba(8,16,24,.98)) !important;
+  box-shadow:0 8px 25px rgba(0,0,0,.22) !important;
+}
+
+#commande .total span{
+  color:#a9bacb !important;
+  text-transform:uppercase !important;
+  letter-spacing:.6px !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+}
+
+#commande .total strong{
+  color:var(--fs-cyan) !important;
+  font-size:22px !important;
+  text-shadow:0 0 18px rgba(53,217,255,.22) !important;
+}
+
+/* formulaire */
+#commande .order-form label{
+  color:#dce6ef !important;
+  font-weight:700 !important;
+}
+
+#commande .order-form input,
+#commande .order-form select,
+#commande .order-form textarea{
+  background:#07101a !important;
+  color:#f4f8fc !important;
+  border:1px solid rgba(53,217,255,.18) !important;
+  border-radius:11px !important;
+}
+
+#commande .order-form input:focus,
+#commande .order-form select:focus,
+#commande .order-form textarea:focus{
+  border-color:var(--fs-cyan) !important;
+  box-shadow:0 0 0 3px rgba(53,217,255,.10) !important;
+  outline:none !important;
+}
+
+#commande .order-form button{
+  border-radius:12px !important;
+  font-weight:900 !important;
+}
+
+/* ---------- FENÊTRE "VOTRE PANIER" ---------- */
+#cartModal .modal-content{
+  background:
+    linear-gradient(145deg,#101b27,#070d14) !important;
+  color:var(--fs-text) !important;
+  border:1px solid rgba(53,217,255,.25) !important;
+  border-radius:22px !important;
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.55),
+    0 0 45px rgba(53,217,255,.07) !important;
+}
+
+#cartModal .modal-header{
+  background:linear-gradient(90deg,rgba(53,217,255,.07),transparent) !important;
+  border-bottom:1px solid rgba(53,217,255,.16) !important;
+  padding:20px 22px !important;
+}
+
+#cartModal .modal-header h3{
+  color:#fff !important;
+  font-size:20px !important;
+  font-weight:900 !important;
+}
+
+#cartModal #modalItems{
+  background:transparent !important;
+}
+
+#cartModal #modalItems > div{
+  border-bottom:1px solid rgba(255,255,255,.075) !important;
+}
+
+#cartModal #modalItems img{
+  border:1px solid rgba(53,217,255,.16) !important;
+  background:#08111a !important;
+}
+
+#cartModal .preorder-info{
+  background:
+    linear-gradient(145deg,rgba(62,45,15,.55),rgba(17,18,19,.95)) !important;
+  border:1px solid rgba(255,209,102,.32) !important;
+  color:#f4f7fa !important;
+}
+
+#cartModal .total{
+  background:
+    linear-gradient(135deg,rgba(21,45,61,.95),rgba(8,16,24,.98)) !important;
+  border:1px solid rgba(53,217,255,.22) !important;
+  color:#fff !important;
+}
+
+#cartModal .total span{
+  color:#a9bacb !important;
+  text-transform:uppercase !important;
+  letter-spacing:.6px !important;
+}
+
+#cartModal .total strong{
+  color:var(--fs-cyan) !important;
+  text-shadow:0 0 18px rgba(53,217,255,.22) !important;
+}
+
+#cartModal .modal-actions{
+  background:rgba(5,10,16,.55) !important;
+  border-top:1px solid rgba(53,217,255,.10) !important;
+}
+
+/* boutons panier */
+#cartModal .modal-actions button{
+  border-radius:12px !important;
+  font-weight:900 !important;
+}
+
+/* mobile */
+@media(max-width:760px){
+  #commande .order-card,
+  #commande .order-form{
+    border-radius:17px !important;
+    padding:18px !important;
+  }
+
+  #commande .total strong{
+    font-size:19px !important;
+  }
+
+  #cartModal .modal-content{
+    width:96vw !important;
+    border-radius:19px !important;
+  }
+}
+</style>
+
+
+<style id="cart-delete-button-2026">
+#cartModal .cart-delete-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex:0 0 auto;
+  padding:7px 10px;
+  border:1px solid rgba(255,90,90,.30);
+  border-radius:9px;
+  background:rgba(90,20,25,.35);
+  color:#ffb0b0;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+#cartModal .cart-delete-btn:hover{
+  border-color:rgba(255,90,90,.65);
+  background:rgba(120,25,30,.55);
+  color:#fff;
+}
+@media(max-width:600px){
+  #cartModal .cart-delete-btn{
+    padding:6px 8px;
+    font-size:11px;
+  }
+}
+</style>
+
+
+<style id="rupture-stock-style-2026">
+.product-img{position:relative;overflow:hidden}
+.stock-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;background:rgba(0,0,0,.08)}
+.stock-overlay img{width:82%;max-width:250px;max-height:82%;object-fit:contain;filter:drop-shadow(0 5px 12px rgba(0,0,0,.45));transform:rotate(-8deg);opacity:.94}
+.out-of-stock-btn{background:linear-gradient(135deg,#7a101c,#c9152e)!important;color:#fff!important;border:2px solid #ffb0b0!important;opacity:.9!important;cursor:not-allowed!important;box-shadow:0 4px 14px rgba(201,21,46,.25)!important}
+.out-of-stock-btn:disabled{opacity:.9!important}
+</style>
+
+<style id="description-scroll-final-2026">
+/* ===== DESCRIPTION PRODUIT : DÉFILEMENT PC + MOBILE ===== */
+.product p{
+  height:110px !important;
+  min-height:0 !important;
+  max-height:110px !important;
+  display:block !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:initial !important;
+  box-sizing:border-box !important;
+  padding:7px 9px !important;
+  margin:0 0 8px !important;
+  line-height:1.4 !important;
+  background:rgba(3,8,15,.72) !important;
+  border:1px solid rgba(57,231,255,.38) !important;
+  border-radius:9px !important;
+  scrollbar-width:thin !important;
+  scrollbar-color:#39e7ff rgba(8,14,24,.95) !important;
+}
+.product p::-webkit-scrollbar{width:7px !important;}
+.product p::-webkit-scrollbar-track{
+  background:rgba(8,14,24,.95) !important;
+  border-radius:10px;
+}
+.product p::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#39e7ff 0%,#ff3cac 55%,#ffd166 100%) !important;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 0 7px rgba(57,231,255,.9),0 0 12px rgba(255,60,172,.6);
+}
+.product p::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(180deg,#ffd166 0%,#ff3cac 50%,#39e7ff 100%) !important;
+}
+@media(max-width:700px){
+  .product p{
+    height:95px !important;
+    max-height:95px !important;
+    padding:6px 8px !important;
+    font-size:9px !important;
+    line-height:1.4 !important;
+  }
+  .product p::-webkit-scrollbar{width:6px !important;}
+}
+</style>
+
+
+
+
+
+<style id="catalog-filter-css">
+.catalog-filter-box{margin:16px 0 18px;padding:18px;border:1px solid rgba(53,217,255,.25);border-radius:16px;background:rgba(7,15,24,.92);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.catalog-filter-title{font-weight:900;font-size:17px;margin-bottom:13px;color:#fff}
+.catalog-filter-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.catalog-filter-grid label{display:flex;flex-direction:column;gap:6px;color:#cbd5e1;font-size:12px;font-weight:800}
+.catalog-filter-grid select{width:100%;min-height:42px;border-radius:10px;border:1px solid rgba(148,163,184,.25);background:#0b1420;color:#fff;padding:8px 10px}
+.catalog-filter-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:13px}
+.catalog-filter-actions button{border:0;border-radius:10px;padding:10px 15px;font-weight:900;cursor:pointer}
+.catalog-filter-actions button:first-child{background:#22c55e;color:#04130a}
+.catalog-filter-actions button:nth-child(2){background:#263447;color:#fff}
+#catalog-result-count{color:#93a4b8;font-size:12px;font-weight:700}
+@media(max-width:800px){.catalog-filter-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.catalog-filter-grid{grid-template-columns:1fr}.catalog-filter-box{padding:13px}}
+</style>
+
+<style id="responsive-banner-fenua-select">
+.banner picture{display:block;width:100%}
+.banner img{display:block;width:100%;height:auto}
+</style>
+
+<style id="fenua-social-links-neon-2026">
+/* Réseaux sociaux Fenua Select : en-tête et pied de page */
+.social-links{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.social-links a{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:13px;text-decoration:none;box-sizing:border-box;transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;border:1px solid rgba(53,217,255,.55);background:rgba(4,12,25,.9);box-shadow:0 0 12px rgba(53,217,255,.16),inset 0 0 12px rgba(53,217,255,.06)}
+.social-links a:hover{transform:translateY(-3px);filter:brightness(1.12);box-shadow:0 0 16px rgba(53,217,255,.4),0 0 22px rgba(255,60,172,.18)}
+.social-links svg{display:block;width:25px;height:25px}
+.social-links .facebook-link{border-color:rgba(24,119,242,.85);box-shadow:0 0 13px rgba(24,119,242,.3)}
+.social-links .tiktok-link{border-color:rgba(255,60,172,.7);box-shadow:0 0 13px rgba(255,60,172,.22),0 0 10px rgba(37,244,238,.15)}
+.social-links .email-link{border-color:rgba(53,217,255,.8);box-shadow:0 0 13px rgba(53,217,255,.28),0 0 10px rgba(255,60,172,.12)}
+.social-links .email-link svg{filter:drop-shadow(0 0 4px rgba(53,217,255,.55))}
+.header .social-links{margin:0 8px}
+footer .social-links{justify-content:center;margin:16px auto 10px}
+@media(max-width:760px){.header .social-links{gap:6px;margin:0 3px}.header .social-links a{width:35px;height:35px;border-radius:10px}.header .social-links svg{width:21px;height:21px}}
+@media(max-width:480px){.header .social-links a{width:31px;height:31px}.header .social-links svg{width:19px;height:19px}}
+</style>
+
+<style id="fenua-home-premium-adaptation">
+/* Présentation inspirée de la maquette fournie — bannière et fond d'origine conservés */
+:root{--fs-neon-cyan:#20eaff;--fs-neon-pink:#ff27c8;--fs-neon-blue:#237dff;--fs-neon-bg:rgba(3,12,27,.92)}
+/* Ne pas modifier .banner ni le fond global du site */
+.header{position:relative!important;z-index:50!important;display:flex!important;align-items:center!important;gap:18px!important;padding:14px clamp(14px,4vw,52px)!important;background:linear-gradient(100deg,rgba(2,9,23,.97),rgba(3,13,31,.94))!important;border-top:1px solid rgba(32,234,255,.24)!important;border-bottom:1px solid rgba(32,234,255,.35)!important;box-shadow:0 8px 28px rgba(0,0,0,.24),0 1px 18px rgba(32,234,255,.08)!important;backdrop-filter:blur(12px)}
+.header .brand{flex:0 0 auto!important}.header .brand img{max-width:155px!important;max-height:78px!important;object-fit:contain!important}
+.header nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:clamp(8px,1.5vw,24px)!important;flex:1!important;flex-wrap:wrap!important}
+.header nav a{padding:11px 13px!important;border-radius:10px!important;color:#f5f8ff!important;font-weight:800!important;text-decoration:none!important;transition:.2s ease!important;border:1px solid transparent!important}
+.header nav a:hover{color:var(--fs-neon-cyan)!important;border-color:rgba(32,234,255,.3)!important;background:rgba(32,234,255,.07)!important;box-shadow:0 0 16px rgba(32,234,255,.12)!important}
+.social-links{display:flex!important;align-items:center!important;gap:9px!important;flex-shrink:0!important}.social-links a{display:flex!important;align-items:center!important;justify-content:center!important;width:39px!important;height:39px!important;border:1px solid rgba(32,234,255,.35)!important;border-radius:12px!important;background:rgba(3,13,31,.8)!important;box-shadow:0 0 13px rgba(32,234,255,.08)!important;transition:transform .2s,box-shadow .2s!important}.social-links a svg{width:23px!important;height:23px!important}.social-links a:hover{transform:translateY(-2px)!important;box-shadow:0 0 17px rgba(32,234,255,.35)!important}
+.cart-btn{white-space:nowrap!important;border:1px solid var(--fs-neon-cyan)!important;border-radius:13px!important;background:linear-gradient(110deg,#067bff,#d900d5)!important;color:#fff!important;font-weight:900!important;box-shadow:0 0 14px rgba(32,234,255,.35),inset 0 0 12px rgba(255,255,255,.08)!important;padding:12px 18px!important}
+.section{padding-left:clamp(14px,4vw,52px)!important;padding-right:clamp(14px,4vw,52px)!important}
+.section-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;flex-wrap:wrap!important;margin-bottom:18px!important}.section-head h2{font-size:clamp(25px,3vw,34px)!important;font-weight:900!important;letter-spacing:-.5px!important}.section-head .eyebrow{color:var(--fs-neon-cyan)!important;letter-spacing:2px!important;font-weight:900!important}
+#search{min-width:min(320px,100%)!important;border:1px solid rgba(32,234,255,.35)!important;border-radius:25px!important;background:rgba(4,15,31,.9)!important;color:#fff!important;padding:13px 18px!important;box-shadow:inset 0 0 15px rgba(32,234,255,.04)!important}
+.categories{display:flex!important;gap:9px!important;flex-wrap:wrap!important;margin:18px 0!important}.categories button{border:1px solid rgba(32,234,255,.18)!important;border-radius:24px!important;background:rgba(5,18,37,.86)!important;color:#eaf5ff!important;padding:10px 15px!important;font-weight:800!important;transition:.2s ease!important}.categories button:hover,.categories button.active{border-color:var(--fs-neon-cyan)!important;background:linear-gradient(110deg,#04bce9,#196cff)!important;color:white!important;box-shadow:0 0 17px rgba(32,234,255,.42)!important}
+.catalog-filter-box{border:1px solid rgba(32,234,255,.25)!important;border-radius:17px!important;background:linear-gradient(135deg,rgba(5,17,36,.94),rgba(9,10,31,.91))!important;box-shadow:0 10px 28px rgba(0,0,0,.18)!important}.catalog-filter-title{color:#fff!important}.catalog-filter-grid label{color:#dbeafe!important}.catalog-filter-grid select{border-color:rgba(32,234,255,.25)!important;border-radius:10px!important;background:#071326!important;color:#fff!important}.catalog-filter-actions button:first-child{background:linear-gradient(100deg,#00cfff,#2176ff)!important;color:#fff!important;box-shadow:0 0 14px rgba(32,234,255,.18)!important}.catalog-filter-actions button:nth-child(2){border:1px solid rgba(255,255,255,.14)!important;background:#14243a!important}
+.grid{gap:13px!important;align-items:stretch!important}.product{position:relative!important;min-height:0!important;border:1px solid rgba(32,234,255,.32)!important;border-radius:15px!important;background:linear-gradient(155deg,rgba(7,22,42,.98),rgba(2,9,20,.98))!important;box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04)!important;transition:transform .2s,border-color .2s,box-shadow .2s!important}.product:hover{transform:translateY(-3px)!important;border-color:var(--fs-neon-cyan)!important;box-shadow:0 12px 28px rgba(0,0,0,.32),0 0 17px rgba(32,234,255,.12)!important}.product-img{flex-basis:170px!important;height:170px!important;min-height:170px!important;background:radial-gradient(ellipse at center,rgba(20,91,170,.2),transparent 72%)!important}.product-body{padding:12px!important}.product h3{font-size:14px!important;line-height:1.3!important;height:auto!important;min-height:35px!important;color:#f7fbff!important}.product p{font-size:11px!important;color:#b9cbe0!important;border-color:rgba(32,234,255,.22)!important;background:rgba(2,9,20,.72)!important}.product .product-price,.product .price,.product strong{color:#fff!important}.product button,.product .qty-btn{border:0!important;border-radius:22px!important;background:linear-gradient(100deg,#ed00b9,#087df7,#00cfe8)!important;color:white!important;font-weight:900!important;box-shadow:0 3px 12px rgba(0,190,255,.14)!important}.product .pill,.product .badge{border-radius:20px!important}
+.promo{margin:24px clamp(14px,4vw,52px)!important;padding:24px!important;border:1px solid rgba(32,234,255,.35)!important;border-radius:18px!important;background:linear-gradient(110deg,rgba(5,20,44,.96),rgba(32,5,48,.92))!important;box-shadow:0 12px 30px rgba(0,0,0,.22)!important}.promo h2{color:#fff!important}.promo p{color:#d6e7fa!important}.cta{border:1px solid rgba(255,255,255,.2)!important;border-radius:25px!important;background:linear-gradient(100deg,#f000b9,#a600ff,#00c9ed)!important;color:#fff!important;font-weight:900!important;box-shadow:0 0 17px rgba(230,0,210,.22)!important;transition:transform .2s,filter .2s!important}.cta:hover{transform:translateY(-2px)!important;filter:brightness(1.1)!important}
+footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,20,.92)!important}
+@media(max-width:900px){.header{flex-wrap:wrap!important;justify-content:space-between!important}.header nav{order:3!important;flex-basis:100%!important}.header .brand img{max-width:125px!important;max-height:62px!important}.social-links{margin-left:auto!important}}
+@media(max-width:600px){.header{gap:10px!important;padding:10px 12px!important}.header nav{gap:4px!important}.header nav a{padding:8px 9px!important;font-size:12px!important}.social-links{gap:5px!important}.social-links a{width:34px!important;height:34px!important}.social-links a svg{width:20px!important;height:20px!important}.cart-btn{padding:9px 11px!important;font-size:12px!important}.section-head{align-items:stretch!important}.section-head #search{width:100%!important;min-width:0!important}.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.product{border-radius:12px!important}.product-img{flex-basis:125px!important;height:125px!important;min-height:125px!important}.product-body{padding:8px!important}.product h3{font-size:11.5px!important}.product p{font-size:9px!important}.promo{padding:17px!important}}
+</style>
+
+<style>
+.gender-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.gender-btn {
+  flex: 1;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #d49a35;
+  border-radius: 10px;
+  background: #fff8e9;
+  color: #38240d;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.gender-btn:hover {
+  border-color: #b87916;
+}
+.gender-btn.active {
+  background: linear-gradient(100deg, #f4c76c, #d99a2b);
+  border-color: #a66b0a;
+  color: #201303;
+  box-shadow: 0 0 0 2px rgba(212,154,53,.18);
+}
+</style>
+
+
+<style id="jewelry-audience-subcategories">
+.jewelry-audience-filters{margin-top:10px;gap:8px;flex-wrap:wrap}
+.jewelry-audience-filters[hidden]{display:none!important}
+.jewelry-audience-filters button{border:1px solid rgba(53,217,255,.45)}
+.jewelry-audience-filters button.active{background:linear-gradient(100deg,#ed00b9,#087df7);color:#fff;border-color:#39e7ff}
+</style>
+
+<style id="fenua-pagination-style">
+.pagination{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin:24px 0 30px;padding:8px}
+.pagination .page-btn{min-width:40px;min-height:40px;padding:8px 13px;border:1px solid rgba(32,234,255,.35);border-radius:10px;background:#071326;color:#f5f8ff;font-weight:800;cursor:pointer;transition:transform .18s,background .18s,box-shadow .18s}
+.pagination .page-btn:hover:not(:disabled){transform:translateY(-2px);background:linear-gradient(110deg,#04bce9,#196cff);box-shadow:0 0 14px rgba(32,234,255,.25)}
+.pagination .page-btn.active{background:linear-gradient(110deg,#04bce9,#196cff);border-color:#20eaff;color:#fff;box-shadow:0 0 14px rgba(32,234,255,.25)}
+.pagination .page-btn:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:520px){.pagination{gap:5px;margin:18px 0 24px}.pagination .page-btn{min-width:34px;min-height:36px;padding:7px 10px;font-size:13px}}
+</style>
+
+</head>
+<!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
+<style id="product-photo-zoom-final">
+.product-img { position: relative; overflow: hidden; cursor: default; }
+@media (min-width: 769px) { .product-img { cursor: zoom-in; } }
+.product-img img { transition: transform .15s ease; transform-origin: center center; }
+.product-zoom-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.72);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  pointer-events: none;
+}
+.product-photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.product-photo-lightbox.open { display: flex; }
+.product-photo-lightbox img {
+  max-width: 94vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.55);
+  cursor: zoom-out;
+}
+.product-photo-lightbox .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-size: 28px;
+  line-height: 42px;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .product-zoom-icon { width: 32px; height: 32px; font-size: 17px; top: 8px; right: 8px; }
+}
+.ring-guide-zoom-target::after {
+  content: "⌕";
+  position: absolute; top: 10px; right: 10px; z-index: 5;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(0,0,0,.72); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 25px; line-height: 1; pointer-events: none;
+}
+@media (min-width: 769px) { .ring-guide-zoom-target { cursor: zoom-in !important; } }
+</style>
+<style id="hide-product-zoom-icon">
+.product-zoom-icon { display: none !important; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* ZOOM UNIQUEMENT SUR PC : survol + molette + clic pour grand écran */
+  const pcOnly = () => window.matchMedia('(min-width: 769px)').matches;
+
+  function resetZoom(container) {
+    const img = container && container.querySelector('img:not(.stock-overlay img)');
+    if (!img) return;
+    img.dataset.zoom = '1';
+    img.style.transformOrigin = 'center center';
+    img.style.transform = 'scale(1)';
+  }
+
+  function setupProductImage(container) {
+    if (!container || container.dataset.zoomReady === '1') return;
+    container.dataset.zoomReady = '1';
+
+    container.addEventListener('mousemove', function(e) {
+      if (!pcOnly()) return;
+      const img = container.querySelector('img');
+      if (!img) return;
+
+      /* Zoom automatique au survol */
+      const zoom = Math.max(1.8, parseFloat(img.dataset.zoom || '1.8'));
+      const rect = container.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.dataset.zoom = String(zoom);
+      img.style.transformOrigin = x + '% ' + y + '%';
+      img.style.transform = 'scale(' + zoom + ')';
+    });
+
+    container.addEventListener('mouseleave', function() {
+      resetZoom(container);
+    });
+
+    container.addEventListener('wheel', function(e) {
+      if (!pcOnly()) return;
+      const img = container.querySelector('img');
+      if (!img) return;
+      e.preventDefault();
+      e.stopPropagation();
+
+      let zoom = parseFloat(img.dataset.zoom || '1.8');
+      zoom += e.deltaY < 0 ? 0.25 : -0.25;
+      zoom = Math.max(1, Math.min(4, zoom));
+
+      const rect = container.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.dataset.zoom = String(zoom);
+      img.style.transformOrigin = x + '% ' + y + '%';
+      img.style.transform = 'scale(' + zoom + ')';
+    }, {passive:false});
+  }
+
+  document.querySelectorAll('.product-img').forEach(setupProductImage);
+
+  /* Lightbox : clic sur la photo, uniquement sur PC */
+  const lightbox = document.createElement('div');
+  lightbox.className = 'product-photo-lightbox';
+  lightbox.innerHTML = '<button class="close" aria-label="Fermer">×</button><img alt="Photo produit agrandie">';
+  document.body.appendChild(lightbox);
+  const bigImg = lightbox.querySelector('img');
+
+  document.addEventListener('click', function(e) {
+    if (!pcOnly()) return;
+    const container = e.target.closest('.product-img');
+    if (container) {
+      const img = container.querySelector('img');
+      if (img && img.src) {
+        bigImg.src = img.src;
+        bigImg.alt = img.alt || 'Photo produit agrandie';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      return;
+    }
+    if (e.target === lightbox || e.target.closest('.product-photo-lightbox .close')) {
+      lightbox.classList.remove('open');
+      bigImg.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+
+  /* MOBILE UNIQUEMENT : clic sur la photo = image agrandie.
+     Ne modifie aucun comportement PC ci-dessus. */
+  document.addEventListener('click', function(e) {
+    if (pcOnly()) return;
+    const container = e.target.closest('.product-img');
+    if (!container) return;
+    const img = container.querySelector('img');
+    if (img && img.src) {
+      bigImg.src = img.src;
+      bigImg.alt = img.alt || 'Photo produit agrandie';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  /* MOBILE : fermeture du zoom avec le bouton X ou en touchant le fond */
+  document.addEventListener('click', function(e) {
+    if (pcOnly()) return;
+    if (e.target === lightbox || e.target.closest('.product-photo-lightbox .close')) {
+      e.preventDefault();
+      e.stopPropagation();
+      lightbox.classList.remove('open');
+      bigImg.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      lightbox.classList.remove('open');
+      bigImg.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+
+  /* Produits ajoutés dynamiquement */
+  const observer = new MutationObserver(function() {
+    document.querySelectorAll('.product-img').forEach(setupProductImage);
+  });
+  observer.observe(document.body, {childList:true, subtree:true});
+});
+</script>
+<!-- ===== SUPPRIMER LE PETIT LOGO DU SITE ===== -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  document.querySelectorAll('img').forEach(function (img) {
+
+    const src = img.getAttribute('src') || '';
+
+    if (
+      src === 'logo.png' ||
+      src === './logo.png' ||
+      src.endsWith('/logo.png')
+    ) {
+      img.remove();
+    }
+
+  });
+
+});
+</script>
+  <body>
+  <section class="banner">
+  <a href="#boutique" aria-label="Découvrir la boutique Fenua Select" style="display:block">
+    <img src="images/banniere-fenua-select.png" alt="Fenua Select — Tahiti, Polynésie française. Une sélection de produits tendance disponibles sur commande." fetchpriority="high">
+  </a>
+</section>
+<header class="header">
+  <a class="brand" href="#"><img src="logo.png" alt="Fenua Select"></a>
+  <nav>
+    <a href="#boutique">Boutique</a>
+    <a href="#promos">Promotions</a>
+    <a href="#commande">Commander</a>
+  </nav>
+
+  <div class="social-links" aria-label="Retrouvez Fenua Select sur les réseaux sociaux">
+    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61593485106746&amp;locale=fr_FR" target="_blank" rel="noopener noreferrer" aria-label="Fenua Select sur Facebook" title="Facebook — Fenua Select">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1877F2"/><path fill="#fff" d="M18.2 27V17.4h3.2l.48-3.74H18.2v-2.39c0-1.08.3-1.82 1.85-1.82H22V6.1c-.34-.05-1.52-.15-2.89-.15-2.86 0-4.82 1.75-4.82 4.97v2.77h-3.24v3.74h3.24V27z"/></svg>
+    </a>
+    <a class="tiktok-link" href="https://www.tiktok.com/@fenua.select" target="_blank" rel="noopener noreferrer" aria-label="Fenua Select sur TikTok" title="TikTok — Fenua Select">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#25F4EE" d="M18.2 3h4.1c.2 2.2 1.4 4.2 3.5 5.3 1 .5 2 .8 3.2.9v4.2a12.4 12.4 0 0 1-6.7-2.2v9.1c0 4.6-3.7 8.3-8.3 8.3a8.3 8.3 0 0 1-1.6-16.4v4.4a4.1 4.1 0 1 0 5.8 3.8z" transform="translate(-1 -1)"/><path fill="#FE2C55" d="M16.4 5.1h4.1c.2 2.2 1.4 4.2 3.5 5.3.9.5 1.9.8 3 .9v4.2a12.4 12.4 0 0 1-6.5-2.2v9.1a8.3 8.3 0 0 1-8.3 8.3 8.3 8.3 0 0 1-1.6-16.4v4.4a4.1 4.1 0 1 0 5.8 3.8z" transform="translate(-2 -3)"/><path fill="#fff" d="M17.1 3h4.1c.2 2.2 1.4 4.2 3.5 5.3 1 .5 2 .8 3.2.9v4.2a12.4 12.4 0 0 1-6.7-2.2v9.1c0 4.6-3.7 8.3-8.3 8.3a8.3 8.3 0 0 1-1.6-16.4v4.4a4.1 4.1 0 1 0 5.8 3.8z" transform="translate(-1.2 -1) scale(.95)"/></svg>
+    </a>
+    <a class="email-link" href="mailto:fenuaselect@gmail.com" aria-label="Envoyer un e-mail à Fenua Select" title="E-mail — fenuaselect@gmail.com">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3.5" y="6.5" width="25" height="19" rx="3" fill="none" stroke="#35D9FF" stroke-width="2.2"/><path d="M5 9l11 9 11-9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <button class="cart-btn" onclick="openCart()">🛒 Panier <span id="cartCount">0</span></button>
+</header>
+
+<main>
+
+<section id="boutique" class="section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">NOTRE SÉLECTION</p>
+      <h2>La boutique</h2>
+    </div>
+    <input id="search" type="search" placeholder="Rechercher un produit…" oninput="currentPage=1; renderProducts()">
+  </div>
+
+  <div class="categories">
+    <button onclick="setCategory('Bijoux',this)">💎 Bijoux</button>
+    <button onclick="setCategory('Beauté',this)">💄 Beauté</button>
+    <button onclick="setCategory('Sports & Loisirs',this)">🏄 Sports &amp; Loisirs</button>
+    <button onclick="setCategory('Multimédia & Téléphonie',this)">📱 Multimédia &amp; Téléphonie</button>
+    <button onclick="setCategory('Gaming',this)">🎮 Gaming</button>
+    <button onclick="setCategory('Informatique',this)">🖥️ Informatique</button>
+    <button onclick="setCategory('Vêtements & Accessoires',this)">👕 Vêtements &amp; Accessoires</button>
+    <button onclick="setCategory('Jouets',this)">🧸 Jouets</button>
+    <button onclick="setCategory('Animalerie',this)">🐾 Animalerie</button>
+  </div>
+
+  <div id="jewelry-audience-filters" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Bijoux">
+    <button type="button" onclick="setJewelryAudience('Homme',this)">👨 Homme</button>
+    <button type="button" onclick="setJewelryAudience('Femme',this)">👩 Femme</button>
+    <button type="button" onclick="setJewelryAudience('Mixte',this)">💑 Mixte</button>
+  </div>
+
+  <div id="beauty-audience-filters" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Beauté">
+    <button type="button" onclick="setBeautyAudience('Homme',this)">👨 Homme</button>
+    <button type="button" onclick="setBeautyAudience('Femme',this)">👩 Femme</button>
+  </div>
+
+  <div id="clothing-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Vêtements et accessoires">
+    <button type="button" onclick="setCatalogSubcategory('Casquettes',this)">🧢 Casquettes</button>
+  </div>
+  <div id="sports-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Sports et loisirs">
+    <button type="button" onclick="setCatalogSubcategory('Lunette de soleil',this)">🕶️ Lunette de soleil</button>
+  </div>
+  <div id="sunglasses-brands" class="categories jewelry-audience-filters" hidden aria-label="Marques de lunettes de soleil">
+    <button type="button" onclick="setSunglassesBrand('SCVCN',this)">🕶️ SCVCN</button>
+    <button type="button" onclick="setSunglassesBrand('Autres marques',this)">😎 Autres marques</button>
+  </div>
+
+  <div id="catalog-filter-box" class="catalog-filter-box">
+    <div class="catalog-filter-title">🔎 Filtrer le catalogue</div>
+    <div class="catalog-filter-grid">
+      <label>🗂️ Catégorie
+        <select id="catalogCategoryFilter">
+          <option value="">Toutes les catégories</option>
+          <option value="Bijoux">💎 Bijoux</option>
+          <option value="Beauté">💄 Beauté</option>
+          <option value="Sports &amp; Loisirs">🏄 Sports &amp; Loisirs</option>
+          <option value="Multimédia &amp; Téléphonie">📱 Multimédia &amp; Téléphonie</option>
+          <option value="Gaming">🎮 Gaming</option>
+          <option value="Informatique">🖥️ Informatique</option>
+          <option value="Vêtements &amp; Accessoires">👕 Vêtements &amp; Accessoires</option>
+          <option value="Jouets">🧸 Jouets</option>
+          <option value="Animalerie">🐾 Animalerie</option>
+        </select>
+      </label>
+
+      <label>💰 Prix
+        <select id="catalogPriceFilter">
+          <option value="all">Tous les prix</option>
+          <option value="0-5000">Moins de 5 000 Frs</option>
+          <option value="5000-10000">5 000 à 10 000 Frs</option>
+          <option value="10000-20000">10 000 à 20 000 Frs</option>
+          <option value="20000-50000">20 000 à 50 000 Frs</option>
+          <option value="50000-plus">50 000 Frs et +</option>
+        </select>
+      </label>
+      <label>↕️ Trier
+        <select id="catalogSortFilter">
+          <option value="relevance">Pertinence</option>
+          <option value="price-asc">Prix croissant</option>
+          <option value="price-desc">Prix décroissant</option>
+          <option value="name-asc">Nom A → Z</option>
+          <option value="name-desc">Nom Z → A</option>
+        </select>
+      </label>
+    </div>
+    <div class="catalog-filter-actions">
+      <button type="button" onclick="applyCatalogFilters()">✅ OK — Afficher les produits</button>
+      <button type="button" onclick="resetCatalogFilters()">↺ Réinitialiser</button>
+      <span id="catalog-result-count"></span>
+    </div>
+  </div>
+
+
+<!-- Pagination supprimée à la demande : tous les produits filtrés sont affichés -->
+
+<style>
+.preorder-notice{
+  position:relative;
+  margin:18px 0 22px;
+  padding:20px 18px;
+  text-align:center;
+  border:2px solid #ffd166;
+  border-radius:18px;
+  background:linear-gradient(135deg,#8b0018 0%,#ff123f 28%,#d4002f 55%,#ff1744 78%,#7a0015 100%);
+  box-shadow:0 0 22px rgba(255,20,65,.75), 0 0 48px rgba(255,0,55,.38), inset 0 0 28px rgba(255,255,255,.14);
+  overflow:hidden;
+}
+.preorder-notice:before,.preorder-notice:after{
+  content:""; position:absolute; top:0; width:7px; height:7px;
+  border-radius:50%; background:#fff; box-shadow:0 0 10px #fff;
+  animation:preorderBlink 1.8s infinite alternate;
+}
+.preorder-notice:before{left:12%;}.preorder-notice:after{right:12%;animation-delay:.7s;}
+.preorder-title{font-size:25px;font-weight:900;color:#ffd166;text-shadow:0 0 10px rgba(255,209,102,.8),0 0 22px rgba(255,255,255,.35);margin:5px 0 10px;}
+.preorder-text{font-size:16px;line-height:1.65;color:#fff;}
+.preorder-text strong{color:#fff;}
+.preorder-sparkles{font-size:22px;letter-spacing:5px;line-height:1.3;}
+@keyframes preorderBlink{from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.3)}}
+@media(max-width:600px){
+ .preorder-notice{padding:16px 12px;margin:14px 0 18px;border-radius:15px;}
+ .preorder-title{font-size:20px;}
+ .preorder-text{font-size:14px;}
+ .preorder-sparkles{font-size:18px;letter-spacing:2px;}
+}
+</style>
+
+<div id="products" class="grid"></div>
+<div id="pagination-top" class="pagination" aria-label="Pagination des produits"></div>
+
+ <div class="photo-notice">
+  📸 <strong>Photos non contractuelles.</strong>
+  Les produits peuvent présenter de légères différences de couleur,
+  de design ou de finition par rapport aux photos présentées.
+</div>
+</section>
+
+<section id="promos" class="promo">
+  <div>
+    <p class="eyebrow">FENUA SELECT</p>
+    <h2>Des nouveautés et des promotions régulièrement</h2>
+    <p>Retrouvez les offres directement sur notre boutique et notre page Facebook.</p>
+  </div>
+  <a class="cta light" href="#commande">Passer une commande</a>
+</section>
+
+<style id="paiement-virement-global-2026">
+/* Visuel des moyens de paiement Fenua Select */
+.payment-global{margin:0 0 28px;padding:0;border:0;border-radius:18px;background:transparent;box-shadow:none;text-align:center;overflow:hidden}
+.payment-global .payment-banner{display:block;width:100%;max-width:1200px;height:auto;margin:0 auto;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.payment-global .payment-caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:600px){.payment-global{margin-bottom:22px;border-radius:12px}.payment-global .payment-banner{border-radius:12px}}
+</style>
+
+<section id="commande" class="section order-section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">COMMANDE</p>
+      <h2>Votre commande</h2>
+    </div>
+  </div>
+
+  <!-- ===== MODES DE PAIEMENT ===== -->
+  <div class="payment-global" role="note" aria-label="Modes de paiement">
+    <img class="payment-banner" src="images/banniere-paiement.png" alt="Nos moyens de paiement : carte bancaire Visa, Niu Pay, virement bancaire et espèces." loading="lazy" />
+    <p class="payment-caption">Modes de paiement proposés : virement bancaire, Visa, Niu Pay et espèces.</p>
+  </div>
+
+  <div class="order-layout">
+    <div class="order-card">
+      <div id="orderSummary">Votre panier est vide.</div>
+      <div class="total"><span>Total</span><strong id="cartTotal">0 F CFP</strong></div>
+    </div>
+
+    <form class="order-form" onsubmit="sendOrder(event)">
+      <input required id="name" name="name" placeholder="Nom / Prénom">
+      <input required id="phone" name="phone" placeholder="Téléphone">
+      <input type="email" id="email" name="email" placeholder="E-mail">
+     <div class="delivery-info">
+  <label for="deliveryZone"><strong>🚚 Zone de livraison</strong></label>
+
+  <select id="deliveryZone" onchange="updateCart()">
+    <option value="0">🎁 Papara à Taravao • Livraison gratuite</option>
+    <option value="1500">➡️ Autres destinations sur Tahiti • + 1 500 Frs</option>
+  </select>
+</div>
+
+<input type="hidden" id="delivery" value="Livraison">
+      <textarea id="address" name="address" placeholder="Adresse / précision (facultatif)"></textarea>
+      <button class="cta" type="submit">Envoyer ma demande de commande</button>
+      <p class="small">*Produits sur commande : délai indicatif 3 à 5 semaines, voire plus, selon la disponibilité du produit et les délais du fournisseur.</p>
+    </form>
+  </div>
+
+  <!-- ===== COMMENT ÇA SE PASSE ? ===== -->
+  <aside class="order-process-info" aria-labelledby="order-process-title">
+    <h3 id="order-process-title">💬 Comment ça se passe ?</h3>
+    <ol>
+      <li>Tu envoies ta demande de commande.</li>
+      <li>Fenua Select te recontacte pour confirmer la disponibilité, le total et les modalités de paiement.</li>
+      <li>La commande est confirmée après échange avec toi. Aucun paiement n’est prélevé sur ce site.</li>
+    </ol>
+  </aside>
+  <style id="order-process-info-style">
+    #commande .order-process-info{width:min(1180px,100%);box-sizing:border-box;margin:24px auto 0;padding:22px 24px;border:1px solid rgba(53,217,255,.3);border-radius:18px;background:linear-gradient(145deg,rgba(16,28,41,.98),rgba(7,13,20,.98));color:#f4f8fc;box-shadow:0 12px 32px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.035)}
+    #commande .order-process-info h3{margin:0 0 14px;color:#35d9ff;font-size:20px;font-weight:900}
+    #commande .order-process-info ol{margin:0;padding-left:24px;display:grid;gap:10px;line-height:1.6}
+    #commande .order-process-info li{padding-left:4px;color:#e5edf5}
+    @media(max-width:600px){#commande .order-process-info{padding:17px 16px;margin-top:18px;border-radius:15px}#commande .order-process-info h3{font-size:18px}#commande .order-process-info ol{padding-left:21px;font-size:14px;gap:9px}}
+  </style>
+</section>
+</main>
+
+<footer>
+  <img src="logo.png" alt="Fenua Select">
+  <p>🔥 DES PRODUITS QUI FONT ENVIE • DES PRIX QUI FONT PLAISIR</p>
+  <p>📧 <a href="mailto:fenuaselect@gmail.com" style="color:inherit;text-decoration:underline;text-decoration-color:#35d9ff;text-underline-offset:3px">fenuaselect@gmail.com</a> • Facebook : Fenua Select</p>
+
+  <div class="social-links" aria-label="Retrouvez Fenua Select sur les réseaux sociaux">
+    <a class="facebook-link" href="https://www.facebook.com/profile.php?id=61593485106746&amp;locale=fr_FR" target="_blank" rel="noopener noreferrer" aria-label="Fenua Select sur Facebook" title="Facebook — Fenua Select">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="15" fill="#1877F2"/><path fill="#fff" d="M18.2 27V17.4h3.2l.48-3.74H18.2v-2.39c0-1.08.3-1.82 1.85-1.82H22V6.1c-.34-.05-1.52-.15-2.89-.15-2.86 0-4.82 1.75-4.82 4.97v2.77h-3.24v3.74h3.24V27z"/></svg>
+    </a>
+    <a class="tiktok-link" href="https://www.tiktok.com/@fenua.select" target="_blank" rel="noopener noreferrer" aria-label="Fenua Select sur TikTok" title="TikTok — Fenua Select">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#25F4EE" d="M18.2 3h4.1c.2 2.2 1.4 4.2 3.5 5.3 1 .5 2 .8 3.2.9v4.2a12.4 12.4 0 0 1-6.7-2.2v9.1c0 4.6-3.7 8.3-8.3 8.3a8.3 8.3 0 0 1-1.6-16.4v4.4a4.1 4.1 0 1 0 5.8 3.8z" transform="translate(-1 -1)"/><path fill="#FE2C55" d="M16.4 5.1h4.1c.2 2.2 1.4 4.2 3.5 5.3.9.5 1.9.8 3 .9v4.2a12.4 12.4 0 0 1-6.5-2.2v9.1a8.3 8.3 0 0 1-8.3 8.3 8.3 8.3 0 0 1-1.6-16.4v4.4a4.1 4.1 0 1 0 5.8 3.8z" transform="translate(-2 -3)"/><path fill="#fff" d="M17.1 3h4.1c.2 2.2 1.4 4.2 3.5 5.3 1 .5 2 .8 3.2.9v4.2a12.4 12.4 0 0 1-6.7-2.2v9.1c0 4.6-3.7 8.3-8.3 8.3a8.3 8.3 0 0 1-1.6-16.4v4.4a4.1 4.1 0 1 0 5.8 3.8z" transform="translate(-1.2 -1) scale(.95)"/></svg>
+    </a>
+    <a class="email-link" href="mailto:fenuaselect@gmail.com" aria-label="Envoyer un e-mail à Fenua Select" title="E-mail — fenuaselect@gmail.com">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3.5" y="6.5" width="25" height="19" rx="3" fill="none" stroke="#35D9FF" stroke-width="2.2"/><path d="M5 9l11 9 11-9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+
+  <p class="delivery-note">
+    <strong>* Délai indicatif :</strong> 3 à 5 semaines, voire plus, selon la disponibilité du produit et les délais du fournisseur.
+  </p>
+</footer>
+
+<div id="cartModal" class="modal" onclick="closeCart()">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <button class="close" onclick="closeCart()">×</button>
+    <h2>Votre panier</h2>
+    <div id="modalItems"></div>
+    <div class="total"><span>Total</span><strong id="modalTotal">0 F CFP</strong></div>
+    <a class="cta" href="#commande" onclick="closeCart()">Finaliser la commande</a>
+  </div>
+</div>
+
+<script>
+
+const products = [
+  {
+  id: 79,
+  name: "Étui de téléphone Demon Slayer pour Samsung Galaxy",
+  price: 1000,
+  cat: "Multimédia & Téléphonie",
+  subcat: "Étuis téléphone",
+  image: "images/etui-demon-slayer-samsung-id79.png",
+  emoji: "📱",
+
+  desc: "Étui de téléphone Demon Slayer pour Samsung Galaxy. Choisissez votre étui et votre modèle Samsung compatible.",
+
+  colors: [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+
+  sizes: [
+    "1 - Samsung Galaxy A56",
+    "2 - Samsung Galaxy A36",
+    "3 - Samsung Galaxy A26",
+    "4 - Samsung Galaxy A17",
+    "5 - Samsung Galaxy A07",
+    "6 - Samsung Galaxy A06",
+    "7 - Samsung Galaxy A35",
+    "8 - Samsung Galaxy A16",
+    "9 - Samsung Galaxy A55",
+    "10 - Samsung Galaxy A54",
+    "11 - Samsung Galaxy A34",
+    "12 - Samsung Galaxy A24",
+    "13 - Samsung Galaxy A15 4G",
+    "14 - Samsung Galaxy A15 5G"
+  ]
+},
+ {
+  id: 78,
+  name: " Étui de protection Demons Hot Slayers compatible iPhone",
+  price: 1000,
+  cat: "Multimédia & Téléphonie",
+    subcat: "Étuis téléphone",
+  image: "images/etui-demons-hot-slayers-id78.png",
+  emoji: "📱",
+  desc: "Étui de protection Demons Hot Slayers au design anime, compatible avec de nombreux modèles iPhone. ✨📱",
+
+  variants: [
+    "1 - Transparent Cool Dark",
+    "2 - Hot-blood Love",
+    "3 - Fast Fashion",
+    "4 - Just For You",
+    "5 - Ninja Spirit",
+    "6 - Wind Power",
+    "7 - Demon Bond",
+    "8 - Water Breath"
+  ],
+
+  iphoneModels: [
+    "1 - iPhone 15 Pro",
+    "2 - iPhone 17",
+    "3 - iPhone 16",
+    "4 - iPhone 17 Air",
+    "5 - iPhone 17 Pro",
+    "6 - iPhone 17 ProMax",
+    "7 - iPhone 11",
+    "8 - iPhone 11 Pro",
+    "9 - iPhone 11 ProMax",
+    "10 - iPhone 12",
+    "11 - iPhone 16e",
+    "12 - iPhone 17e",
+    "13 - iPhone 12 Pro",
+    "14 - iPhone 12 ProMax",
+    "15 - iPhone 13",
+    "16 - iPhone 13 mini",
+    "17 - iPhone 13 Pro",
+    "18 - iPhone 13 ProMax",
+    "19 - iPhone 14",
+    "20 - iPhone 14 Plus",
+    "21 - iPhone 14 Pro",
+    "22 - iPhone 14 ProMax",
+    "23 - iPhone 15",
+    "24 - iPhone 16 Plus",
+    "25 - iPhone 16 Pro",
+    "26 - iPhone 16 ProMax",
+    "27 - iPhone 15 Plus",
+    "28 - iPhone 15 ProMax"
+  ],
+
+   colors: [
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8"
+   ],
+
+   sizes: [
+     "1 - iPhone 15 Pro",
+     "2 - iPhone 17",
+     "3 - iPhone 16",
+     "4 - iPhone 17 Air",
+     "5 - iPhone 17 Pro",
+     "6 - iPhone 17 ProMax",
+     "7 - iPhone 11",
+     "8 - iPhone 11 Pro",
+     "9 - iPhone 11 ProMax",
+     "10 - iPhone 12",
+     "11 - iPhone 16e 17e",
+     "12 - iPhone 12 Pro",
+     "13 - iPhone 12 ProMax",
+     "14 - iPhone 13",
+     "15 - iPhone 13 mini",
+     "16 - iPhone 13 Pro",
+     "17 - iPhone 13 ProMax",
+     "18 - iPhone 14",
+     "19 - iPhone 14 Plus",
+     "20 - iPhone 14 Pro",
+     "21 - iPhone 14 ProMax",
+     "22 - iPhone 15",
+     "23 - iPhone 16 Plus",
+     "24 - iPhone 16 Pro",
+     "25 - iPhone 16 ProMax",
+     "26 - iPhone 15 Plus",
+     "27 - iPhone 15 ProMax"
+   ]
+},
+
+  {
+  id: 76,
+  name: " Peluche Petits Pois",
+  price: 1000,
+  cat: "Jouets",
+    subcat: "Peluches",
+  image: "images/peluche-petits-pois-toy-story-23cm.png",
+  emoji: "🧸",
+  colors: [
+    "🟢 Vert",
+    "🟡 Jaune"
+  ],
+  desc: "🧸 Peluche Petits Pois dans sa cosse, modèle Peas-in-a-pod de 23 cm. Douce, adorable et parfaite comme petit cadeau. 🎁💚 Disponible en 2 coloris : 🟢 Vert et 🟡 Jaune."
+},
+    {
+    id: 75,
+    name: "Peluche pieuvre Koro Sensei, 30cm",
+    price: 8000,
+    cat: "Jouets",
+    subcat: "Peluches",
+    image: "images/peluche-koro-sensei-30cm.png",
+    emoji: "🧸",
+    desc: "🧸 Peluche pieuvre Koro Sensei de 30 cm, douce, originale et idéale comme cadeau pour les fans d’anime. 🎁✨"
+  },
+    {
+    id: 74,
+    name: "MEGIR 2068 – Montre Homme Luxe Quartz ",
+    price: 14500,
+    cat: "Bijoux",
+  audience: "Homme",
+    subcat: "Montres",
+    image: "images/megir-2068.png",
+    emoji: "⌚",
+    colors: [
+      "⚫ Noir",
+      "🔵 Bleu",
+      "🟡 Or",
+       ],
+    desc: "✨ <strong>Style premium, robustesse et précision.</strong> La MEGIR 2068 associe acier inoxydable, cadran lumineux, chronographe, date et mouvement quartz. Disponible en <strong>noir, bleu, or </strong>, elle accompagne votre quotidien avec élégance. 💎⌚<br><br><strong>MEGIR 2068 : le style qui se remarque.</strong>"
+  },
+    {
+    id: 73,
+    name: "Lot de 6 bracelets perlés en cuir PU tendance, montre à quartz et collier pendentif croix pour homme noir",
+    price: 8000,
+    cat: "Bijoux",
+  audience: "Homme",
+    subcat: "Cadeau",
+    image: "images/coffret-homme-premium.png",
+    emoji: "⌚",
+    desc: "🖤 <strong>Coffret homme premium</strong> ⌚🔥<br>Montre noire, bracelets tendance & collier croix dans un élégant coffret. 🎁"
+  },
+    {
+    id: 72,
+    name: "Boucles d'oreilles créoles cœur & fleur, 26 lettres A-Z",
+    price: 1000,
+    cat: "Bijoux",
+  audience: "Femme",
+    subcat: "Bijoux",
+    image: "images/boucles-coeur-fleur-az.png",
+    emoji: "💎",
+    colors: [
+      "A Lettre A",
+      "B Lettre B",
+      "C Lettre C",
+      "🇩 Lettre D",
+      "🇪 Lettre E",
+      "🇫 Lettre F",
+      "🇬 Lettre G",
+      "🇭 Lettre H",
+      "🇮 Lettre I",
+      "🇯 Lettre J",
+      "🇰 Lettre K",
+      "🇱 Lettre L",
+      "🇲 Lettre M",
+      "🇳 Lettre N",
+      "🇴 Lettre O",
+      "🇵 Lettre P",
+      "🇶 Lettre Q",
+      "🇷 Lettre R",
+      "🇸 Lettre S",
+      "🇹 Lettre T",
+      "🇺 Lettre U",
+      "🇻 Lettre V",
+      "🇼 Lettre W",
+      "🇽 Lettre X",
+      "🇾 Lettre Y",
+      "🇿 Lettre Z"
+    ],
+    desc: "💖 Boucles d’oreilles personnalisées. Créoles cœur & fleur en or jaune et zircone blanche, disponibles de A à Z pour un style personnalisé et élégant. ✨ Légères et confortables, elles sont parfaites au quotidien comme pour les mariages et soirées. 🌸💎"
+  },
+    {
+    id: 71,
+    name: "Ensemble collier et boucles d'oreilles en cristal pour femmes",
+    price: 1000,
+    cat: "Bijoux",
+  audience: "Femme",
+    subcat: "Bijoux",
+    image: "images/ensemble-collier-cristal.png",
+    emoji: "💎",
+    desc: "Élégant ensemble composé d’un collier et de boucles d’oreilles ornés de cristaux étincelants. Finition soignée et style raffiné, idéal pour une tenue élégante ou pour offrir."
+  },
+    {
+    id: 70,
+    name: " Ensemble de bijoux bohèmes tressés à fleurs pour femmes, collier et boucles d'oreilles à fleurs",
+    price: 1000,
+    cat: "Bijoux",
+  audience: "Femme",
+    subcat: "Bijoux",
+    image: "images/bijoux-bohemes-fleurs.png",
+    emoji: "🌺",
+    colors: [
+      "🌺 Rouge",
+      "🌼 Blanc",
+      "💙 Bleu"
+    ],
+    desc: "Ensemble de bijoux bohèmes à fleurs composé d’un collier et de boucles d’oreilles assorties."
+  },
+    {
+    id: 69,
+    name: "Ensembles de bijoux hawaïens, collier + boucles d'oreilles",
+    price: 1000,
+    cat: "Bijoux",
+  audience: "Femme",
+    subcat: "Bijoux",
+    image: "images/ensemble-bijoux-hawaiens.png",
+    emoji: "💎",
+    colors: [
+      "🟡 Doré",
+      "⚪ Argenté",
+      "🩷 Rose gold"
+    ],
+    desc: "Ensemble de bijoux hawaïens composé d’un collier et de boucles d’oreilles assorties. Design élégant et tropical, idéal pour offrir ou compléter une tenue. Disponible en plusieurs coloris."
+  },
+  {
+  id: 68,
+  name: "Mini haut-parleur Bluetooth 5.3 sans fil",
+  price: 6500,
+  cat: "Multimédia & Téléphonie",
+    subcat: "Enceintes Bluetooth",
+  image: "images/mini-haut-parleur-bluetooth.png",
+  emoji: "🔊",
+  colors: [
+    "🟣 Violet",
+    "🔵 Bleu",
+    "🟢 Vert",
+    "⚫ Noir",
+    "⚪ Blanc",
+    "🔴 Rouge"
+  ],
+  desc: "Mini haut-parleur Bluetooth 5.3. Bluetooth 5.3 avec portée jusqu’à 10 m. Batterie 300 à 500 mAh pour une utilisation nomade. Résistance à l’eau IPX4 contre les éclaboussures. Son clair et équilibré de 100 Hz à 20 kHz. Bluetooth, AUX, USB et carte mémoire. Compatible smartphones, tablettes et ordinateurs. 👉 Compact, polyvalent et idéal pour la maison comme pour l’extérieur."
+},
+  {
+  id: 67,
+  name: "MLOVE E80 Enceinte Bluetooth Portable",
+  price: 14500,
+  cat: "Multimédia & Téléphonie",
+    subcat: "Enceintes Bluetooth",
+  image: "images/mlove-e80.png",
+  emoji: "🔊",
+  desc: "La MLOVE E80 délivre 30W de puissance avec Bluetooth 5.4, TWS stéréo et un son immersif aux basses profondes. ✨ Son éclairage RGB synchronisé avec la musique crée une ambiance unique. Étanche IPX7 et résistante à la poussière IP6X, elle est idéale pour la plage, les soirées et les activités en extérieur. 🌴🎶 Puissante, compacte et prête à faire vibrer vos moments ! 🔥"
+},
+  {
+  id: 66,
+  name: "T-WOLF - Clavier filaire rétro 4.2 TFfemale, 104 touches, avec souris filaire",
+  price: 9500,
+  cat: "Gaming",
+    subcat: "Consoles & Gaming",
+  image: "images/t-wolf-clavier-souris.png",
+  emoji: "🎮",
+  desc: "🎮 Clavier + souris RGB T-WOLF ⚡ 🔥 Design métal • Éclairage RGB • Sensation mécanique 🚀 Le setup gaming qui change tout !"
+},
+  {
+  id: 65,
+  name: "Casque de jeu pour Gamer filaire avec micro",
+  price: 8500,
+  cat: "Gaming",
+    subcat: "Consoles & Gaming",
+  image: "images/casque-gamer-filaire.png",
+  emoji: "🎧",
+  colors: ["🔴 Rouge", "🔵 Bleu"],
+  desc: "Modèle compatible : PS5, PS4, PC et téléphone portable. Avec une prise de 3,5 mm et un câble de 110 cm. Avec contrôle du micro et du volume."
+},
+ {
+  id: 64,
+  name: "Casque de jeu 7.1 Surround avec LED pour Gamer",
+  price: 9500,
+  cat: "Gaming",
+    subcat: "Consoles & Gaming",
+  image: "images/casque-gamer-71.png",
+  emoji: "🎧",
+  colors: ["⚪ Blanc", "⚫ Noir", "🌸 Rose"],
+  desc: "Compatibilité : avec une interface de 3,5 mm, il convient aux téléphones intelligents, tablettes, PC, ordinateurs portables et autres appareils audio de 3,5 mm. Microphone omnidirectionnel réglable avec grande sensibilité et réduction du bruit de fond pour de meilleures discussions dans le jeu. Excellent son grâce à l’unité d’entraînement de 50 mm offrant un champ sonore vif, une bonne clarté sonore et une sensation de choc sonore. Confortable à porter grâce aux coussinets supra-auriculaires doux et au bandeau réglable adapté à différentes tailles de tête. Contrôleur de volume rotatif et touche pour activer ou désactiver le micro. Plug and play. Longueur du câble : 1,5 à 2,4 m."
+},
+  {
+  id: 63,
+  name: "Support mural multifonctionnel pour PS5 / PS5 Slim / PS5 Pro",
+  price: 10000,
+  cat: "Gaming",
+    subcat: "Consoles & Gaming",
+  image: "images/support-mural-ps5.png",
+  emoji: "🎮",
+  desc: "Fabriqué en acier, il sécurise votre console tout en améliorant la ventilation et en économisant de l’espace. Il intègre également 2 stations de charge pour manettes et un support pour casque, pour une installation gaming propre et organisée. <strong>✅ Sécurisé • Ventilation optimale • Gain de place • Charge 2 manettes • Support casque</strong>"
+},
+    {
+    id: 62,
+    name: "Support refroidisseur RGB PS5 + charge manettes",
+    price: 10000,
+    cat: "Gaming",
+    subcat: "Consoles & Gaming",
+    image: "images/support-refroidissement-rgb-ps5.png",
+    emoji: "🎮",
+    desc: "Compatible avec PS5, PS5 Slim, PS5 Pro et PlayStation 5 Disc, Notre support PS5 Slim est équipé d'un puissant ventilateur turbo. Il offre un refroidissement efficace pour réduire considérablement la température de votre console et prolonger sa durée de vie. La station de refroidissement PS5 dispose de 3 niveaux de ventilateur (Faible, Moyen, Élevé), vous pouvez modifier la vitesse du ventilateur en cliquant sur le bouton.<br><br>Le support vertical pour PS5 offre 9 modes d'éclairage. Un simple clic suffit pour que le support de manette bascule entre les modes d'effets lumineux. Il propose un clignotement rapide à 7 couleurs, un éclairage respirant à 7 couleurs et un mode d'éclairage à couleur unique : rouge, vert, bleu, violet, bleu clair, jaune, blanc, créant une atmosphère fantastique pour votre salle de jeu. Appuyez longuement pendant 2 secondes pour éteindre la lumière.",
+    colors: [
+      "⚫ Noir",
+      "⚪ Blanc"
+    ]
+  },
+   {
+    id: 61,
+    name: "Station de charge pour 2 manettes PS5",
+    price: 8000,
+    cat: "Gaming",
+    subcat: "Consoles & Gaming",
+    emoji: "🎮",
+    image: "images/station-charge-ps5.png",
+    emoji: "🎮",
+    desc: "Cette station de charge permet la recharge simultanée de 2 manettes PS5, parfaitement compatible avec PlayStation 5 DualSense et les contrôleurs sans fil DualSense Edge.<br><br>Pas besoin de brancher des câbles sur vos manettes de jeu : il suffit de placer les contrôleurs sur la station d'accueil pour une recharge sans effort.<br><br>✨ <strong>9 modes d'éclairage RGB réglables</strong> et indicateur de charge LED clair.<br><br>💡 Livré avec un éclairage ambiant RGB époustouflant offrant <strong>9 effets lumineux</strong> : 6 couleurs statiques + lumière pulsante rapide/lente.<br><br>🎛️ <strong>Contrôle intégré</strong> pour personnaliser facilement l'éclairage RGB."
+  },
+    {
+    id: 47,
+    name: "Console de jeu rétro U36 128 Go Pack Orange",
+    price: 25000,
+     cat: "Gaming",
+    subcat: "Consoles & Gaming",
+    image: "images/console-u36-128go-pack-orange.png",
+    emoji: "🎮",
+    desc: "Plus de 50 000 jeux intégrés • 128 Go de stockage • Console dédiée au jeu sur TV • Sortie vidéo HD 4K • Idéale pour jouer sur grand écran • Connexion à la télévision. Redécouvrez les classiques du jeu vidéo en famille ou entre amis ! Livraison offerte."
+  },
+    {
+    id: 48,
+    name: "Console de jeu rétro U36 128 Go Pack Bleu",
+    price: 25000,
+    cat: "Gaming",
+    subcat: "Consoles & Gaming",
+    image: "images/console-u36-128go-pack-bleu.png",
+    emoji: "🎮",
+    desc: "Plus de 50 000 jeux intégrés • 128 Go de stockage • Console dédiée au jeu sur TV • Sortie vidéo HD 4K • Idéale pour jouer sur grand écran • Connexion à la télévision. Redécouvrez les classiques du jeu vidéo en famille ou entre amis ! Livraison offerte."
+  },
+  {
+  id: 58,
+  name: "Clé de jeu d’arcade rétro M15 Ultra",
+  price: 20000,
+  cat: "Gaming",
+    subcat: "Consoles & Gaming",
+  image: "images/m15-ultra.png",
+  emoji: "🎮",
+  desc: "🎮 Clé de jeu d’arcade rétro M15 Ultra<br><strong>Plus de 20 000 jeux rétro intégrés • Plug & Play • 28 émulateurs • 2 manettes sans fil 2,4 GHz</strong><br>Redécouvrez les grands classiques du jeu vidéo avec la <strong>M15 Ultra</strong>, une clé de jeu d’arcade <strong>Plug & Play</strong> prête à l’emploi. Profitez de <strong>plus de 20 000 jeux rétro intégrés</strong>, sans téléchargement, et jouez directement sur votre téléviseur.<br><br><strong>🔥 Branchez, allumez et commencez à jouer !</strong>"
+},
+  {
+  id: 59,
+  name: "Console de jeu portable haute performance",
+  price: 15000,
+  cat: "Gaming",
+    subcat: "Consoles & Gaming",
+  image: "images/console-portable-43-pouces.png",
+  emoji: "🎮",
+  desc: "🎮 Console de jeu portable haute performance<br><strong>Facile à utiliser • Haute performance</strong><br>Profitez d’une console portable équipée d’un <strong>écran HD de 4,3 pouces</strong> et de <strong>plus de 10 000 jeux intégrés</strong>. Elle permet également d’écouter de la musique, regarder des vidéos et lire des livres électroniques, où que vous soyez.<br><br><strong>📏 Dimensions et poids</strong><br><br>• <strong>Dimensions :</strong> 20 × 10 × 6 cm<br>• <strong>Poids :</strong> 255 g",
+  colors: [
+    "🔴 Rouge",
+    "🔵🔴 Bleu/Rouge",
+    "🔵 Bleu",
+    "🟡 Jaune"
+  ]
+},
+
+  {
+    id: 5,
+    name: "Hub USB 7-en-2 USB + Type-C",
+    price: 2500,
+    cat: "Informatique",
+    subcat: "Hubs & Adaptateurs",
+    image: "images/hub-7-en-2.png",
+    emoji: "🔌",
+    desc: "Hub 7-en-2 avec ports USB et Type-C."
+  },
+  {
+    id: 6,
+    name: "Hub USB 5-en-2 USB + Type-C",
+    price: 2000,
+    cat: "Informatique",
+    subcat: "Hubs & Adaptateurs",
+    image: "images/hub-5-en-2.png",
+    emoji: "🔌",
+    desc: "Hub 5-en-2 avec USB, Type-C, SD et TF."
+  },
+  {
+    id: 7,
+    name: "Câble USB vers Micro-USB",
+    price: 1000,
+    cat: "Informatique",
+    image: "images/cable-micro-usb.png",
+    emoji: "🔌",
+    desc: "Câble USB pratique pour recharge et transfert, longueur 30 cm.",
+  },
+
+  /* ===== NOUVEAU : CÂBLE 3-EN-1 ===== */
+  {
+    id: 147,
+    name: "Câble de chargeur USB 3 en 1",
+    price: 1000,
+    cat: "Multimédia & Téléphonie",
+    image: "images/cable-3-en-1.png",
+    emoji: "🔌",
+    desc: "Câble de chargeur 3 en 1 Type-C, Micro-USB et iPhone, longueur 1,20 m.",
+    colors: [
+      "🔴 Rouge",
+      "🔵 Bleu",
+      "⚪ Argent",
+      "⚫ Noir"
+    ]
+  },
+
+  /* ===== NOUVEAU : CLÉ USB 2.0 ===== */
+  {
+    id: 48,
+    name: "Clé USB 2.0",
+    cat: "Informatique",
+    subcat: "Clés USB",
+    image: "images/cle-usb-2.0.png",
+    emoji: "💾",
+    desc: "Clé USB 2.0 pratique pour stocker, transférer et emporter vos fichiers.",
+    colors: [
+  "🟢 Vert",
+  "🟣 Violet",
+  "🔴 Rouge",
+  "🟡 Jaune",
+  "🟠 Orange",
+  "🩷 Rose",
+  "🔵 Bleu",
+  "⚪ Argent",
+  "⚫ Noir"
+],
+    storages: [
+       { name:"16 Go", price: 500 },
+      { name: "32 Go", price: 1000 },
+      { name: "64 Go", price: 1500 },  
+    ]
+  },
+
+  {
+    id: 8,
+    name: "Lunettes sport SCVCN orange / blanc",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-orange-blanc.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport orange avec monture blanche, protection UV400."
+  },
+  {
+    id: 9,
+    name: "Lunettes sport SCVCN bleu / blanc",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-bleu-blanc.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport bleu avec monture blanche, protection UV400."
+  },
+  {
+    id: 10,
+    name: "Lunettes sport SCVCN jaune / noir",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-jaune-noir.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport jaune avec monture noire, protection UV400."
+  },
+  {
+    id: 11,
+    name: "Lunettes sport SCVCN orange",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Sports",
+    image: "images/lunettes-sport-orange.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec verre coloré, protection UV400."
+  },
+  {
+    id: 12,
+    name: "Lunettes sport SCVCN bleu",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-bleu.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec verre bleu, protection UV400."
+  },
+  {
+    id: 13,
+    name: "Lunettes sport SCVCN rose",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-rose.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec finition rose, protection UV 400."
+  },
+  {
+    id: 14,
+    name: "Lunettes sport SCVCN rose/vert",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-rose-vert.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport avec finition colorée, protection UV400."
+  },
+  {
+    id: 15,
+    name: "Lunettes sport SCVCN noir/orange",
+    price: 1500,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-sport-noir-orange.png",
+    emoji: "🕶️",
+    desc: "Lunettes sport noire avec verre orange, protection UV400."
+  },
+  {
+    id: 16,
+    name: "Lunettes polarisées noire",
+    price: 1000,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-polarisees-noire.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées sport, protection UV400."
+  },
+  {
+    id: 17,
+    name: "Lunettes polarisées bleue",
+    price: 1000,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-polarisees-bleue.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre bleu, protection UV400."
+  },
+  {
+    id: 18,
+    name: "Lunettes polarisées verte",
+    price: 1000,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-polarisees-verte.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre vert, protection UV400."
+  },
+  {
+    id: 19,
+    name: "Lunettes polarisées jaune",
+    price: 1000,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-polarisees-jaune.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre jaune, protection UV400."
+  },
+  {
+    id: 20,
+    name: "Lunettes polarisées rouge",
+    price: 1000,
+    cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+    image: "images/lunettes-polarisees-rouge.png",
+    emoji: "🕶️",
+    desc: "Lunettes polarisées avec verre rouge, protection UV400."
+  },
+
+  {
+    id: 21,
+    name: "Montre connectée Sport noire",
+    price: 9500,
+    cat: "Multimédia & Téléphonie",
+    image: "images/montre-sport-noire.png",
+    emoji: "⌚",
+    desc: "Montre connectée sport avec bracelet noir."
+  },
+  {
+    id: 22,
+    name: "Montre connectée Sport kaki",
+    price: 9500,
+    cat: "Multimédia & Téléphonie",
+    image: "images/montre-sport-verte.png",
+    emoji: "⌚",
+    desc: "Montre connectée sport avec bracelet kaki."
+  },
+  {
+    id: 23,
+    name: "Montre connectée Sport marron",
+    price: 9500,
+    cat: "Multimédia & Téléphonie",
+    image: "images/montre-sport-marron.png",
+    emoji: "⌚",
+    desc: "Montre connectée sport avec bracelet marron."
+  },
+  {
+    id: 24,
+    name: "Montre connectée noire",
+    price: 5500,
+    cat: "Multimédia & Téléphonie",
+    image: "images/montre-connectee-noire.png",
+    emoji: "⌚",
+    desc: "Montre connectée élégante avec bracelet noir."
+  },
+  {
+    id: 25,
+    name: "Montre connectée argentée",
+    price: 5500,
+    cat: "Multimédia & Téléphonie",
+    image: "images/montre-connectee-argentee.png",
+    emoji: "⌚",
+    desc: "Montre connectée élégante avec bracelet argenté."
+  },
+  {
+    id: 26,
+    name: "Montre connectée rose",
+    price: 5500,
+    cat: "Multimédia & Téléphonie",
+    image: "images/montre-connectee-rose.png",
+    emoji: "⌚",
+    desc: "Montre connectée élégante avec bracelet rose."
+  },
+
+  {
+    id: 29,
+    name: "Veste coupe-vent imperméable mixte noire à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-noire.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, style sportif et moderne.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 30,
+    name: "Veste coupe-vent imperméable mixte bleu marine à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-bleu-marine.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris bleu marine.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 31,
+    name: "Veste coupe-vent imperméable mixte rouge à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-rouge.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris rouge.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 32,
+    name: "Veste coupe-vent imperméable mixte grise à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-gris.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris gris.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 33,
+    name: "Veste coupe-vent imperméable mixte rose à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-rose.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris rose.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 34,
+    name: "Veste coupe-vent imperméable mixte kaki à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-kaki.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris kaki.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 35,
+    name: "Veste coupe-vent imperméable mixte ivoire à capuche",
+    price: 10000,
+    cat: "Vêtements & Accessoires",
+    image: "images/veste-reebok-ivoire.png",
+    emoji: "🧥",
+    desc: "Veste coupe-vent imperméable mixte à capuche, coloris ivoire.",
+    sizes: ["XS","S","M","L","XL","XXL","XXXL"]
+  },
+
+  {
+    id: 36,
+    cat: "Vêtements & Accessoires",
+    price: 3500,
+    name: "T-shirt ECKO 2026 Rhinocéros Rouge H/F",
+    desc: "Adoptez le style américain avec le T-shirt ECKO 2026 ! 🦏 Motif rhinocéros rouge audacieux, pur coton confortable et look hip-hop tendance. Unisexe, idéal pour hommes et femmes. Affirmez votre style streetwear dès maintenant !",
+    image: "images/t-shirt-ecko-2026-rhinoceros-rouge.png",
+    extraImage: "images/guide-tailles-t-shirt-unisexe.png",
+    colors: ["1", "2", "3", "4", "5", "6"],
+    sizes: ["S", "M", "L", "XL", "XXL", "XXXL"]
+  },
+  {
+    id: 37,
+    name: "T-Shirt Chien DAB Unisex",
+    price: 5500,
+    cat: "Vêtements & Accessoires",
+    image: "images/t-shirt-blanc-chien.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif chien DAB, style streetwear et décontracté.",
+    sizes: ["S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 38,
+    name: "T-Shirt Chat Street Unisex",
+    price: 5500,
+    cat: "Vêtements & Accessoires",
+    image: "images/t-shirt-blanc-chat-street.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif chat noir style streetwear et lunettes.",
+    sizes: ["S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 39,
+    name: "T-Shirt Chat DAB Unisex",
+    price: 5500,
+    cat: "Vêtements & Accessoires",
+    image: "images/t-shirt-blanc-chat.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif chat gris DAB, style fun et tendance.",
+    sizes: ["S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 40,
+    name: "T-Shirt Panda DAB Unisex",
+    price: 5500,
+    cat: "Vêtements & Accessoires",
+    image: "images/t-shirt-blanc-panda.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif panda DAB et lunettes violettes.",
+    sizes: ["S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 41,
+    name: "T-Shirt Licorne DAB Unisex",
+    price: 5500,
+    cat: "Vêtements & Accessoires",
+    image: "images/t-shirt-blanc-licorne.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif licorne colorée DAB, style original.",
+    sizes: ["S","M","L","XL","XXL","XXXL"]
+  },
+  {
+    id: 42,
+    name: "T-Shirt Zèbre DAB Unisex",
+    price: 5500,
+    cat: "Vêtements & Accessoires",
+    image: "images/t-shirt-blanc-zebre.png",
+    emoji: "👕",
+    desc: "T-shirt blanc unisex avec motif zèbre DAB et lunettes violettes.",
+    sizes: ["S","M","L","XL","XXL","XXXL"]
+  },
+
+  {
+    id: 43,
+    name: "Pompe à Air Électrique Portable",
+    price: 3000,
+    cat: "Sports & Loisirs",
+    subcat: "Plein air & Outdoor",
+    image: "images/pompe-a-air.png",
+    emoji: "💨",
+    desc: "Pompe à air électrique portable rechargeable USB-C, batterie 1500mAh, pression jusqu'à 4000 Pa et 3 embouts."
+  },
+  {
+    id: 44,
+    name: "Mini boîte de 4 brillants à lèvres",
+    price: 2000,
+    cat: "Beauté",
+    audience: "Femme",
+    image: "images/mini-boite-brillant-levres.png",
+    emoji: "💄",
+    desc: "Mat velours, waterproof, 4 parfums.",
+    flavors: [
+      "🍊 Orange",
+      "🍑 Honey Peach",
+      "🍒 Cherry",
+      "🍓 Strawberry"
+    ]
+  },
+  {
+    id: 45,
+    name: "Ensemble de 3 brillants à lèvres",
+    price: 500,
+    cat: "Beauté",
+    audience: "Femme",
+    image: "images/ensemble-3-brillants-levres.png",
+    emoji: "💄",
+    desc: "Ensemble de 3 brillants à lèvres, waterproof, tenue 24H.",
+    finishes: [
+      "💄 Mat",
+      "✨ Velours",
+      "💎 Brillant"
+    ],
+    colors: [
+      "Couleur 01",
+      "Couleur 02",
+      "Couleur 03",
+      "Couleur 04",
+      "Couleur 05",
+      "Couleur 06",
+      "Couleur 07",
+      "Couleur 08",
+      "Couleur 09",
+      "Couleur 10",
+      "Couleur 11",
+      "Couleur 12"
+    ]
+  },
+  {
+    id: 46,
+    name: "Eye-liner liquide noir",
+    price: 500,
+    cat: "Beauté",
+    audience: "Femme",
+    image: "images/eye-liner-liquide-noir.png",
+    emoji: "🖊️",
+    desc: "Longue durée, waterproof, 1 ml. 1 pièce.",
+  },
+  {
+  id: 49,
+  name: "Boîte à lunettes compacte",
+  price: 500,
+  cat: "Vêtements & Accessoires",
+  image: "images/boite-a-lunettes.png",
+  emoji: "🕶️",
+  desc: "Boîte à lunettes compacte et pratique, avec fermeture zippée, lanière ajustable et crochet d’attache. Disponible en plusieurs coloris, elle protège facilement vos lunettes au quotidien ou en voyage.",
+  colors: [
+    "🔴 Rouge",
+    "🔵 Bleu",
+    "🟢 Vert",
+    "⚪ Blanc",
+    "⚫ Noir",
+    "🩷 Rose",
+    "🟤 Marron"
+  ]
+},
+  {
+  id: 50,
+  name: "Chargeur USB C PD Charge rapide 3.0",
+  price: 1000,
+  cat: "Multimédia & Téléphonie",
+  image: "images/chargeur-usb-c-pd.png",
+  desc: "Chargeur rapide USB C PD 3.0 avec ports USB et Type-C. Compatible avec les smartphones, iPhone et autres appareils USB."
+},
+  {
+  id: 51,
+  name: "Casquette de baseball en maille",
+  price: 1500,
+  cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
+  image: "images/casquette-maille.png",
+  emoji: "🧢",
+  desc: "Casquette de baseball en maille complète mixte, style casual, disponible en divers coloris.",
+  colors: [
+    "⚫ Noir / Blanc",
+    "🟡 Jaune / Noir",
+    "🔴 Rouge / Noir",
+    "⚪ Blanc / Noir",
+    "🔵 Bleu marine / Noir",
+    "⚫ Noir / Noir",
+    "⚪ Blanc / Rouge"
+  ]
+},
+  {
+  id: 52,
+  name: "Ensemble de 8 rouges à lèvres en capsules",
+  price: 500,
+  cat: "Beauté",
+  audience: "Femme",
+  image: "images/rouges-a-levres-capsules-8.png",
+  emoji: "💄",
+  desc: "Ensemble de 8 rouges à lèvres en capsules, finition mate, tenue longue durée et résistance au transfert.",
+},
+  {
+  id: 53,
+  name: "Miroir de maquillage pliable",
+  price: 500,
+  cat: "Beauté",
+  audience: "Femme",
+  image: "images/miroir-maquillage-pliable.png",
+  emoji: "💄",
+  desc: "Miroir de maquillage pliable double face, compact et pratique, dimensions 7,5 cm x 6 cm, disponible en plusieurs coloris.",
+  colors: [
+  "🩷 Rose",
+  "🖤 Noir",
+  "💜 Violet",
+  "⚪ Blanc",
+  "🟢 Vert"
+]  
+    },
+  {
+  id: 54,
+  name: "Rasoir électrique portable pour femmes",
+  price: 1000,
+  cat: "Beauté",
+  audience: "Femme",
+  subcat: "Casquettes",
+  image: "images/rasoir-electrique-femme.png",
+  emoji: "💄",
+  desc: "Rasoir électrique portable pour femmes, adapté au visage, aux jambes, aux bras, au bikini et aux mains. Format rouge à lèvres, compact et pratique."
+},
+  {
+  id: 55,
+  name: "Lunettes de soleil sport UV400",
+  price: 1000,
+  cat: "Sports & Loisirs",
+    subcat: "Lunette de soleil",
+  image: "images/lunettes-sport-uv400.png",
+  emoji: "🕶️",
+  desc: "Lunettes de soleil sport UV400 pour course, cyclisme, pêche, VTT et vélo de route, modèle mixte.",
+    colors: [
+  "⚫ Noir / Gris",
+  "🔵 Noir / Bleu",
+  "🟢 Vert / Violet",
+  "⚪ Blanc / Bleu",
+  "🌈 Noir / Multicolore",
+  "🟡 Noir / Jaune"
+  ]
+},
+  {
+  id: 56,
+  name: "Pendentif collier croix",
+  price: 1000,
+  cat: "Bijoux",
+  audience: "Homme",
+  image: "images/croix-pendentif-collier.png",
+  emoji: "✝️",
+  desc: "Pour les fans de Fast & Furious ou simplement comme cadeau, excellent rapport qualité-prix. Croix pendentif collier, longueur du collier 50 cm. Croix : 5,1 cm x 3,5 cm.",
+  colors: [
+    "⚪ Argent",
+    "🟡 Or"
+  ]
+},
+  {
+  id: 57,
+  name: "Parfum unisex MISS ROSE",
+  price: 1000,
+  cat: "Beauté",
+  audience: "Femme",
+  image: "images/parfum-miss-rose.png",
+  emoji: "💄",
+  desc: "Parfum unisex MISS ROSE disponible en 4 parfums.",
+  flavors: [
+    "💜 Love Spell",
+    "🩷 Pure Séduction",
+    "🤎 Vanille",
+    "🥥 Coconut Passion"
+  ]
+},
+    /* ===== SSD PORTABLE 2 TB À 64 TB ===== */
+  {
+    id: 60,
+    name: "Disque dur SSD portable 2 TB à 64 TB",
+    price: 8000,
+    cat: "Informatique",
+    subcat: "SSD externes",
+    image: "images/disque-ssd-2tb-64tb-5-coloris.png",
+    emoji: "💾",
+    desc: "Disque dur SSD portable auto alimenté • USB 3.1 • 5 coloris • Stockage de 2 TB à 64 TB.",
+    
+    colors: [
+      "🔵 Bleu",
+      "🔴 Rouge",
+      "⚫ Noir",
+      "⚪ Argent",
+      "🟤 Doré"
+    ],
+
+    storages: [
+      { name: "2 TB", price: 8000 },
+      { name: "4 TB", price: 10000 },
+      { name: "8 TB", price: 15000 },
+      { name: "16 TB", price: 20000 },
+      { name: "32 TB", price: 23000 },
+      { name: "64 TB", price: 25000 }
+    ]
+  },
+    
+  
+
+  {
+    id: 80,
+    name: "Portefeuille Demons Slayers",
+    price: 1000,
+    cat: "Vêtements & Accessoires",
+    subcat: "Cadeau",
+    image: "images/portefeuille-demons-slayers.png",
+    emoji: "👛",
+    colors: [
+      "N°1", "N°2", "N°3", "N°4", "N°5",
+      "N°6", "N°7", "N°8", "N°9", "N°10",
+      "N°11", "N°12", "N°13", "N°14", "N°15",
+      "N°16", "N°17", "N°18", "N°19", "N°20",
+      "N°21", "N°22", "N°23", "N°24", "N°25"
+    ],
+    desc: "📏 Dimensions : 11,8 × 9 cm • 🎨 Plusieurs designs et coloris • 💪 Compact, pratique et résistant • 🎁 Idéal pour les fans d’anime"
+  },
+  {
+    id: 81,
+    name: "Sac à dos à cordon Demon Slayer",
+    price: 1000,
+    cat: "Vêtements & Accessoires",
+    subcat: "Cadeau",
+    image: "images/sac-cordon-demon-slayer.png",
+    emoji: "🎒",
+    colors: [
+      "N°1", "N°2", "N°3", "N°4", "N°5", "N°6", "N°7", "N°8",
+      "N°9", "N°10", "N°11", "N°12", "N°13", "N°14", "N°15", "N°16"
+    ],
+    desc: "Sac à dos à cordon inspiré de l’univers Demon Slayer. Idéal pour transporter chaussures, vêtements et accessoires. Fabriqué en nylon résistant et durable, il est léger, pratique et adapté à une utilisation quotidienne. 📏 Dimensions : 34 × 45 cm • ✨ Léger • Résistant • Pratique • Multifonctionnel"
+  },
+  {
+    id: 82,
+    name: "Figurine en vinyle Lumimira Zoey",
+    price: 4500,
+    cat: "Jouets",
+    subcat: "Cadeau",
+    image: "images/figurine-lumimira-zoey.png",
+    emoji: "🧸",
+    desc: "Figurine en vinyle Lumimira Zoey, la nouvelle poupée K-Pop Demon Slayer."
+  },
+  {
+  id: 83,
+  name: "PS5 For Sony PlayStation 5 Wireless Controller Joystick",
+  price: 9500,
+  cat: "Gaming",
+    subcat: "Accessoires Gaming",
+  image: "images/manette-ps5.png",
+  emoji: "🎮",
+  desc: "Manette sans fil pour Sony PlayStation 5, avec joystick précis, gâchettes adaptatives, micro intégré, détection de mouvements, batterie longue durée et connexion Bluetooth.",
+  colors: [
+    "⚫ Noir",
+    "🟣 Violet",
+    "🔴 Rouge",
+    "🔵 Bleu",
+    "🩷 Rose",
+    "🎨 Camouflage",
+    "🕷️ Spider",
+    "⚪ Blanc"
+  ]
+},
+  {
+  id: 84,
+  name: "SSD Fanxiang S880R NVMe PCIe 4.0 2TB",
+  price: 9500,
+  cat: "Gaming",
+  image: "images/ssd-fanxiang-s880r.png",
+  emoji: "💾",
+  desc: "SSD M.2 2280 NVMe PCIe 4.0×4 avec mémoire 3D TLC NAND Flash et dissipateur en aluminium. Compatible PS5 et Windows 7/8/10/11, il offre des vitesses allant jusqu’à 7 450 Mo/s en lecture et 6 800 Mo/s en écriture selon la capacité. Disponible en 2 To , avec une endurance jusqu’à 2 800 TBW et une garantie de 5 ans. 📏 80 × 22 × 2,4 mm • ≈40 g • 🌡️ Température de fonctionnement : 0 à 70 °C • 🎮 Compatible PS5",
+
+},
+  {
+  id: 85,
+  name: "Headphones MCHOSE V9 Pro Gaming sans fil",
+  price: 9500,
+  cat: "Gaming",
+  subcat: "Accessoires Gaming",
+  image: "images/mchose-v9-pro.png",
+  emoji: "🎧",
+  desc: "Casque gaming sans fil MCHOSE V9 Pro avec son surround 7.1, microphone haute qualité et design léger et confortable. Compatible PC, PS4 et PS5. Idéal pour le gaming et le multimédia.",
+
+  colors: [
+    "⚫ Noir / Rouge",
+    "⚪ Blanc / Bleu",
+    "🩷 Rose",
+    "⚪ Blanc"
+  ]
+},
+  {
+  id: 86,
+  name: "Veste de pêche à capuche pour hommes UPF 50+",
+  price: 8500,
+  cat: "Vêtements & Accessoires",
+  subcat: "Plein air & Outdoor",
+  image: "images/veste-peche-upf50.png",
+  emoji: "🎣",
+  desc: "Veste de pêche à capuche pour hommes à manches longues avec protection solaire UPF 50+. Légère, pratique et adaptée à la pêche, aux activités outdoor et aux sorties en plein air.",
+
+  colors: [
+    "N°01",
+    "N°02",
+    "N°03",
+    "N°04",
+    "N°05",
+    "N°06",
+    "N°07",
+    "N°08",
+    "N°09",
+    "N°10",
+    "N°11",
+    "N°12",
+    "N°13",
+    "N°14",
+    "N°15",
+    "N°16",
+    "N°17",
+    "N°18",
+    "N°19",
+    "N°20",
+    "N°21",
+    "N°22",
+    "N°23",
+    "N°24",
+    "N°25",
+    "N°26",
+    "N°27",
+    "N°28",
+    "N°29",
+    "N°30",
+    "N°31",
+    "N°32",
+    "N°33",
+    "N°34",
+    "N°35"
+  ],
+
+  sizes: [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL"
+  ]
+},
+  {
+  id: 87,
+  name: "Rasoir 3 têtes Enchen Blackstone Plus",
+  price: 5000,
+  cat: "Beauté",
+  audience: "Homme",
+  subcat: "Rasoirs / Tondeuses",
+  image: "images/rasoir-3-tetes-enchen-blackstone-plus.png",
+  emoji: "🪒",
+  desc: "Rasoir électrique 3 têtes Enchen Blackstone Plus. Rasage précis et confortable sur peau sèche ou humide, avec lames triple précision, moteur puissant et recharge rapide USB-C. Jusqu’à 90 minutes d’autonomie."
+},
+  {
+  id: 88,
+  name: "🎮 Casque Gaming USB Cross Border G",
+  price: 8500,
+  cat: "Gaming",
+  subcat: "Accessoires Gaming",
+  image: "images/casque-gaming-cross-border-g.png",
+  emoji: "🎧",
+  desc: "🎧 Casque Gaming Cross Border G : son immersif, microphone intégré et connexion USB pour une expérience gaming confortable et intense. 🎮🔥"
+},
+  {
+  id: 89,
+  name: "Souris Gaming RGB 5500 DPI – 7 Couleurs",
+  price: 3500,
+  cat: "Gaming",
+  subcat: "Accessoires Gaming",
+  image: "images/souris-gaming-rgb-5500-dpi.png",
+  emoji: "🖱️",
+  desc: "🎮 Souris Gaming RGB 5500 DPI : précision, 7 couleurs RGB et design ergonomique pour une expérience gaming fluide et réactive. 🔥",
+
+  colors: [
+    "🔴 Rouge",
+    "🟣 Violet",
+    "🔵 Bleu",
+    "🟢 Vert",
+    "🩷 Rose",
+    "🩵 Cyan"
+  ]
+},
+  {
+  id: 90,
+  name: "Hamac deux personnes pour usage extérieur",
+  price: 10500,
+  cat: "Sports & Loisirs",
+  subcat: "Plein air & Outdoor",
+  image: "images/hamac-double-moustiquaire.png",
+  emoji: "🏕️",
+  desc: "🌿 Hamac double 290 × 140 cm avec moustiquaire intégrée. Confortable, résistant et facile à installer, idéal pour 2 adultes en camping, randonnée, jardin ou terrasse. 🏕️✨",
+
+  colors: [
+    "⚫ Noir",
+    "🫒 Vert kaki",
+    "🩷 Rose",
+    "🔵 Bleu",
+    "🌿 Camouflage",
+    "🩶🟠 Gris / Orange",
+    "🟢 Vert",
+    "🩵 Bleu ciel"
+  ]
+},
+  {
+  id: 91,
+  name: "Casquette Neymar Édition limitée",
+  price: 12500,
+  cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
+  image: "images/casquette-neymar-edition-limitee.png",
+  emoji: "🧢",
+  desc: "🧢 Casquette Neymar Édition limitée, avec un design noir camouflage et détails premium. Disponible en deux coloris : or et noir.",
+  colors: [
+    "🟡 Or",
+    "⚫ Noir"
+  ]
+},
+  {
+  id: 92,
+  name: "💎 Collier Feuille Émeraude Doré & Argenté",
+  price: 1000,
+  cat: "Bijoux",
+  audience: "Mixte",
+  image: "images/collier-feuille-emeraude.png",
+  emoji: "💎",
+  desc: "✨ Un Style Unique • Collier feuille émeraude avec finition dorée ou argentée. 📏 Longueur : 45 cm.",
+  colors: [
+    "🟡 Doré",
+    "⚪ Argenté"
+  ]
+},
+  {
+  id: 93,
+  name: "Set de 2 colliers assortis 🎮❤️ avec pendentifs manette aimantés",
+  price: 1000,
+  cat: "Bijoux",
+  audience: "Mixte",
+  image: "images/set-2-colliers-manette.png",
+  emoji: "🎮",
+  desc: "🎮❤️ 2 colliers assortis avec pendentifs manette de jeu aimantés, conçus pour les couples, meilleurs amis ou duos. Les deux pendentifs se rapprochent et s’assemblent grâce à leur système magnétique. 📏 Longueur : 45 cm.",
+  colors: [
+    "🟡 Or",
+    "⚪ Argent",
+    "🟡⚪ Argent - Or",
+    "⚫ Argent-Noir",
+    "🌈 Couleur"
+  ]
+},
+  {
+  id: 94,
+  name: "Collier avec pendentif feuille inoxydable, mixte",
+  price: 1000,
+  cat: "Bijoux",
+  image: "images/collier-feuille-inoxydable.png",
+  emoji: "🌿",
+  desc: "🌿✨ COLLIER FEUILLE TENDANCE ✨🌿 Un style unique qui attire immédiatement le regard ! 😎 Design élégant et original, parfait pour compléter ton style au quotidien. 🎁 Une idée cadeau qui fait son effet.",
+  colors: [
+    "🟡 Or",
+    "⚪ Argent",
+    "⚫ Noir"
+  ]
+},
+  {
+  id: 95,
+  name: "Montre connectée sportive 1,83” avec suivi santé, appels Bluetooth et étanchéité, compatible iOS et Android",
+  price: 5000,
+  cat: "Multimédia & Téléphonie",
+  image: "images/montre-connectee-sportive-95.png",
+  emoji: "⌚",
+  desc: `⌚ Montre connectée 1,83" – Élégance et performance au quotidien
+
+Le compagnon connecté idéal pour allier sport, santé et style au quotidien !`,
+  colors: [
+    "⚫ Noir",
+    "🩷 Rose",
+    "⚪ Argent",
+    "🟡 Or"
+  ]
+},
+    {
+    id: 96,
+    name: "Casquette Dragon Ball Z Son Goku – Style Hip-Hop, Visière Soleil et Réglable",
+    price: 2000,
+    cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
+    image: "images/casquette-dragon-ball-z-96.png",
+    emoji: "🧢",
+    desc: `🧢 Casquette Dragon Ball Z Son Goku – Brodée, Réglable et Respirante, Style Hip-Hop Unisexe.
+
+Collection exclusive de 36 modèles numérotés de 1 à 36.
+Design original Dragon Ball Z, style streetwear et hip-hop.
+Visière soleil pour une protection au quotidien.
+Matière respirante avec filet arrière.
+Fermeture réglable pour un ajustement confortable.
+Modèle unisexe, idéal pour les fans de Dragon Ball Z.
+
+Choisis ton modèle parmi les numéros 1 à 36 !`,
+    colors: [
+      "Modèle 1",
+      "Modèle 2",
+      "Modèle 3",
+      "Modèle 4",
+      "Modèle 5",
+      "Modèle 6",
+      "Modèle 7",
+      "Modèle 8",
+      "Modèle 9",
+      "Modèle 10",
+      "Modèle 11",
+      "Modèle 12",
+      "Modèle 13",
+      "Modèle 14",
+      "Modèle 15",
+      "Modèle 16",
+      "Modèle 17",
+      "Modèle 18",
+      "Modèle 19",
+      "Modèle 20",
+      "Modèle 21",
+      "Modèle 22",
+      "Modèle 23",
+      "Modèle 24",
+      "Modèle 25",
+      "Modèle 26",
+      "Modèle 27",
+      "Modèle 28",
+      "Modèle 29",
+      "Modèle 30",
+      "Modèle 31",
+      "Modèle 32",
+      "Modèle 33",
+      "Modèle 34",
+      "Modèle 35",
+      "Modèle 36"
+    ]
+  },
+    {
+    id: 97,
+    name: "Parure Femme – Collier Torsadé & Boucles",
+    price: 1000,
+    cat: "Bijoux",
+  audience: "Femme",
+    image: "images/ensemble-noeud-amour-97.png",
+    emoji: "💛",
+    desc: `✨ Collection Glamour – Nœud d’Amour
+
+Sublimez votre style avec ce magnifique ensemble collier et boucles d’oreilles dorés au design élégant et raffiné. Un bijou chic pour illuminer toutes vos tenues et faire plaisir à vos proches.`
+  },
+  
+{
+  id: 98,
+  cat: "Bijoux",
+  audience: "Mixte",
+  name: "Ensemble collier et pendentif Raie Manta - Mixte H/F",
+  price: 1500,
+  image: "images/bijoux_raie_manta_98.png",
+  desc: "Collier Raie Manta – L’esprit polynésien au quotidien ! Affirmez votre style avec ce collier unisexe en acier inoxydable. Son pendentif Raie Manta, symbole de liberté et de protection, apporte une touche polynésienne unique et audacieuse. Acier inoxydable résistant à la corrosion. Design élégant pour femme et homme. Chaîne moderne en maille boîte. Longueur de la chaîne : 60 cm. Dimensions du pendentif : 4,1 x 3,1 cm. Poids : 13,4 g. Un bijou de caractère pour celles et ceux qui portent l’océan dans leur style !",
+  colors: [
+    "⚫ Noir",
+    "🟡 Or",
+    "⚪ Argent"
+  ]
+},
+  {
+  id: 99,
+  name: "Collier pendentif tortue de mer- Mixte H/F",
+  cat: "Bijoux",
+  audience: "Mixte",
+  price: 1500,
+  desc: "🌊 <strong>Collier Tortue de mer – Tribal polynésien</strong><br>✨ Un bijou unisexe en acier inoxydable, symbole de liberté et de protection. Style polynésien affirmé, chaîne de 60 cm et élégance au quotidien.<br>🐚 <strong>Portez l’esprit de l’océan !</strong>",
+  image: "images/collier-tortue-mer.png",
+  colors: ["Or", "Argent"],
+  emoji: "🐢"
+},
+{
+  id: 100,
+  name: "Ensemble de bijoux Femme élégant avec motif d’ailes ",
+  cat: "Bijoux",
+  audience: "Femme",
+  price: 1000,
+  desc: "Ensemble de bijoux en argent 925 sterling, élégant au design romantique avec motif d’ailes, idéal pour les fiançailles, les cérémonies et les occasions spéciales. Tendance et raffiné, parfait comme cadeau.",
+  image: "images/ensemble-bijoux-ailes.png",
+  emoji: "💎"
+},
+{
+  id: 101,
+  name: "✨ Parure Zircone Femme – Collier & Créoles",
+  cat: "Bijoux",
+  audience: "Femme",
+  price: 1000,
+  desc: "✨ Ensemble de bijoux pour femme en argent Sterling 925 véritable, avec collier orné de zircones cubiques et boucles d’oreilles créoles. 💍 Idéal pour les fiançailles, les cérémonies et les occasions spéciales. 🎁 Tendance et raffiné, parfait comme cadeau.",
+  image: "images/ensemble-bijoux-zircone-101.png",
+  emoji: "💎"
+},
+  {
+  id: 102,
+  name: "✨ Parure Dorée Femme – Collier & Créoles Océan 🌊",
+  cat: "Bijoux",
+  audience: "Femme",
+  price: 1500,
+  desc: "🌊✨ Sublimez votre style avec cette élégante parure dorée inspirée de l’océan !<br>💛 Collier pendentif vague et coquillage + boucles d’oreilles créoles.<br>🐚 Acier inoxydable plaqué or.<br>🎁 Idéale pour se faire plaisir ou offrir un cadeau raffiné.<br>🌺 L’élégance de l’océan à porter au quotidien !",
+  image: "images/ensemble-bijoux-ocean-dore-102.png",
+  emoji: "💎"
+},
+  {
+  id: 103,
+  name: "Collier Tortue & Hibiscus Femme",
+  cat: "Bijoux",
+  audience: "Femme",
+  price: 1000,
+  desc: "🐢 Collier tortue de mer avec motif hibiscus ajouré. 🌺 Design tropical élégant, idéal au quotidien ou comme cadeau. ✨ Acier inoxydable, style ras du cou.",
+  image: "images/collier-tortue-hibiscus-103.png",
+  colors: ["Or", "Argent"],
+  emoji: "🐢"
+},
+  {
+  id: 104,
+  name: "Collier Pendentif  Papillon Femme",
+  price: 1000,
+  cat: "Bijoux",
+  audience: "Femme",
+  subcat: "Colliers",
+  image: "images/collier-papillon-id104.png",
+  emoji: "🦋",
+
+  desc: "🦋 Collier Papillon Femme. Élégance et raffinement au quotidien ! 💎 Pendentif papillon ajouré, disponible en doré ou argenté. Acier inoxydable, chaîne de 60 cm. Un bijou chic pour sublimer votre style. 🛍️ Choisissez votre couleur préférée !",
+
+  colors: ["Or", "Argent"]
+},
+  {
+  id: 105,
+  name: "Ensemble bijoux Cœur Femme",
+  price: 1000,
+  cat: "Bijoux",
+  audience: "Femme",
+  subcat: "Parures",
+  image: "images/parure-coeur-id105.png",
+  emoji: "❤️",
+
+  desc: "✨ Brillez en toute élégance ! Une parure cœur chic, idéale pour offrir ou se faire plaisir.",
+
+  colors: ["Or", "Argent"]
+},
+  {
+  id: 106,
+  name: "Kit Maquillage Complet – Beauté & Éclat",
+  price: 9500,
+  cat: "Beauté",
+  audience: "Femme",
+  subcat: "Maquillage",
+  image: "images/kit-maquillage-id106.png",
+  emoji: "💄",
+
+  desc: "💖 Un kit beauté tout-en-un pour un look sublime ! ✨ 2 couleurs de mallette au choix : argentée ou rose. Idéal pour se faire belle ou offrir ! 🎁",
+
+  colors: ["Argentée", "Rose"]
+},
+  {
+  id: 107,
+  name: "Set de 10 Pinceaux Maquillage Professionnels",
+  price: 1000,
+  cat: "Beauté",
+  audience: "Femme",
+  subcat: "Accessoires maquillage",
+  image: "images/pinceaux-maquillage-id107.png",
+  emoji: "💄",
+
+  desc: "✨ Un teint parfait en quelques gestes ! 💄 Pinceaux ultra-doux pour un maquillage impeccable. 💖 Disponibles en 3 coloris : violet, rose et vert !",
+
+  colors: ["Violet", "Rose", "Vert"]
+},
+  {
+  id: 108,
+  name: "Lot de 12 Éponges Maquillage – 7 Couleurs",
+  price: 2500,
+  cat: "Beauté",
+  audience: "Femme",
+  subcat: "Accessoires maquillage",
+  image: "images/eponges-maquillage-id108.png",
+  emoji: "💄",
+
+  desc: "✨ Un teint lisse et uniforme en quelques gestes ! 💖 12 éponges et houppettes pour appliquer fond de teint, poudre et correcteur. Disponibles en 7 coloris pour une beauté parfaite !",
+
+  colors: [
+    "Rose fuchsia",
+    "Violet",
+    "Vert",
+    "Beige",
+    "Rose",
+    "Marron",
+    "Noir"
+  ]
+},
+  {
+  id: 109,
+  name: "Set de 3 Éponges Maquillage avec Boîte",
+  price: 1000,
+  cat: "Beauté",
+  audience: "Femme",
+  subcat: "Accessoires maquillage",
+  image: "images/eponges-boite-id109.png",
+  emoji: "💄",
+
+  desc: "✨ Un teint lisse et naturel en quelques gestes ! Éponges ultra-douces sans latex, idéales pour fond de teint et poudre. 💖 4 coloris au choix : rose, violet, jaune et vert.",
+
+  colors: ["Rose", "Violet", "Jaune", "Vert"]
+},
+  {
+  id: 110,
+  name: "Mini Pompe à Air Électrique 150 PSI avec Écran Digital",
+  price: 9500,
+  cat: "Sports & Loisirs",
+  subcat: "Accessoires vélo et gonflage",
+  image: "images/mini-pompe-air-id110.png",
+  emoji: "🚴",
+
+  desc: "⚡ Gonflez vos pneus rapidement et facilement ! Compacte et sans fil, avec manomètre numérique. Idéale pour vélos, motos, voitures et ballons. 🚲🏍️🚗"
+},
+  {
+  id: 111,
+  name: "Support Téléphone Pliable Universel – 7 Couleurs",
+  price: 500,
+  cat: "Multimédia & Téléphonie",
+  subcat: "Supports téléphone et tablette",
+  image: "images/support-telephone-id111.png",
+  emoji: "📱",
+
+  desc: "✨ Gardez les mains libres ! Support compact et réglable pour smartphone et tablette, idéal pour vidéos, appels et bureau. Disponible en 7 couleurs pour tous les styles !",
+
+  colors: [
+    "Noir",
+    "Blanc",
+    "Bleu",
+    "Vert",
+    "Rose",
+    "Rouge",
+    "Jaune"
+  ]
+},
+  {
+  id: 112,
+  name: "Hub USB-C 8 en 2 – Adaptateur Multifonction",
+  price: 3000,
+  cat: "Multimédia & Téléphonie",
+  subcat: "Hubs et adaptateurs",
+  image: "images/hub-usbc-8-en-2-id112.png",
+  emoji: "💻",
+
+  desc: "⚡ Boostez votre connectivité ! Profitez de 8 ports pour vos périphériques, avec USB 3.0, lecteur SD/TF et prise audio 3,5 mm. Idéal pour MacBook et ordinateurs compatibles USB-C."
+},
+  {
+  id: 113,
+  name: "Ensemble de 3 Bracelets Femme Cœur & Infini",
+  price: 500,
+  cat: "Bijoux",
+  audience: "Femme",
+  image: "images/bracelets-coeur-infini-113.png",
+  emoji: "💎",
+
+  desc: "Un design élégant sublimé par des zircons scintillants pour un look chic et féminin. Portez-les ensemble ou séparément pour briller en toute occasion. 🎁 Le cadeau parfait pour faire plaisir ! 🌸 3 coloris au choix : Doré, Argenté et Rose. 💕 Élégance, charme et éclat au quotidien !",
+
+  colors: [
+    "Doré",
+    "Argenté",
+    "Rose"
+  ]
+},
+  {
+  id: 114,
+  name: "Bague Couple en Acier Inoxydable Homme & Femme",
+  price: 2000,
+  cat: "Bijoux",
+  audience: "Mixte",
+  image: "images/bagues-couple-114.png",
+  emoji: "💍",
+  desc: "❤️ Un symbole d’amour à porter à deux ! 💍 Craquez pour ces bagues de couple au design courbé et moderne, parfaites pour un style élégant et intemporel. Conçues en acier inoxydable, elles sont idéales pour célébrer votre amour au quotidien ou offrir un cadeau romantique. 🎁 ✨ 3 coloris disponibles : Or, Argent et Or rose. 📏 Tailles disponibles : 6, 7, 8, 9, 10, 11, 12 et 13. 💕 Le duo parfait pour symboliser votre amour !",
+  colors: ["Or", "Argent", "Or rose"],
+  sizes: ["6", "7", "8", "9", "10", "11", "12", "13"]
+},
+  {
+  id: 115,
+  name: "Bague Alliance Couple Homme & Femme en Acier Inoxydable",
+  price: 2000,
+  cat: "Bijoux",
+  audience: "Mixte",
+  image: "images/alliance-couple-115.png",
+  emoji: "💍",
+  desc: "💍 Un symbole d’amour éternel pour votre couple ! ❤️ Craquez pour cette alliance en acier inoxydable au design sobre et élégant, idéale pour un mariage, un engagement ou un cadeau romantique. ✨ Résistante à la corrosion et facile à assortir, elle convient aux hommes comme aux femmes. 📏 Tailles disponibles : 6, 7, 8, 9, 10, 11 et 12. 💕 L’élégance parfaite pour célébrer votre amour au quotidien !",
+
+  genders: ["Homme", "Femme"],
+
+  sizes: ["6", "7", "8", "9", "10", "11", "12"]
+},
+  {
+  id: 116,
+  cat: "Bijoux",
+  audience: "Mixte",
+  name: "Bague Alliance Couple Acier Inoxydable Homme Femme – 4/6 mm",
+  price: 2000,
+  image: "images/Bagues bicolores sur marbre doré.png",
+  emoji: "💍",
+  desc: `💍 L’alliance parfaite pour symboliser votre amour ! ❤️
+
+Craquez pour cette bague de couple au design classique et intemporel, idéale pour un mariage, des fiançailles ou un cadeau romantique. ✨ En acier inoxydable, elle allie élégance et résistance pour vous accompagner au quotidien.
+
+📏 Largeurs disponibles : 4 mm et 6 mm
+💎 Tailles disponibles : 5 à 13
+❤️ Pour homme et femme
+
+💕 Un bijou simple et élégant pour célébrer votre amour !`,
+   
+    genders: ["Homme", "Femme"],
+
+    sizes: ["5","6", "7", "8", "9", "10", "11", "12"]
+},
+  
+
+{
+  id: 117,
+  cat: "Bijoux",
+  audience: "Mixte",
+  name: "Boîte à Bague de Fiançailles en Velours",
+  price: 500,
+  image: "images/Écrins de bagues en velours luxueux.png",
+  emoji: "💍",
+  desc: `💍 Un écrin pour un amour précieux ! ❤️
+
+Boîte à bague en velours, idéale pour fiançailles, mariage et cadeaux romantiques. ✨
+
+🎨 6 coloris disponibles : Beige, Bleu, Gris, Rose, Rouge et Rouge vin
+📏 Dimensions : 7,5 × 5 × 4 cm
+
+💕 Le détail parfait pour une demande inoubliable !`,
+    
+ colors: ["Beige", "Bleu", "Gris", "Rose", "Rouge", "Rouge vin"],
+},
+  {
+    id: 118,
+    name: "Masque LED Visage – Soin Beauté Anti-Âge & Éclat",
+    price: 7500,
+    cat: "Beauté",
+    audience: "Femme",
+    image: "images/Masques LED visage et cou futuristes.png",
+    emoji: "✨",
+    freeShipping: true,
+    desc: `✨ Révélez l’éclat de votre peau à la maison !
+
+Masque LED visage et cou à 7 couleurs, conçu pour compléter votre routine beauté et cibler les besoins des peaux ternes ou sujettes aux imperfections. 💆‍♀️ Léger et pratique, pour un moment de soin à domicile.
+
+🌈 7 couleurs LED
+💖 Soin beauté visage et cou
+🏡 Utilisation à domicile`
+  },
+  {
+    id: 119,
+    name: "Distributeur 2 en 1 Eau & Croquettes pour Chat et Chien",
+    price: 6500,
+    cat: "Animalerie",
+    audience: "Tous",
+    image: "images/Distributeur eau et croquettes pour animaux.png",
+    emoji: "🐶",
+    colors: ["Vert", "Rose", "Gris"],
+    freeShipping: true,
+    desc: `🐶🐱 **Deux en un pour le confort de vos compagnons !**
+
+Distributeur pratique d’eau et de croquettes avec compartiments séparés, idéal pour faciliter le quotidien de votre chat ou chien. Son plastique transparent permet de vérifier facilement les niveaux.
+
+💧 Eau + 🍖 Croquettes
+📦 Capacité de nourriture : 100 à 700 g
+✨ Pratique, compact et facile à utiliser !`
+},
+  {
+  id: 120,
+  name: "Mini Enceinte Bluetooth 5.3 Portable 3W – Étanche, Compacte & Puissante 🔊",
+  price: 5000,
+  cat: "Multimédia & Téléphonie",
+  image: "images/enceinte-bluetooth-compacte-tout-terrain.png",
+  desc: `🔊 **Profitez de votre musique partout avec cette mini enceinte Bluetooth portable !**
+
+Compacte, légère et facile à transporter, cette enceinte noire vous accompagne au quotidien, en voyage, à la plage ou lors de vos activités en plein air.
+
+✅ **Bluetooth 5.3** : connexion sans fil stable jusqu’à 20 mètres
+✅ **Son stéréo immersif** : profitez de vos morceaux préférés avec un son clair
+✅ **Ultra-portable** : seulement 200 g pour l’emporter partout
+✅ **Batterie intégrée 400 mAh** : écoutez votre musique en toute liberté
+✅ **Puissance de 3 W** : un son pratique dans un format mini
+✅ **Étanche et résistante aux chocs** : idéale pour vos aventures en extérieur
+✅ **Alimentation USB** : pratique pour une utilisation flexible
+
+🎵 **Petite par la taille, grande par la praticité !** Emportez votre musique partout et profitez de vos playlists préférées à tout moment.
+
+👉 **Commandez votre mini enceinte Bluetooth dès maintenant !**`
+},
+  
+{
+  id: 121,
+  name: "Casquette Thuglife Hip-Hop Unisexe – Style Urbain ",
+  price: 1500,
+  cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
+  image: "images/casquette-thuglife-outlaw.png",
+  desc: `🧢 Adopte le style streetwear avec la casquette Thuglife ! 🔥
+
+✅ Style hip-hop tendance
+✅ Taille ajustable et confortable
+✅ 19 coloris disponibles
+✅ Unisexe, idéale au quotidien
+👉 Choisis ta couleur préférée !`,
+  colors: [
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    "11", "12", "13", "14", "15", "16", "17", "18", "19"
+  ]
+},
+  {
+  id: 122,
+  name: "Lunettes Vélo UV400 Miroir – Sport & Moto, Vaa'a, Pêche 😎",
+  price: 1500,
+  cat: "Sports & Loisirs",
+  subcat: "Lunette de soleil",
+  image: "images/lunettes-sport-fenua-select-polyvalentes.png",
+  desc: `😎 Adoptez un look sportif avec ces lunettes UV400 à effet miroir !
+
+✅ Protection UV400
+✅ Verres résistants en polycarbonate
+✅ 7 coloris disponibles
+✅ Idéales pour le vélo et les activités outdoor
+👉 Choisissez votre style et équipez-vous dès maintenant !`,
+  colors: ["1", "2", "3", "4", "5", "6", "7"]
+},
+  
+{
+  id: 123,
+  name: "Lunettes de Sport UV400 SCVCN – Vélo & Outdoor 😎",
+  price: 2500,
+  cat: "Sports & Loisirs",
+  subcat: "Lunette de soleil",
+  image: "images/lunettes-sport-uv400-scvcn.png",
+  desc: `😎 Profitez d’une vision claire avec ces lunettes de sport légères et tendance !
+
+✅ Protection UV400
+✅ Ultra-légères : 34 g
+✅ Vision panoramique sans distorsion
+✅ 16 coloris disponibles`,
+  colors: [
+    "1", "2", "3", "4", "5", "6", "7", "8",
+    "9", "10", "11", "12", "13", "14", "15", "16"
+  ]
+},
+  {
+  id: 124,
+  name: "Lunettes SCVCN Photochromiques UV400 – Vélo & Sport Outdoor 😎",
+  price: 3500,
+  cat: "Sports & Loisirs",
+  subcat: "Lunette de soleil",
+  image: "images/lunettes-scvcn-photochromiques.png",
+  desc: `😎 Adoptez les lunettes SCVCN pour vos aventures sportives !
+
+✅ Verres photochromiques
+✅ Protection UV400
+✅ Légères et confortables
+✅ Vision panoramique
+✅ Idéales pour le VTT, le vélo, vaa'a et la conduite
+
+🚴 Performance et style pour toutes vos sorties !`,
+  colors: ["1", "2", "3", "4", "5"]
+},
+
+
+
+
+
+
+];
+
+
+let category="";
+let jewelryAudience="";
+let beautyAudience="";
+let catalogSubcategory="";
+let sunglassesBrand="";
+let cart=[];
+let currentPage=1;
+const productsPerPage=8;
+const outOfStockIds = new Set([1, 2, 3, 4, 147]);
+
+function money(n){
+  return new Intl.NumberFormat('fr-FR').format(n)+" Frs";
+}
+
+function setCategory(c,btn){
+  category=c;
+  jewelryAudience="";
+  beautyAudience="";
+  catalogSubcategory="";
+  sunglassesBrand="";
+  const brandFilters=document.getElementById("sunglasses-brands");
+  if(brandFilters) brandFilters.hidden=true;
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
+  const clothingFilters=document.getElementById("clothing-subcategories");
+  const sportsFilters=document.getElementById("sports-subcategories");
+  if(clothingFilters) clothingFilters.hidden=(c!=="Vêtements & Accessoires");
+  if(sportsFilters) sportsFilters.hidden=(c!=="Sports & Loisirs");
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  const audienceFilters=document.getElementById("jewelry-audience-filters");
+  const beautyFilters=document.getElementById("beauty-audience-filters");
+  if(audienceFilters) audienceFilters.hidden=(c!=="Bijoux");
+  if(beautyFilters) beautyFilters.hidden=(c!=="Beauté");
+  document.querySelectorAll("#jewelry-audience-filters button, #beauty-audience-filters button").forEach(b=>b.classList.remove("active"));
+  catalogFilterCategory=c;
+  const catSelect=document.getElementById("catalogCategoryFilter");
+  if(catSelect) catSelect.value=c;
+  currentPage=1;
+  document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderProducts();
+}
+
+function setCatalogSubcategory(subcategory,btn){
+  catalogSubcategory = catalogSubcategory === subcategory ? "" : subcategory;
+  sunglassesBrand = "";
+  const brandFilters=document.getElementById("sunglasses-brands");
+  if(brandFilters) brandFilters.hidden=!(catalogSubcategory === "Lunette de soleil");
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
+  currentPage = 1;
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  if(catalogSubcategory && btn) btn.classList.add("active");
+  renderProducts();
+}
+
+function setSunglassesBrand(brand,btn){
+  sunglassesBrand = sunglassesBrand === brand ? "" : brand;
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
+  if(sunglassesBrand && btn) btn.classList.add("active");
+  currentPage=1;
+  renderProducts();
+}
+
+function setJewelryAudience(audience,btn){
+  jewelryAudience=audience;
+  category="Bijoux";
+  catalogFilterCategory="Bijoux";
+  const catSelect=document.getElementById("catalogCategoryFilter");
+  if(catSelect) catSelect.value="Bijoux";
+  document.querySelectorAll("#jewelry-audience-filters button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentPage=1;
+  renderProducts();
+}
+
+function setBeautyAudience(audience,btn){
+  beautyAudience=audience;
+  category="Beauté";
+  catalogFilterCategory="Beauté";
+  const catSelect=document.getElementById("catalogCategoryFilter");
+  if(catSelect) catSelect.value="Beauté";
+  document.querySelectorAll("#beauty-audience-filters button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentPage=1;
+  renderProducts();
+}
+
+let catalogFilterCategory = "";
+let catalogFilterPrice = "all";
+let catalogFilterSort = "relevance";
+
+function applyCatalogFilters(){
+  catalogFilterCategory = document.getElementById("catalogCategoryFilter")?.value || "";
+  catalogFilterPrice = document.getElementById("catalogPriceFilter")?.value || "all";
+  catalogFilterSort = document.getElementById("catalogSortFilter")?.value || "relevance";
+  category = catalogFilterCategory;
+  if(category!=="Vêtements & Accessoires" && category!=="Sports & Loisirs") catalogSubcategory="";
+  const clothingFilters=document.getElementById("clothing-subcategories");
+  const sportsFilters=document.getElementById("sports-subcategories");
+  if(clothingFilters) clothingFilters.hidden=(category!=="Vêtements & Accessoires");
+  if(sportsFilters) sportsFilters.hidden=(category!=="Sports & Loisirs");
+  const jewelryFilters=document.getElementById("jewelry-audience-filters");
+  const beautyFilters=document.getElementById("beauty-audience-filters");
+  if(jewelryFilters) jewelryFilters.hidden=(category!=="Bijoux");
+  if(beautyFilters) beautyFilters.hidden=(category!=="Beauté");
+  if(category!=="Bijoux") jewelryAudience="";
+  if(category!=="Beauté") beautyAudience="";
+  currentPage = 1;
+  renderProducts();
+}
+
+function resetCatalogFilters(){
+  catalogSubcategory="";
+  sunglassesBrand="";
+  const brandFilters=document.getElementById("sunglasses-brands");
+  if(brandFilters) brandFilters.hidden=true;
+  document.querySelectorAll("#sunglasses-brands button").forEach(b=>b.classList.remove("active"));
+  const clothingFilters=document.getElementById("clothing-subcategories");
+  const sportsFilters=document.getElementById("sports-subcategories");
+  if(clothingFilters) clothingFilters.hidden=true;
+  if(sportsFilters) sportsFilters.hidden=true;
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  jewelryAudience="";
+  beautyAudience="";
+  const audienceFilters=document.getElementById("jewelry-audience-filters");
+  const beautyFilters=document.getElementById("beauty-audience-filters");
+  if(audienceFilters) audienceFilters.hidden=true;
+  if(beautyFilters) beautyFilters.hidden=true;
+  document.querySelectorAll("#jewelry-audience-filters button, #beauty-audience-filters button").forEach(b=>b.classList.remove("active"));
+  catalogFilterCategory = "";
+  catalogFilterPrice = "all";
+  catalogFilterSort = "relevance";
+  category = "";
+  const cat=document.getElementById("catalogCategoryFilter");
+  const price=document.getElementById("catalogPriceFilter");
+  const sort=document.getElementById("catalogSortFilter");
+  if(cat) cat.value="";
+  if(price) price.value="all";
+  if(sort) sort.value="relevance";
+  document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+  const notice=document.getElementById("preorderNotice");
+  if(notice) notice.style.display="none";
+  currentPage=1;
+  renderProducts();
+}
+
+
+
+function renderProducts(){
+
+  const searchEl = document.getElementById('search');
+  const q = searchEl ? searchEl.value.toLowerCase().trim() : "";
+  const activeCategory = catalogFilterCategory || category;
+
+  // Aucun produit ni image avant que le visiteur choisisse une catégorie.
+  if (!activeCategory) {
+    const productsContainer=document.getElementById('products');
+    if(productsContainer) productsContainer.innerHTML='<div class="catalog-empty-prompt" role="status">👆 Choisissez une catégorie ci-dessus pour découvrir les produits.</div>';
+    const count=document.getElementById("catalog-result-count");
+    if(count) count.textContent="Sélectionnez une catégorie";
+    const pagination=document.getElementById('pagination-top');
+    if(pagination) pagination.innerHTML='';
+    return;
+  }
+
+  const activePrice = catalogFilterPrice;
+  const activeSort = catalogFilterSort;
+
+  const getPrice = p => Number(p.storages && p.storages.length ? p.storages[0].price : p.price) || 0;
+
+  const list = products.filter(p => {
+    // Par défaut, le catalogue affiche tous les produits classiques.
+    // Les précommandes ne sont affichées que lorsqu'elles sont choisies.
+    if (activeCategory) {
+      if (p.cat !== activeCategory) return false;
+    }
+
+    if (catalogSubcategory && p.subcat !== catalogSubcategory) return false;
+    if (sunglassesBrand) {
+      const isSCVCN = /SCVCN/i.test(String(p.name || ""));
+      if (sunglassesBrand === "SCVCN" && !isSCVCN) return false;
+      if (sunglassesBrand === "Autres marques" && isSCVCN) return false;
+    }
+
+    if (jewelryAudience && p.cat === "Bijoux" && p.audience !== jewelryAudience) return false;
+    if (beautyAudience && p.cat === "Beauté" && p.audience !== beautyAudience) return false;
+
+    if (q && !(
+      String(p.name || "").toLowerCase().includes(q) ||
+      String(p.desc || "").toLowerCase().includes(q)
+    )) return false;
+
+
+    if (activePrice !== "all") {
+      const price = getPrice(p);
+      if (activePrice === "50000-plus") {
+        if (price < 50000) return false;
+      } else {
+        const [min,max] = activePrice.split("-").map(Number);
+        if (price < min || price >= max) return false;
+      }
+    }
+    return true;
+  });
+
+  if (activeSort === "price-asc") list.sort((a,b) => getPrice(a) - getPrice(b));
+  if (activeSort === "price-desc") list.sort((a,b) => getPrice(b) - getPrice(a));
+  if (activeSort === "name-asc") list.sort((a,b) => String(a.name).localeCompare(String(b.name), "fr", {sensitivity:"base"}));
+  if (activeSort === "name-desc") list.sort((a,b) => String(b.name).localeCompare(String(a.name), "fr", {sensitivity:"base"}));
+
+  const count=document.getElementById("catalog-result-count");
+  if(count) count.textContent=`${list.length} produit${list.length>1?'s':''}`;
+
+  // Pagination : afficher uniquement les 8 produits de la page sélectionnée.
+  const totalPages = Math.ceil(list.length / productsPerPage);
+  currentPage = Math.max(1, Math.min(currentPage, totalPages || 1));
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const pageList = list.slice(startIndex, startIndex + productsPerPage);
+
+  document.getElementById('products').innerHTML = pageList.length
+    ? pageList.map(p => {
+
+        const firstPrice =
+          p.storages && p.storages.length
+            ? p.storages[0].price
+            : p.price;
+
+        return `
+
+    <article class="product ${p.cat === "Précommande" ? "precommande-card" : ""}">
+
+      <div class="product-img">
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.textContent='${p.emoji}'"
+        >
+        ${outOfStockIds.has(p.id) ? '<div class="stock-overlay"><img src="images/rupture-de-stock.png" alt="Rupture de stock"></div>' : ''}
+      </div>
+
+      <div class="product-body">
+
+        <span class="pill">${p.cat}</span>
+
+        <h3>${p.name}*</h3>
+
+        <p>${p.desc}</p>
+
+        ${Number(p.id) === 36 && p.extraImage ? `
+          <div class="product-size-guide" style="margin:10px 0;width:100%;">
+            <h4 style="margin:0 0 8px;color:#fff;">📏 Guide des tailles unisexe</h4>
+            <div class="product-img ring-guide-zoom-target" style="height:auto;min-height:0;flex:none;width:100%;border-radius:10px;overflow:hidden;position:relative;">
+              <img src="${p.extraImage}" alt="Guide des tailles du T-shirt ECKO 2026" loading="lazy" style="display:block;width:100%;height:auto;max-height:none;object-fit:contain;padding:0;">
+            </div>
+          </div>
+        ` : ''}
+
+        ${[114, 115, 116].includes(Number(p.id)) ? `
+          <div class="ring-size-guide" style="margin:14px 0 18px;">
+            <h4 style="margin:0 0 8px;">📏 Guide des tailles de bague</h4>
+            <div class="product-img ring-guide-zoom-target" style="width:100%;max-width:760px;margin:0 auto;border-radius:12px;overflow:hidden;position:relative;">
+              <img
+                src="images/guide-tailles-bague.png"
+                alt="Guide des tailles de bague de 5 à 13"
+                loading="lazy"
+                style="display:block;width:100%;height:auto;margin:0 auto;border-radius:12px;"
+              >
+            </div>
+          </div>
+        ` : ''}
+
+
+        <!-- ===== PARFUM ===== -->
+
+        ${
+          p.flavors
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="flavor-${p.id}">
+                  Parfum :
+                </label>
+
+                <select
+                  id="flavor-${p.id}"
+                  class="flavor-select"
+                >
+                  ${p.flavors.map(flavor => `
+                    <option value="${flavor}">
+                      ${flavor}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== FINITION ===== -->
+
+        ${
+          p.finishes
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="finish-${p.id}">
+                  Finition :
+                </label>
+
+                <select
+                  id="finish-${p.id}"
+                  class="finish-select"
+                >
+                  ${p.finishes.map(finish => `
+                    <option value="${finish}">
+                      ${finish}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== COULEUR ===== -->
+
+        ${
+          p.colors
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="color-${p.id}">
+                  Couleur :
+                </label>
+
+                <select
+                  id="color-${p.id}"
+                  class="color-select"
+                >
+                  ${p.colors.map(color => `
+                    <option value="${color}">
+                      ${color}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== GENRE HOMME / FEMME ===== -->
+
+        ${
+          p.genders
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+                <label>Genre :</label>
+                <input type="hidden" id="gender-${p.id}" value="">
+                <div class="gender-buttons" role="group" aria-label="Choisir le genre">
+                  ${p.genders.map(gender => `
+                    <button
+                      type="button"
+                      class="gender-btn"
+                      aria-pressed="false"
+                      onclick="selectGender(${p.id}, '${gender}', this)">
+                      ${gender === "Homme" ? "♂️ " : "♀️ "}${gender}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+        <!-- ===== TAILLE ===== -->
+
+        ${
+          p.sizes
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="size-${p.id}">
+                  Taille :
+                </label>
+
+                <select
+                  id="size-${p.id}"
+                  class="size-select"
+                >
+                  ${p.sizes.map(size => `
+                    <option value="${size}">
+                      ${size}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== PUISSANCE ===== -->
+
+        ${
+          p.powers
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="power-${p.id}">
+                  👓 Puissance :
+                </label>
+
+                <select
+                  id="power-${p.id}"
+                  class="power-select"
+                >
+                  ${p.powers.map(power => `
+                    <option value="${power}">
+                      ${power}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== STOCKAGE ===== -->
+
+        ${
+          p.storages
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+
+                <label for="storage-${p.id}">
+                  💾 Stockage :
+                </label>
+
+                <select
+                  id="storage-${p.id}"
+                  class="storage-select"
+                  onchange="updateStoragePrice(${p.id})"
+                >
+                  ${p.storages.map(storage => `
+                    <option
+                      value="${storage.name}"
+                      data-price="${storage.price}"
+                    >
+                      ${storage.name} - ${money(storage.price)}
+                    </option>
+                  `).join('')}
+                </select>
+
+              </div>
+            </div>
+          `
+          : ''
+        }
+
+
+        <!-- ===== PRIX / QUANTITÉ / AJOUTER ===== -->
+
+   <div class="product-bottom">
+
+  <strong id="price-${p.id}">${money(firstPrice)}</strong>
+
+  <button
+    class="${outOfStockIds.has(p.id) ? 'out-of-stock-btn' : ''}"
+    onclick="add(${p.id})"
+    ${outOfStockIds.has(p.id) ? 'disabled' : ''}>
+    ${outOfStockIds.has(p.id) ? "🔴 RUPTURE DE STOCK" : "Ajouter"}
+  </button>
+
+</div>
+
+
+          <div class="quantity-control">
+
+            <span class="quantity-label">
+              Quantité :
+            </span>
+
+            <div class="quantity-buttons">
+
+              <button
+                type="button"
+                class="qty-btn"
+                onclick="changeQty(${p.id},-1)"
+                aria-label="Diminuer la quantité"
+              >
+                −
+              </button>
+
+              <span
+                id="qty-${p.id}"
+                class="qty-value"
+              >
+                1
+              </span>
+
+              <button
+                type="button"
+                class="qty-btn"
+                onclick="changeQty(${p.id},1)"
+                aria-label="Augmenter la quantité"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `;
+
+      }).join('')
+    : '<p>Aucun produit trouvé.</p>';
+
+  renderPagination(totalPages);
+}
+
+
+function goToPage(page){
+  currentPage=page;
+  renderProducts();
+  const productsSection=document.getElementById('products');
+  if(productsSection){
+    productsSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+
+function renderPagination(totalPages){
+  const pagination = document.getElementById('pagination-top');
+  if(!pagination) return;
+
+  if(totalPages <= 1){
+    pagination.innerHTML='';
+    return;
+  }
+
+  let buttons='';
+
+  buttons += `<button type="button" class="page-btn page-prev" onclick="goToPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+
+  for(let i=1;i<=totalPages;i++){
+    buttons += `<button type="button" class="page-btn ${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
+  }
+
+  buttons += `<button type="button" class="page-btn page-next" onclick="goToPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
+
+  pagination.innerHTML=buttons;
+}
+
+
+function selectGender(id, gender, button) {
+  const input = document.getElementById(`gender-${id}`);
+  if (!input) return;
+
+  input.value = gender;
+  const container = button.closest(".gender-buttons");
+  if (!container) return;
+
+  container.querySelectorAll(".gender-btn").forEach(btn => {
+    const selected = btn === button;
+    btn.classList.toggle("active", selected);
+    btn.setAttribute("aria-pressed", selected ? "true" : "false");
+  });
+}
+
+
+function changeQty(id, amount){
+
+  const element =
+    document.getElementById(`qty-${id}`);
+
+  if(!element) return;
+
+  let qty =
+    parseInt(element.textContent,10) || 1;
+
+  qty += amount;
+
+  if(qty < 1){
+    qty = 1;
+  }
+
+  element.textContent = qty;
+}
+
+
+function updateStoragePrice(id){
+
+  const p =
+    products.find(x => x.id === id);
+
+  if(!p || !p.storages) return;
+
+  const select =
+    document.getElementById(`storage-${id}`);
+
+  const priceElement =
+    document.getElementById(`price-${id}`);
+
+  if(!select || !priceElement) return;
+
+  const selected =
+    p.storages.find(x => x.name === select.value);
+
+  if(selected){
+    priceElement.textContent =
+      money(selected.price);
+  }
+}
+
+
+function add(id){
+
+  const p = products.find(x => x.id === id);
+
+  if(!p) return;
+  if(outOfStockIds.has(id)){
+    return;
+  }
+
+  let flavor = "";
+  let finish = "";
+  let color = "";
+  let size = "";
+  let gender = "";
+  let storage = "";
+  let power = "";
+  let price = p.price;
+  let qty = 1;
+
+
+  if(p.flavors){
+    const select =
+      document.getElementById(`flavor-${id}`);
+
+    if(select){
+      flavor = select.value;
+    }
+  }
+
+
+  if(p.finishes){
+    const select =
+      document.getElementById(`finish-${id}`);
+
+    if(select){
+      finish = select.value;
+    }
+  }
+
+
+  if(p.colors){
+    const select =
+      document.getElementById(`color-${id}`);
+
+    if(select){
+      color = select.value;
+    }
+  }
+
+
+  if(p.genders){
+    const input = document.getElementById(`gender-${id}`);
+    gender = input ? input.value : "";
+    if(!gender){
+      alert("Veuillez choisir Homme ou Femme.");
+      return;
+    }
+  }
+
+
+  if(p.sizes){
+    const select =
+      document.getElementById(`size-${id}`);
+
+    if(select){
+      size = select.value;
+    }
+  }
+
+
+  if(p.powers){
+    const select =
+      document.getElementById(`power-${id}`);
+
+    if(select){
+      power = select.value;
+    }
+  }
+
+
+  if(p.storages){
+
+    const select =
+      document.getElementById(`storage-${id}`);
+
+    if(select){
+
+      storage = select.value;
+
+      const selected =
+        p.storages.find(
+          x => x.name === storage
+        );
+
+      if(selected){
+        price = selected.price;
+      }
+    }
+  }
+
+
+  const qtyElement =
+    document.getElementById(`qty-${id}`);
+
+  if(qtyElement){
+    qty =
+      Math.max(
+        1,
+        parseInt(qtyElement.textContent,10) || 1
+      );
+  }
+
+
+  const cartId = [
+    id,
+    flavor,
+    finish,
+    color,
+    size,
+    gender,
+    power,
+    storage
+  ].filter(Boolean).join("-");
+
+
+  const found =
+    cart.find(x => x.cartId === cartId);
+
+
+  if(found){
+
+    found.qty += qty;
+
+  }else{
+
+    cart.push({
+      ...p,
+      price: price,
+      qty: qty,
+      cartId: cartId,
+      flavor: flavor,
+      finish: finish,
+      color: color,
+      size: size,
+      gender: gender,
+      power: power,
+      storage: storage
+    });
+
+  }
+
+
+  updateCart();
+
+  // Ouvre automatiquement le panier après l'ajout d'un produit.
+  openCart();
+}
+
+
+function removeFromCart(cartId){
+
+  cart = cart.filter(x => x.cartId !== cartId);
+
+  updateCart();
+  openCart();
+
+}
+
+
+function updateCart(){
+
+  document.getElementById('cartCount').textContent =
+    cart.reduce((s,x) => s + x.qty, 0);
+
+  const productsTotal =
+    cart.reduce((s, x) => s + x.price * x.qty, 0);
+
+  const hasPreorder = false;
+
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
+  const deliveryFee =
+    (hasPreorder || hasFreeShipping)
+      ? 0
+      : Number(document.getElementById('deliveryZone')?.value || 0);
+
+  const total =
+    productsTotal + deliveryFee;
+
+  const acompte =
+    hasPreorder
+      ? Math.round(total * 0.50)
+      : 0;
+
+  const solde =
+    hasPreorder
+      ? total - acompte
+      : 0;
+
+  const cartTotalLabel = document.querySelector('#commande .total span');
+  const cartTotalValue = document.getElementById('cartTotal');
+
+  if(hasPreorder){
+    if(cartTotalLabel) cartTotalLabel.textContent = 'Acompte à payer maintenant';
+    if(cartTotalValue) cartTotalValue.textContent = money(acompte);
+  }else{
+    if(cartTotalLabel) cartTotalLabel.textContent = 'Total';
+    if(cartTotalValue) cartTotalValue.textContent = money(total);
+  }
+
+  document.getElementById('orderSummary').innerHTML =
+    cart.length
+
+    ? cart.map(x => `
+
+        <div class="order-line">
+
+          <span>
+
+            <strong>${x.name}</strong> <button type="button" class="cart-delete-btn" onclick="removeFromCart(${x.cartId})" aria-label="Supprimer ${x.name}">🗑️ Supprimer</button>
+            × ${x.qty}
+
+            ${
+              x.size
+              ? `<br><small>👕 Taille : ${x.size}</small>`
+              : ''
+            }
+            ${
+              x.gender
+              ? `<br><small>⚧ Genre : ${x.gender}</small>`
+              : ''
+            }
+
+            ${
+              x.flavor
+              ? `<br><small>🍊 Parfum : ${x.flavor}</small>`
+              : ''
+            }
+
+            ${
+              x.finish
+              ? `<br><small>✨ Finition : ${x.finish}</small>`
+              : ''
+            }
+
+            ${
+              x.color
+              ? `<br><small>🎨 Couleur : ${x.color}</small>`
+              : ''
+            }
+
+            ${
+              x.power
+              ? `<br><small>👓 Puissance : ${x.power}</small>`
+              : ''
+            }
+
+            ${
+              x.storage
+              ? `<br><small>💾 Stockage : ${x.storage}</small>`
+              : ''
+            }
+
+          </span>
+
+          <strong>
+            ${money(x.price * x.qty)}
+          </strong>
+
+        </div>
+
+      `).join('')
+
+    : "Votre panier est vide.";
+}
+
+
+
+function openCart(){
+
+  const productsTotal =
+    cart.reduce(
+      (s, x) => s + x.price * x.qty,
+      0
+    );
+
+  const hasPreorder = false;
+
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
+  const deliveryFee =
+    (hasPreorder || hasFreeShipping)
+      ? 0
+      : Number(
+          document.getElementById('deliveryZone')?.value || 0
+        );
+
+  const total =
+    productsTotal + deliveryFee;
+
+  const acompte =
+    hasPreorder
+      ? Math.round(total * 0.50)
+      : total;
+
+  const solde =
+    hasPreorder
+      ? total - acompte
+      : 0;
+
+
+  document.getElementById('modalItems').innerHTML =
+    cart.length
+
+    ? cart.map(x => `
+
+      <div class="cart-item">
+
+        <div class="cart-item-info">
+
+          <strong>${x.name}</strong>
+
+          <span>Quantité : ${x.qty}</span>
+
+          ${
+            x.size
+            ? `<small>👕 Taille : ${x.size}</small>`
+            : ''
+          }
+          ${
+            x.gender
+            ? `<small>⚧ Genre : ${x.gender}</small>`
+            : ''
+          }
+
+          ${
+            x.flavor
+            ? `<small>🍊 Parfum : ${x.flavor}</small>`
+            : ''
+          }
+
+          ${
+            x.finish
+            ? `<small>✨ Finition : ${x.finish}</small>`
+            : ''
+          }
+
+          ${
+            x.color
+            ? `<small>🎨 Couleur : ${x.color}</small>`
+            : ''
+          }
+
+          ${
+            x.storage
+            ? `<small>💾 Stockage : ${x.storage}</small>`
+            : ''
+          }
+
+        </div>
+
+        <div class="cart-item-actions">
+
+          <strong>
+            ${money(x.price * x.qty)}
+          </strong>
+
+          <button
+            type="button"
+            class="remove-cart-btn"
+            onclick="removeFromCart('${x.cartId}')">
+            🗑️ Supprimer
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join('')
+
+    : '<p>Votre panier est vide.</p>';
+
+
+  document.getElementById('modalTotal').textContent = money(total);
+
+
+  document.getElementById('cartModal').classList.add('show');
+
+}
+function closeCart(){
+
+  document
+    .getElementById('cartModal')
+    .classList.remove('show');
+
+}
+
+
+async function sendOrderToGoogleSheets(payload){
+  try {
+    await fetch(FENUA_GOOGLE_SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
+    });
+    console.log("Commande enregistrée dans Google Sheets.");
+  } catch(error) {
+    console.error("Google Sheets :", error);
+  }
+}
+
+function sendOrder(e){
+
+  e.preventDefault();
+
+  if(!cart.length){
+    alert("Ajoute au moins un produit au panier.");
+    return;
+  }
+
+  const form = e.target;
+
+  /* =========================
+     INFORMATIONS CLIENT
+  ========================= */
+
+  const nameField = form.querySelector('[name="name"]');
+  const phoneField = form.querySelector('[name="phone"]');
+  const emailField = form.querySelector('[name="email"]');
+  const addressField = form.querySelector('[name="address"]');
+
+  const name = nameField ? nameField.value.trim() : "";
+  const phone = phoneField ? phoneField.value.trim() : "";
+  const email = emailField ? emailField.value.trim() : "";
+  const address = addressField ? addressField.value.trim() : "";
+
+
+  /* =========================
+     VÉRIFICATION
+  ========================= */
+
+  if(!name || !phone || !email){
+
+    alert(
+      "Merci de renseigner votre nom, votre téléphone et votre e-mail."
+    );
+
+    return;
+  }
+
+
+  /* =========================
+     DÉTAILS DE LA COMMANDE
+  ========================= */
+
+  const lines = cart.map((x, i) => {
+
+    let details = "";
+
+    if(x.size){
+      details += `\nTaille : ${x.size}`;
+    }
+    if(x.gender){
+      details += `\nGenre : ${x.gender}`;
+    }
+
+    if(x.flavor){
+      details += `\nParfum : ${x.flavor}`;
+    }
+
+    if(x.finish){
+      details += `\nFinition : ${x.finish}`;
+    }
+
+    if(x.color){
+      details += `\nCouleur : ${x.color}`;
+    }
+
+    if(x.storage){
+      details += `\nStockage : ${x.storage}`;
+    }
+
+    return `${i + 1}. ${x.name}
+Quantité : ${x.qty}${details}
+Prix : ${money(x.price * x.qty)}`;
+
+  }).join("\n\n--------------------\n\n");
+
+
+  /* =========================
+     TOTAL PRODUITS
+  ========================= */
+
+  const productsTotal = cart.reduce(
+    (s, x) => s + (x.price * x.qty),
+    0
+  );
+
+
+  /* =========================
+     LIVRAISON
+  ========================= */
+
+  const deliverySelect =
+    document.getElementById("deliveryZone");
+
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
+  const selectedDeliveryFee = Number(deliverySelect ? deliverySelect.value : 0);
+  const deliveryFee = hasFreeShipping ? 0 : selectedDeliveryFee;
+
+  const deliveryText =
+    hasFreeShipping
+      ? "🎁 Livraison gratuite (offerte avec le produit ID 118)"
+      : deliveryFee === 0
+        ? "Papara à Taravao • Livraison gratuite"
+        : "Autres destinations sur Tahiti • + 1 500 Frs";
+
+
+ /* =========================
+     PRÉCOMMANDE
+  ========================= */
+
+  const hasPreorder = false;
+
+  const finalDeliveryFee =
+    (hasPreorder || hasFreeShipping)
+      ? 0
+      : deliveryFee;
+
+  const finalDeliveryText =
+    hasPreorder
+      ? "🎄 Précommande • Livraison offerte"
+      : deliveryText;
+
+
+  /* =========================
+     TOTAL FINAL
+  ========================= */
+
+  const total =
+    productsTotal + finalDeliveryFee;
+
+  const acompte =
+    hasPreorder
+      ? Math.round(total * 0.50)
+      : 0;
+
+  const solde =
+    hasPreorder
+      ? total - acompte
+      : 0;
+
+
+  /* =========================
+     DONNÉES ENVOYÉES À EMAILJS
+  ========================= */
+
+  const templateParams = {
+
+    name: name,
+    phone: phone,
+    email: email,
+    address: address,
+
+    order: lines,
+
+    products_total: money(productsTotal),
+
+    delivery: finalDeliveryText,
+
+    delivery_fee: money(finalDeliveryFee),
+
+    total: money(total),
+
+    acompte: hasPreorder
+      ? money(acompte)
+      : "",
+
+    solde: hasPreorder
+      ? money(solde)
+      : "",
+
+    paiement: hasPreorder
+      ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
+      : ""
+  };
+
+
+  console.log(
+    "Données envoyées à EmailJS :",
+    templateParams
+  );
+
+
+  /* =========================
+     ENREGISTREMENT INTERNE GOOGLE SHEETS
+     Cette copie est destinée uniquement au tableau privé.
+  ========================= */
+
+  const orderNumber = "FS-" + Date.now();
+
+const internalOrder = {
+  order_number: orderNumber,
+  date: new Date().toLocaleString("fr-FR"),
+
+  name: name,
+  phone: phone,
+  email: email,
+  address: address,
+
+  city: finalDeliveryText,
+  delivery: finalDeliveryText,
+  delivery_fee: finalDeliveryFee,
+
+  total: total,
+
+  // Précommande : calcul automatique 50 / 50
+  preorder: cart.some(x => x.preorder === true),
+
+  payment: "",
+  payment_received: "",
+
+  status: "Nouveau",
+  notes: "",
+
+  order: cart.map(function(x){
+    return {
+      product: x.name || "",
+      color: x.color || "",
+      variant: x.finish || "",
+      flavor: x.flavor || "",
+      size: x.size || "",
+      gender: x.gender || "",
+      storage: x.storage || "",
+      quantity: x.qty || 0,
+      price: x.price || 0,
+      total: (x.price || 0) * (x.qty || 0)
+    };
+  })
+};
+  sendOrderToGoogleSheets(internalOrder);
+
+  /* =========================
+     ENVOI EMAILJS
+  ========================= */
+
+  emailjs.send(
+    "service_yozt0ns",
+    "template_7seldam",
+    templateParams
+  )
+
+  .then(function(response){
+
+    console.log(
+      "EmailJS OK :",
+      response.status,
+      response.text
+    );
+
+    alert(
+      "✅ Votre commande a bien été envoyée !\n\n" +
+      "Merci pour votre commande chez Fenua Select."
+    );
+
+    cart.length = 0;
+
+    updateCart();
+
+    form.reset();
+
+  })
+
+  .catch(function(error){
+
+    console.error(
+      "ERREUR EMAILJS :",
+      error
+    );
+
+    alert(
+      "❌ Impossible d'envoyer la commande.\n\n" +
+      "Erreur : " +
+      (
+        error.text ||
+        error.message ||
+        "Erreur inconnue"
+      )
+    );
+
+  });
+
+
+}
+// Au chargement, la boutique reste vide jusqu'au choix d'une catégorie.
+renderProducts();
+updateCart();
+</script>
+<style id="catalog-empty-prompt-style">
+.catalog-empty-prompt{grid-column:1/-1;text-align:center;padding:32px 18px;margin:8px 0 18px;border:1px dashed rgba(53,217,255,.42);border-radius:14px;background:rgba(7,15,24,.78);color:#dbeafe;font-size:16px;font-weight:800}
+</style>
+</body>
+</html>
+
   border:2px solid #ffd700;
   box-shadow:0 4px 14px rgba(198,40,40,.35);
   font-weight:800;
