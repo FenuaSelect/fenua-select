@@ -1330,6 +1330,13 @@ document.addEventListener("DOMContentLoaded", function () {
     <button type="button" onclick="setBeautyAudience('Femme',this)">👩 Femme</button>
   </div>
 
+  <div id="clothing-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Vêtements et accessoires">
+    <button type="button" onclick="setCatalogSubcategory('Casquettes',this)">🧢 Casquettes</button>
+  </div>
+  <div id="sports-subcategories" class="categories jewelry-audience-filters" hidden aria-label="Sous-catégories Sports et loisirs">
+    <button type="button" onclick="setCatalogSubcategory('Lunette de soleil',this)">🕶️ Lunette de soleil</button>
+  </div>
+
   <div id="catalog-filter-box" class="catalog-filter-box">
     <div class="catalog-filter-title">🔎 Filtrer le catalogue</div>
     <div class="catalog-filter-grid">
@@ -2018,7 +2025,7 @@ const products = [
     name: "Lunettes sport SCVCN orange / blanc",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-orange-blanc.png",
     emoji: "🕶️",
     desc: "Lunettes sport orange avec monture blanche, protection UV400."
@@ -2028,7 +2035,7 @@ const products = [
     name: "Lunettes sport SCVCN bleu / blanc",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-bleu-blanc.png",
     emoji: "🕶️",
     desc: "Lunettes sport bleu avec monture blanche, protection UV400."
@@ -2038,7 +2045,7 @@ const products = [
     name: "Lunettes sport SCVCN jaune / noir",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-jaune-noir.png",
     emoji: "🕶️",
     desc: "Lunettes sport jaune avec monture noire, protection UV400."
@@ -2058,7 +2065,7 @@ const products = [
     name: "Lunettes sport SCVCN bleu",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-bleu.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec verre bleu, protection UV400."
@@ -2068,7 +2075,7 @@ const products = [
     name: "Lunettes sport SCVCN rose",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-rose.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec finition rose, protection UV 400."
@@ -2078,7 +2085,7 @@ const products = [
     name: "Lunettes sport SCVCN rose/vert",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-rose-vert.png",
     emoji: "🕶️",
     desc: "Lunettes sport avec finition colorée, protection UV400."
@@ -2088,7 +2095,7 @@ const products = [
     name: "Lunettes sport SCVCN noir/orange",
     price: 1500,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-sport-noir-orange.png",
     emoji: "🕶️",
     desc: "Lunettes sport noire avec verre orange, protection UV400."
@@ -2098,7 +2105,7 @@ const products = [
     name: "Lunettes polarisées noire",
     price: 1000,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-polarisees-noire.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées sport, protection UV400."
@@ -2108,7 +2115,7 @@ const products = [
     name: "Lunettes polarisées bleue",
     price: 1000,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-polarisees-bleue.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre bleu, protection UV400."
@@ -2118,7 +2125,7 @@ const products = [
     name: "Lunettes polarisées verte",
     price: 1000,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-polarisees-verte.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre vert, protection UV400."
@@ -2128,7 +2135,7 @@ const products = [
     name: "Lunettes polarisées jaune",
     price: 1000,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-polarisees-jaune.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre jaune, protection UV400."
@@ -2138,7 +2145,7 @@ const products = [
     name: "Lunettes polarisées rouge",
     price: 1000,
     cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
     image: "images/lunettes-polarisees-rouge.png",
     emoji: "🕶️",
     desc: "Lunettes polarisées avec verre rouge, protection UV400."
@@ -2437,6 +2444,7 @@ const products = [
   name: "Casquette de baseball en maille",
   price: 1500,
   cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
   image: "images/casquette-maille.png",
   emoji: "🧢",
   desc: "Casquette de baseball en maille complète mixte, style casual, disponible en divers coloris.",
@@ -2483,7 +2491,7 @@ const products = [
   price: 1000,
   cat: "Beauté",
   audience: "Femme",
-  subcat: "Rasoirs / Tondeuses",
+  subcat: "Casquettes",
   image: "images/rasoir-electrique-femme.png",
   emoji: "💄",
   desc: "Rasoir électrique portable pour femmes, adapté au visage, aux jambes, aux bras, au bikini et aux mains. Format rouge à lèvres, compact et pratique."
@@ -2493,7 +2501,7 @@ const products = [
   name: "Lunettes de soleil sport UV400",
   price: 1000,
   cat: "Sports & Loisirs",
-    subcat: "Sports",
+    subcat: "Lunette de soleil",
   image: "images/lunettes-sport-uv400.png",
   emoji: "🕶️",
   desc: "Lunettes de soleil sport UV400 pour course, cyclisme, pêche, VTT et vélo de route, modèle mixte.",
@@ -2780,6 +2788,7 @@ const products = [
   name: "Casquette Neymar Édition limitée",
   price: 12500,
   cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
   image: "images/casquette-neymar-edition-limitee.png",
   emoji: "🧢",
   desc: "🧢 Casquette Neymar Édition limitée, avec un design noir camouflage et détails premium. Disponible en deux coloris : or et noir.",
@@ -2855,6 +2864,7 @@ Le compagnon connecté idéal pour allier sport, santé et style au quotidien !`
     name: "Casquette Dragon Ball Z Son Goku – Style Hip-Hop, Visière Soleil et Réglable",
     price: 2000,
     cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
     image: "images/casquette-dragon-ball-z-96.png",
     emoji: "🧢",
     desc: `🧢 Casquette Dragon Ball Z Son Goku – Brodée, Réglable et Respirante, Style Hip-Hop Unisexe.
@@ -3269,6 +3279,7 @@ Compacte, légère et facile à transporter, cette enceinte noire vous accompagn
   name: "Casquette Thuglife Hip-Hop Unisexe – Style Urbain ",
   price: 1500,
   cat: "Vêtements & Accessoires",
+  subcat: "Casquettes",
   image: "images/casquette-thuglife-outlaw.png",
   desc: `🧢 Adopte le style streetwear avec la casquette Thuglife ! 🔥
 
@@ -3287,6 +3298,7 @@ Compacte, légère et facile à transporter, cette enceinte noire vous accompagn
   name: "Lunettes Vélo UV400 Miroir – Sport & Moto, Vaa'a, Pêche 😎",
   price: 1500,
   cat: "Sports & Loisirs",
+  subcat: "Lunette de soleil",
   image: "images/lunettes-sport-fenua-select-polyvalentes.png",
   desc: `😎 Adoptez un look sportif avec ces lunettes UV400 à effet miroir !
 
@@ -3303,6 +3315,7 @@ Compacte, légère et facile à transporter, cette enceinte noire vous accompagn
   name: "Lunettes de Sport UV400 SCVCN – Vélo & Outdoor 😎",
   price: 2500,
   cat: "Sports & Loisirs",
+  subcat: "Lunette de soleil",
   image: "images/lunettes-sport-uv400-scvcn.png",
   desc: `😎 Profitez d’une vision claire avec ces lunettes de sport légères et tendance !
 
@@ -3320,6 +3333,7 @@ Compacte, légère et facile à transporter, cette enceinte noire vous accompagn
   name: "Lunettes SCVCN Photochromiques UV400 – Vélo & Sport Outdoor 😎",
   price: 3500,
   cat: "Sports & Loisirs",
+  subcat: "Lunette de soleil",
   image: "images/lunettes-scvcn-photochromiques.png",
   desc: `😎 Adoptez les lunettes SCVCN pour vos aventures sportives !
 
@@ -3344,6 +3358,7 @@ Compacte, légère et facile à transporter, cette enceinte noire vous accompagn
 let category="";
 let jewelryAudience="";
 let beautyAudience="";
+let catalogSubcategory="";
 let cart=[];
 let currentPage=1;
 const productsPerPage=8;
@@ -3357,6 +3372,12 @@ function setCategory(c,btn){
   category=c;
   jewelryAudience="";
   beautyAudience="";
+  catalogSubcategory="";
+  const clothingFilters=document.getElementById("clothing-subcategories");
+  const sportsFilters=document.getElementById("sports-subcategories");
+  if(clothingFilters) clothingFilters.hidden=(c!=="Vêtements & Accessoires");
+  if(sportsFilters) sportsFilters.hidden=(c!=="Sports & Loisirs");
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
   const audienceFilters=document.getElementById("jewelry-audience-filters");
   const beautyFilters=document.getElementById("beauty-audience-filters");
   if(audienceFilters) audienceFilters.hidden=(c!=="Bijoux");
@@ -3368,6 +3389,14 @@ function setCategory(c,btn){
   currentPage=1;
   document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
+  renderProducts();
+}
+
+function setCatalogSubcategory(subcategory,btn){
+  catalogSubcategory = catalogSubcategory === subcategory ? "" : subcategory;
+  currentPage = 1;
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
+  if(catalogSubcategory && btn) btn.classList.add("active");
   renderProducts();
 }
 
@@ -3404,6 +3433,11 @@ function applyCatalogFilters(){
   catalogFilterPrice = document.getElementById("catalogPriceFilter")?.value || "all";
   catalogFilterSort = document.getElementById("catalogSortFilter")?.value || "relevance";
   category = catalogFilterCategory;
+  if(category!=="Vêtements & Accessoires" && category!=="Sports & Loisirs") catalogSubcategory="";
+  const clothingFilters=document.getElementById("clothing-subcategories");
+  const sportsFilters=document.getElementById("sports-subcategories");
+  if(clothingFilters) clothingFilters.hidden=(category!=="Vêtements & Accessoires");
+  if(sportsFilters) sportsFilters.hidden=(category!=="Sports & Loisirs");
   const jewelryFilters=document.getElementById("jewelry-audience-filters");
   const beautyFilters=document.getElementById("beauty-audience-filters");
   if(jewelryFilters) jewelryFilters.hidden=(category!=="Bijoux");
@@ -3415,6 +3449,12 @@ function applyCatalogFilters(){
 }
 
 function resetCatalogFilters(){
+  catalogSubcategory="";
+  const clothingFilters=document.getElementById("clothing-subcategories");
+  const sportsFilters=document.getElementById("sports-subcategories");
+  if(clothingFilters) clothingFilters.hidden=true;
+  if(sportsFilters) sportsFilters.hidden=true;
+  document.querySelectorAll("#clothing-subcategories button, #sports-subcategories button").forEach(b=>b.classList.remove("active"));
   jewelryAudience="";
   beautyAudience="";
   const audienceFilters=document.getElementById("jewelry-audience-filters");
@@ -3469,6 +3509,8 @@ function renderProducts(){
     if (activeCategory) {
       if (p.cat !== activeCategory) return false;
     }
+
+    if (catalogSubcategory && p.subcat !== catalogSubcategory) return false;
 
     if (jewelryAudience && p.cat === "Bijoux" && p.audience !== jewelryAudience) return false;
     if (beautyAudience && p.cat === "Beauté" && p.audience !== beautyAudience) return false;
