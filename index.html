@@ -3813,6 +3813,25 @@ function renderProducts(){
         }
 
 
+        <!-- ===== MOTIF ===== -->
+        ${
+          p.motifs
+          ? `
+            <div class="beauty-options">
+              <div class="beauty-option">
+                <label for="motif-${p.id}">Motif :</label>
+                <select id="motif-${p.id}" class="motif-select">
+                  <option value="">Choisir un motif</option>
+                  ${p.motifs.map(motif => `
+                    <option value="${motif}">${motif}</option>
+                  `).join('')}
+                </select>
+              </div>
+            </div>
+          `
+          : ''
+        }
+
         <!-- ===== GENRE HOMME / FEMME ===== -->
 
         ${
@@ -4109,6 +4128,7 @@ function add(id){
   let flavor = "";
   let finish = "";
   let color = "";
+  let motif = "";
   let size = "";
   let gender = "";
   let storage = "";
@@ -4146,6 +4166,15 @@ function add(id){
     }
   }
 
+
+  if(p.motifs){
+    const select = document.getElementById(`motif-${id}`);
+    motif = select ? select.value : "";
+    if(!motif){
+      alert("Veuillez choisir un motif.");
+      return;
+    }
+  }
 
   if(p.genders){
     const input = document.getElementById(`gender-${id}`);
@@ -4215,6 +4244,7 @@ function add(id){
     flavor,
     finish,
     color,
+    motif,
     size,
     gender,
     power,
@@ -4240,6 +4270,7 @@ function add(id){
       flavor: flavor,
       finish: finish,
       color: color,
+      motif: motif,
       size: size,
       gender: gender,
       power: power,
@@ -4346,6 +4377,11 @@ function updateCart(){
               ? `<br><small>🎨 Couleur : ${x.color}</small>`
               : ''
             }
+            ${
+              x.motif
+              ? `<br><small>🌺 Motif : ${x.motif}</small>`
+              : ''
+            }
 
             ${
               x.power
@@ -4445,6 +4481,11 @@ function openCart(){
           ${
             x.color
             ? `<small>🎨 Couleur : ${x.color}</small>`
+            : ''
+          }
+          ${
+            x.motif
+            ? `<small>🌺 Motif : ${x.motif}</small>`
             : ''
           }
 
@@ -4574,6 +4615,9 @@ function sendOrder(e){
 
     if(x.color){
       details += `\nCouleur : ${x.color}`;
+    }
+    if(x.motif){
+      details += `\nMotif : ${x.motif}`;
     }
 
     if(x.storage){
@@ -4727,6 +4771,7 @@ const internalOrder = {
     return {
       product: x.name || "",
       color: x.color || "",
+      motif: x.motif || "",
       variant: x.finish || "",
       flavor: x.flavor || "",
       size: x.size || "",
