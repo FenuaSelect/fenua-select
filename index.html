@@ -1175,7 +1175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!img) return;
     img.dataset.zoom = '1';
     img.style.transformOrigin = 'center center';
-    img.style.transform = 'scale(1)';
+    img.style.setProperty('transform', 'scale(1)', 'important');
   }
 
   function setupProductImage(container) {
@@ -1194,7 +1194,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       img.dataset.zoom = String(zoom);
       img.style.transformOrigin = x + '% ' + y + '%';
-      img.style.transform = 'scale(' + zoom + ')';
+      img.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
     });
 
     container.addEventListener('mouseleave', function() {
@@ -1217,7 +1217,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       img.dataset.zoom = String(zoom);
       img.style.transformOrigin = x + '% ' + y + '%';
-      img.style.transform = 'scale(' + zoom + ')';
+      img.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
     }, {passive:false});
   }
 
