@@ -32,6 +32,8 @@ button.preorder-btn:hover{
   box-shadow:0 0 10px rgba(255,65,205,.42),0 0 30px rgba(0,225,255,.2),inset 0 0 24px rgba(255,70,195,.08);
 }
 .gta-kicker{color:#fff;text-shadow:0 0 8px #ff4ac8,0 0 16px #ff4ac8}
+.gta-edition-label{display:inline-block;margin:0 0 10px;padding:0;background:none;border:0;color:#7dfaff;font-weight:900;font-size:clamp(12px,1.25vw,17px);letter-spacing:.18em;text-transform:uppercase;text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.55)}
+@media(max-width:650px){.gta-edition-label{font-size:11px;letter-spacing:.14em;margin-bottom:7px}}
 .gta-pretitle{color:#72fbff;text-shadow:0 0 7px #00eaff,0 0 18px #00eaff}
 .gta-hero h1{text-shadow:0 0 8px rgba(255,255,255,.72),0 0 22px rgba(255,55,205,.72),0 5px 0 rgba(35,8,55,.45)}
 .gta-hero h1 span{color:#ffe58a;text-shadow:0 0 8px #ffb347,0 0 22px #ff7b36,0 0 36px rgba(255,90,80,.7)}
@@ -1422,63 +1424,25 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 </style>
 
 
-<style id="gta-mobile-cyan-ribbon-fix">
-/* Sur mobile, garder la banderole cyan visible comme sur la version PC. */
-@media (max-width:650px){
-  .gta-hero{overflow:visible !important}
-  .gta-ribbon{
-    display:block !important;
-    position:absolute !important;
-    z-index:30 !important;
-    right:-18px !important;
-    top:12px !important;
-    padding:6px 36px !important;
-    background:#7dfaff !important;
-    color:#25103d !important;
-    box-shadow:0 0 10px rgba(0,238,255,.95),0 0 20px rgba(0,238,255,.55) !important;
-    border:1px solid rgba(255,255,255,.9) !important;
-    font-size:7px !important;
-    line-height:1.2 !important;
-    letter-spacing:1px !important;
-    white-space:nowrap !important;
-    visibility:visible !important;
-    opacity:1 !important;
-  }
-}
-</style>
 
 
-<style id="gta-ribbon-final-positioning">
-/* Banderole cyan : centrée et entièrement lisible sur ordinateur. */
-@media (min-width:651px){
-  .gta-hero .gta-ribbon{
-    display:block !important; position:absolute !important; z-index:40 !important;
-    left:50% !important; right:auto !important; top:16px !important;
-    transform:translateX(-50%) rotate(35deg) !important;
-    padding:8px 48px !important; font-size:10px !important;
-    line-height:1.2 !important; letter-spacing:2px !important;
-    white-space:nowrap !important; visibility:visible !important; opacity:1 !important;
-    background:#7dfaff !important; color:#25103d !important;
-    box-shadow:0 0 14px rgba(0,238,255,.9),0 0 24px rgba(0,238,255,.45) !important;
-  }
+
+
+
+
+<style id="gta-edition-speciale-position-final">
+.gta-hero{position:relative}
+.gta-hero-content{position:relative}
+.gta-edition-label{
+  position:absolute;top:18px;right:24px;z-index:5;
+  display:inline-block;margin:0;padding:3px 8px;
+  transform:rotate(7deg);transform-origin:center;
+  color:#7dfaff;font-size:clamp(11px,1.15vw,15px);
+  letter-spacing:.16em;font-weight:900;white-space:nowrap;
+  text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.55);
 }
-/* Sur téléphone : ruban horizontal, centré en haut de la bannière, au-dessus des personnages. */
-@media (max-width:650px){
-  .gta-hero{overflow:hidden !important; padding-top:42px !important;}
-  .gta-hero .gta-ribbon{
-    display:block !important; position:absolute !important; z-index:50 !important;
-    left:50% !important; right:auto !important; top:9px !important;
-    transform:translateX(-50%) !important;
-    width:max-content !important; max-width:calc(100% - 24px) !important;
-    box-sizing:border-box !important; padding:7px 12px !important;
-    border-radius:4px !important; text-align:center !important;
-    font-size:clamp(7px,2.1vw,9px) !important; line-height:1.25 !important;
-    letter-spacing:.8px !important; white-space:nowrap !important;
-    overflow:visible !important; visibility:visible !important; opacity:1 !important;
-    background:#7dfaff !important; color:#25103d !important;
-    border:1px solid rgba(255,255,255,.95) !important;
-    box-shadow:0 0 10px rgba(0,238,255,.95),0 0 20px rgba(0,238,255,.55) !important;
-  }
+@media(max-width:650px){
+  .gta-edition-label{top:10px;right:12px;font-size:10px;letter-spacing:.12em;padding:2px 5px;transform:rotate(7deg)}
 }
 </style>
 
@@ -1741,12 +1705,12 @@ document.addEventListener("DOMContentLoaded", function () {
   <img class="gta-hero-banner" src="images/GTA-VI-banner.png" alt="" aria-hidden="true" fetchpriority="high">
   <div class="gta-hero-content">
     <span class="gta-kicker">FENUA SELECT présente</span>
+    <span class="gta-edition-label">ÉDITION SPÉCIALE</span>
     <p class="gta-pretitle">VICE CITY VIBES</p>
     <h1>SPÉCIAL <span>GTA VI</span></h1>
     <p class="gta-subtitle">Une sélection inspirée de l’ambiance néon, soleil et streetwear.</p>
     <a class="gta-hero-cta" href="#special-gta">DÉCOUVRIR LA COLLECTION <span aria-hidden="true">↘</span></a>
   </div>
-  <div class="gta-ribbon" aria-hidden="true">FENUA SELECT • ÉDITION SPÉCIALE</div>
 </section>
 
 <section id="special-gta" class="gta-collection section">
