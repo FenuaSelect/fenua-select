@@ -1447,6 +1447,41 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 }
 </style>
 
+
+<style id="gta-ribbon-final-positioning">
+/* Banderole cyan : centrée et entièrement lisible sur ordinateur. */
+@media (min-width:651px){
+  .gta-hero .gta-ribbon{
+    display:block !important; position:absolute !important; z-index:40 !important;
+    left:50% !important; right:auto !important; top:16px !important;
+    transform:translateX(-50%) rotate(35deg) !important;
+    padding:8px 48px !important; font-size:10px !important;
+    line-height:1.2 !important; letter-spacing:2px !important;
+    white-space:nowrap !important; visibility:visible !important; opacity:1 !important;
+    background:#7dfaff !important; color:#25103d !important;
+    box-shadow:0 0 14px rgba(0,238,255,.9),0 0 24px rgba(0,238,255,.45) !important;
+  }
+}
+/* Sur téléphone : ruban horizontal, centré en haut de la bannière, au-dessus des personnages. */
+@media (max-width:650px){
+  .gta-hero{overflow:hidden !important; padding-top:42px !important;}
+  .gta-hero .gta-ribbon{
+    display:block !important; position:absolute !important; z-index:50 !important;
+    left:50% !important; right:auto !important; top:9px !important;
+    transform:translateX(-50%) !important;
+    width:max-content !important; max-width:calc(100% - 24px) !important;
+    box-sizing:border-box !important; padding:7px 12px !important;
+    border-radius:4px !important; text-align:center !important;
+    font-size:clamp(7px,2.1vw,9px) !important; line-height:1.25 !important;
+    letter-spacing:.8px !important; white-space:nowrap !important;
+    overflow:visible !important; visibility:visible !important; opacity:1 !important;
+    background:#7dfaff !important; color:#25103d !important;
+    border:1px solid rgba(255,255,255,.95) !important;
+    box-shadow:0 0 10px rgba(0,238,255,.95),0 0 20px rgba(0,238,255,.55) !important;
+  }
+}
+</style>
+
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -1711,7 +1746,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <p class="gta-subtitle">Une sélection inspirée de l’ambiance néon, soleil et streetwear.</p>
     <a class="gta-hero-cta" href="#special-gta">DÉCOUVRIR LA COLLECTION <span aria-hidden="true">↘</span></a>
   </div>
-  <div class="gta-ribbon" aria-hidden="true">ÉDITION SPÉCIALE • FENUA SELECT • ÉDITION SPÉCIALE •</div>
+  <div class="gta-ribbon" aria-hidden="true">FENUA SELECT • ÉDITION SPÉCIALE</div>
 </section>
 
 <section id="special-gta" class="gta-collection section">
