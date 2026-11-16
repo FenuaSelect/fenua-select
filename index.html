@@ -1091,6 +1091,105 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 }
 </style>
 
+<style id="fenua-gta-vi-special">
+.gta-nav-link{
+  color:#ff70b8 !important;
+  font-weight:900 !important;
+  text-shadow:0 0 12px rgba(255,70,160,.35);
+}
+.gta-hero{
+  position:relative;isolation:isolate;overflow:hidden;display:flex;
+  align-items:flex-end;justify-content:center;min-height:430px;
+  margin:22px auto 34px;padding:150px 24px 24px;max-width:1400px;
+  border-radius:26px;color:#fff;text-align:center;
+  background-image:linear-gradient(180deg,rgba(36,10,52,.04) 20%,rgba(45,13,58,.18) 48%,rgba(35,10,48,.72) 100%),url("images/GTA-VI-banner.png");
+  background-size:cover;background-position:center 42%;
+  box-shadow:0 18px 45px rgba(41,13,62,.28);
+}
+.gta-hero:before,.gta-hero:after{display:none;display:none}
+.gta-hero-content{
+  position:relative;z-index:2;width:min(760px,100%);margin:auto;
+  padding:15px 20px 17px;border:1px solid rgba(255,255,255,.28);
+  border-radius:20px;background:rgba(43,12,55,.68);
+  box-shadow:0 10px 30px rgba(20,5,30,.25);backdrop-filter:blur(5px);
+}
+.gta-kicker,.gta-section-eyebrow{
+  display:block;font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;
+}
+.gta-kicker{color:#ffd7e9}
+.gta-pretitle{margin:12px 0 0;font-size:clamp(13px,2vw,18px);font-weight:900;letter-spacing:8px;color:#7ffaff}
+.gta-hero h1{
+  margin:0;font-size:clamp(42px,8vw,92px);line-height:.98;font-weight:1000;
+  letter-spacing:-3px;text-transform:uppercase;
+  text-shadow:0 5px 0 rgba(74,22,76,.32),0 12px 32px rgba(25,8,42,.35);
+}
+.gta-hero h1 span{
+  display:block;color:#ffe08a;
+  -webkit-text-stroke:1px rgba(255,255,255,.5);
+}
+.gta-subtitle{max-width:580px;margin:18px auto 24px;font-size:clamp(14px,2vw,18px);line-height:1.55}
+.gta-hero-cta{
+  display:inline-flex;align-items:center;gap:14px;padding:14px 22px;border-radius:999px;
+  background:#fff;color:#351348;text-decoration:none;font-weight:1000;font-size:13px;
+  letter-spacing:1px;box-shadow:0 8px 22px rgba(30,8,42,.25);transition:transform .2s,box-shadow .2s;
+}
+.gta-hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,8,42,.32)}
+.gta-sun{display:none;
+  position:absolute;z-index:0;width:190px;height:190px;border-radius:50%;left:50%;top:50%;
+  transform:translate(-50%,-36%);opacity:.3;filter:blur(1px);
+  background:repeating-linear-gradient(to bottom,#ffd36e 0 12px,transparent 12px 18px);
+}
+.gta-palms{display:none;display:none;position:absolute;bottom:22px;left:5%;font-size:clamp(28px,5vw,54px);opacity:.8}
+.gta-ribbon{
+  position:absolute;right:-45px;top:24px;transform:rotate(35deg);padding:8px 52px;
+  color:#351348;background:#7ffaff;font-size:10px;font-weight:1000;letter-spacing:2px;
+}
+.gta-collection{
+  margin:0 auto 38px;padding:28px 22px;border:1px solid rgba(244,105,166,.3);
+  border-radius:22px;background:linear-gradient(135deg,rgba(255,235,246,.96),rgba(231,247,255,.96));
+  color:#32183f;
+}
+.gta-section-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.gta-section-eyebrow{margin:0 0 7px;color:#a13c83}
+.gta-section-heading h2{margin:0;font-size:clamp(25px,4vw,38px);font-weight:1000;color:#3a174c}
+.gta-section-heading p{margin:8px 0 0;color:#654c6c}
+.gta-new-badge{
+  display:inline-flex;align-items:center;padding:9px 14px;border-radius:999px;
+  color:#fff;background:linear-gradient(90deg,#ed4c9a,#ff8c61);
+  font-size:11px;font-weight:1000;letter-spacing:1px;white-space:nowrap;
+  box-shadow:0 5px 15px rgba(220,65,140,.2);
+}
+.gta-coming-soon{
+  margin-top:22px;padding:30px 18px;text-align:center;border:2px dashed rgba(174,71,144,.35);
+  border-radius:18px;background:rgba(255,255,255,.72);
+}
+.gta-coming-icon{font-size:38px}
+.gta-coming-soon h3{margin:8px 0;color:#55205e;font-size:clamp(20px,3vw,27px)}
+.gta-coming-soon p{max-width:620px;margin:0 auto 18px;line-height:1.6;color:#66536b}
+.gta-collection-link{display:inline-block;color:#a52d79;font-weight:900;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:650px){
+  .gta-hero{min-height:310px;margin:14px 10px 24px;padding:48px 16px 60px;border-radius:19px}
+  .gta-hero h1{letter-spacing:-1.5px}
+  .gta-pretitle{letter-spacing:4px}
+  .gta-palms{display:none;display:none}
+  .gta-sun{display:none;display:none}
+  .gta-hero{min-height:390px;padding:145px 12px 14px;background-position:center center}
+  .gta-hero-content{padding:12px 12px 14px;border-radius:15px}
+  .gta-hero h1{font-size:clamp(34px,10vw,56px)}
+  .gta-ribbon{right:-58px;top:18px;font-size:8px}
+  .gta-collection{margin:0 10px 28px;padding:22px 15px}
+  .gta-section-heading{align-items:flex-start}
+}
+
+.gta-preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:13px;margin-top:22px}
+.gta-preview-card{padding:17px 14px;border-radius:16px;background:linear-gradient(145deg,#fff,#fff0f7);border:1px solid rgba(210,83,157,.25);box-shadow:0 7px 20px rgba(90,30,90,.08);text-align:center}
+.gta-preview-card .gta-new-badge{font-size:9px;padding:6px 9px}
+.gta-preview-card h3{margin:12px 0 7px;color:#421b51;font-size:15px;line-height:1.3}
+.gta-preview-card p{margin:0 0 5px;color:#bd347f;font-weight:1000;font-size:20px}
+.gta-preview-card small{color:#765d78;font-size:11px}
+.gta-view-products{display:block;margin:22px auto 0;padding:13px 22px;border:0;border-radius:999px;background:linear-gradient(100deg,#ed4c9a,#ff9563);color:#fff;font-weight:1000;letter-spacing:.5px;cursor:pointer;box-shadow:0 7px 18px rgba(220,65,140,.2)}
+@media(max-width:650px){.gta-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.gta-preview-card{padding:13px 9px}.gta-preview-card h3{font-size:13px}}
+</style>
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -1175,7 +1274,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!img) return;
     img.dataset.zoom = '1';
     img.style.transformOrigin = 'center center';
-    img.style.setProperty('transform', 'scale(1)', 'important');
+    img.style.transform = 'scale(1)';
   }
 
   function setupProductImage(container) {
@@ -1194,7 +1293,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       img.dataset.zoom = String(zoom);
       img.style.transformOrigin = x + '% ' + y + '%';
-      img.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
+      img.style.transform = 'scale(' + zoom + ')';
     });
 
     container.addEventListener('mouseleave', function() {
@@ -1217,7 +1316,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       img.dataset.zoom = String(zoom);
       img.style.transformOrigin = x + '% ' + y + '%';
-      img.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
+      img.style.transform = 'scale(' + zoom + ')';
     }, {passive:false});
   }
 
@@ -1324,6 +1423,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <a class="brand" href="#"><img src="logo.png" alt="Fenua Select"></a>
   <nav>
     <a href="#boutique">Boutique</a>
+    <a class="gta-nav-link" href="#special-gta">🔥 Spécial GTA VI</a>
     <a href="#promos">Promotions</a>
     <a href="#commande">Commander</a>
   </nav>
@@ -1344,6 +1444,36 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 <main>
+
+<section class="gta-hero" aria-label="Édition spéciale GTA VI">
+  <div class="gta-hero-content">
+    <span class="gta-kicker">FENUA SELECT présente</span>
+    <p class="gta-pretitle">VICE CITY VIBES</p>
+    <h1>SPÉCIAL <span>GTA VI</span></h1>
+    <p class="gta-subtitle">Une sélection inspirée de l’ambiance néon, soleil et streetwear.</p>
+    <a class="gta-hero-cta" href="#special-gta">DÉCOUVRIR LA COLLECTION <span aria-hidden="true">↘</span></a>
+  </div>
+  <div class="gta-ribbon" aria-hidden="true">ÉDITION SPÉCIALE • FENUA SELECT • ÉDITION SPÉCIALE •</div>
+</section>
+
+<section id="special-gta" class="gta-collection section">
+  <div class="gta-section-heading">
+    <div>
+      <p class="gta-section-eyebrow">LA SÉLECTION ÉVÉNEMENT</p>
+      <h2>🔥 SPÉCIAL GTA VI</h2>
+      <p>Retrouve ici les articles de notre collection spéciale.</p>
+    </div>
+    <span class="gta-new-badge">✦ NOUVEAUTÉ ✦</span>
+  </div>
+  <div class="gta-preview-grid" id="gta-preview-grid">
+    <article class="gta-preview-card"><span class="gta-new-badge">SPÉCIAL GTA VI</span><h3>Sweat GTA 6 Vice City</h3><p>8 000 Frs</p><small>3 couleurs • S à 4XL</small></article>
+    <article class="gta-preview-card"><span class="gta-new-badge">SPÉCIAL GTA VI</span><h3>T-Shirt GTA 6 Vice City</h3><p>6 000 Frs</p><small>2 couleurs • S à 4XL</small></article>
+    <article class="gta-preview-card"><span class="gta-new-badge">SPÉCIAL GTA VI</span><h3>T-Shirt GTA 6 Streetwear</h3><p>7 000 Frs</p><small>6 couleurs • S à 4XL</small></article>
+    <article class="gta-preview-card"><span class="gta-new-badge">SPÉCIAL GTA VI</span><h3>T-Shirt GTA 6 Voiture</h3><p>6 000 Frs</p><small>3 couleurs • S à 4XL</small></article>
+    <article class="gta-preview-card"><span class="gta-new-badge">SPÉCIAL GTA VI</span><h3>Casquette Rockstar Games</h3><p>3 000 Frs</p><small>8 couleurs • Taille unique</small></article>
+  </div>
+  <button class="gta-view-products" type="button" onclick="setCategory('GTA VI');document.getElementById('boutique').scrollIntoView({behavior:'smooth'});">VOIR LES 5 PRODUITS ET COMMANDER ↘</button>
+</section>
 
 <section id="boutique" class="section">
   <div class="section-head">
@@ -1598,6 +1728,104 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 
 const products = [
+{
+  id: 133,
+  cat: "GTA VI",
+  price: 8000,
+  name: "Sweat GTA 6 Vice City 🌴 Hoodie Unisexe Gaming",
+  image: "Guide des couleurs des sweats GTA.png",
+  colors: ["Gris Anthracite", "Blanc", "Noir"],
+  sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL"],
+  emoji: "🎮",
+  desc: `🔥 Hoodie GTA 6 Vice City – Style gaming & streetwear !
+
+🌴 Design néon tendance • Coupe unisexe
+
+🎨 3 couleurs : Gris Anthracite, Blanc et Noir.
+
+📏 7 tailles : S, M, L, XL, 2XL, 3XL et 4XL.
+
+🎮 Le hoodie incontournable des fans de GTA VI !`
+},
+{
+  id: 134,
+  cat: "GTA VI",
+  price: 6000,
+  name: "T-Shirt GTA 6 Vice City 🌴 Unisexe Streetwear",
+  image: "images/T-shirts Vice City, détails techniques en néon.png",
+  colors: ["Noir", "Blanc"],
+  sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL"],
+  emoji: "🎮",
+  desc: `🔥 Affiche ton style avec ce t-shirt GTA 6 inspiré de Vice City !
+
+🌴 Design rétro néon Synthwave
+👕 Coupe unisexe, style streetwear
+🎨 Couleurs disponibles : Noir et Blanc
+✨ Mélange coton et polyester
+🌞 Léger et respirant, idéal toutes saisons
+📏 Tailles disponibles : S, M, L, XL, 2XL, 3XL et 4XL
+
+🎮 Le t-shirt incontournable des fans de GTA VI !`
+},
+{
+  id: 135,
+  cat: "GTA VI",
+  price: 7000,
+  name: "T-Shirt GTA 6 Vice City Unisexe – Gaming & Streetwear",
+  image: "images/Collection de T-shirts GTA Vice City Néon.png",
+  colors: ["Gris", "Blanc", "Rose", "Rouge", "Noir", "Gris clair"],
+  sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL"],
+  emoji: "🎮",
+  desc: `🔥 Affiche ton style avec ce t-shirt GTA 6 inspiré de Vice City !
+
+👕 100 % coton • Coupe unisexe
+✨ Confortable, respirant et léger
+🎨 6 couleurs : Gris, Blanc, Rose, Rouge, Noir et Gris clair
+📏 7 tailles : S, M, L, XL, 2XL, 3XL et 4XL
+
+🎮 Le cadeau idéal pour les fans de GTA VI !`
+},
+{
+  id: 136,
+  cat: "GTA VI",
+  price: 6000,
+  name: "T-Shirt GTA 6 Vice City Voiture Unisexe",
+  image: "images/Affiche néon T-shirt Vice.png",
+  colors: ["Noir", "Blanc", "Bleu marine"],
+  sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL"],
+  emoji: "🎮",
+  desc: `🔥 T-shirt GTA 6 Vice City – affiche ton style gaming !
+
+🚗 Grand motif voiture et coucher de soleil au dos
+⭐ Logo R* sur la poitrine
+👕 Pour hommes, femmes et enfants
+🎨 3 couleurs : Noir, Blanc et Bleu marine
+📏 7 tailles : S, M, L, XL, 2XL, 3XL et 4XL
+
+🎁 Le cadeau idéal pour les fans de GTA VI !`
+},
+{
+  id: 137,
+  cat: "GTA VI",
+  price: 3000,
+  name: "Casquette GTA Rockstar Games Unisexe",
+  image: "images/Collection de casquettes Fenua Select rétro-néon.png",
+  colors: ["Noir", "Bleu", "Gris", "Naturel", "Bleu marine", "Rose", "Rouge", "Blanc"],
+  sizes: ["Taille unique réglable"],
+  emoji: "🧢",
+  desc: `🔥 Affiche ton style avec cette casquette inspirée de Rockstar Games et GTA 6 !
+
+🎮 Logo gaming emblématique
+🧢 Style baseball casual et tendance
+✨ 100 % polyester, confortable et résistante
+🔧 Taille réglable, unisexe
+👨‍👩‍👧 Pour hommes, femmes et enfants
+🎨 8 couleurs : Noir, Bleu, Gris, Naturel, Bleu marine, Rose, Rouge et Blanc
+📏 Taille unique réglable
+
+🎁 Le cadeau idéal pour les fans de GTA !`
+},
+
   {
   id: 79,
   name: "Étui de téléphone Demon Slayer pour Samsung Galaxy",
