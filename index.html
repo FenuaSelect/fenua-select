@@ -1431,18 +1431,20 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 
 
 <style id="gta-edition-speciale-position-final">
-.gta-hero{position:relative}
-.gta-hero-content{position:relative}
+/* Le libellé est positionné directement sur l'image, dans l'espace entre le logo et le personnage féminin. */
+.gta-hero{position:relative!important}
+.gta-hero-content{position:static!important}
 .gta-edition-label{
-  position:absolute;top:18px;right:24px;z-index:5;
-  display:inline-block;margin:0;padding:3px 8px;
-  transform:rotate(7deg);transform-origin:center;
-  color:#7dfaff;font-size:clamp(11px,1.15vw,15px);
-  letter-spacing:.16em;font-weight:900;white-space:nowrap;
-  text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.55);
+  position:absolute!important;left:25%!important;top:19%!important;right:auto!important;z-index:6!important;
+  display:inline-block;margin:0;padding:4px 10px;
+  transform:rotate(-13deg);transform-origin:center;
+  color:#7dfaff;font-size:clamp(19px,2vw,28px);line-height:1.15;
+  letter-spacing:.17em;font-weight:950;white-space:nowrap;
+  text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.7);
+  pointer-events:none;
 }
 @media(max-width:650px){
-  .gta-edition-label{top:10px;right:12px;font-size:10px;letter-spacing:.12em;padding:2px 5px;transform:rotate(7deg)}
+  .gta-edition-label{left:27%!important;top:12%!important;right:auto!important;font-size:clamp(12px,3.2vw,17px);letter-spacing:.11em;padding:3px 5px;transform:rotate(-13deg)}
 }
 </style>
 
