@@ -1329,6 +1329,98 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 .gta-view-products{display:block;margin:22px auto 0;padding:13px 22px;border:0;border-radius:999px;background:linear-gradient(100deg,#ed4c9a,#ff9563);color:#fff;font-weight:1000;letter-spacing:.5px;cursor:pointer;box-shadow:0 7px 18px rgba(220,65,140,.2)}
 @media(max-width:650px){.gta-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.gta-preview-card{padding:13px 9px}.gta-preview-card h3{font-size:13px}}
 </style>
+
+<style id="gta-product-cards-and-mobile-layout">
+/* Cartes de la collection GTA VI : palette Vice City, sans modifier les autres produits */
+.gta-product-card{
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(255,39,200,.22),transparent 46%),
+    radial-gradient(ellipse at 100% 100%,rgba(32,234,255,.18),transparent 48%),
+    linear-gradient(145deg,#160d30 0%,#24103d 52%,#081c32 100%) !important;
+  border:1px solid rgba(255,65,210,.72) !important;
+  box-shadow:0 8px 24px rgba(0,0,0,.28),0 0 12px rgba(255,39,200,.22),0 0 20px rgba(32,234,255,.12),inset 0 0 18px rgba(255,255,255,.025) !important;
+}
+.gta-product-card:hover{
+  border-color:#7dfaff !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.35),0 0 15px rgba(32,234,255,.35),0 0 25px rgba(255,39,200,.24) !important;
+}
+.gta-product-card .product-img{
+  background:radial-gradient(ellipse at center,rgba(255,65,210,.16),rgba(0,225,255,.09) 55%,transparent 78%) !important;
+  border-bottom:1px solid rgba(125,250,255,.25) !important;
+}
+.gta-product-card .pill,.gta-product-card .badge{
+  background:linear-gradient(100deg,#7dfaff,#f5a4ff,#ffe18b) !important;
+  color:#211039 !important;
+  border:1px solid rgba(255,255,255,.75) !important;
+  box-shadow:0 0 9px rgba(32,234,255,.25),0 0 12px rgba(255,39,200,.2) !important;
+}
+.gta-product-card h3{color:#fff !important;text-shadow:0 0 9px rgba(255,55,205,.48) !important}
+.gta-product-card p{border-color:rgba(255,75,205,.42) !important;background:rgba(5,8,28,.78) !important;color:#f0e8ff !important}
+.gta-product-card .product-price,.gta-product-card .price,.gta-product-card strong{
+  color:#ffe18b !important;text-shadow:0 0 10px rgba(255,145,55,.28) !important;
+}
+.gta-product-card button,.gta-product-card .qty-btn{
+  background:linear-gradient(100deg,#ed20b9,#7b39ec,#08bfe7) !important;
+  border:1px solid rgba(255,255,255,.45) !important;
+  color:#fff !important;
+  box-shadow:0 0 10px rgba(255,39,200,.2),0 0 12px rgba(32,234,255,.15) !important;
+}
+
+/* Sur mobile : cartes pleine largeur, contenu lisible et commandes faciles à toucher.
+   La présentation PC reste strictement inchangée. */
+@media(max-width:700px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .section{padding-left:12px !important;padding-right:12px !important}
+  .section-head{gap:12px !important;margin-bottom:14px !important}
+  .section-head #search{width:100% !important;min-width:0 !important}
+  .categories{gap:7px !important;margin:14px 0 !important}
+  .categories button{padding:9px 12px !important;font-size:12px !important}
+  .catalog-filter-box{padding:12px !important;margin:12px 0 !important}
+  .catalog-filter-grid{grid-template-columns:1fr 1fr !important;gap:9px !important}
+  .grid{grid-template-columns:minmax(0,1fr) !important;gap:14px !important}
+  .product{
+    width:100% !important;min-width:0 !important;min-height:0 !important;
+    border-radius:15px !important;
+  }
+  .product-img{
+    flex:0 0 190px !important;height:190px !important;min-height:190px !important;
+    padding:8px !important;
+  }
+  .product-img img{max-height:174px !important}
+  .product-body{padding:12px !important;gap:5px !important}
+  .product h3{
+    font-size:15px !important;line-height:1.3 !important;
+    height:auto !important;min-height:0 !important;max-height:none !important;
+    margin:2px 0 6px !important;
+  }
+  .product p{
+    height:100px !important;max-height:100px !important;
+    padding:9px 10px !important;font-size:12px !important;line-height:1.45 !important;
+    margin:0 0 8px !important;
+  }
+  .product .pill,.product .badge{font-size:10px !important;padding:5px 8px !important}
+  .product select,.product input{min-height:40px !important;height:40px !important;font-size:13px !important}
+  .product .qty-btn,.product button{
+    min-height:38px !important;height:auto !important;padding:9px 12px !important;
+    font-size:12px !important;
+  }
+  .product .product-price,.product .price,.product strong{font-size:16px !important}
+  .gta-product-card .product-img{flex-basis:190px !important;height:190px !important;min-height:190px !important}
+  .gta-preview-grid{grid-template-columns:1fr 1fr !important;gap:8px !important}
+  .gta-preview-card{padding:12px 9px !important}
+  .gta-section-heading{gap:10px !important}
+  .gta-section-heading h2{font-size:23px !important}
+  .gta-view-products{max-width:100% !important;white-space:normal !important}
+}
+@media(max-width:420px){
+  .catalog-filter-grid{grid-template-columns:1fr !important}
+  .gta-preview-grid{grid-template-columns:1fr 1fr !important}
+  .gta-preview-card h3{font-size:12px !important}
+  .product-img{flex-basis:170px !important;height:170px !important;min-height:170px !important}
+  .product-img img{max-height:154px !important}
+}
+</style>
+
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -4118,7 +4210,7 @@ function renderProducts(){
 
         return `
 
-    <article class="product ${p.cat === "Précommande" ? "precommande-card" : ""}">
+    <article class="product ${p.cat === "Précommande" ? "precommande-card" : ""} ${p.cat === "GTA VI" ? "gta-product-card" : ""}">
 
       <div class="product-img">
         <img
@@ -5311,7 +5403,7 @@ updateCart();
   border-bottom:1px solid rgba(139,190,220,.12) !important;
 }
 .product-img img{transition:transform .28s ease,filter .28s ease !important; filter:drop-shadow(0 5px 7px rgba(0,0,0,.16)) !important;}
-.product:hover .product-img img{transform:scale(1.045) !important; filter:drop-shadow(0 8px 10px rgba(0,0,0,.23)) !important;}
+.product:hover .product-img img{filter:drop-shadow(0 8px 10px rgba(0,0,0,.23)) !important;}
 .product-body{gap:2px !important;}
 .product h3{
   color:#f4f8ff !important; font-weight:800 !important; letter-spacing:.1px !important;
@@ -5337,7 +5429,7 @@ updateCart();
 .product button[onclick*="addToCart"],.product button[onclick*="addToCart("]{
   box-shadow:0 5px 14px rgba(0,0,0,.16) !important;
 }
-@media (prefers-reduced-motion:reduce){.product,.product-img img,.product button,.product .qty-btn{transition:none !important}.product:hover{transform:none !important}.product:hover .product-img img{transform:none !important}}
+@media (prefers-reduced-motion:reduce){.product,.product-img img,.product button,.product .qty-btn{transition:none !important}.product:hover{transform:none !important} /* On conserve le transform inline du zoom produit x4, même si les animations réduites sont activées. */}
 @media(max-width:700px){.grid{gap:10px !important}.product{border-radius:14px !important}.product:hover{transform:translateY(-2px) !important}.product h3{font-size:11.5px !important}}
 </style>
 
@@ -5447,6 +5539,41 @@ updateCart();
 }
 </style>
 
+
+<style id="gta-mobile-banner-characters-visibility">
+/* Sur mobile, réduire le panneau de texte pour laisser davantage voir les personnages du visuel */
+@media (max-width:650px){
+  .gta-hero{
+    min-height:330px !important;
+    padding:12px 10px 12px !important;
+    align-items:flex-end !important;
+    background-position:center 38% !important;
+  }
+  .gta-hero-content{
+    width:min(440px,88%) !important;
+    padding:7px 10px 8px !important;
+    border-radius:12px !important;
+    background:rgba(35,10,49,.58) !important;
+    box-shadow:0 5px 16px rgba(20,5,30,.18) !important;
+    backdrop-filter:blur(2px) !important;
+  }
+  .gta-kicker{font-size:8px !important;letter-spacing:2px !important}
+  .gta-pretitle{margin:3px 0 2px !important;font-size:9px !important;letter-spacing:2px !important}
+  .gta-hero h1{margin:2px auto 0 !important;font-size:clamp(22px,6.5vw,34px) !important;line-height:1.02 !important;letter-spacing:-.5px !important}
+  .gta-subtitle{margin:5px auto 7px !important;font-size:10px !important;line-height:1.25 !important}
+  .gta-hero-cta{padding:7px 11px !important;gap:6px !important;font-size:9px !important;letter-spacing:.4px !important}
+  .gta-ribbon{display:none !important}
+}
+@media (max-width:380px){
+  .gta-hero{min-height:300px !important}
+  .gta-hero-content{width:90% !important;padding:6px 8px 7px !important}
+  .gta-kicker{font-size:7px !important}
+  .gta-pretitle{font-size:8px !important}
+  .gta-hero h1{font-size:clamp(20px,6.2vw,26px) !important}
+  .gta-subtitle{font-size:9px !important}
+}
+</style>
+
 </body>
 </html>
 
@@ -5458,4 +5585,27 @@ updateCart();
 .gta-hero h1{display:block!important;margin:14px auto 0!important;padding:0!important;font-size:clamp(30px,6.2vw,76px)!important;line-height:1.08!important;letter-spacing:clamp(-2px,-.12vw,-.5px)!important;white-space:normal!important;overflow-wrap:anywhere!important;max-width:100%!important}
 .gta-hero h1 span{display:inline!important}
 @media(max-width:650px){.gta-hero h1{margin-top:10px!important;font-size:clamp(25px,7vw,42px)!important;line-height:1.08!important;letter-spacing:-.7px!important}}
+</style>
+
+<style id="gta-product-card-background-final">
+/* Fond Vice City appliqué aux cartes de produits GTA VI uniquement */
+.gta-product-card{
+  background:
+    radial-gradient(ellipse at 12% 0%,rgba(255,35,190,.25),transparent 48%),
+    radial-gradient(ellipse at 100% 95%,rgba(0,205,255,.20),transparent 48%),
+    linear-gradient(145deg,#180b32 0%,#281044 48%,#071d35 100%) !important;
+  border:1px solid rgba(255,70,210,.78) !important;
+  box-shadow:0 9px 26px rgba(0,0,0,.32),0 0 15px rgba(255,35,190,.20),0 0 20px rgba(0,205,255,.14),inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+.gta-product-card .product-body{
+  background:linear-gradient(180deg,rgba(28,12,52,.35),rgba(5,17,37,.78)) !important;
+}
+.gta-product-card .product-img{
+  background:radial-gradient(ellipse at center,rgba(255,50,205,.20),rgba(0,190,255,.12) 58%,rgba(7,13,35,.18) 82%) !important;
+  border-bottom:1px solid rgba(125,250,255,.32) !important;
+}
+.gta-product-card:hover{
+  border-color:#7dfaff !important;
+  box-shadow:0 14px 32px rgba(0,0,0,.38),0 0 17px rgba(0,220,255,.32),0 0 25px rgba(255,35,190,.22) !important;
+}
 </style>
