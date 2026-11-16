@@ -1431,20 +1431,19 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 
 
 <style id="gta-edition-speciale-position-final">
-/* Le libellé est positionné directement sur l'image, dans l'espace entre le logo et le personnage féminin. */
-.gta-hero{position:relative!important}
-.gta-hero-content{position:static!important}
+/* Positionné directement sur l'image de bannière, et non dans le panneau de titre. */
+.gta-hero{position:relative!important;isolation:isolate!important}
 .gta-edition-label{
-  position:absolute!important;left:25%!important;top:19%!important;right:auto!important;z-index:6!important;
-  display:inline-block;margin:0;padding:4px 10px;
-  transform:rotate(-13deg);transform-origin:center;
-  color:#7dfaff;font-size:clamp(19px,2vw,28px);line-height:1.15;
-  letter-spacing:.17em;font-weight:950;white-space:nowrap;
-  text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.7);
-  pointer-events:none;
+  position:absolute!important;left:20%!important;top:24%!important;right:auto!important;z-index:4!important;
+  display:block!important;width:max-content!important;max-width:none!important;margin:0!important;padding:3px 6px!important;
+  transform:rotate(-13deg)!important;transform-origin:left center!important;
+  color:#7dfaff!important;font-size:clamp(22px,2.15vw,32px)!important;line-height:1.1!important;
+  letter-spacing:.12em!important;font-weight:950!important;white-space:nowrap!important;
+  text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.75)!important;
+  pointer-events:none!important;
 }
 @media(max-width:650px){
-  .gta-edition-label{left:27%!important;top:12%!important;right:auto!important;font-size:clamp(12px,3.2vw,17px);letter-spacing:.11em;padding:3px 5px;transform:rotate(-13deg)}
+  .gta-edition-label{left:21%!important;top:15%!important;font-size:clamp(10px,2.5vw,13px)!important;letter-spacing:.045em!important;padding:2px 3px!important;transform:rotate(-13deg)!important}
 }
 </style>
 
@@ -1705,9 +1704,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <section class="gta-hero" aria-label="Édition spéciale GTA VI">
   <img class="gta-hero-banner" src="images/GTA-VI-banner.png" alt="" aria-hidden="true" fetchpriority="high">
+  <span class="gta-edition-label">ÉDITION SPÉCIALE</span>
   <div class="gta-hero-content">
     <span class="gta-kicker">FENUA SELECT présente</span>
-    <span class="gta-edition-label">ÉDITION SPÉCIALE</span>
     <p class="gta-pretitle">VICE CITY VIBES</p>
     <h1>SPÉCIAL <span>GTA VI</span></h1>
     <p class="gta-subtitle">Une sélection inspirée de l’ambiance néon, soleil et streetwear.</p>
