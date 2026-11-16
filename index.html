@@ -1431,19 +1431,20 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 
 
 <style id="gta-edition-speciale-position-final">
-/* Positionné directement sur l'image de bannière, et non dans le panneau de titre. */
+/* Texte cyan au style de l'ancienne banderole ; coordonnées et centrage conservés. */
 .gta-hero{position:relative!important;isolation:isolate!important}
 .gta-edition-label{
   position:absolute!important;left:20%!important;top:24%!important;right:auto!important;z-index:4!important;
-  display:block!important;width:max-content!important;max-width:none!important;margin:0!important;padding:3px 6px!important;
+  display:block!important;width:max-content!important;max-width:none!important;margin:0!important;padding:7px 14px!important;
   transform:rotate(-13deg)!important;transform-origin:left center!important;
-  color:#7dfaff!important;font-size:clamp(22px,2.15vw,32px)!important;line-height:1.1!important;
+  color:#25103d!important;background:#7dfaff!important;border:1px solid rgba(255,255,255,.95)!important;
+  border-radius:2px!important;box-shadow:0 0 10px rgba(0,238,255,.85),0 0 22px rgba(0,238,255,.48)!important;
+  font-size:clamp(22px,2.15vw,32px)!important;line-height:1.1!important;
   letter-spacing:.12em!important;font-weight:950!important;white-space:nowrap!important;
-  text-shadow:0 0 7px #00eaff,0 0 15px rgba(0,238,255,.95),0 0 25px rgba(0,238,255,.75)!important;
-  pointer-events:none!important;
+  text-shadow:none!important;pointer-events:none!important;
 }
 @media(max-width:650px){
-  .gta-edition-label{left:21%!important;top:15%!important;font-size:clamp(10px,2.5vw,13px)!important;letter-spacing:.045em!important;padding:2px 3px!important;transform:rotate(-13deg)!important}
+  .gta-edition-label{left:21%!important;top:15%!important;font-size:clamp(10px,2.5vw,13px)!important;letter-spacing:.045em!important;padding:4px 7px!important;transform:rotate(-13deg)!important}
 }
 </style>
 
