@@ -1548,6 +1548,34 @@ footer{border-top:1px solid rgba(32,234,255,.28)!important;background:rgba(2,8,2
 }
 .gta-edition-label::before,.gta-edition-label::after{content:none!important}
 </style>
+
+<style id="fenua-avis-neon-2026">
+/* Section avis — ajoutée sans modifier les styles existants */
+#fenua-avis{
+  position:relative;isolation:isolate;overflow:hidden;
+  width:min(1120px,calc(100% - 32px));box-sizing:border-box;
+  margin:34px auto 42px;padding:clamp(28px,5vw,54px) 22px;
+  text-align:center;color:#f8efff;border:1px solid rgba(125,250,255,.62);
+  border-radius:22px;
+  background:radial-gradient(ellipse at 12% 0%,rgba(255,39,200,.20),transparent 48%),
+    radial-gradient(ellipse at 100% 100%,rgba(32,234,255,.17),transparent 48%),
+    linear-gradient(145deg,#100b28,#21103d 55%,#120d2c);
+  box-shadow:0 0 12px rgba(0,232,255,.20),0 0 30px rgba(238,45,191,.16),inset 0 0 24px rgba(255,255,255,.025);
+}
+#fenua-avis:before{content:"";position:absolute;inset:9px;border:1px solid rgba(255,105,220,.22);border-radius:15px;pointer-events:none;z-index:-1}
+#fenua-avis .avis-eyebrow{margin:0 0 9px;color:#7dfaff;font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 0 9px rgba(0,238,255,.8)}
+#fenua-avis h2{margin:0;color:#fff;font-size:clamp(25px,4vw,38px);font-weight:1000;letter-spacing:.025em;text-shadow:0 0 9px rgba(255,64,205,.9),0 0 22px rgba(255,64,205,.38)}
+#fenua-avis .avis-stars{margin:13px 0 18px;color:#ffe58a;font-size:clamp(27px,5vw,40px);letter-spacing:.12em;text-shadow:0 0 8px rgba(255,180,71,.85),0 0 20px rgba(255,70,150,.38)}
+#fenua-avis h3{margin:0 0 10px;color:#fff;font-size:clamp(17px,2.5vw,22px)}
+#fenua-avis .avis-copy{max-width:680px;margin:0 auto;color:#e8d9f5;font-size:15px;line-height:1.7}
+#fenua-avis .avis-coming{display:inline-block;margin:22px 0 10px;padding:10px 17px;border:1px dashed rgba(125,250,255,.72);border-radius:999px;background:rgba(10,7,30,.55);color:#7dfaff;font-weight:900;text-shadow:0 0 9px rgba(0,238,255,.55)}
+#fenua-avis .avis-thanks{margin:8px 0 0;color:#f5b5ec;font-weight:700}
+#fenua-avis .avis-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding:12px 20px;border:1px solid #fff;border-radius:999px;background:linear-gradient(100deg,#7dfaff,#f5a4ff,#ffe18b);color:#241039;font-weight:900;text-decoration:none;box-shadow:0 0 10px rgba(0,238,255,.48),0 0 20px rgba(255,58,202,.3);transition:transform .2s ease,filter .2s ease}
+#fenua-avis .avis-cta:hover{transform:translateY(-2px);filter:brightness(1.08)}
+@media(max-width:600px){#fenua-avis{width:calc(100% - 24px);margin:25px auto 30px;padding:30px 17px;border-radius:18px}#fenua-avis .avis-copy{font-size:14px}#fenua-avis .avis-cta{width:100%;box-sizing:border-box}}
+@media(prefers-reduced-motion:reduce){#fenua-avis .avis-cta{transition:none}}
+</style>
+
 </head>
 <!-- ===== ZOOM PHOTO PRODUIT + ICONE + CLIC + MOLETTE ===== -->
 <style id="product-photo-zoom-final">
@@ -2050,6 +2078,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </style>
 </section>
 </main>
+
+
+<!-- ===== AVIS CLIENTS FENUA SELECT ===== -->
+<section id="fenua-avis" aria-labelledby="fenua-avis-title">
+  <p class="avis-eyebrow">Fenua Select • Votre expérience compte</p>
+  <h2 id="fenua-avis-title">VOTRE AVIS COMPTE !</h2>
+  <div class="avis-stars" aria-label="Cinq étoiles décoratives, aucune note client affichée" role="img">☆ ☆ ☆ ☆ ☆</div>
+  <h3>Vous avez commandé chez FENUA SELECT ?</h3>
+  <p class="avis-copy">Votre expérience nous intéresse ! Partagez votre avis et aidez d'autres clients à découvrir notre boutique.</p>
+  <p class="avis-coming">Bientôt vos témoignages ici !</p>
+  <p class="avis-thanks">Merci pour votre confiance et votre fidélité 💜</p>
+  <a class="avis-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdhmRC6E3Smj-J_nmPhjq4yBZoSXT6i67PfHZLcMAgK-BKnNQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" aria-label="Donner mon avis sur Fenua Select via Google Forms">⭐ Donner mon avis</a>
+</section>
 
 <footer>
   <img src="logo.png" alt="Fenua Select">
