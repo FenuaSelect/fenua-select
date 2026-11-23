@@ -5395,6 +5395,9 @@ Prix : ${money(x.price * x.qty)}`;
     email: email,
     address: address,
     payment_method: paymentMethod,
+    payment_instructions: paymentMethod === "Virement bancaire"
+      ? "Paiement par virement bancaire\nTitulaire : Breton Vincent\nBanque : NiuPay\nIBAN : FR76 1742 8000 0110 0006 1983 261\nBIC : EGPOPFT2XXX\nMerci d’indiquer votre nom en référence du virement."
+      : "Paiement en espèces : paiement lors de votre commande.",
 
     order: lines,
 
