@@ -2018,6 +2018,10 @@ document.addEventListener("DOMContentLoaded", function () {
 .payment-global .payment-banner{display:block;width:100%;max-width:1200px;height:auto;margin:0 auto;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
 .payment-global .payment-caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:600px){.payment-global{margin-bottom:22px;border-radius:12px}.payment-global .payment-banner{border-radius:12px}}
+#commande .payment-choice{margin:16px 0 20px;padding:16px;border:1px solid rgba(53,217,255,.4);border-radius:12px;background:rgba(8,18,29,.85);color:#f5faff}
+#commande .payment-choice p{margin:0 0 12px;color:#35d9ff}
+#commande .payment-option{display:flex;align-items:center;gap:10px;margin:10px 0;padding:12px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(255,255,255,.04);cursor:pointer}
+#commande .payment-option input{width:18px;height:18px;accent-color:#ff36c7}
 </style>
 
 <section id="commande" class="section order-section">
@@ -2044,6 +2048,13 @@ document.addEventListener("DOMContentLoaded", function () {
       <input required id="name" name="name" placeholder="Nom / Prénom">
       <input required id="phone" name="phone" placeholder="Téléphone">
       <input type="email" id="email" name="email" placeholder="E-mail">
+      <!-- MODE DE PAIEMENT OBLIGATOIRE -->
+      <div class="payment-choice" role="group" aria-labelledby="payment-choice-label">
+        <p id="payment-choice-label"><strong>💳 Choisissez votre mode de paiement (obligatoire)</strong></p>
+        <label class="payment-option"><input type="radio" name="payment_method" value="Virement bancaire" required> <span>Virement bancaire</span></label>
+        <label class="payment-option"><input type="radio" name="payment_method" value="Espèces" required> <span>Espèces</span></label>
+      </div>
+
      <div class="delivery-info">
   <label for="deliveryZone"><strong>🚚 Zone de livraison</strong></label>
 
@@ -5249,6 +5260,8 @@ function sendOrder(e){
   const phone = phoneField ? phoneField.value.trim() : "";
   const email = emailField ? emailField.value.trim() : "";
   const address = addressField ? addressField.value.trim() : "";
+  const paymentField = form.querySelector('[name="payment_method"]:checked');
+  const paymentMethod = paymentField ? paymentField.value : "";
 
 
   /* =========================
@@ -5261,6 +5274,13 @@ function sendOrder(e){
       "Merci de renseigner votre nom, votre téléphone et votre e-mail."
     );
 
+    return;
+  }
+
+  if(!paymentMethod){
+    alert("Merci de sélectionner obligatoirement un mode de paiement : virement ou espèces.");
+    const paymentChoice = form.querySelector('.payment-choice');
+    if(paymentChoice) paymentChoice.scrollIntoView({behavior:"smooth",block:"center"});
     return;
   }
 
@@ -5370,6 +5390,7 @@ Prix : ${money(x.price * x.qty)}`;
     phone: phone,
     email: email,
     address: address,
+    payment_method: paymentMethod,
 
     order: lines,
 
@@ -5415,7 +5436,7 @@ const internalOrder = {
   // Précommande : aucune répartition d’acompte automatique
   preorder: cart.some(x => x.preorder === true),
 
-  payment: "",
+  payment: paymentMethod,
   payment_received: "",
 
   status: "Nouveau",
