@@ -2020,8 +2020,12 @@ document.addEventListener("DOMContentLoaded", function () {
 @media(max-width:600px){.payment-global{margin-bottom:22px;border-radius:12px}.payment-global .payment-banner{border-radius:12px}}
 #commande .payment-choice{margin:16px 0 20px;padding:16px;border:1px solid rgba(53,217,255,.4);border-radius:12px;background:rgba(8,18,29,.85);color:#f5faff}
 #commande .payment-choice p{margin:0 0 12px;color:#35d9ff}
-#commande .payment-option{display:flex;align-items:center;gap:10px;margin:10px 0;padding:12px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(255,255,255,.04);cursor:pointer}
-#commande .payment-option input{width:18px;height:18px;accent-color:#ff36c7}
+#commande .payment-option{box-sizing:border-box;display:grid;grid-template-columns:24px minmax(0,1fr);align-items:center;gap:12px;width:100%;min-height:76px;margin:10px 0;padding:16px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(255,255,255,.04);cursor:pointer}
+#commande .payment-option input{appearance:auto;-webkit-appearance:radio;box-sizing:border-box;display:block;flex:none;width:20px!important;height:20px!important;min-width:20px;max-width:20px;margin:0;accent-color:#ff36c7;transform:none}
+#commande .payment-option span{display:block;width:100%;text-align:center;align-self:center;font-weight:700;line-height:1.3;font-size:16px}
+#commande .payment-option:hover{border-color:rgba(255,54,201,.65);background:rgba(255,54,201,.07)}
+#commande .payment-option:has(input:checked){border-color:#ff36c7;background:rgba(255,54,201,.12);box-shadow:0 0 0 1px rgba(255,54,201,.18)}
+@media(max-width:600px){#commande .payment-option{min-height:68px;padding:13px;gap:9px}#commande .payment-option span{font-size:15px}}
 </style>
 
 <section id="commande" class="section order-section">
