@@ -5017,26 +5017,10 @@ function updateCart(){
   const total =
     productsTotal + deliveryFee;
 
-  const acompte =
-    hasPreorder
-      ? Math.round(total * 0.50)
-      : 0;
-
-  const solde =
-    hasPreorder
-      ? total - acompte
-      : 0;
-
   const cartTotalLabel = document.querySelector('#commande .total span');
   const cartTotalValue = document.getElementById('cartTotal');
-
-  if(hasPreorder){
-    if(cartTotalLabel) cartTotalLabel.textContent = 'Acompte à payer maintenant';
-    if(cartTotalValue) cartTotalValue.textContent = money(acompte);
-  }else{
-    if(cartTotalLabel) cartTotalLabel.textContent = 'Total';
-    if(cartTotalValue) cartTotalValue.textContent = money(total);
-  }
+  if(cartTotalLabel) cartTotalLabel.textContent = 'Total';
+  if(cartTotalValue) cartTotalValue.textContent = money(total);
 
   document.getElementById('orderSummary').innerHTML =
     cart.length
@@ -5131,16 +5115,6 @@ function openCart(){
 
   const total =
     productsTotal + deliveryFee;
-
-  const acompte =
-    hasPreorder
-      ? Math.round(total * 0.50)
-      : total;
-
-  const solde =
-    hasPreorder
-      ? total - acompte
-      : 0;
 
 
   document.getElementById('modalItems').innerHTML =
@@ -5385,16 +5359,6 @@ Prix : ${money(x.price * x.qty)}`;
   const total =
     productsTotal + finalDeliveryFee;
 
-  const acompte =
-    hasPreorder
-      ? Math.round(total * 0.50)
-      : 0;
-
-  const solde =
-    hasPreorder
-      ? total - acompte
-      : 0;
-
 
   /* =========================
      DONNÉES ENVOYÉES À EMAILJS
@@ -5417,17 +5381,6 @@ Prix : ${money(x.price * x.qty)}`;
 
     total: money(total),
 
-    acompte: hasPreorder
-      ? money(acompte)
-      : "",
-
-    solde: hasPreorder
-      ? money(solde)
-      : "",
-
-    paiement: hasPreorder
-      ? "Acompte de 50 % à la commande • non remboursable selon les conditions applicables • solde de 50 % à la livraison"
-      : ""
   };
 
 
@@ -5459,7 +5412,7 @@ const internalOrder = {
 
   total: total,
 
-  // Précommande : calcul automatique 50 / 50
+  // Précommande : aucune répartition d’acompte automatique
   preorder: cart.some(x => x.preorder === true),
 
   payment: "",
