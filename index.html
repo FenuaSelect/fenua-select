@@ -2059,17 +2059,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <label class="payment-option"><input type="radio" name="payment_method" value="Espèces" required> <span>Espèces</span></label>
       </div>
 
-     <div class="delivery-info">
-  <label for="deliveryZone"><strong>🚚 Zone de livraison</strong></label>
-
-  <select id="deliveryZone" onchange="updateCart()">
-    <option value="0">🎁 Papara à Taravao • Livraison gratuite</option>
-    <option value="1000">➡️ Autres destinations sur Tahiti • + 1 000 Frs</option>
-  </select>
+     <div class="delivery-info" aria-live="polite">
+  <strong>🚚 Frais de livraison calculés automatiquement</strong>
+  <p id="deliveryAutoStatus">Saisis ton adresse complète avec le nom de ta commune pour calculer les frais.</p>
 </div>
 
 <input type="hidden" id="delivery" value="Livraison">
-      <textarea id="address" name="address" placeholder="Adresse / précision (facultatif)"></textarea>
+      <textarea required id="address" name="address" placeholder="Adresse complète obligatoire : numéro, PK, quartier et commune (ex. : PK 38, Papara)"></textarea>
       <button class="cta" type="submit">Envoyer ma demande de commande</button>
       <p class="small">*Produits sur commande : délai indicatif 3 à 5 semaines, voire plus, selon la disponibilité du produit et les délais du fournisseur.</p>
     </form>
@@ -5013,6 +5009,79 @@ function removeFromCart(cartId){
 }
 
 
+// Détection automatique de la commune à partir de l'adresse libre saisie.
+function normaliserAdresseLivraison(value){
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’']/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function detecterZoneLivraison(adresse){
+  const texte = " " + normaliserAdresseLivraison(adresse) + " ";
+  const zonesGratuites = [
+    "papara", "mataiea", "papeari", "taravao",
+    "afaahiti", "tautira", "faaone", "pueu"
+  ];
+
+  const communeGratuite = zonesGratuites.find(function(commune){
+    return texte.includes(" " + commune + " ");
+  });
+
+  if(communeGratuite){
+    return {known:true, free:true, fee:0, commune:communeGratuite};
+  }
+
+  // Communes/secteurs courants de Tahiti hors zone gratuite.
+  const zonesTahiti = [
+    "papeete", "pirae", "arue", "mahina", "hitiaa",
+    "mahaena", "tiarei", "papenoo", "punaauia", "faaa", "paea",
+    "toahotu", "vairao", "teahupoo", "teahupo o"
+  ];
+  const communePayante = zonesTahiti.find(function(commune){
+    return texte.includes(" " + commune + " ");
+  });
+
+  if(communePayante){
+    return {known:true, free:false, fee:1000, commune:communePayante};
+  }
+
+  // Si le client précise l'île de Tahiti mais écrit un quartier non répertorié,
+  // appliquer le tarif standard de Tahiti. Sans commune/île identifiable, refuser.
+  if(texte.includes(" tahiti ")){
+    return {known:true, free:false, fee:1000, commune:"Tahiti"};
+  }
+
+  return {known:false, free:false, fee:0, commune:""};
+}
+
+function obtenirLivraison(){
+  const address = document.getElementById("address");
+  const result = detecterZoneLivraison(address ? address.value : "");
+  const status = document.getElementById("deliveryAutoStatus");
+
+  if(status){
+    if(result.known){
+      status.textContent = result.free
+        ? "🎁 " + result.commune.toUpperCase() + " : livraison gratuite (0 F CFP)."
+        : "🚚 " + result.commune.toUpperCase() + " : livraison à 1 000 F CFP.";
+    }else{
+      status.textContent = "Indique clairement ta commune dans l'adresse pour calculer automatiquement la livraison.";
+    }
+  }
+  return result;
+}
+
+function fraisLivraisonPanier(){
+  const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
+  if(hasFreeShipping) return 0;
+  const info = obtenirLivraison();
+  return info.known ? info.fee : 0;
+}
+
 function updateCart(){
 
   document.getElementById('cartCount').textContent =
@@ -5024,10 +5093,7 @@ function updateCart(){
   const hasPreorder = false;
 
   const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
-  const deliveryFee =
-    (hasPreorder || hasFreeShipping)
-      ? 0
-      : Number(document.getElementById('deliveryZone')?.value || 0);
+  const deliveryFee = (hasPreorder || hasFreeShipping) ? 0 : fraisLivraisonPanier();
 
   const total =
     productsTotal + deliveryFee;
@@ -5121,12 +5187,7 @@ function openCart(){
   const hasPreorder = false;
 
   const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
-  const deliveryFee =
-    (hasPreorder || hasFreeShipping)
-      ? 0
-      : Number(
-          document.getElementById('deliveryZone')?.value || 0
-        );
+  const deliveryFee = (hasPreorder || hasFreeShipping) ? 0 : fraisLivraisonPanier();
 
   const total =
     productsTotal + deliveryFee;
@@ -5344,19 +5405,22 @@ Prix : ${money(x.price * x.qty)}`;
      LIVRAISON
   ========================= */
 
-  const deliverySelect =
-    document.getElementById("deliveryZone");
+  const zoneLivraison = detecterZoneLivraison(address);
+  if(!zoneLivraison.known){
+    alert("Nous n'avons pas réussi à reconnaître la commune. Merci d'ajouter clairement le nom de ta commune dans l'adresse (ex. : PK 38, Papara).");
+    if(addressField) addressField.focus();
+    return;
+  }
 
   const hasFreeShipping = cart.some(x => x.freeShipping === true || Number(x.id) === 118);
-  const selectedDeliveryFee = Number(deliverySelect ? deliverySelect.value : 0);
-  const deliveryFee = hasFreeShipping ? 0 : selectedDeliveryFee;
+  const deliveryFee = hasFreeShipping ? 0 : zoneLivraison.fee;
 
   const deliveryText =
     hasFreeShipping
-      ? "🎁 Livraison gratuite (offerte avec le produit ID 118)"
+      ? "🎁 Livraison offerte avec un produit éligible"
       : deliveryFee === 0
-        ? "Papara à Taravao • Livraison gratuite"
-        : "Autres destinations sur Tahiti • + 1 000 Frs";
+        ? "Livraison gratuite • " + zoneLivraison.commune
+        : "Livraison Tahiti • " + zoneLivraison.commune + " • 1 000 F CFP";
 
 
  /* =========================
@@ -5519,6 +5583,15 @@ const internalOrder = {
 
 
 }
+const addressForDelivery = document.getElementById("address");
+if(addressForDelivery){
+  addressForDelivery.addEventListener("input", function(){
+    updateCart();
+    const modal = document.getElementById("cartModal");
+    if(modal && modal.classList.contains("show")) openCart();
+  });
+}
+
 // Au chargement, la boutique reste vide jusqu'au choix d'une catégorie.
 renderProducts();
 updateCart();
